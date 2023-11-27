@@ -130,13 +130,13 @@ namespace nasl.ui {
             title: '打开前',
             description: '打开弹窗前触发',
         })
-        private onBeforeOpen: (senderVM: UModal) => void;
+        private onBeforeOpen: () => void;
 
         @Event({
             title: '打开后',
             description: '打开弹窗后触发',
         })
-        onOpen: (senderVM: UModal) => void;
+        onOpen: () => void;
 
         @Event({
             title: '关闭前',
@@ -148,7 +148,9 @@ namespace nasl.ui {
             title: '关闭后',
             description: '关闭弹窗时触发',
         })
-        onClose: () => void;
+        onClose: (event: {
+            ok: nasl.core.Boolean;
+        }) => void;
 
         @Slot({
             title: 'undefined',

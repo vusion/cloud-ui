@@ -89,13 +89,25 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一页前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: T;
+            oldItem: T;
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '选择后',
             description: '选择某一页时触发',
         })
-        private onSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: T;
+            oldItem: T;
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '加载前',

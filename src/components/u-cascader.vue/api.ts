@@ -242,13 +242,17 @@ namespace nasl.ui {
             title: '输入时',
             description: '选择某一项时触发',
         })
-        onInput: (event: String) => void;
+        onInput: (event: V) => void;
 
         @Event({
             title: '选择后',
             description: '选择某一项时触发',
         })
-        onSelect: (event: nasl.ui.CascadeCapsulesEvent) => void;
+        onSelect: (event: {
+            value: V;
+            values: nasl.collection.List<V>;
+            items: nasl.collection.List<T>;
+        }) => void;
 
         @Event({
             title: '获得焦点',

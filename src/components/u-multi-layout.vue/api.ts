@@ -102,7 +102,14 @@ namespace nasl.ui {
             title: '滚动时',
             description: '滚动时触发',
         })
-        onScroll: (event: nasl.ui.ScrollEvent) => void;
+        onScroll: (event: {
+            scrollTop: nasl.core.Integer;
+            scrollLeft: nasl.core.Integer;
+            scrollWidth: nasl.core.Integer;
+            scrollHeight: nasl.core.Integer;
+            clientWidth: nasl.core.Integer;
+            clientHeight: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '点击',

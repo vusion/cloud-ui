@@ -685,7 +685,7 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => void;
+        private onBeforeLoad: (event: null) => void;
 
         @Event({
             title: '加载后',
@@ -697,25 +697,43 @@ namespace nasl.ui {
             title: '切换分页前',
             description: '切换分页前触发',
         })
-        private onBeforePage: (event: nasl.ui.PaginationEvent) => void;
+        private onBeforePage: (event: {
+            size: nasl.core.Integer,
+            oldSize: nasl.core.Integer,
+            number: nasl.core.Integer,
+            oldNumber: nasl.core.Integer,
+        }) => void;
 
         @Event({
             title: '切换分页后',
             description: '切换分页或改变分页大小时触发',
         })
-        onPage: (event: nasl.ui.PaginationEvent) => void;
+        onPage: (event: {
+            size: nasl.core.Integer,
+            oldSize: nasl.core.Integer,
+            number: nasl.core.Integer,
+            oldNumber: nasl.core.Integer,
+        }) => void;
 
         @Event({
             title: '排序前',
             description: '排序前触发',
         })
-        private onBeforeSort: (event: nasl.ui.SortEvent) => void;
+        private onBeforeSort: (event: {
+            field: nasl.core.String,
+            order: nasl.core.String, 
+            compare?: Function
+        }) => void;
 
         @Event({
             title: '排序后',
             description: '排序后触发',
         })
-        onSort: (event: nasl.ui.SortEvent) => void;
+        onSort: (event: {
+            field: nasl.core.String,
+            order: nasl.core.String, 
+            compare?: Function
+        }) => void;
 
         @Event({
             title: '筛选前',
@@ -733,43 +751,76 @@ namespace nasl.ui {
             title: '点击行',
             description: '点击某一行时触发',
         })
-        onClickRow: (event: nasl.ui.OperatorItemEvent) => void;
+        onClickRow: (event: {
+            item: T, 
+            index: nasl.core.Integer,
+            rowIndex: nasl.core.Integer,
+        }) => void;
 
         @Event({
             title: '双击行',
             description: '双击某一行时触发',
         })
-        onDblclickRow: (event: nasl.ui.OperatorItemEvent) => void;
+        onDblclickRow: (event: {
+            item: T, 
+            index: nasl.core.Integer,
+            rowIndex: nasl.core.Integer,
+        }) => void;
 
         @Event({
             title: '选择前',
             description: '选择某一项前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            value: V;
+            oldValue: V;
+            item: T;
+            oldItem: T;
+        }) => void;
 
         @Event({
             title: '选择触发',
             description: '选择某一项后触发',
         })
-        onInput: (event: any) => void;
+        onInput: (event: V) => void;
 
         @Event({
             title: '选择后',
             description: '选择某一项后触发',
         })
-        onSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        onSelect: (event: {
+            selectedItem: T;
+            value: V;
+            oldValue: V;
+            item: T;
+            oldItem: T;
+        }) => void;
 
         @Event({
             title: '多选后',
             description: '多选模式中，选中节点后触发',
         })
-        onCheck: (event: nasl.ui.CheckedEvent) => void;
+        onCheck: (event: {
+            checked: nasl.core.Boolean;
+            oldChecked: nasl.core.Boolean;
+            values: nasl.collection.List<V>;
+            oldValues: nasl.collection.List<V>;
+            item: T;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '单选或多选值改变后触发',
         })
-        onChange: (event: nasl.ui.ChangeItemEvent) => void;
+        onChange: (event: {
+            value: V;
+            oldValue: V;
+            item: T;
+            oldItem: T;
+            values: nasl.collection.List<V>;
+            oldValues: nasl.collection.List<V>; 
+            items: nasl.collection.List<T>;
+        }) => void;
 
         @Event({
             title: '调整列宽后',
@@ -781,31 +832,110 @@ namespace nasl.ui {
             title: '展开行前',
             description: '点击展开按钮前触发',
         })
-        onBeforeToggleExpanded: (event: nasl.ui.ExpandEvent) => void;
+        onBeforeToggleExpanded: (event: {
+            item: T;
+            expanded: nasl.core.Boolean;
+            oldExpanded: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '展开行后',
             description: '点击展开按钮后触发',
         })
-        onToggleExpanded: (event: nasl.ui.ExpandEvent) => void;
+        onToggleExpanded: (event: {
+            item: T;
+            expanded: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '拖拽开始时',
             description: '拖拽行时触发',
         })
-        onDragstart: (event: nasl.ui.DragAndDropEvent) => void;
+        onDragstart: (event: {
+            source: {
+                parent: T;
+                item: T;
+                level: nasl.core.Integer;
+                index: nasl.core.Integer;
+            };
+            target: {
+                parent: T;
+                item: T;
+                level: nasl.core.Integer;
+                index: nasl.core.Integer;
+            };
+            finalSource: {
+                parent: T;
+                item: T;
+                level: nasl.core.Integer;
+                index: nasl.core.Integer;
+            };
+            position: nasl.core.String;
+            updateData: {
+                sourceList: nasl.collection.List<T>;
+                targetList: nasl.collection.List<T>;
+            };
+        }) => void;
 
         @Event({
             title: '拖拽经过时',
             description: '拖拽经过每一行时触发',
         })
-        onDragover: (event: nasl.ui.DragAndDropEvent) => void;
+        onDragover: (event: {
+            source: {
+                parent: T;
+                item: T;
+                level: nasl.core.Integer;
+                index: nasl.core.Integer;
+            };
+            target: {
+                parent: T;
+                item: T;
+                level: nasl.core.Integer;
+                index: nasl.core.Integer;
+            };
+            finalSource: {
+                parent: T;
+                item: T;
+                level: nasl.core.Integer;
+                index: nasl.core.Integer;
+            };
+            position: nasl.core.String;
+            updateData: {
+                sourceList: nasl.collection.List<T>;
+                targetList: nasl.collection.List<T>;
+            };
+        }) => void;
 
         @Event({
             title: '拖拽放置时',
             description: '拖拽结束时触发',
         })
-        onDrop: (event: nasl.ui.DragAndDropEvent) => void;
+        onDrop: (event: {
+            source: {
+                parent: T;
+                item: T;
+                level: nasl.core.Integer;
+                index: nasl.core.Integer;
+            };
+            target: {
+                parent: T;
+                item: T;
+                level: nasl.core.Integer;
+                index: nasl.core.Integer;
+            };
+            finalSource: {
+                parent: T;
+                item: T;
+                level: nasl.core.Integer;
+                index: nasl.core.Integer;
+            };
+            position: nasl.core.String;
+            updateData: {
+                sourceList: nasl.collection.List<T>;
+                targetList: nasl.collection.List<T>;
+            };
+        }) => void;
 
         @Slot({
             title: '默认',
@@ -1133,7 +1263,13 @@ namespace nasl.ui {
         @Event({
             title: '选择后',
         })
-        onSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        onSelect: (event: {
+            selectedItem: T;
+            value: V;
+            oldValue: V;
+            item: T;
+            oldItem: T;
+        }) => void;
 
         @Slot({
             title: '配置列展示title',

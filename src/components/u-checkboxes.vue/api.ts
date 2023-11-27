@@ -289,18 +289,23 @@ namespace nasl.ui {
             title: '输入时',
             description: '切换选中状态时触发',
         })
-        onInput: (event: Boolean) => void;
+        onInput: (event: V) => void;
 
         @Event({
             title: '选中后',
             description: '切换选中状态时触发',
         })
-        onCheck: (event: nasl.ui.ChangeEvent) => void;
+        onCheck: (event: {
+            value: V;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '选中状态改变时触发',
         })
-        onChange: (event: nasl.ui.ChangeEvent) => void;
+        onChange: (event: {
+            value: V;
+            oldValue: V;
+        }) => void;
     }
 }
