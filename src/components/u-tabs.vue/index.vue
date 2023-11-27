@@ -134,7 +134,7 @@ export default {
         titleField: { type: String, default: 'title' },
         valueField: { type: String, default: 'value' },
         urlField: { type: String, default: 'url' },
-        contentField: { type: String, default: 'url' },
+        contentField: { type: String, default: '' },
         closableField: { type: String, default: 'closable' },
     },
     data() {

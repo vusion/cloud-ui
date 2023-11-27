@@ -67,7 +67,7 @@
     - name: content-field
       title: 标签项内容值
       type: string
-      default: url
+      default: ''
       description: 数据源集合的元素，用于标识当前打开的标签项
       group: 数据属性
       display: property-select
