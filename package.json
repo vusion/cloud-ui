@@ -18,8 +18,8 @@
     "dev:dark": "vue-cli-service doc --port 9001 --theme dark",
     "copyimg": "node bin/copy-lcp-images ",
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
-    "build:theme": "npm run check && npm run genThemeConfig && vue-cli-service library-build --dest dist-theme && npm run copyimg && node ./scripts/lcap",
-    "build:theme-local": "npm run genThemeConfig && vue-cli-service library-build --dest dist-theme && npm run copyimg && node ./scripts/lcap",
+    "build:theme": "npm run check && npm run genThemeConfig && vue-cli-service library-build --dest dist-theme && npm run copyimg && node ./scripts/lcap && npm pack",
+    "build:theme-local": "npm run genThemeConfig && vue-cli-service library-build --dest dist-theme && npm run copyimg && node ./scripts/lcap && npm pack",
     "build:raw": "vue-cli-service library-build --vusion-mode raw --dest dist-raw",
     "build:docs": "vue-cli-service doc-build",
     "build:doc-entry": "cross-env VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.config.doc-entry.js vue-cli-service build --output-path dist-doc-entry",
@@ -37,7 +37,8 @@
     "deploy:pre": "npm test && lcap deploy dist-theme --platform http://defaulttenant.lcap.hadri.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hadri.163yun.com",
     "deploy:online": "npm test && lcap deploy dist-theme --platform http://netease-template.lcap.163yun.com && node bin/deploy-lcp-images --platform=http://netease-template.lcap.163yun.com",
     "prepublishOnly": "rm -rf node_modules/.cache && npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
-    "postpublish": "npm run build:docs && vusion ghpages"
+    "postpublish": "npm run build:docs && vusion ghpages",
+    "prepack": "vusion readme && vusion vetur"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",
@@ -56,6 +57,14 @@
     "cloud",
     "ui",
     "cloud-ui"
+  ],
+  "files": [
+    "dist-theme",
+    "src",
+    "themes",
+    "vetur",
+    "index.js",
+    "README.md"
   ],
   "dependencies": {
     "@popperjs/core": "^2.10.2",

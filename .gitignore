@@ -24,3 +24,7 @@ coverage
 # 自动生成的 demo 用例
 **/__tests__/__demos__/**
 **/__tests__/demo.test.js
+
+*.tar.gz
+*.tgz
+cloud-ui.vusion*
