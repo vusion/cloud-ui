@@ -27,4 +27,4 @@ coverage
 
 *.tar.gz
 *.tgz
-cloud-ui.vusion*
+cloud-ui.vusion@*
