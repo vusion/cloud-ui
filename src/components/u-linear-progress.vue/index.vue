@@ -35,13 +35,13 @@ export default {
             if (this.$attrs.direction === 'vertical') {
                 return {
                     maxHeight: this.maxLength,
-                    height: this.percent + '%',
+                    height: (Number(this.percent) || 0) + '%',
                     top: this.range[0] + '%',
                 };
             } else {
                 return {
                     maxWidth: this.maxLength,
-                    width: this.percent + '%',
+                    width: (Number(this.percent) || 0) + '%',
                     left: this.range[0] + '%',
                 };
             }
