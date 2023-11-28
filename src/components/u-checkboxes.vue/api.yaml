@@ -1,379 +1,378 @@
 - name: u-checkboxes
   title: 多选组
   labels:
-      - Form
+    - Form
   icon: checkboxes
   description: 多项中选择多个时使用
   attrs:
-      - name: data-source
-        title: 数据源
-        type: Array<Item> | Function
-        description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
-        designer-value: '[{}, {}, {}]'
-        group: 数据属性
-        brifeDoc: ''
-        docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑
-        tooltipLink: ''
-      - name: data-schema
-        title: 数据类型
-        type: schema
-        description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
-        group: 数据属性
-        compType: dataTypeSelect
-        brifeDoc: ''
-        docDescription: 该属性为只读状态，当数据源动态绑定集合List\<T>后，会自动识别T的类型并进行展示。
-        tooltipLink: ''
-      - name: text-field
-        title: 选项文本
-        type: string
-        default: text
-        description: 集合的元素类型中，用于显示文本的属性名称
-        group: 数据属性
-        advanced: true
-      - name: value-field
-        title: 值字段
-        type: string
-        default: value
-        description: 用于标识选中值的字段
-        display: property-select
-        group: 数据属性
-        brifeDoc: ''
-        docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更。
-        tooltipLink: ''
-      - name: value
-        title: 选中值
-        type: Array
-        sync: true
-        model: true
-        default: []
-        description: 当前选中的值
-        group: 数据属性
-        brifeDoc: ''
-        docDescription: 多选组的选中项，返还结构为List\<T>。
-        tooltipLink: ''
-      - name: check-all
-        title: 全选控制
-        type: boolean
-        default: false
-        description: 是否进行全选
-        group: 主要属性
-        toggleclear:
-            - min
-            - max
-      - name: check-all-text
-        title: 全选展示内容
-        type: string
-        default: 全选
-        description: 全选功能展示的文案内容
-        group: 主要属性
-        dependency:
-            - check-all: true
-      - name: check-all-display
-        title: 展示方式
-        type: string
-        default: false
-        description: 选择展开方式
-        group: 主要属性
-        options:
-            - value: inline
-              title: 同行展示
-            - value: block
-              title: 分行展示
-        dependency:
-            - check-all: true
-      - name: min
-        title: 最小选中数
-        type: number
-        default: 0
-        description: 可以勾选多选框的最小数量
-        group: 主要属性
-        brifeDoc: ''
-        docDescription: 多选组可以勾选多选框的最小数量。
-        tooltipLink: ''
-        dependency:
-            - +check-all:
-                  - null
-                  - false
-      - name: max
-        title: 最大选中数
-        type: number
-        description: 可以勾选多选框的最大数量
-        group: 主要属性
-        default: 0
-        brifeDoc: ''
-        docDescription: 多选组可以勾选多选框的最大数量。
-        tooltipLink: ''
-        dependency:
-            - +check-all:
-                  - null
-                  - false
-      - name: converter
-        title: 转换器
-        type: string
-        options:
-            - value: join
-              title: 以','连接
-            - value: join:|
-              title: 以'|'连接
-            - value: join:;
-              title: 以';'连接
-            - value: json
-              title: json
-            - value: ''
-              title: 无
-        default: ''
-        description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
-        bindHide: true
-        group: 主要属性
-        brifeDoc: ''
-        docDescription: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
-        tooltipLink: ''
-      - name: readonly
-        title: 只读
-        type: boolean
-        default: false
-        description: 正常显示，但禁止选择/输入
-        group: 状态属性
-        brifeDoc: ''
-        docDescription: 正常显示，但禁止选择或输入
-        tooltipLink: ''
-      - name: disabled
-        title: 禁用
-        type: boolean
-        default: false
-        description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-        group: 状态属性
-        brifeDoc: ''
-        docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-        tooltipLink: ''
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function
+      description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
+      designer-value: "[{}, {}, {}]"
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑
+      tooltipLink: ""
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
+      group: 数据属性
+      compType: dataTypeSelect
+      brifeDoc: ""
+      docDescription: 该属性为只读状态，当数据源动态绑定集合List\<T>后，会自动识别T的类型并进行展示。
+      tooltipLink: ""
+    - name: text-field
+      title: 选项文本
+      type: string
+      default: text
+      description: 集合的元素类型中，用于显示文本的属性名称
+      group: 数据属性
+      advanced: true
+    - name: value-field
+      title: 值字段
+      type: string
+      default: value
+      description: 用于标识选中值的字段
+      display: property-select
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更。
+      tooltipLink: ""
+    - name: value
+      title: 选中值
+      type: Array
+      sync: true
+      model: true
+      default: []
+      description: 当前选中的值
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 多选组的选中项，返还结构为List\<T>。
+      tooltipLink: ""
+    - name: check-all
+      title: 全选控制
+      type: boolean
+      default: false
+      description: 是否进行全选
+      group: 主要属性
+      toggleclear:
+        - min
+        - max
+    - name: check-all-text
+      title: 全选展示内容
+      type: string
+      default: 全选
+      description: 全选功能展示的文案内容
+      group: 主要属性
+      dependency:
+        - check-all: true
+    - name: check-all-display
+      title: 展示方式
+      type: string
+      default: false
+      description: 选择展开方式
+      group: 主要属性
+      options:
+        - value: inline
+          title: 同行展示
+        - value: block
+          title: 分行展示
+      dependency:
+        - check-all: true
+    - name: min
+      title: 最小选中数
+      type: number
+      default: 0
+      description: 可以勾选多选框的最小数量
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 多选组可以勾选多选框的最小数量。
+      tooltipLink: ""
+      dependency:
+        - +check-all:
+          - null
+          - false
+    - name: max
+      title: 最大选中数
+      type: number
+      description: 可以勾选多选框的最大数量
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 多选组可以勾选多选框的最大数量。
+      tooltipLink: ""
+      dependency:
+        - +check-all:
+          - null
+          - false
+    - name: converter
+      title: 转换器
+      type: string
+      options:
+        - value: join
+          title: 以','连接
+        - value: join:|
+          title: 以'|'连接
+        - value: join:;
+          title: 以';'连接
+        - value: json
+          title: json
+        - value: ""
+          title: 无
+      default: ""
+      description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
+      bindHide: true
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
+      tooltipLink: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 正常显示，但禁止选择或输入
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      tooltipLink: ""
   events:
-      - name: input
-        title: 输入时
-        description: 切换选项时触发
-        params:
-            - name: $event
-              type: Array<string>
-              description: 切换后的选中值
-            - name: senderVM
-              type: UCheckbox
-              description: 发送事件实例
-      - name: check
-        title: 选中后
-        description: 切换选项时触发
-        params:
-            - name: $event
-              type: object
-              description: 自定义事件对象
-              schema:
-                  $ref: '#/systemTypes/ChangeEvent'
-            - name: $event.value
-              type: Array<string>
-              description: 切换后的选中值
-            - name: senderVM
-              type: UCheckboxes
-              description: 发送事件实例
-      - name: change
-        title: 改变后
-        description: 选中状态改变时触发
-        params:
-            - name: $event
-              type: object
-              description: 自定义事件对象
-              schema:
-                  $ref: '#/systemTypes/ChangeEvent'
-            - name: $event.value
-              type: Array<string>
-              description: 选中状态
-            - name: $event.oldValue
-              type: Array<string>
-              description: 旧的选中状态
-      - name: before-load
-        title: 加载前
-        description: 加载前触发
-        advanced: true
-        params:
-            - name: $event
-              type: object
-              description: 自定义事件对象
-              schema:
-                  $ref: '#/systemTypes/EventTarget'
-            - name: $event.preventDefault
-              type: Function
-              description: 阻止加载流程
-            - name: senderVM
-              type: UTableView
-              description: 发送事件实例
-      - name: load
-        title: 加载后
-        description: 加载后触发
-        params:
-            - name: $event
-              type: 'null'
-              description: 无
-            - name: senderVM
-              type: UTableView
-              description: 发送事件实例
+    - name: input
+      title: 输入时
+      description: 切换选项时触发
+      params:
+        - name: $event
+          type: Array<string>
+          description: 切换后的选中值
+        - name: senderVM
+          type: UCheckbox
+          description: 发送事件实例
+    - name: check
+      title: 选中后
+      description: 切换选项时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
+        - name: $event.value
+          type: Array<string>
+          description: 切换后的选中值
+        - name: senderVM
+          type: UCheckboxes
+          description: 发送事件实例
+    - name: change
+      title: 改变后
+      description: 选中状态改变时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
+        - name: $event.value
+          type: Array<string>
+          description: 选中状态
+        - name: $event.oldValue
+          type: Array<string>
+          description: 旧的选中状态
+    - name: before-load
+      title: 加载前
+      description: 加载前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: load
+      title: 加载后
+      description: 加载后触发
+      params:
+        - name: $event
+          type: "null"
+          description: 无
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
   methods:
-      - name: reload
-        description: 清除缓存，重新加载
-        params: []
+    - name: reload
+      description: 清除缓存，重新加载
+      params: []
   slots:
-      - concept: Slot
-        name: default
-        description: 插入`<checkbox>`子组件。
-        empty-background: add-sub
-        support:
-            - name: u-checkbox
-              title: 多选项
-              snippet: <u-checkbox><template slot="item">节点</template></u-checkbox>
-      - concept: Slot
-        name: check-all
-        description: 全选/反选
-        support:
-            - name: u-text
-              title: 全选/反选文本
-              snippet: <u-text text='全选'></u-text>
-      - concept: Slot
-        name: item
-        description: 自定义选项的结构和样式
-        slotProps:
-            concept: Param
-            name: current
-            typeAnnotation:
-                concept: TypeAnnotation
-                typeKind: generic
-                typeNamespace: nasl.ui
-                typeName: Current
-                typeArguments:
-                    - concept: TypeAnnotation
-                      typeKind: typeParam
-                      typeName: T
+    - concept: Slot
+      name: default
+      description: 插入`<checkbox>`子组件。
+      empty-background: add-sub
+      support:
+        - name: u-checkbox
+          title: 多选项
+          snippet: <u-checkbox><template slot="item">节点</template></u-checkbox>
+    - concept: Slot
+      name: check-all
+      description: 全选/反选
+      support:
+        - name: u-text
+          title: 全选/反选文本
+          snippet: <u-text text='全选'></u-text>
+    - concept: Slot
+      name: item
+      description: 自定义选项的结构和样式
+      slotProps:
+        concept: Param
+        name: current
+        typeAnnotation:
+          concept: TypeAnnotation
+          typeKind: generic
+          typeNamespace: nasl.ui
+          typeName: Current
+          typeArguments:
+            - concept: TypeAnnotation
+              typeKind: typeParam
+              typeName: T
 - name: u-checkbox
   title: 多选项
   attrs:
-      - name: text
-        title: 文本
-        type: string
-        description: 显示文本内容
-        advanced: true
-      - name: value
-        title: 值
-        type: boolean, null
-        sync: true
-        model: true
-        default: false
-        description: 标志选中状态的值，`null`表示不确定状态
-        group: 数据属性
-        brifeDoc: ''
-        docDescription: 选项返还的选项值。
-        tooltipLink: ''
-      - name: label
-        title: 选项值
-        type: any
-        description: 用于标识选项的值
-        group: 数据属性
-        brifeDoc: ''
-        docDescription: ''
-        tooltipLink: ''
-      - name: autofocus
-        title: 自动获取焦点
-        type: boolean
-        default: false
-        description: ''
-        group: 主要属性
-        brifeDoc: ''
-        docDescription: ''
-        tooltipLink: ''
-      - name: readonly
-        title: 只读
-        type: boolean
-        default: false
-        description: 正常显示，但禁止选择/输入
-        group: 状态属性
-        brifeDoc: ''
-        docDescription: 正常显示，但禁止选择或输入
-        tooltipLink: ''
-      - name: disabled
-        title: 禁用
-        type: boolean
-        default: false
-        description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
-        group: 状态属性
-        brifeDoc: ''
-        docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
-        tooltipLink: ''
+    - name: text
+      title: 文本
+      type: string
+      description: 显示文本内容
+      advanced: true
+    - name: value
+      title: 值
+      type: boolean, null
+      sync: true
+      model: true
+      default: false
+      description: 标志选中状态的值，`null`表示不确定状态
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 选项返还的选项值。
+      tooltipLink: ""
+    - name: label
+      title: 选项值
+      type: any
+      description: 用于标识选项的值
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: autofocus
+      title: 自动获取焦点
+      type: boolean
+      default: false
+      description: ""
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 正常显示，但禁止选择/输入
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 正常显示，但禁止选择或输入
+      tooltipLink: ""
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
+      group: 状态属性
+      brifeDoc: ""
+      docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
+      tooltipLink: ""
   events:
-      - name: before-check
-        title: 选中前
-        description: 切换选中状态前触发
-        advanced: true
-        params:
-            - name: $event
-              type: object
-              description: 自定义事件对象
-              schema:
-                  $ref: '#/systemTypes/ChangeEvent'
-            - name: $event.value
-              type: boolean, null
-              description: 选中状态
-            - name: $event.oldValue
-              type: boolean, null
-              description: 旧的选中状态
-            - name: $event.preventDefault
-              type: Function
-              description: 阻止切换流程
-            - name: senderVM
-              type: UCheckbox
-              description: 发送事件实例
-      - name: input
-        title: 输入时
-        description: 切换选中状态时触发
-        params:
-            - name: $event
-              type: boolean, null
-              description: 切换后的选中状态
-              schema:
-                  $ref: '#/basicTypes/Boolean'
-            - name: senderVM
-              type: UCheckbox
-              description: 发送事件实例
-      - name: check
-        title: 选中后
-        description: 切换选中状态时触发
-        params:
-            - name: $event
-              type: object
-              description: 自定义事件对象
-              schema:
-                  $ref: '#/systemTypes/ChangeEvent'
-            - name: $event.value
-              type: boolean, null
-              description: 选中状态
-            - name: $event.oldValue
-              type: boolean, null
-              description: 旧的选中状态
-            - name: $event.label
-              type: any
-              description: 此选框的标签
-            - name: senderVM
-              type: UCheckbox
-              description: 发送事件实例
-      - name: change
-        title: 改变后
-        description: 选中状态改变时触发
-        params:
-            - name: $event
-              type: object
-              description: 自定义事件对象
-              schema:
-                  $ref: '#/systemTypes/ChangeEvent'
-            - name: $event.value
-              type: boolean, null
-              description: 选中状态
-            - name: $event.oldValue
-              type: boolean, null
-              description: 旧的选中状态
-            - name: senderVM
-              type: UCheckbox
-              description: 发送事件实例
+    - name: before-check
+      title: 选中前
+      description: 切换选中状态前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
+        - name: $event.value
+          type: boolean, null
+          description: 选中状态
+        - name: $event.oldValue
+          type: boolean, null
+          description: 旧的选中状态
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止切换流程
+        - name: senderVM
+          type: UCheckbox
+          description: 发送事件实例
+    - name: input
+      title: 输入时
+      description: 切换选中状态时触发
+      params:
+        - name: $event
+          type: boolean, null
+          description: 切换后的选中状态
+          schema:
+            $ref: "#/basicTypes/Boolean"
+        - name: senderVM
+          type: UCheckbox
+          description: 发送事件实例
+    - name: check
+      title: 选中后
+      description: 切换选中状态时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
+        - name: $event.value
+          type: boolean, null
+          description: 选中状态
+        - name: $event.oldValue
+          type: boolean, null
+          description: 旧的选中状态
+        - name: $event.label
+          type: any
+          description: 此选框的标签
+        - name: senderVM
+          type: UCheckbox
+          description: 发送事件实例
+    - name: change
+      title: 改变后
+      description: 选中状态改变时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
+        - name: $event.value
+          type: boolean, null
+          description: 选中状态
+        - name: $event.oldValue
+          type: boolean, null
+          description: 旧的选中状态
+        - name: senderVM
+          type: UCheckbox
+          description: 发送事件实例
   description: 多选项
