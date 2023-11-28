@@ -90,12 +90,22 @@ namespace nasl.ui {
             title: '弹出后事件',
             description: '弹出提示时触发',
         })
-        onOpen: () => void;
+        onOpen: (event: {
+            text: nasl.core.String;
+            color: nasl.core.String;
+            duration: nasl.core.Integer;
+            timestamp: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '关闭后',
             description: '关闭提示时触发',
         })
-        onClose: () => void;
+        onClose: (event: {
+            text: nasl.core.String;
+            color: nasl.core.String;
+            duration: nasl.core.Integer;
+            timestamp: nasl.core.Integer;
+        }) => void;
     }
 }

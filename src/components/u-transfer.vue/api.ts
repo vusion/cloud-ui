@@ -208,13 +208,23 @@ namespace nasl.ui {
             title: '数据转移时',
             description: '数据转移时触发',
         })
-        onTransfer: (event: nasl.ui.TransferEvent) => void;
+        onTransfer: (event: {
+            source: nasl.collection.List<T>;
+            target: nasl.collection.List<T>;
+            transfer: nasl.collection.List<T>;
+            transferValues: nasl.collection.List<V>;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '数据改变时触发',
         })
-        onChange: (event: nasl.ui.TransferEvent) => void;
+        onChange: (event: {
+            source: nasl.collection.List<T>;
+            target: nasl.collection.List<T>;
+            transfer: nasl.collection.List<T>;
+            transferValues: nasl.collection.List<V>;
+        }) => void;
 
         @Slot({
             title: 'undefined',

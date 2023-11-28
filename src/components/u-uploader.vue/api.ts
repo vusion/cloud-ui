@@ -458,7 +458,9 @@ namespace nasl.ui {
             title: '上传前',
             description: '上传前触发',
         })
-        onBeforeUpload: (event: nasl.ui.UploadEvent) => void;
+        onBeforeUpload: (event: {
+            file: File;
+        }) => void;
 
         @Event({
             title: '进度改变时',

@@ -169,37 +169,59 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一页前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: T;
+            oldItem: T;
+            value: V;
+            oldValue: V;
+            items: nasl.collection.List<T>;
+            oldItems: nasl.collection.List<T>;
+        }) => void;
 
         @Event({
             title: '选择后',
             description: '选择某一项后触发',
         })
-        onSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        onSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: T;
+            oldItem: T;
+            value: V;
+            oldValue: V;
+            items: nasl.collection.List<T>;
+            oldItems: nasl.collection.List<T>;
+        }) => void;
 
         @Event({
             title: '关闭前',
             description: '关闭某一页前触发',
         })
-        private onBeforeClose: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeClose: (event: {
+            value: V;
+            oldValue: V;
+        }) => void;
 
         @Event({
             title: '关闭后',
             description: '关闭某一页后触发',
         })
-        onClose: (event: nasl.ui.ChangeItemEvent) => void;
+        onClose: (event: {
+            value: V;
+            oldValue: V;
+        }) => void;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => void;
+        private onBeforeLoad: () => void;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: null) => void;
+        onLoad: () => void;
 
         @Slot({
             title: '默认',

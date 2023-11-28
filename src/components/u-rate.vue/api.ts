@@ -108,6 +108,9 @@ namespace nasl.ui {
             title: '改变后',
             description: '修改时触发',
         })
-        onChange: () => void;
+        onChange: (event: {
+            value: nasl.core.Decimal;
+            oldValue: nasl.core.Decimal;
+        }) => void;
     }
 }

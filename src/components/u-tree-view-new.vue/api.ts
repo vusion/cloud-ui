@@ -194,49 +194,72 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一项前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.TreeChangeEvent) => void;
+        private onBeforeSelect: (event: {
+            value: V;
+            oldValue: V;
+            node: T;
+            oldNode: T;
+        }) => void;
 
         @Event({
             title: '输入时',
             description: '选择某一项时触发',
         })
-        onInput: (event: String) => void;
+        onInput: (event: V | nasl.collection.List<V>) => void;
 
         @Event({
             title: '选择后',
             description: '选择某一项时触发',
         })
-        onSelect: (event: nasl.ui.TreeChangeEvent) => void;
+        onSelect: (event: {
+            value: V;
+            oldValue: V;
+            node: T;
+            oldNode: T;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '选择值改变时触发',
         })
-        onChange: (event: nasl.ui.TreeChangeEvent) => void;
+        onChange: (event: {
+            value: V;
+            oldValue: V;
+            node: T;
+            oldNode: T;
+        }) => void;
 
         @Event({
             title: '展开折叠后',
             description: '展开/折叠某节点时触发',
         })
-        onToggle: (event: nasl.ui.CollapseEvent) => void;
+        onToggle: (event: {
+            expanded: nasl.core.Boolean;
+            node: T;
+        }) => void;
 
         @Event({
             title: '选中取消后',
             description: '选中/取消节点时触发',
         })
-        onCheck: (event: nasl.ui.CheckedEvent) => void;
+        onCheck: (event: {
+            checked: nasl.core.Boolean;
+            oldChecked: nasl.core.Boolean;
+            node: T;
+            values: nasl.collection.List<V>; 
+        }) => void;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => void;
+        private onBeforeLoad: () => void;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: null) => void;
+        onLoad: () => void;
 
         @Slot({
             title: 'undefined',
@@ -327,19 +350,29 @@ namespace nasl.ui {
             title: '展开折叠前',
             description: '展开/折叠此节点前触发',
         })
-        private onBeforeToggle: () => void;
+        private onBeforeToggle: (event: {
+            expanded: nasl.core.Boolean;
+            node: T;
+        }) => void;
 
         @Event({
             title: '展开折叠后',
             description: '展开/折叠某节点时触发',
         })
-        onToggle: () => void;
+        onToggle: (event: {
+            expanded: nasl.core.Boolean;
+            node: T;
+        }) => void;
 
         @Event({
             title: '选中后',
             description: '选中节点时触发',
         })
-        onCheck: () => void;
+        onCheck: (event: {
+            checked: nasl.core.Boolean;
+            oldChecked: nasl.core.Boolean;
+            node: T;
+        }) => void;
 
         @Slot({
             title: 'undefined',
