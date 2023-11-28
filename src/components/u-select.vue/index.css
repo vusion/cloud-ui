@@ -224,6 +224,9 @@
 .root .input:not([multiple-tags])[filterable],
 .root[clearable] .input:not([multiple-tags]) {
     padding-right: 30px;
+}
+
+.root[prefix] .input:not([multiple-tags])[filterable] {
     padding-left: 24px;
 }
 
