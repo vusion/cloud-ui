@@ -71,6 +71,7 @@ export default {
   },
   watch: {
     value(value) {
+      console.log(value)
       this.watchValue(value);
     },
     currentValue(value, oldValue) {
