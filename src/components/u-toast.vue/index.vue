@@ -3,7 +3,6 @@
     move-class="animate__move"
     enter-active-class="animate__animated animate__fadeInUpSmall"
     leave-active-class="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active">
-    123131
     <div v-for="item in items" :key="item.timestamp" :class="$style['item-wrap']" :style="item.staticStyle || {}">
         <div v-if="item.color === 'custom'" :class="$style.item" :position="position">
             <div v-if="item.customIcon" :class="$style.customIcon">
