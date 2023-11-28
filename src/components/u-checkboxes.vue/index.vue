@@ -127,12 +127,10 @@ export default {
         });
       } else {
         const value = [];
-        this.itemVMsExcludesCheckAll.forEach(
-          (itemVM) => {
-            itemVM.currentValue = value.includes(itemVM.label);
-            // itemVM.currentValue && value.push(itemVM.label);
-          }
-        );
+        this.itemVMsExcludesCheckAll.forEach((itemVM) => {
+          itemVM.currentValue = value.includes(itemVM.label);
+          // itemVM.currentValue && value.push(itemVM.label);
+        });
         this.currentValue = value;
       }
     },
@@ -172,7 +170,7 @@ export default {
       } else if (!value && this.currentValue.includes(label)) {
         this.currentValue.splice(this.currentValue.indexOf(label), 1);
       }
-      // 先给默认值兜底，下一帧更新成正确的数据，保证全选状态的正确性
+      // 先给默认值兜底，下一帧更新成正确的数据，保证全选状态的正确性。
       this.all = false;
       this.$nextTick(() => {
         this.all = this.itemVMsExcludesCheckAll.some((vm) => vm.currentValue)
