@@ -688,8 +688,6 @@
                     "description": "鼠标移出元素时触发。"
                 }
             ],
-            "next": true,
-            "nested": true,
             "children": []
         }
     },
@@ -3964,6 +3962,35 @@
                             "tooltipLink": ""
                         },
                         {
+                            "name": "trigger",
+                            "title": "触发方式",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "click",
+                                    "title": "点击"
+                                },
+                                {
+                                    "value": "hover",
+                                    "title": "悬浮"
+                                },
+                                {
+                                    "value": "right-click",
+                                    "title": "右击"
+                                },
+                                {
+                                    "value": "double-click",
+                                    "title": "双击"
+                                }
+                            ],
+                            "default": "click",
+                            "description": "",
+                            "group": "交互属性",
+                            "brifeDoc": "",
+                            "docDescription": "",
+                            "tooltipLink": ""
+                        },
+                        {
                             "name": "expanded",
                             "title": "展开状态",
                             "type": "boolean",
@@ -4858,7 +4885,6 @@
                     "name": "trigger",
                     "title": "触发方式",
                     "type": "string",
-                    "advanced": true,
                     "options": [
                         {
                             "value": "click",
@@ -4881,8 +4907,9 @@
                             "title": "手动"
                         }
                     ],
-                    "default": "hover",
-                    "description": "触发方式"
+                    "default": "click",
+                    "description": "触发方式",
+                    "group": "交互属性"
                 },
                 {
                     "name": "type",
@@ -5036,6 +5063,17 @@
                     "group": "状态属性",
                     "brifeDoc": "",
                     "docDescription": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "opened",
+                    "title": "显示状态",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "",
+                    "group": "状态属性",
+                    "brifeDoc": "",
+                    "docDescription": "开启时进入页面即展示下拉菜单，默认关闭",
                     "tooltipLink": ""
                 }
             ],
@@ -5197,6 +5235,37 @@
                             "brifeDoc": "",
                             "docDescription": "设置分组是否可折叠",
                             "tooltipLink": ""
+                        },
+                        {
+                            "name": "trigger",
+                            "title": "触发方式",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "click",
+                                    "title": "点击"
+                                },
+                                {
+                                    "value": "hover",
+                                    "title": "悬浮"
+                                },
+                                {
+                                    "value": "right-click",
+                                    "title": "右击"
+                                },
+                                {
+                                    "value": "double-click",
+                                    "title": "双击"
+                                },
+                                {
+                                    "value": "none",
+                                    "title": "与父级同步",
+                                    "disabled": true
+                                }
+                            ],
+                            "default": "none",
+                            "description": "触发方式",
+                            "group": "交互属性"
                         },
                         {
                             "name": "expanded",
@@ -8304,7 +8373,7 @@
                         {
                             "name": "span",
                             "title": "占据数",
-                            "type": "string",
+                            "type": "number",
                             "description": "列跨越的格数",
                             "group": "主要属性",
                             "brifeDoc": "",
@@ -9862,6 +9931,48 @@
                     "docDescription": ""
                 },
                 {
+                    "name": "virtual",
+                    "title": "虚拟滚动",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "虚拟滚动表示不展示所有的数据，只展示默认条数的数据，当滚动时再展示剩余的数据。当表格数据量大时，可设置为虚拟滚动，提高性能。默认关闭。",
+                    "group": "交互属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "item-height",
+                    "title": "每行高度",
+                    "type": "number",
+                    "description": "与虚拟滚动配合使用，表示每一行的高度。请确保行里的数据不要换行",
+                    "group": "交互属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "virtual": true
+                        }
+                    ]
+                },
+                {
+                    "name": "virtual-count",
+                    "title": "展示条数",
+                    "type": "number",
+                    "default": 60,
+                    "description": "与虚拟滚动配合使用，表示每屏展示的最大条数",
+                    "group": "交互属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": "",
+                    "dependency": [
+                        {
+                            "virtual": true
+                        }
+                    ]
+                },
+                {
                     "name": "initial-load",
                     "title": "初始即加载",
                     "type": "boolean",
@@ -10914,6 +11025,29 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uTableView_loading": "正在加载中...",
+                    "uTableView_error": "加载失败，请重试",
+                    "uTableView_empty": "暂无数据",
+                    "uTableView_loadMore": "加载更多",
+                    "uTableView_noMore": "没有更多了"
+                },
+                "en-US": {
+                    "uTableView_loading": "Loading...",
+                    "uTableView_error": "Failed to load. Please try again",
+                    "uTableView_empty": "No matching data",
+                    "uTableView_loadMore": "Load more",
+                    "uTableView_noMore": "No more items"
+                },
+                "ja": {
+                    "uTableView_loading": "読み込み中...",
+                    "uTableView_error": "読み込みに失敗しました。再試行してください。",
+                    "uTableView_empty": "データがありません",
+                    "uTableView_loadMore": "もっと読み込む",
+                    "uTableView_noMore": "これ以上ありません"
+                }
+            },
             "children": [
                 {
                     "name": "u-table-view-column",
@@ -12614,6 +12748,29 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uListView_loading": "正在加载中...",
+                    "uListView_error": "加载失败，请重试",
+                    "uListView_empty": "暂无数据",
+                    "uListView_loadMore": "加载更多",
+                    "uListView_noMore": "没有更多了"
+                },
+                "en-US": {
+                    "uListView_loading": "Loading...",
+                    "uListView_error": "Failed to load. Please try again",
+                    "uListView_empty": "No data",
+                    "uListView_loadMore": "Load more",
+                    "uListView_noMore": "No more items"
+                },
+                "ja": {
+                    "uListView_loading": "読み込み中...",
+                    "uListView_error": "読み込みに失敗しました。再試行してください。",
+                    "uListView_empty": "データがありません",
+                    "uListView_loadMore": "もっと読み込む",
+                    "uListView_noMore": "これ以上ありません"
+                }
+            },
             "children": []
         }
     },
@@ -13309,6 +13466,29 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uGridView_loading": "正在加载中...",
+                    "uGridView_error": "加载失败，请重试",
+                    "uGridView_empty": "暂无数据",
+                    "uGridView_loadMore": "加载更多",
+                    "uGridView_noMore": "没有更多了"
+                },
+                "en-US": {
+                    "uGridView_loading": "Loading...",
+                    "uGridView_error": "Failed to load. Please try again",
+                    "uGridView_empty": "No data",
+                    "uGridView_loadMore": "Load more",
+                    "uGridView_noMore": "No more items"
+                },
+                "ja": {
+                    "uGridView_loading": "読み込み中...",
+                    "uGridView_error": "読み込みに失敗しました。再試行してください。",
+                    "uGridView_empty": "データがありません",
+                    "uGridView_loadMore": "もっと読み込む",
+                    "uGridView_noMore": "これ以上ありません"
+                }
+            },
             "children": []
         }
     },
@@ -13641,6 +13821,104 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uCalendarView_year": "年",
+                    "uCalendarView_month": "月",
+                    "uCalendarView_quarter": "Q",
+                    "uCalendarView_Q1": "1",
+                    "uCalendarView_Q2": "2",
+                    "uCalendarView_Q3": "3",
+                    "uCalendarView_Q4": "4",
+                    "uCalendarView_Sunday": "日",
+                    "uCalendarView_Monday": "一",
+                    "uCalendarView_Tuesday": "二",
+                    "uCalendarView_Wednesday": "三",
+                    "uCalendarView_Thursday": "四",
+                    "uCalendarView_Friday": "五",
+                    "uCalendarView_Saturday": "六",
+                    "uCalendarView_January": "1",
+                    "uCalendarView_February": "2",
+                    "uCalendarView_March": "3",
+                    "uCalendarView_April": "4",
+                    "uCalendarView_May": "5",
+                    "uCalendarView_June": "6",
+                    "uCalendarView_July": "7",
+                    "uCalendarView_August": "8",
+                    "uCalendarView_September": "9",
+                    "uCalendarView_October": "10",
+                    "uCalendarView_November": "11",
+                    "uCalendarView_December": "12",
+                    "uCalendarView_PrevMonth": "上个月",
+                    "uCalendarView_NextMonth": "下个月",
+                    "uCalendarView_Today": "今天",
+                    "uCalendarView_Week": "周数"
+                },
+                "en-US": {
+                    "uCalendarView_year": " ",
+                    "uCalendarView_month": " ",
+                    "uCalendarView_Q1": "One",
+                    "uCalendarView_Q2": "Two",
+                    "uCalendarView_Q3": "Three",
+                    "uCalendarView_Q4": "Four",
+                    "uCalendarView_quarter": "Q",
+                    "uCalendarView_Sunday": "Sun",
+                    "uCalendarView_Monday": "Mon",
+                    "uCalendarView_Tuesday": "Tue",
+                    "uCalendarView_Wednesday": "Wed",
+                    "uCalendarView_Thursday": "Thu",
+                    "uCalendarView_Friday": "Fri",
+                    "uCalendarView_Saturday": "Sat",
+                    "uCalendarView_January": "Jan",
+                    "uCalendarView_February": "Feb",
+                    "uCalendarView_March": "Mar",
+                    "uCalendarView_April": "Apr",
+                    "uCalendarView_May": "May",
+                    "uCalendarView_June": "Jun",
+                    "uCalendarView_July": "Jul",
+                    "uCalendarView_August": "Aug",
+                    "uCalendarView_September": "Sep",
+                    "uCalendarView_October": "Oct",
+                    "uCalendarView_November": "Nov",
+                    "uCalendarView_December": "Dec",
+                    "uCalendarView_PrevMonth": "Prev Month",
+                    "uCalendarView_NextMonth": "Next Month",
+                    "uCalendarView_Today": "Today",
+                    "uCalendarView_Week": "Week"
+                },
+                "ja": {
+                    "uCalendarView_year": "年",
+                    "uCalendarView_month": "月",
+                    "uCalendarView_quarter": "Q",
+                    "uCalendarView_Q1": "1",
+                    "uCalendarView_Q2": "2",
+                    "uCalendarView_Q3": "3",
+                    "uCalendarView_Q4": "4",
+                    "uCalendarView_Sunday": "日",
+                    "uCalendarView_Monday": "月",
+                    "uCalendarView_Tuesday": "火",
+                    "uCalendarView_Wednesday": "水",
+                    "uCalendarView_Thursday": "木",
+                    "uCalendarView_Friday": "金",
+                    "uCalendarView_Saturday": "土",
+                    "uCalendarView_January": "1",
+                    "uCalendarView_February": "2",
+                    "uCalendarView_March": "3",
+                    "uCalendarView_April": "4",
+                    "uCalendarView_May": "5",
+                    "uCalendarView_June": "6",
+                    "uCalendarView_July": "7",
+                    "uCalendarView_August": "8",
+                    "uCalendarView_September": "9",
+                    "uCalendarView_October": "10",
+                    "uCalendarView_November": "11",
+                    "uCalendarView_December": "12",
+                    "uCalendarView_PrevMonth": "前の月",
+                    "uCalendarView_NextMonth": "来月",
+                    "uCalendarView_Today": "今天",
+                    "uCalendarView_Week": "週"
+                }
+            },
             "children": []
         }
     },
@@ -17014,7 +17292,10 @@
                     "tooltipLink": "",
                     "dependency": [
                         {
-                            "check-all": false
+                            "+check-all": [
+                                null,
+                                false
+                            ]
                         }
                     ]
                 },
@@ -17029,7 +17310,10 @@
                     "tooltipLink": "",
                     "dependency": [
                         {
-                            "check-all": false
+                            "+check-all": [
+                                null,
+                                false
+                            ]
                         }
                     ]
                 },
@@ -17945,6 +18229,7 @@
                     "sync": true,
                     "model": true,
                     "default": 0,
+                    "max": 20,
                     "description": "",
                     "group": "数据属性",
                     "brifeDoc": "",
@@ -17956,6 +18241,7 @@
                     "title": "最大分数",
                     "type": "number",
                     "default": 5,
+                    "max": 20,
                     "description": "",
                     "group": "数据属性",
                     "brifeDoc": "",
@@ -19289,6 +19575,17 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uUploader_extensionError": "只能上传{extensions}类型的文件！"
+                },
+                "en-US": {
+                    "uUploader_extensionError": "Only {extensions} files are permitted to upload!"
+                },
+                "ja": {
+                    "uUploader_extensionError": "ファイルタイプは{extensions}のみアップロードできます！"
+                }
+            },
             "children": []
         }
     },
@@ -19755,7 +20052,6 @@
                     "default": "title",
                     "description": "数据源集合的元素，用于显示标签标题的属性",
                     "group": "数据属性",
-                    "advanced": true,
                     "brifeDoc": "",
                     "docDescription": "数据源集合的元素，用于显示标签标题的属性",
                     "tooltipLink": ""
@@ -19777,6 +20073,17 @@
                     "title": "标签项内容值字段",
                     "type": "string",
                     "default": "url",
+                    "description": "数据源集合的元素，用于标识当前打开的标签项",
+                    "group": "数据属性",
+                    "display": "property-select",
+                    "tooltipLink": "",
+                    "docDescription": "数据源集合的元素，用于标识当前打开的标签项"
+                },
+                {
+                    "name": "content-field",
+                    "title": "标签项内容值",
+                    "type": "string",
+                    "default": "",
                     "description": "数据源集合的元素，用于标识当前打开的标签项",
                     "group": "数据属性",
                     "display": "property-select",
@@ -21098,6 +21405,32 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uPagination_pageSizeUnit": "条",
+                    "uPagination_pageSize": "条/页",
+                    "uPagination_pageUnit": "页",
+                    "uPagination_total": "共 {totalItems} 条",
+                    "uPagination_goto": "跳至",
+                    "uPagination_gotoPageUnit": "页"
+                },
+                "en-US": {
+                    "uPagination_pageSizeUnit": "items",
+                    "uPagination_pageSize": "/page",
+                    "uPagination_pageUnit": "page",
+                    "uPagination_total": "Total {totalItems} items",
+                    "uPagination_goto": "Go to",
+                    "uPagination_gotoPageUnit": "page"
+                },
+                "ja": {
+                    "uPagination_pageSizeUnit": "行",
+                    "uPagination_pageSize": "/ページ",
+                    "uPagination_pageUnit": "ページ",
+                    "uPagination_total": "合計 {totalItems} 行",
+                    "uPagination_goto": "",
+                    "uPagination_gotoPageUnit": "ページへ"
+                }
+            },
             "children": []
         }
     },
@@ -22178,6 +22511,29 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uSelect_loading": "正在加载中...",
+                    "uSelect_error": "加载失败，请重试",
+                    "uSelect_empty": "暂无数据",
+                    "uSelect_loadMore": "加载更多",
+                    "uSelect_noMore": "没有更多了"
+                },
+                "en-US": {
+                    "uSelect_loading": "Loading...",
+                    "uSelect_error": "Failed to load. Please try again",
+                    "uSelect_empty": "No matching data",
+                    "uSelect_loadMore": "Load more",
+                    "uSelect_noMore": "No more items"
+                },
+                "ja": {
+                    "uSelect_loading": "読み込み中...",
+                    "uSelect_error": "読み込みに失敗しました。再試行してください。",
+                    "uSelect_empty": "データがありません",
+                    "uSelect_loadMore": "もっと読み込む",
+                    "uSelect_noMore": "これ以上ありません"
+                }
+            },
             "children": [
                 {
                     "name": "u-select-item",
@@ -23235,6 +23591,26 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uRegionSelect_placeholder": "请选择",
+                    "uRegionSelect_province": "省",
+                    "uRegionSelect_city": "市",
+                    "uRegionSelect_district": "区"
+                },
+                "en-US": {
+                    "uRegionSelect_placeholder": "Please select ",
+                    "uRegionSelect_province": "Province",
+                    "uRegionSelect_city": "City",
+                    "uRegionSelect_district": "District"
+                },
+                "ja": {
+                    "uRegionSelect_placeholder": "選択してください",
+                    "uRegionSelect_province": "省",
+                    "uRegionSelect_city": "市",
+                    "uRegionSelect_district": "区"
+                }
+            },
             "children": []
         }
     },
@@ -25083,6 +25459,23 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uDatePicker_selectDateText": "请选择日期",
+                    "uDatePicker_integerTip": "请输入大于0的整数",
+                    "uDatePicker_formatErrorTip": "请输入正确的时分秒格式"
+                },
+                "en-US": {
+                    "uDatePicker_selectDateText": "Please select date",
+                    "uDatePicker_integerTip": "Please enter an integer greater than 0",
+                    "uDatePicker_formatErrorTip": "Please enter the correct hour, minute and second format"
+                },
+                "ja": {
+                    "uDatePicker_selectDateText": "日付を選択",
+                    "uDatePicker_integerTip": "0 より大きい整数を入力",
+                    "uDatePicker_formatErrorTip": "正しい時、分、秒の形式で入力"
+                }
+            },
             "children": []
         }
     },
@@ -25564,6 +25957,29 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uTimePicker_selectTimeText": "请选择时间",
+                    "uTimePicker_now": "此刻",
+                    "uTimePicker_submit": "确 定",
+                    "uTimePicker_selectPopperDateText": "下方选择日期",
+                    "uTimePicker_cancel": "取 消"
+                },
+                "en-US": {
+                    "uTimePicker_selectTimeText": "Please select time",
+                    "uTimePicker_now": "now",
+                    "uTimePicker_submit": "submit",
+                    "uTimePicker_selectPopperDateText": "Please select date",
+                    "uTimePicker_cancel": "cancel"
+                },
+                "ja": {
+                    "uTimePicker_selectTimeText": "時間を選択",
+                    "uTimePicker_now": "本日",
+                    "uTimePicker_submit": "確定",
+                    "uTimePicker_selectPopperDateText": "日付を選択",
+                    "uTimePicker_cancel": "キャンセル"
+                }
+            },
             "children": []
         }
     },
@@ -26177,6 +26593,29 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uDateTimePicker_selectTimeText": "请选择时间",
+                    "uDateTimePicker_now": "此刻",
+                    "uDateTimePicker_submit": "确 定",
+                    "uDateTimePicker_selectPopperDateText": "下方选择日期",
+                    "uDateTimePicker_cancel": "取 消"
+                },
+                "en-US": {
+                    "uDateTimePicker_selectTimeText": "Please select time",
+                    "uDateTimePicker_now": "now",
+                    "uDateTimePicker_submit": "submit",
+                    "uDateTimePicker_selectPopperDateText": "Please select date",
+                    "uDateTimePicker_cancel": "cancel"
+                },
+                "ja": {
+                    "uDateTimePicker_selectTimeText": "時間を選択",
+                    "uDateTimePicker_now": "本日",
+                    "uDateTimePicker_submit": "確定",
+                    "uDateTimePicker_selectPopperDateText": "日付を選択",
+                    "uDateTimePicker_cancel": "キャンセル"
+                }
+            },
             "children": []
         }
     },
@@ -26351,7 +26790,99 @@
                     ],
                     "group": "主要属性",
                     "brifeDoc": "",
-                    "docDescription": "设置弹出层在html里的位置，支持引用元素下、全局body设置。当把当前组件放入某个组件，而组件overflow是hidden的时候，需要设置为全局body",
+                    "docDescription": "设置弹出层在html里的位置，支持引用元素下、全局body设置。当把当前组件放入某个组件，而组件overflow是hidden的时候，需要设置为全局body"
+                },
+                {
+                    "name": "disabled",
+                    "title": "禁用",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）",
+                    "group": "状态属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "width",
+                    "title": "宽度",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "full",
+                            "title": "占满"
+                        },
+                        {
+                            "value": "huge",
+                            "title": "巨大"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        },
+                        {
+                            "value": "medium",
+                            "title": "中型"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        },
+                        {
+                            "value": "small",
+                            "title": "小"
+                        },
+                        {
+                            "value": "mini",
+                            "title": "迷你"
+                        }
+                    ],
+                    "default": "normal",
+                    "description": "设置选择框宽度大小",
+                    "group": "样式属性",
+                    "brifeDoc": "",
+                    "docDescription": "设置选择框宽度大小，支持占满、巨大、大、中型、正常、小共6种模式",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "height",
+                    "title": "高度",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "full",
+                            "title": "占满"
+                        },
+                        {
+                            "value": "huge",
+                            "title": "巨大"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        },
+                        {
+                            "value": "medium",
+                            "title": "中型"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        },
+                        {
+                            "value": "small",
+                            "title": "小"
+                        },
+                        {
+                            "value": "mini",
+                            "title": "迷你"
+                        }
+                    ],
+                    "default": "normal",
+                    "description": "设置选择框高度大小",
+                    "group": "样式属性",
+                    "brifeDoc": "",
+                    "docDescription": "设置选择框高度大小，支持占满、巨大、大、中型、正常、小共6种模式",
                     "tooltipLink": ""
                 }
             ],
@@ -27470,6 +28001,23 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uModal_dialog": "提示",
+                    "uModal_ok": "确 定",
+                    "uModal_cancel": "取 消"
+                },
+                "en-US": {
+                    "uModal_dialog": "Dialog",
+                    "uModal_ok": "OK",
+                    "uModal_cancel": "Cancel"
+                },
+                "ja": {
+                    "uModal_dialog": "ダイアログ",
+                    "uModal_ok": "わかった",
+                    "uModal_cancel": "キャンセル"
+                }
+            },
             "children": []
         }
     },
@@ -27512,6 +28060,14 @@
                         {
                             "value": "right",
                             "title": "右"
+                        },
+                        {
+                            "value": "top",
+                            "title": "上"
+                        },
+                        {
+                            "value": "bottom",
+                            "title": "下"
                         }
                     ],
                     "description": "抽屉弹出的位置",
@@ -27587,7 +28143,7 @@
                     "description": "抽屉的尺寸",
                     "group": "样式属性",
                     "brifeDoc": "",
-                    "docDescription": "支持配置抽屉的宽度，支持小、正常、大三个尺寸",
+                    "docDescription": "支持配置抽屉的宽度或者高度，支持小、正常、大、三个尺寸",
                     "tooltipLink": ""
                 }
             ],
@@ -27656,6 +28212,23 @@
                     ]
                 }
             ],
+            "i18n": {
+                "zh-CN": {
+                    "uDrawer_dialog": "提示",
+                    "uDrawer_ok": "确定",
+                    "uDrawer_cancel": "取消"
+                },
+                "en-US": {
+                    "uDrawer_dialog": "Dialog",
+                    "uDrawer_ok": "OK",
+                    "uDrawer_cancel": "Cancel"
+                },
+                "ja": {
+                    "uDrawer_dialog": "ダイアログ",
+                    "uDrawer_ok": "確定",
+                    "uDrawer_cancel": "キャンセル"
+                }
+            },
             "children": []
         }
     },
@@ -28098,12 +28671,6 @@
                 }
             ],
             "attrs": [
-                {
-                    "name": "title",
-                    "title": "通知",
-                    "type": "string",
-                    "description": "鼠标 hover 在图标上展示文案"
-                },
                 {
                     "name": "icon",
                     "title": "图标",

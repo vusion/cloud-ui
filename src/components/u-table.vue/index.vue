@@ -66,14 +66,6 @@ export default {
 }
 
 .root tbody td {
-    border-top: 1px solid var(--table-view-border-color);
-}
-
-.root tbody > tr:first-child td {
-    border-top: none;
-}
-
-.root tbody > tr:last-child td {
     border-bottom: 1px solid var(--table-view-border-color);
 }
 
