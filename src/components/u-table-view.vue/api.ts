@@ -33,12 +33,12 @@ namespace nasl.ui {
                 title: 'undefined',
                 description: '当前页码',
             })
-            page: nasl.core.Decimal = 1,
+            page: nasl.core.Integer = 1,
             @Param({
                 title: 'undefined',
                 description: '每页条数',
             })
-            size: nasl.core.Decimal = 2000,
+            size: nasl.core.Integer = 2000,
             @Param({
                 title: 'undefined',
                 description: '导出文件名',
