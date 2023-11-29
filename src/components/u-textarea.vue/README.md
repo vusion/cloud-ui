@@ -131,7 +131,7 @@ export default {
 | limit-position | string | `[object Object]`<br/>`[object Object]` |  | 设置字数统计位置 |
 | autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
 | clearable | boolean |  | `false` | 可点击清除按钮一键清除内容 |
-| resize | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 设置调整大小的方式 |
+| resize | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'vertical'` | 设置调整大小的方式 |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置多行输入框大小 |
