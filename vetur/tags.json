@@ -1994,6 +1994,9 @@
       "resizable",
       "resize-remaining",
       "configurable",
+      "virtual",
+      "item-height",
+      "virtual-count",
       "initial-load",
       "designer-mode",
       "loading-text",
@@ -2141,7 +2144,6 @@
   },
   "u-taskbox": {
     "attributes": [
-      "title",
       "icon",
       "size",
       "interval"

@@ -153,7 +153,7 @@ export default {
 | showFooterButton | boolean |  | `true` | 控制弹出层的关闭和设置的生效与否 |
 | cancelTitle | string |  | `''` | 取消按钮的显示名称，如果为空则不显示 |
 | okTitle | string |  | `''` | 确定按钮的显示名称，如果为空则不显示 |
-| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` |  |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'json'` |  |
 | preIcon | string | `[object Object]` | `'calendar'` |  |
 | suffixIcon | string | `[object Object]` |  |  |
 | append-to | string | `[object Object]`<br/>`[object Object]` | `'body'` | 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。 |
