@@ -15,6 +15,7 @@ export default {
     mixins: [MEmitter],
     props: {
         title: String,
+        fixed: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -46,17 +47,29 @@ export default {
         }
     },
     mounted() {
-        !this.parentVM
-            && this.$contact(this.$options.parentName, (parentVM) => {
-                this.parentVM = parentVM;
-                this.updateColumnVMs(parentVM);
-            });
+        this.$contact('u-table-view', (parentVM) => {
+            this.parentVM = parentVM;
+            // this.updateColumnVMs(parentVM);
+            parentVM.columnVMsMap[this._uid] = {
+                vnode: this.$vnode,
+                columnVM: this,
+            };
+            parentVM.columnGroupVMs[this._uid] = this;
+            this.$dispatch(
+                ($parent) => $parent.$options.name && $parent.$options.name === 'u-table-view',
+                'handle-columns',
+            );
+        });
     },
     destroyed() {
-        this.$contact(this.$options.parentName, (parentVM) => {
-            this.parentVM = undefined;
-            this.deleteColumnVMs(parentVM, this.startIndex, this.colSpan)
-        });
+        // this.$contact(this.$options.parentName, (parentVM) => {
+        //     this.parentVM = undefined;
+        //     this.deleteColumnVMs(parentVM, this.startIndex, this.colSpan)
+        // });
+        this.$dispatch(
+            ($parent) => $parent.$options.name && $parent.$options.name === 'u-table-view',
+            'handle-columns',
+        );
     },
     methods: {
         updateColumnVMs(parentVM) {
