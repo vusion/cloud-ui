@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div v-show="!preview" :class="$style.root">
+    <div v-show="!isPreview" :class="$style.root">
         <u-loading v-if="loading" size="small"></u-loading>
         <template v-else>
             <u-radio
@@ -25,7 +25,7 @@
         </template>
         <slot></slot>
     </div>
-    <u-preview v-if="preview" :text="currentText"></u-preview>
+    <u-preview v-if="isPreview" :text="currentText"></u-preview>
 </div>
 </template>
 
@@ -35,6 +35,7 @@ import MField from '../m-field.vue';
 import URadio from './radio.vue';
 import SupportDataSource from '../../mixins/support.datasource.js';
 import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-radios',
@@ -43,7 +44,7 @@ export default {
         URadio,
         UPreview,
     },
-    mixins: [MParent, MField, SupportDataSource],
+    mixins: [MParent, MField, SupportDataSource, MPreview],
     props: {
         value: null,
         readonly: { type: Boolean, default: false },

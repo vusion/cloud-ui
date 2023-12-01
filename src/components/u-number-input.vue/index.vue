@@ -1,5 +1,5 @@
 <template>
-    <u-input v-if="!preview" ref="input" :class="$style.root" :button-display="buttonDisplay" :value="formattedValue"
+    <u-input v-if="!isPreview" ref="input" :class="$style.root" :button-display="buttonDisplay" :value="formattedValue"
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
         @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside"
@@ -25,6 +25,7 @@ import MField from '../m-field.vue';
 import { repeatClick, clickOutside } from '../../directives';
 import { noopFormatter, NumberFormatter } from '../../utils/Formatters';
 import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 const isNil = (value) => (typeof value === 'string' && value.trim() === '') || value === null || value === undefined;
 
 export default {
@@ -33,7 +34,7 @@ export default {
         UPreview
     },
     directives: { repeatClick, clickOutside },
-    mixins: [MField],
+    mixins: [MField, MPreview],
     props: {
         // String 类型是为了验证抛出
         value: [Number, String],

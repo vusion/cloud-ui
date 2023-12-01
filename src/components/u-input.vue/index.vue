@@ -1,5 +1,5 @@
 <template>
-<div v-if="!preview" :class="$style.root" :readonly="readonly" :disabled="disabled" :color="currentColor || formItemVM && formItemVM.color"
+<div v-if="!isPreview" :class="$style.root" :readonly="readonly" :disabled="disabled" :color="currentColor || formItemVM && formItemVM.color"
     :focus="focused" :clearable="clearable && currentValue" :prefix="prefix" :suffix="suffix"
     :show-password="showPassword" :password="password"
     @click.self="!focused && focus()">
@@ -51,6 +51,7 @@ import { focus } from '../../directives';
 import { isIE } from '../../utils/dom';
 // import IIco from '../i-ico.vue';
 import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-input',
@@ -59,7 +60,7 @@ export default {
         UPreview
     },
     directives: { focus },
-    mixins: [MField],
+    mixins: [MField, MPreview],
     props: {
         value: [String, Number],
         color: String,

@@ -1,5 +1,5 @@
 <template>
-<div v-if="!preview" :class="$style.root" :width="width" :height="height">
+<div v-if="!isPreview" :class="$style.root" :width="width" :height="height">
     <u-input
         ref="input"
         :class="$style.input"
@@ -42,6 +42,8 @@ import { format, transformDate, ChangeDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
 import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
+
 const MS_OF_DAY = 24 * 3600 * 1000;
 
 /**
@@ -61,7 +63,7 @@ export default {
     name: 'u-date-picker',
     i18n,
     directives: { clickOutside },
-    mixins: [MField, DateFormatMixin],
+    mixins: [MField, DateFormatMixin, MPreview],
     component: {
         UPreview
     },

@@ -1,5 +1,5 @@
 <template>
-<div v-if="!preview" :class="$style.root" :width="width" :height="height">
+<div v-if="!isPreview" :class="$style.root" :width="width" :height="height">
     <u-input :class="$style.input" width="full" height="full" :value="genDisplayFormatText(finalDateTime)" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
         :clearable="clearable" :placeholder="placeholder"
         @click.stop="toggle(true)"
@@ -63,6 +63,7 @@ import { format, transformDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
 import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 /**
  * @class DateTimePicker
  * @extend Dropdown
@@ -80,7 +81,7 @@ import UPreview from '../u-text.vue';
 export default {
     name: 'u-date-time-picker',
     i18n,
-    mixins: [MField, DateFormatMixin],
+    mixins: [MField, DateFormatMixin, MPreview],
     component: {
         UPreview
     },

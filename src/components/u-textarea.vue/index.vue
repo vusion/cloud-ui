@@ -1,6 +1,6 @@
 <template>
     <div
-        v-if="!preview"
+        v-if="!isPreview"
         :class="$style.root"
         :readonly="readonly"
         :disabled="disabled"

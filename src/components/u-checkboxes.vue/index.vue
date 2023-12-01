@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div v-show="!preview" :class="$style.root">
+    <div v-show="!isPreview" :class="$style.root">
         <u-loading v-if="loading" size="small"></u-loading>
         <template v-else>
             <u-checkbox
@@ -25,7 +25,7 @@
         </template>
         <slot></slot>
     </div>
-    <u-preview v-if="preview" :text="currentText"></u-preview>
+    <u-preview v-if="isPreview" :text="currentText"></u-preview>
 </div>
 </template>
 
@@ -36,6 +36,7 @@ import MConverter from '../m-converter.vue';
 import SupportDataSource from '../../mixins/support.datasource';
 import UCheckbox from '../u-checkbox.vue';
 import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-checkboxes',
@@ -44,7 +45,7 @@ export default {
         UCheckbox,
         UPreview,
     },
-    mixins: [MParent, MField, MConverter, SupportDataSource],
+    mixins: [MParent, MField, MConverter, SupportDataSource, MPreview],
     props: {
         value: [Array, String],
         min: { type: Number, default: 0 },

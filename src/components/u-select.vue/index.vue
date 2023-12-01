@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div v-show="!preview" :class="$style.root" :color="color || formItemVM && formItemVM.color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
+    <div v-show="!isPreview" :class="$style.root" :color="color || formItemVM && formItemVM.color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
     :clearable="clearable && !!(filterable ? filterText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
     :prefix="prefix" :suffix="suffix"
     :start="!!prefix"
@@ -126,7 +126,7 @@
             </div>
         </m-popper>
     </div>
-    <u-preview v-if="preview" :text="currentText"></u-preview>
+    <u-preview v-if="isPreview" :text="currentText"></u-preview>
 </div>
 </template>
 
@@ -137,9 +137,11 @@ import i18n from './i18n';
 import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
 import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-select',
+    mixins: [MPreview],
     component: {
         UPreview
     },

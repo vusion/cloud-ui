@@ -1,5 +1,5 @@
 <template>
-<span v-if="!preview" :class="$style.root" :width="width" :height="height">
+<span v-if="!isPreview" :class="$style.root" :width="width" :height="height">
     <u-input :class="$style.input" width="full" height="full" :value="genDisplayFormatText(inputTime)" :autofocus="autofocus" :disabled="!!readonly || disabled"
         ref="input"
         :clearable="clearable" :placeholder="placeholder"
@@ -51,6 +51,7 @@ import i18n from './i18n';
 import MField from '../m-field.vue';
 import UTimePickerPopper from './popper.vue';
 import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 
 /**
  * @class TimePicker
@@ -70,7 +71,7 @@ export default {
     name: 'u-time-picker',
     i18n,
     components: { UTimePickerPopper , UPreview },
-    mixins: [MField, DateFormatMixin],
+    mixins: [MField, DateFormatMixin, MPreview],
     props: {
         minUnit: { type: String, default: 'second' },
         time: { type: String, default: '' },
