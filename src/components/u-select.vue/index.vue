@@ -63,7 +63,7 @@
     </div>
     <span v-if="suffix" :name="suffix" :class="$style.suffix"
             @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-    <span v-if="!currentDisabled && !readonly && clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click.stop="clear"></span>
+    <span v-if="!currentDisabled && !readonly && clearable && !!(filterable ? filterText ||currentText : currentText)" :class="$style.clearable" @click.stop="clear"></span>
     <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"
         :style="{ width: currentPopperWidth }"
         :footer="showRenderFooter"

@@ -46,7 +46,7 @@ export default {
     computed: {
         strokeDasharray() {
             return (
-                2 * Math.PI * this.radius * this.percent * 0.01 + 'px 1000px'
+                2 * Math.PI * this.radius * (Number(this.percent) || 0) * 0.01 + 'px 1000px'
             );
         },
     },

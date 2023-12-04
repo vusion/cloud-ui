@@ -1,15 +1,35 @@
 import XLSX from 'xlsx';
 
-export function exportExcel(sheetData, sheetName, fileName, sheetTitle, columns, hasHeader) {
+export function exportExcel(aoa, sheetName, fileName, sheetTitle, columns, hasHeader,merges) {
+    // return;
     // 若有标题，添加标题到第一行
     const sheet = XLSX.utils.json_to_sheet([]);
     if (sheetTitle) {
         const endCell = XLSX.utils.encode_col(columns - 1) + 1;
-        XLSX.utils.sheet_add_aoa(sheet, [[sheetTitle]], {origin: {r:0, c:0}});
-        sheet["!merges"] = [XLSX.utils.decode_range(`A1:${endCell}`)];
-        XLSX.utils.sheet_add_json(sheet, sheetData, {origin: -1, skipHeader: !hasHeader});
+        XLSX.utils.sheet_add_aoa(sheet, [[sheetTitle]], { origin: { r: 0, c: 0 } });
+        XLSX.utils.sheet_add_aoa(sheet, aoa, { origin: 'A2' });
+        sheet['!merges'] = [XLSX.utils.decode_range(`A1:${endCell}`), ...merges.map((v) => ({
+            s: {
+                c: v.col,
+                r: v.row + 1,
+            },
+            e: {
+                c: v.col + v.colspan - 1,
+                r: v.row + 1 + v.rowspan - 1,
+            },
+        }))];
     } else {
-        XLSX.utils.sheet_add_json(sheet, sheetData, { skipHeader: !hasHeader});
+        XLSX.utils.sheet_add_aoa(sheet, aoa, { origin: 'A1' });
+        sheet['!merges'] = merges.map((v) => ({
+            s: {
+                c: v.col,
+                r: v.row,
+            },
+            e: {
+                c: v.col + v.colspan - 1,
+                r: v.row + v.rowspan - 1,
+            },
+        }));
     }
     // 将文本格式的内容，转化为日期和数字格式
     Object.keys(sheet).forEach((item) => {

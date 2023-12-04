@@ -4518,7 +4518,7 @@
     "description": ""
   },
   "u-info-list-item/span": {
-    "type": "string",
+    "type": "number",
     "description": "列跨越的格数"
   },
   "u-info-list-item/ellipsis": {
@@ -7889,6 +7889,18 @@
     "type": "boolean",
     "description": "设置是否可以配置展示列"
   },
+  "u-table-view/virtual": {
+    "type": "boolean",
+    "description": "虚拟滚动表示不展示所有的数据，只展示默认条数的数据，当滚动时再展示剩余的数据。当表格数据量大时，可设置为虚拟滚动，提高性能。默认关闭。"
+  },
+  "u-table-view/item-height": {
+    "type": "number",
+    "description": "与虚拟滚动配合使用，表示每一行的高度。请确保行里的数据不要换行"
+  },
+  "u-table-view/virtual-count": {
+    "type": "number",
+    "description": "与虚拟滚动配合使用，表示每屏展示的最大条数"
+  },
   "u-table-view/initial-load": {
     "type": "boolean",
     "description": "设置初始时是否立即加载"
@@ -8417,10 +8429,6 @@
   "u-tab/disabled": {
     "type": "boolean",
     "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）"
-  },
-  "u-taskbox/title": {
-    "type": "string",
-    "description": "鼠标 hover 在图标上展示文案"
   },
   "u-taskbox/icon": {
     "type": "icon",

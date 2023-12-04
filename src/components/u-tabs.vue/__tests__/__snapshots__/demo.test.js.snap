@@ -747,7 +747,7 @@ exports[`u-tabs.vue Demo-动态数据渲染 1`] = `
 
 exports[`u-tabs.vue Demo-动态数据渲染 2`] = `
 <div>
-  <div appear="square" class="root" contentfield="contentUrl" item-width="auto" size="normal">
+  <div appear="square" class="root" item-width="auto" size="normal">
     <div>
       <span vusion-slot-name="extra"> </span>
       <nav>

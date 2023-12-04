@@ -386,7 +386,7 @@
     --sidebar-group-head-color: #333333; /* @group 分组 */ /* @desc 侧边栏分组头部字体颜色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
     --sidebar-group-head-color-hover: var(--brand-primary); /* @group 分组 */ /* @desc 侧边栏分组头部字体颜色（hover状态）,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
     --sidebar-group-head-background-hover: #f5f5f5; /* @group 分组 */ /* @desc 侧边栏分组头部背景色（hover状态）,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
-    --sidebar-group-head-color-selected: var(--brand-primary); /* @group 分组 */ /* @desc 侧边栏分组头部选中背景色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
+    --sidebar-group-head-color-selected: var(--brand-primary); /* @hidden */
     --sidebar-group-head-border-bottom-width: 0px; /* @group 分组 */ /* @desc 侧边栏分组头部下边距宽度,如：1px */ /* @prefix sidebar-group */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
     --sidebar-group-head-border-bottom-color: #e5e5e5;/* @group 分组 */ /* @desc 侧边栏分组头部下边距颜色,如：#223325 */ /* @prefix sidebar-group */ /* @type color */ /* @excludeTags u-sidebar-item,u-sidebar-divider */
     --sidebar-divider-margin-y: 8px; /* @group 分隔符 */ /* @desc 侧边栏分隔符左外边距,如：1px */ /* @prefix sidebar-divider */ /* @excludeTags u-sidebar-item,u-sidebar-group */ /* @depStaticStyles { "u-sidebar-divider": ["margin-top", "margin-bottom"] } */
@@ -853,7 +853,7 @@
 
     /* @component u-table-view */
     --table-view-row-hover-background: #f9f9f9; /* @type color */ /* @group 行 */ /* @prefix table-view-row */ /* @desc 表格行背景色（hover状态）,如 #223325 */ /* @excludeElTags th */
-    --table-head-font-weight: normal; /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */
+    --table-head-font-weight: normal; /* @group 表头 */ /* @prefix table */ /* @desc 表格表头字体加粗,如 normal */ /* @excludeElTags td,th */ /* @depAttrs {"boldHeader": [false]} */
     --table-view-head-item-size: var(--font-size-base); /* @group 表头 */ /* @prefix table-view */ /* @desc 表格表头字体大小,如 1px */ /* @excludeElTags td */
     --table-row-background-striped: var(--background-color-lighter); /* @type color */ /* @group 行 */ /* @prefix table */ /* @desc 表格条纹展示行背景色,如 #223325 */ /* @excludeElTags th */
     --table-view-head-item-color: var(--gray-dark); /* @type color */ /* @group 表头 */  /* @prefix table-view */ /* @desc 表格表头文字颜色,如 #223325 */ /* @excludeElTags td */

@@ -20,7 +20,7 @@ module.exports = {
             { group: '指南', name: 'quickstart', alias: '快速开始', path: './docs/views/guide/quickstart.md' },
             { group: '指南', name: 'designprinciples', alias: '设计原则', path: './docs/views/guide/design-principles.vue' },
             { group: '指南', name: 'pattern', alias: '设计模式', path: './docs/views/guide/pattern.md' },
-            { group: '指南', name: 'changelog', alias: '更新日志', href: 'https://github.com/vusion/cloud-ui/releases', target: '_blank' },
+            // { group: '指南', name: 'changelog', alias: '更新日志', href: 'https://github.com/vusion/cloud-ui/releases', target: '_blank' }, //暂时隐藏
             { group: '指南', name: 'theme', alias: '主题', path: 'library/styles/theme.md' },
             { group: '指南', name: 'overview', alias: '快速预览', path: './docs/views/guide/overview.md' },
 
