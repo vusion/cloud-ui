@@ -278,18 +278,18 @@ export default {
         startDate(newValue) {
             this.startDateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
             this.finalStartDateTime = this.startDateTime;
-            this.$emit(
-                'update:startDate',
-                this.startDateTime,
-            );
+            // this.$emit(
+            //     'update:startDate',
+            //     this.startDateTime,
+            // );
         },
         endDate(newValue) {
             this.endDateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
             this.finalEndDateTime = this.endDateTime;
-            this.$emit(
-                'update:endDate',
-                this.endDateTime,
-            );
+            // this.$emit(
+            //     'update:endDate',
+            //     this.endDateTime,
+            // );
         },
         maxDate(value) {
             this.currentMaxDate = this.getMaxDate(value);
@@ -305,8 +305,8 @@ export default {
             'update',
             this.startDateTime && this.endDateTime ? [startDateTime, endDateTime] : '',
         );
-        this.$emit('update:startDate', startDateTime);
-        this.$emit('update:endDate', endDateTime);
+        this.$emit('update:startDate', startDateTime === '' ? undefined : startDateTime);
+        this.$emit('update:endDate', endDateTime === '' ? undefined : endDateTime);
     },
     mounted() {
         this.autofocus && this.$refs.input.focus();
@@ -360,6 +360,7 @@ export default {
         clearValue() {
             this.finalStartDateTime = undefined;
             this.finalEndDateTime = undefined;
+            this.emitValue();
         },
         toValue(date) {
             if (!date)

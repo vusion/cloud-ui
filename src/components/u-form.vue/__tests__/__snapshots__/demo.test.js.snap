@@ -832,7 +832,7 @@ exports[`u-form.vue Demo-分组 Small 1`] = `
                 <div class="root" color tabindex="0">
                   <span>b</span>
                   <span>请选择</span>
-                  <div style="direction: ltr;" tags-overflow="collapse">
+                  <div class style="direction: ltr;" tags-overflow="collapse">
                   </div>
                   <transition-stub name="fade" style="width: 100%;">
                     <div class="root" style="display: none;">
@@ -889,7 +889,7 @@ exports[`u-form.vue Demo-分组 Small 1`] = `
                 <div class="root" color tabindex="0">
                   <span>b</span>
                   <span>请选择</span>
-                  <div style="direction: ltr;" tags-overflow="collapse">
+                  <div class style="direction: ltr;" tags-overflow="collapse">
                   </div>
                   <transition-stub name="fade" style="width: 100%;">
                     <div class="root" style="display: none;">
@@ -1327,7 +1327,7 @@ exports[`u-form.vue Demo-折叠分组 1`] = `
                 <div class="root" color tabindex="0">
                   <span>b</span>
                   <span>请选择</span>
-                  <div style="direction: ltr;" tags-overflow="collapse">
+                  <div class style="direction: ltr;" tags-overflow="collapse">
                   </div>
                   <transition-stub name="fade" style="width: 100%;">
                     <div class="root" style="display: none;">
@@ -1388,7 +1388,7 @@ exports[`u-form.vue Demo-折叠分组 1`] = `
                 <div class="root" color tabindex="0">
                   <span>b</span>
                   <span>请选择</span>
-                  <div style="direction: ltr;" tags-overflow="collapse">
+                  <div class style="direction: ltr;" tags-overflow="collapse">
                   </div>
                   <transition-stub name="fade" style="width: 100%;">
                     <div class="root" style="display: none;">
@@ -1697,7 +1697,7 @@ exports[`u-form.vue Demo-栅格布局 1`] = `
           <div class="root" color tabindex="0">
             <span>b</span>
             <span style="display: none;">请选择</span>
-            <div style="direction: ltr;" tags-overflow="collapse">
+            <div class style="direction: ltr;" tags-overflow="collapse">
               认证中
             </div>
             <transition-stub name="fade" style="width: 100%;">
@@ -1723,7 +1723,7 @@ exports[`u-form.vue Demo-栅格布局 1`] = `
           <div class="root" color tabindex="0">
             <span>b</span>
             <span style="display: none;">请选择</span>
-            <div style="direction: ltr;" tags-overflow="collapse">
+            <div class style="direction: ltr;" tags-overflow="collapse">
               全部
             </div>
             <transition-stub name="fade" style="width: 100%;">
@@ -1886,7 +1886,7 @@ exports[`u-form.vue Demo-标签块级布局 1`] = `
                 <div class="root" color tabindex="0">
                   <span>b</span>
                   <span style="display: none;">请选择</span>
-                  <div style="direction: ltr;" tags-overflow="collapse">
+                  <div class style="direction: ltr;" tags-overflow="collapse">
                     认证中
                   </div>
                   <transition-stub name="fade" style="width: 100%;">
@@ -1912,7 +1912,7 @@ exports[`u-form.vue Demo-标签块级布局 1`] = `
                 <div class="root" color tabindex="0">
                   <span>b</span>
                   <span style="display: none;">请选择</span>
-                  <div style="direction: ltr;" tags-overflow="collapse">
+                  <div class style="direction: ltr;" tags-overflow="collapse">
                     全部
                   </div>
                   <transition-stub name="fade" style="width: 100%;">
@@ -2007,7 +2007,7 @@ exports[`u-form.vue Demo-行内 1`] = `
           <div class="root" color tabindex="0">
             <span>b</span>
             <span style="display: none;">请选择</span>
-            <div style="direction: ltr;" tags-overflow="collapse">
+            <div class style="direction: ltr;" tags-overflow="collapse">
               认证中
             </div>
             <transition-stub name="fade" style="width: 100%;">

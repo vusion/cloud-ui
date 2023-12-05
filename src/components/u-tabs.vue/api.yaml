@@ -42,7 +42,6 @@
       default: title
       description: 数据源集合的元素，用于显示标签标题的属性
       group: 数据属性
-      advanced: true
       brifeDoc: ""
       docDescription: 数据源集合的元素，用于显示标签标题的属性
       tooltipLink: ""
@@ -60,6 +59,15 @@
       title: 标签项内容值字段
       type: string
       default: url
+      description: 数据源集合的元素，用于标识当前打开的标签项
+      group: 数据属性
+      display: property-select
+      tooltipLink: ""
+      docDescription: 数据源集合的元素，用于标识当前打开的标签项
+    - name: content-field
+      title: 标签项内容值
+      type: string
+      default: ''
       description: 数据源集合的元素，用于标识当前打开的标签项
       group: 数据属性
       display: property-select

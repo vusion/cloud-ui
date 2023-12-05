@@ -34,14 +34,14 @@
                             <component v-if="flag !== 'download-icon' && isShowFileListItem(flag)" :style="fileListStyleInfos[flag]" :is="fileListComponentFlagMap[flag].is" v-bind="fileListComponentFlagMap[flag].getProps(item)" />
                             <a  v-else-if="downloadIconSwitcher && isShowFileListItem(flag)" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
                                 <i-ico :name="downloadIcon" icotype="only"></i-ico>
-                            </a> 
+                            </a>
                         </span>
                     <i-ico name="remove" :class="$style.remove" v-if="!readonly && !disabled && !$env.VUE_APP_DESIGNER" @click="remove(index)"></i-ico>
                     <u-linear-progress v-if="item.showProgress && !$env.VUE_APP_DESIGNER" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                 </div>
                 <div v-else>
                     <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
-                    <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name }}</a>
+                    <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name || item.url }}</a>
                     <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                 </div>
@@ -72,7 +72,7 @@
                 </f-scroll-view>
             </div>
         </template>
-        <span v-show="$env.VUE_APP_DESIGNER && listType === 'text'"  vusion-slot-name="file-list">   
+        <span v-show="$env.VUE_APP_DESIGNER && listType === 'text'"  vusion-slot-name="file-list">
             <slot name="file-list" ref="file-list"></slot>
         </span>
     </div>
@@ -202,37 +202,37 @@ export default {
         fileListComponentFlagMap() {
             return {
                 'file-icon': {
-                    is: 'i-ico', 
+                    is: 'i-ico',
                     getProps: (item) => {
                         return {
                             name: this.fileTypeIcon(item),
-                            icotype:"only"
+                            icotype: "only"
                         }
                     }
-                }, 
+                },
                 'file-name': {
-                    is: 'u-text', 
+                    is: 'u-text',
                     getProps: (item) => {
                         return {
-                            text: item.name,
-                            title: item.name,
+                            text: item.name || item.url,
+                            title: item.name || item.url,
                         }
                     }
-                }, 
+                },
                 'file-size': {
-                    is: 'u-text', 
+                    is: 'u-text',
                     getProps: (item) => {
                         return {
                             text: item.size ? this.displayFileSize(item.size) : ''
                         }
                     }
-                }, 
+                },
                 'download-icon': {
-                    is: 'i-ico', 
+                    is: 'i-ico',
                     getProps: (item) => {
                         return {
                             name: this.fileTypeIcon(item),
-                            icotype:"only"
+                            icotype: "only"
                         }
                     }
                 }
@@ -269,7 +269,7 @@ export default {
                 this.$nextTick(() => {
                     if(this.$env.VUE_APP_DESIGNER && this.$children.some(vm => vm.$attrs.flag === 'download-icon')) {
                         this.$children.find(vm => vm.$attrs.flag === 'download-icon').$el.style.display = switcher ? 'inline-block' : 'none';
-                   
+
                     }
                 })
             },
@@ -311,7 +311,7 @@ export default {
             return true
         },
         fileTypeIcon(item) {
-            const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes(item.name.split('.').pop()));
+            const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes((item.name || item.url).split('.').pop()));
             return !!iconInfo ? (iconInfo[1] || 'file-default') : 'file-default'
         },
         encodeUrl(url) {

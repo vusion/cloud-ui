@@ -275,6 +275,22 @@ export default {
 | ----- | ---- | ----------- |
 | $event | object | 鼠标事件对象 |
 
+#### @keydown
+
+键盘按键按下时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 键盘按键事件对象 |
+
+#### @keyup
+
+键盘按键松开时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 键盘按键事件对象 |
+
 Methods
 
 #### focus()

@@ -938,12 +938,10 @@ exports[`u-date-time-picker.vue date time range picker 1`] = `
       </span>
       <input height="full" type="text" width="full">
     </div>
-    <div class="input" height="full" prefix width="full">
+    <span class="toIcon"></span>
+    <div class="input" height="full" width="full">
       <span>b</span>
       <span></span>
-      <span name>
-        <span class="toIcon"></span>
-      </span>
       <input height="full" type="text" width="full">
     </div>
   </div>
@@ -1867,12 +1865,10 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
       </span>
       <input height="full" type="text" width="full">
     </div>
-    <div class="input" height="full" prefix width="full">
+    <span class="toIcon"></span>
+    <div class="input" height="full" width="full">
       <span>b</span>
       <span></span>
-      <span name>
-        <span class="toIcon"></span>
-      </span>
       <input height="full" type="text" width="full">
     </div>
   </div>

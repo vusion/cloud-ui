@@ -2,7 +2,9 @@
 <div :class="$style.root" ref="root" :border="border"
     @dragend="onDragEnd($event)"
     @drop="onDrop($event)"
-    @dragover="onRootDragover($event)">
+    @dragover="onRootDragover($event)"
+    @dragleave="onRootDragleave($event)"
+    @dragenter="onRootDragenter($event)">
     <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }" vusion-slot-name="title" vusion-slot-name-edit="title">
         <slot name="title">{{ title }}</slot>
     </div>
@@ -11,15 +13,15 @@
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
-            <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
+            <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :sticky-fixed="useStickyFixed" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth">
                 </colgroup>
                 <thead :grouped="hasGroupedColumn">
                     <tr v-for="(headTr, trIndex) in tableHeadTrArr">
                         <template v-for="(columnVM, columnIndex) in headTr">
                         <th
-                            v-if="columnVM.colSpan !== 0"
+                            v-if="columnVM&&columnVM.colSpan !== 0"
                             ref="th"
                             :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]"
                             :key="columnIndex"
@@ -91,20 +93,22 @@
         <div :class="$style.body" ref="body" :style="{ height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll"
             :sticky-fixed="useStickyFixed">
             <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
-            <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :style="{ width: number2Pixel(tableWidth)}">
+            <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :sticky-fixed="useStickyFixed" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
-                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth" />
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth">
                 </colgroup>
-                <tbody>
+                <tbody ref="virtual">
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
-                        <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
-                            :draggable="rowDraggable?rowDraggable:undefined"
+                        <template v-for="(item, rowIndex) in virtualList">
+                            <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item"
+                            v-if="item.display !== 'none'"
+                            :draggable="rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
-                            @dragstart="onDragStart($event, item, rowIndex)"
-                            @dragover="onDragOver($event, item, rowIndex)"
-                            @click="onClickRow($event, item, rowIndex)">
+                            @dragstart="onDragStart($event, item, rowIndex + virtualIndex)"
+                            @dragover="onDragOver($event, item, rowIndex + virtualIndex)"
+                            @click="onClickRow($event, item, rowIndex + virtualIndex)"
+                            @dblclick="onDblclickRow($event, item, rowIndex + virtualIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
                                         vusion-slot-name="cell"
@@ -144,7 +148,7 @@
                                                 name="expander"
                                                 :vm="columnVM"
                                                 :props="{
-                                                    item: getRealItem(item, rowIndex),
+                                                    item: getRealItem(item, rowIndex + virtualIndex),
                                                     value: $at(item, columnVM.field),
                                                     columnVM,
                                                     rowIndex,
@@ -153,8 +157,8 @@
                                                     columnItem: columnVM.columnItem,
                                                 }">
                                                 <u-table-view-expander
-                                                    :item="getRealItem(item, rowIndex)"
-                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                    :item="getRealItem(item, rowIndex + virtualIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))">
                                                 </u-table-view-expander>
                                             </f-slot>
 
@@ -164,12 +168,12 @@
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
-                                            <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                            <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field) || item) }}</span>
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable?handlerDraggable:undefined"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
                                             </span>
 
                                             <!-- type === 'expander' right -->
@@ -178,7 +182,7 @@
                                                 name="expander"
                                                 :vm="columnVM"
                                                 :props="{
-                                                    item: getRealItem(item, rowIndex),
+                                                    item: getRealItem(item, rowIndex + virtualIndex),
                                                     value: $at(item, columnVM.field),
                                                     columnVM,
                                                     rowIndex,
@@ -187,13 +191,13 @@
                                                     columnItem: columnVM.columnItem,
                                                 }">
                                                 <u-table-view-expander
-                                                    :item="getRealItem(item, rowIndex)"
-                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                    :item="getRealItem(item, rowIndex + virtualIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))">
                                                 </u-table-view-expander>
                                             </f-slot>
                                         </div>
                                         <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
-                                            <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                            <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                             </f-slot>
                                         </div>
                                     </td>
@@ -219,8 +223,8 @@
                                         >
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">
-                                                <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex }}</template>
-                                                <template v-else>{{ (columnVM.startIndex - 0) + rowIndex }}</template>
+                                                <template v-if="columnVM.autoIndex && usePagination && currentDataSource">{{ 1 + ((currentDataSource.paging.number - 1) * currentDataSource.paging.size) + rowIndex + virtualIndex }}</template>
+                                                <template v-else>{{ (columnVM.startIndex - 0) + rowIndex + virtualIndex }}</template>
                                             </span>
                                             <!-- type === 'radio' -->
                                             <span v-if="columnVM.type === 'radio'">
@@ -236,18 +240,18 @@
                                                 name="expander"
                                                 :vm="columnVM"
                                                 :props="{
-                                                    item: getRealItem(item, rowIndex),
+                                                    item: getRealItem(item, rowIndex + virtualIndex),
                                                     value: $at(item, columnVM.field),
                                                     columnVM,
                                                     rowIndex,
                                                     columnIndex,
                                                     index: rowIndex,
                                                     columnItem: columnVM.columnItem,
-                                                    toggle: () => toggleExpanded(getRealItem(item, rowIndex))
+                                                    toggle: () => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))
                                                 }">
                                                 <u-table-view-expander
-                                                    :item="getRealItem(item, rowIndex)"
-                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                    :item="getRealItem(item, rowIndex + virtualIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))">
                                                 </u-table-view-expander>
                                             </f-slot>
                                             <template v-if="treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex">
@@ -257,22 +261,22 @@
                                             </template>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
-                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable?handlerDraggable:undefined"></i-ico>
+                                                <i-ico :class="$style.dragHandler" name="dragHandler" :draggable="handlerDraggable && item.draggable || undefined" :disabled="!(handlerDraggable && item.draggable)"></i-ico>
                                             </span>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
-                                                <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap"
+                                                <div @dblclick.stop="onSetEditing(item, columnVM)" :class="$style.editablewrap"
                                                     :ellipsis="columnVM.ellipsis"
                                                     :style="{width:getEditablewrapWidth(item, columnIndex, treeColumnIndex)}"
                                                     :editing="item.editing === columnVM.field">
                                                     <div>
                                                         <template v-if="item.editing === columnVM.field">
-                                                            <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                            <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex }">
                                                                 <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
                                                         <template v-else>
-                                                            <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                                            <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex, columnItem: columnVM.columnItem }">
                                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
@@ -280,7 +284,7 @@
                                                 </div>
                                             </template>
                                             <template v-else>
-                                                <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
+                                                <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex, columnItem: columnVM.columnItem }">
                                                     <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                 </f-slot>
                                             </template>
@@ -291,18 +295,18 @@
                                                 name="expander"
                                                 :vm="columnVM"
                                                 :props="{
-                                                    item: getRealItem(item, rowIndex),
+                                                    item: getRealItem(item, rowIndex + virtualIndex),
                                                     value: $at(item, columnVM.field),
                                                     columnVM,
                                                     rowIndex,
                                                     columnIndex,
                                                     index: rowIndex,
                                                     columnItem: columnVM.columnItem,
-                                                    toggle: () => toggleExpanded(getRealItem(item, rowIndex))
+                                                    toggle: () => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))
                                                 }">
                                                 <u-table-view-expander
-                                                    :item="getRealItem(item, rowIndex)"
-                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex))">
+                                                    :item="getRealItem(item, rowIndex + virtualIndex)"
+                                                    @toggle="() => toggleExpanded(getRealItem(item, rowIndex + virtualIndex))">
                                                 </u-table-view-expander>
                                             </f-slot>
                                     </td>
@@ -330,7 +334,7 @@
                                 <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
                                     <f-collapse-transition>
                                         <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded">
-                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
+                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex: rowIndex + virtualIndex, index: rowIndex + virtualIndex }"></f-slot>
                                         </td>
                                     </f-collapse-transition>
                                 </tr>
@@ -397,6 +401,7 @@
                     </tr>
                 </tbody>
             </u-table>
+            <div ref="virtualPlaceholder" v-if="virtual"></div>
             </f-scroll-view>
         </div>
     </div>
@@ -408,7 +413,7 @@
         @change="page($event.page)" @change-page-size="page(1, $event.pageSize)">
     </u-pagination>
     <div><slot></slot></div>
-    <div v-if="draggable" ref="dragGhost" :class="$style.dragGhost" :designer="$env.VUE_APP_DESIGNER">
+    <div v-if="draggable || acrossTableDrag" ref="dragGhost" :class="$style.dragGhost" :designer="$env.VUE_APP_DESIGNER">
         <u-text color="secondary" :class="$style.text" v-if="$env.VUE_APP_DESIGNER">拖拽缩略图配置区域</u-text>
         <slot name="dragGhost" :item="dragState.source"></slot>
         <div vusion-slot-name="dragGhost" v-if="$env.VUE_APP_DESIGNER">
@@ -419,7 +424,7 @@
             </s-empty>
         </div>
     </div>
-    <div v-if="draggable" :class="$style.dragGhost">
+    <div v-if="draggable || acrossTableDrag" :class="$style.dragGhost">
         <div :class="$style.trdragGhost" ref="trDragGhost"></div>
     </div>
 </div>
@@ -437,6 +442,8 @@ import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
 import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
+import throttle from 'lodash/throttle';
+import FVirtualTable from './f-virtual-table.vue';
 
 export default {
     name: 'u-table-view',
@@ -444,7 +451,7 @@ export default {
         UTableViewDropGhost,
         SEmpty,
     },
-    mixins: [MEmitter],
+    mixins: [MEmitter, FVirtualTable],
     i18n,
     props: {
         boldHeader: {
@@ -539,6 +546,13 @@ export default {
         pagination: { type: Boolean, default: undefined },
         parentField: { type: String },
         configurable: { type: Boolean, default: false }, // 是否配置显隐列
+        canDragableHandler: Function,
+        canDropinHandler: Function,
+        acrossTableDrag: { type: Boolean, default: false }, // 是否跨表格拖拽
+        virtual: { type: Boolean, default: false },
+        // @inherit: virtualCount: { type: Number, default: 60 },
+        // @inherit: throttle: { type: Number, default: 60 },
+        listKey: { type: String, default: 'currentData' },
     },
     data() {
         return {
@@ -637,7 +651,7 @@ export default {
                         hashSet.add(id);
                     });
 
-                    checkedLength = this.currentValues.filter((v) => hashSet.has(v)).length;
+                    checkedLength = this.currentValues.filter((v) => hashSet.has(v) || hashSet.has(String(v))).length;
                 } else {
                     checkedLength = this.currentValues.length;
                 }
@@ -672,40 +686,65 @@ export default {
             return !!this.pagination;
         },
         hasGroupedColumn() {
-            return !!Object.keys(this.columnGroupVMs).length
+            return !!Object.keys(this.columnGroupVMs).length;
         },
         tableHeadTrArr() {
+            // 重置被自动合并的列
+            this.visibleColumnVMs.filter((column) => column.colSpan === 0)
+                .forEach((column) => column.colSpan = 1);
+            this.visibleColumnVMs.forEach((columnVM, index) => {
+                if (columnVM.colSpan > 1) {
+                    // 如果当前列有合并，那么后面的列自动覆盖不显示
+                    for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
+                        this.visibleColumnVMs[i].colSpan = 0;
+                    }
+                }
+            });
             if (!this.hasGroupedColumn) {
-                return [this.visibleColumnVMs]
+                return [this.visibleColumnVMs];
             } else {
-                const result = [[]]
-                let dynamicOffset = 0
-                // 重置被自动合并的列
-                this.visibleColumnVMs.filter(column => column.colSpan === 0)
-                    .forEach(column => column.colSpan = 1)
+                const result = [[]];
+                let dynamicOffset = 0;
                 this.visibleColumnVMs.forEach((columnVM, index) => {
                     if (!columnVM.isUnderGroup) {
-                        result[0].push(columnVM)
+                        result[0].push(columnVM);
                         // 统计出到当前 index 有多少个动态列（第一个动态列不计入，因为 vm 里已经占位，
                         // 目前每一个动态列的第一个 vm 都没有 dynamicId，所以可以通过这个来判断）
                         if (columnVM.$options.name === 'u-table-view-column-dynamic' && columnVM.dynamicId) {
-                            dynamicOffset++
+                            dynamicOffset++;
                         }
                     } else if (this.columnGroupVMs[index - dynamicOffset]) {
                         // 这里需要减去动态列带来的过多位移
-                        result[0].push(this.columnGroupVMs[index - dynamicOffset])
-                    }
-                    if (columnVM.colSpan > 1) {
-                        // 如果当前列有合并，那么后面的列自动覆盖不显示
-                        for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
-                            this.visibleColumnVMs[i].colSpan = 0;
+                        const groupVM = this.columnGroupVMs[index - dynamicOffset];
+                        result[0].push(groupVM);
+                        // 使用null占位来确保导出数据的正确形状
+                        const children = groupVM.$children || [];
+                        let columnVMCount = 0;
+                        for (let i = 0; i < children.length; ++i) {
+                            const vnode = children[i];
+                            if (vnode && vnode.$options && vnode.$options.name === 'u-table-view-column') {
+                                ++columnVMCount;
+                                if (columnVMCount > 1) {
+                                    result[0].push(null);
+                                }
+                            }
                         }
                     }
-                })
-                result[1] = this.visibleColumnVMs.filter(columnVM => columnVM.isUnderGroup)
-                return result
+                });
+                result[1] = result[0].reduce((acc, vm) => {
+                    if (vm === null) {
+                        return acc;
+                    }
+                    if (vm.$options.name !== 'u-table-view-column-group') {
+                        return [...acc, null]; // 使用null占位来确保导出数据的正确形状
+                    } else {
+                        return [...acc, ...vm.$children.filter((vnode) => vnode && vnode.$options && vnode.$options.name === 'u-table-view-column')];
+                    }
+                }, []);
+                // result[1] = this.visibleColumnVMs.filter((columnVM) => columnVM.isUnderGroup);
+                return result;
             }
-        }
+        },
     },
     watch: {
         data(data) {
@@ -722,7 +761,10 @@ export default {
 
             this.handleData();
         },
-        currentData(currentData) {
+        currentData(currentData, oldCurrentData) {
+            if (currentData !== oldCurrentData) {
+                this.selectedItem = undefined;
+            }
             this.watchValue(this.value);
             this.watchValues(this.values);
         },
@@ -826,6 +868,19 @@ export default {
                 this.configColumnVM.handleColumnsData();
             }
         },
+        draggable() {
+            this.processTableDraggable(true);
+        },
+        acrossTableDrag() {
+            this.processTableDraggable(true);
+        },
+        virtualTop() {
+            this.$refs.virtualPlaceholder[0].style.height = this.virtualTop + this.virtualBottom + 'px';
+            this.$refs.bodyTable[0].$el.style.transform = `translateY(${this.virtualTop}px)`;
+        },
+        virtualBottom() {
+            this.$refs.virtualPlaceholder[0].style.height = this.virtualTop + this.virtualBottom + 'px';
+        },
     },
     created() {
         // 自动补充 pageSizeOptions
@@ -849,6 +904,10 @@ export default {
         } else {
             this.initialLoad && this.load();
         }
+        this.throttledDragover = throttle(this.handleDragOver, 50, {
+            leading: false,
+            trailing: true,
+        });
     },
     updated() {
         if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
@@ -864,7 +923,7 @@ export default {
         this.watchValue(this.value);
         this.watchValues(this.values);
         this.handleResize();
-        addResizeListener(this.$el, this.handleResize);
+        addResizeListener(this.$el, this.handleResizeListener);
 
         if (this.stickHead) {
             this.scrollParentEl = findScrollParent(this.$el);
@@ -872,11 +931,12 @@ export default {
         }
     },
     destroyed() {
-        removeResizeListener(this.$el, this.handleResize);
+        removeResizeListener(this.$el, this.handleResizeListener);
         if (this.stickHead) {
             this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.onScrollParentScroll);
         }
         this.clearTimeout();
+        this.enterTarget = null;
     },
     methods: {
         isSimpleArray(arr) {
@@ -888,7 +948,14 @@ export default {
             );
         },
         getRealItem(item, rowIndex) {
-            return this.isSimpleArray(this.currentDataSource.data) ? (this.currentDataSource.arrangedData[rowIndex] && this.currentDataSource.arrangedData[rowIndex].simple) : item
+            const data = this.isSimpleArray(this.currentDataSource.data) ? (this.currentDataSource.arrangedData[rowIndex] && this.currentDataSource.arrangedData[rowIndex].simple) : item;
+            // 给u-table-view-expander用
+            try {
+                data.toggle = () => this.toggleExpanded(data);
+            } catch (error) {
+                console.warn('当前data不是一个对象');
+            }
+            return data;
         },
         typeCheck(type) {
             return [
@@ -909,11 +976,7 @@ export default {
             const expandable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'expander');
             const editable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'editable');
             // 拖拽设置
-            const dragHandler = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'dragHandler');
-            if (!this.$env.VUE_APP_DESIGNER) {
-                this.rowDraggable = this.draggable && !dragHandler;
-                this.handlerDraggable = this.draggable && dragHandler;
-            }
+            this.processTableDraggable();
             if (selectable) {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('disabled'))
@@ -938,6 +1001,11 @@ export default {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('editing'))
                         this.$set(item, 'editing', '');
+                });
+            }
+            if (this.draggable || this.acrossTableDrag) {
+                data.forEach((item) => {
+                    this.canDraggable(item);
                 });
             }
             return data;
@@ -1025,7 +1093,7 @@ export default {
         number2Pixel(value) {
             return isNumber(value) ? value + 'px' : '';
         },
-        handleResize() {
+        handleResize(reComputedWidth = true) {
             if (this.resizeBodyHeight) {
                 this.bodyHeight = undefined;
             }
@@ -1034,10 +1102,6 @@ export default {
                 this.timer = undefined;
 
                 let rootWidth = this.$el.offsetWidth;
-                // 放在线性布局flex下，或者某些设置了fit-content，table-width会缓慢增长，导致表格一直动
-                if (rootWidth > this.tableWidth && rootWidth - this.tableWidth <= 5) {
-                    rootWidth = this.tableWidth;
-                }
                 if (!rootWidth) {
                     // 初始表格隐藏时，上面的值为0，需要特殊处理
                     let parentEl = this.$el && this.$el.parentElement;
@@ -1046,130 +1110,135 @@ export default {
                     rootWidth = parentEl ? parentEl.offsetWidth : 0;
                 }
 
-                // 分别获取有百分比、具体数值和无 width 的列
-                const percentColumnVMs = [];
-                const valueColumnVMs = [];
-                const noWidthColumnVMs = []; // 统计固定列的数量
-                let fixedLeftCount = 0;
-                let fixedRightCount = 0;
-                let lastIsFixed = false;
-                let defaultColumnWidth = this.defaultColumnWidth;
-                if (String(defaultColumnWidth).endsWith('%')) {
-                    defaultColumnWidth = (parseFloat(defaultColumnWidth) * rootWidth) / 100;
-                }
-                defaultColumnWidth = defaultColumnWidth || 0;
-                this.visibleColumnVMs.forEach((columnVM, index) => {
-                    if (!columnVM.currentWidth) {
-                        noWidthColumnVMs.push(columnVM);
-                    } else if (String(columnVM.currentWidth).endsWith('%'))
-                        percentColumnVMs.push(columnVM);
-                    else
-                        valueColumnVMs.push(columnVM);
-                    // 当右侧有fixed，到当前列的时候却是非fixed，fixedRightCount置为0
-                    if (fixedRightCount && !columnVM.fixed) {
-                        fixedRightCount = 0;
+                // 重新计算列宽等，会导致表格重新渲染，如果组件因为重新渲染而加载，会导致宽高变化，导致handleResize再次触发
+                // 如果是监听Resize事件进来的，如果reComputedWidth是false，就不要重复计算
+                if (reComputedWidth) {
+                    this.preRootWidth = rootWidth;
+                    // 分别获取有百分比、具体数值和无 width 的列
+                    const percentColumnVMs = [];
+                    const valueColumnVMs = [];
+                    const noWidthColumnVMs = []; // 统计固定列的数量
+                    let fixedLeftCount = 0;
+                    let fixedRightCount = 0;
+                    let lastIsFixed = false;
+                    let defaultColumnWidth = this.defaultColumnWidth;
+                    if (String(defaultColumnWidth).endsWith('%')) {
+                        defaultColumnWidth = (parseFloat(defaultColumnWidth) * rootWidth) / 100;
                     }
-                    if (columnVM.fixed) {
-                        if (index === 0)
-                            fixedLeftCount = 1;
-                        else if (fixedLeftCount === index && lastIsFixed)
-                            fixedLeftCount++;
-                        else if (!lastIsFixed) {
-                            fixedRightCount = 1;
-                        } else
-                            fixedRightCount++;
-                    }
-                    lastIsFixed = columnVM.fixed;
-                });
-
-                // 全部都是百分数的情况，按比例缩小
-                if (percentColumnVMs.length === this.visibleColumnVMs.length) {
-                    const sumWidth = percentColumnVMs.reduce((prev, columnVM) => prev + parseFloat(columnVM.currentWidth), 0);
-                    if (sumWidth !== 100) {
-                        percentColumnVMs.forEach((columnVM) => {
-                            columnVM.currentWidth = (parseFloat(columnVM.currentWidth) / sumWidth) * 100 + '%';
-                        });
-                    }
-                }
-
-                // 全部都是数值的情况，按实际大小
-                const percentWidthSum = percentColumnVMs.reduce((prev, columnVM) => {
-                    columnVM.computedWidth = (parseFloat(columnVM.currentWidth) * rootWidth) / 100;
-                    return prev + columnVM.computedWidth;
-                }, 0);
-                const valueWidthSum = valueColumnVMs.reduce((prev, columnVM) => {
-                    columnVM.computedWidth = parseFloat(columnVM.currentWidth);
-                    return prev + columnVM.computedWidth;
-                }, 0);
-
-                const remainingWidth = rootWidth - percentWidthSum - valueWidthSum;
-                if (remainingWidth > 0 && noWidthColumnVMs.length) {
-                    const averageWidth = remainingWidth / noWidthColumnVMs.length;
-                    const finalWidth = averageWidth > defaultColumnWidth ? averageWidth : defaultColumnWidth;
-                    noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = finalWidth);
-                } else if (remainingWidth > 0 && valueWidthSum !== 0) {
-                    const averageWidth = remainingWidth / valueColumnVMs.length;
-                    valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
-                } else if (remainingWidth < 0 && noWidthColumnVMs.length) {
-                    noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = defaultColumnWidth || 100);
-                }
-
-                // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
-                let tableWidth = '';
-                if (this.visibleColumnVMs.some((columnVM) => columnVM.currentWidth) || defaultColumnWidth) {
-                    tableWidth = this.visibleColumnVMs.reduce((prev, columnVM) => {
-                        if (String(columnVM.currentWidth).endsWith('%'))
-                            return (prev + (parseFloat(columnVM.currentWidth) * rootWidth) / 100);
+                    defaultColumnWidth = defaultColumnWidth || 0;
+                    this.visibleColumnVMs.forEach((columnVM, index) => {
+                        if (!columnVM.currentWidth) {
+                            noWidthColumnVMs.push(columnVM);
+                        } else if (String(columnVM.currentWidth).endsWith('%'))
+                            percentColumnVMs.push(columnVM);
                         else
-                            return prev + columnVM.computedWidth;
-                    }, 0);
-                    this.tableWidth = tableWidth;
-                } else
-                    this.tableWidth = tableWidth = rootWidth; // @important: Work with overflow-x: hidden to prevent two horizontal scrollbar
+                            valueColumnVMs.push(columnVM);
+                        // 当右侧有fixed，到当前列的时候却是非fixed，fixedRightCount置为0
+                        if (fixedRightCount && !columnVM.fixed) {
+                            fixedRightCount = 0;
+                        }
+                        if (columnVM.fixed) {
+                            if (index === 0)
+                                fixedLeftCount = 1;
+                            else if (fixedLeftCount === index && lastIsFixed)
+                                fixedLeftCount++;
+                            else if (!lastIsFixed) {
+                                fixedRightCount = 1;
+                            } else
+                                fixedRightCount++;
+                        }
+                        lastIsFixed = columnVM.fixed;
+                    });
 
-                const tableMetaList = [this.tableMetaList[0]];
-                tableMetaList[0].width = rootWidth;
-                if (!this.useStickyFixed) {
-                    if (fixedLeftCount) {
-                        tableMetaList.push({
-                            position: 'left',
-                            width: this.visibleColumnVMs.slice(0, fixedLeftCount)
-                                .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
-                        });
+                    // 全部都是百分数的情况，按比例缩小
+                    if (percentColumnVMs.length === this.visibleColumnVMs.length) {
+                        const sumWidth = percentColumnVMs.reduce((prev, columnVM) => prev + parseFloat(columnVM.currentWidth), 0);
+                        if (sumWidth !== 100) {
+                            percentColumnVMs.forEach((columnVM) => {
+                                columnVM.currentWidth = (parseFloat(columnVM.currentWidth) / sumWidth) * 100 + '%';
+                            });
+                        }
                     }
-                    if (fixedRightCount && tableWidth > rootWidth) {
-                        // 表格太短时，不固定右侧列
-                        tableMetaList.push({
-                            position: 'right',
-                            width: this.visibleColumnVMs.slice(-fixedRightCount)
-                                .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
-                        });
+
+                    // 全部都是数值的情况，按实际大小
+                    const percentWidthSum = percentColumnVMs.reduce((prev, columnVM) => {
+                        columnVM.computedWidth = (parseFloat(columnVM.currentWidth) * rootWidth) / 100;
+                        return prev + columnVM.computedWidth;
+                    }, 0);
+                    const valueWidthSum = valueColumnVMs.reduce((prev, columnVM) => {
+                        columnVM.computedWidth = parseFloat(columnVM.currentWidth);
+                        return prev + columnVM.computedWidth;
+                    }, 0);
+
+                    const remainingWidth = rootWidth - percentWidthSum - valueWidthSum;
+                    if (remainingWidth > 0 && noWidthColumnVMs.length) {
+                        const averageWidth = remainingWidth / noWidthColumnVMs.length;
+                        const finalWidth = averageWidth > defaultColumnWidth ? averageWidth : defaultColumnWidth;
+                        noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = finalWidth);
+                    } else if (remainingWidth > 0 && valueWidthSum !== 0) {
+                        const averageWidth = remainingWidth / valueColumnVMs.length;
+                        valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
+                    } else if (remainingWidth < 0 && noWidthColumnVMs.length) {
+                        noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = defaultColumnWidth || 100);
                     }
-                    this.tableMetaList = tableMetaList;
-                } else {
-                    this.fixedLeftList = [];
-                    this.fixedRightList = [];
-                    if (fixedLeftCount) {
-                        this.visibleColumnVMs.slice(0, fixedLeftCount)
-                            .reduce((prev, columnVM) => {
-                                this.fixedLeftList.push({
-                                    columnVM,
-                                    left: prev,
-                                });
+
+                    // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
+                    let tableWidth = '';
+                    if (this.visibleColumnVMs.some((columnVM) => columnVM.currentWidth) || defaultColumnWidth) {
+                        tableWidth = this.visibleColumnVMs.reduce((prev, columnVM) => {
+                            if (String(columnVM.currentWidth).endsWith('%'))
+                                return (prev + (parseFloat(columnVM.currentWidth) * rootWidth) / 100);
+                            else
                                 return prev + columnVM.computedWidth;
-                            }, 0);
-                    }
-                    if (fixedRightCount && tableWidth > rootWidth) {
-                        // 表格太短时，不固定右侧列
-                        const visibleColumnVMs = this.visibleColumnVMs.slice(-fixedRightCount);
-                        visibleColumnVMs.reverse()
-                            .reduce((prev, columnVM) => {
-                                this.fixedRightList.push({
-                                    columnVM,
-                                    right: prev,
-                                });
-                                return prev + columnVM.computedWidth;
-                            }, 0);
+                        }, 0);
+                        this.tableWidth = tableWidth;
+                    } else
+                        this.tableWidth = tableWidth = rootWidth; // @important: Work with overflow-x: hidden to prevent two horizontal scrollbar
+
+                    const tableMetaList = [this.tableMetaList[0]];
+                    tableMetaList[0].width = rootWidth;
+                    if (!this.useStickyFixed) {
+                        if (fixedLeftCount) {
+                            tableMetaList.push({
+                                position: 'left',
+                                width: this.visibleColumnVMs.slice(0, fixedLeftCount)
+                                    .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
+                            });
+                        }
+                        if (fixedRightCount && tableWidth > rootWidth) {
+                            // 表格太短时，不固定右侧列
+                            tableMetaList.push({
+                                position: 'right',
+                                width: this.visibleColumnVMs.slice(-fixedRightCount)
+                                    .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
+                            });
+                        }
+                        this.tableMetaList = tableMetaList;
+                    } else {
+                        this.fixedLeftList = [];
+                        this.fixedRightList = [];
+                        if (fixedLeftCount) {
+                            this.visibleColumnVMs.slice(0, fixedLeftCount)
+                                .reduce((prev, columnVM) => {
+                                    this.fixedLeftList.push({
+                                        columnVM,
+                                        left: prev,
+                                    });
+                                    return prev + columnVM.computedWidth;
+                                }, 0);
+                        }
+                        if (fixedRightCount && tableWidth > rootWidth) {
+                            // 表格太短时，不固定右侧列
+                            const visibleColumnVMs = this.visibleColumnVMs.slice(-fixedRightCount);
+                            visibleColumnVMs.reverse()
+                                .reduce((prev, columnVM) => {
+                                    this.fixedRightList.push({
+                                        columnVM,
+                                        right: prev,
+                                    });
+                                    return prev + columnVM.computedWidth;
+                                }, 0);
+                        }
                     }
                 }
 
@@ -1316,6 +1385,8 @@ export default {
             if (!this.useStickyFixed) {
                 this.syncScrollViewScroll(data.scrollTop, data.target);
             }
+            if (this.virtual)
+                this.throttledVirtualScroll(data);
             if (this.$refs.scrollView[0].$refs.wrap === data.target) {
                 this.$refs.head[0].scrollLeft = data.scrollLeft;
                 this.scrollXStart = data.scrollLeft === 0;
@@ -1374,10 +1445,11 @@ export default {
         },
         reload() {
             this.currentDataSource.clearLocalData();
+            this.clearDragState();
             this.load();
             console.log('table reload');
             if (this.dynamicColumnVMs.length) {
-                this.dynamicColumnVMs.forEach(vm => vm.reload());
+                this.dynamicColumnVMs.forEach((vm) => vm.reload());
             }
         },
         getFields() {
@@ -1421,8 +1493,11 @@ export default {
                 const hasHeader = !!this.$el.querySelector('[position=static] thead tr');
 
                 let content = [];
+                let mergesMap = [];
                 if (!this.currentDataSource._load) {
-                    content = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader);
+                    const result = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader);
+                    content = result[0];
+                    mergesMap = result[1];
                 } else {
                     // console.time('加载数据');
                     let res = await this.currentDataSource._load({ page, size, filename, sort, order });
@@ -1441,15 +1516,15 @@ export default {
                         return;
                     }
 
-                    content = await this.getRenderResult(res, excludeColumns, hasHeader);
+                    const result = await this.getRenderResult(res, excludeColumns, hasHeader);
+                    content = result[0];
+                    mergesMap = result[1];
                 }
 
                 // console.time('生成文件');
-                const columns = this.visibleColumnVMs.length;
-                const sheetData = this.getSheetData(content, hasHeader, columns);
                 const sheetTitle = this.title || undefined;
                 const { exportExcel } = require('../../utils/xlsx');
-                exportExcel(sheetData, 'Sheet1', filename, sheetTitle, columns, hasHeader);
+                exportExcel(content, 'Sheet1', filename, sheetTitle, (content[0] || []).length, hasHeader, mergesMap);
                 // console.timeEnd('生成文件');
             } catch (err) {
                 console.error(err);
@@ -1462,16 +1537,46 @@ export default {
             document.removeEventListener('keydown', fn, true);
         },
         async getRenderResult(arr = [], excludeColumns = [], hasHeader = true) {
+            let mergesMap = [];
             if (arr.length === 0) {
                 if (!hasHeader)
                     return [];
-
-                let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => Array.from(tr.querySelectorAll('th')).map((node) => node.innerText));
-                res[1] = res[0].map((item) => '');
-                res = this.removeExcludeColumns(res, excludeColumns);
-                return res;
             }
 
+            const titleColIndexRelations = [];
+            let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr, rowIndex) => Array.from(tr.childNodes).map((node, colIndex) => {
+                if (node.nodeName === 'TH') {
+                    const rowspan = parseInt(node.getAttribute('rowspan')) || 1;
+                    const colspan = parseInt(node.getAttribute('colspan')) || 1;
+                    let title = '';
+
+                    // 如果列表里是输入框，拿框里的结果填入excel
+                    const inputElement = node.getElementsByTagName('input');
+                    const placeholderElement = Array.from(node.getElementsByTagName('span')).filter((item) => item.className.includes('u-select_placeholder'));
+                    if (inputElement.length !== 0) {
+                        title = inputElement[0].value;
+                    } else {
+                        // 下拉框未选则时，placeholder内容不显示
+                        if (placeholderElement.length !== 0 && placeholderElement[0].innerText === node.innerText) {
+                            title = '';
+                        } else {
+                            title = node.innerText;
+                        }
+                    }
+                    if (rowspan !== 1 || colspan !== 1) {
+                        mergesMap.push({
+                            col: colIndex,
+                            row: rowIndex,
+                            rowspan,
+                            colspan,
+                        });
+                    }
+                    titleColIndexRelations.push([title, Array.from({ length: colspan }, (_, idx) => idx + colIndex)]);
+                    return title;
+                } else {
+                    return null;
+                }
+            }));
             // console.time('渲染数据');
             const startIndexes = [];
             for (let i = 0; i < this.visibleColumnVMs.length; i++) {
@@ -1480,27 +1585,45 @@ export default {
                     startIndexes[i] = +vm.startIndex;
             }
 
-            let res = [];
             // this.currentDataSource.paging.size 会受可分页选项影响，直接改成pageSize
             const page = this.pageSize;
+            const headerRowCount = res.length;
+
             for (let i = 0; i < arr.length; i += page) {
                 this.exportData = arr.slice(i, i + page);
                 await new Promise((res) => {
                     this.$once('hook:updated', res);
                 });
-                const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => Array.from(tr.querySelectorAll('th, td')).map(
-                    (node) => {
-                        // 如果列表里是输入框，拿框里的结果填入excel
-                        const inputElement = node.getElementsByTagName('input');
-                        const placeholderElement = Array.from(node.getElementsByTagName('span')).filter((item) => item.className.includes('u-select_placeholder'));
-                        if (inputElement.length !== 0) {
-                            return inputElement[0].value;
-                        } else {
-                            // 下拉框未选则时，placeholder内容不显示
-                            if (placeholderElement.length !== 0 && placeholderElement[0].innerText === node.innerText) {
-                                return '';
+                const res1 = Array.from(this.$el.querySelectorAll('[position=static] tbody tr')).map((tr, rowIndex) => Array.from(tr.childNodes).map(
+                    (node, colIndex) => {
+                        if (node.nodeName === 'TD' || node.nodeName === 'TH') {
+                            let title = '';
+                            const inputElement = node.getElementsByTagName('input');
+                            const placeholderElement = Array.from(node.getElementsByTagName('span')).filter((item) => item.className.includes('u-select_placeholder'));
+                            if (inputElement.length !== 0) {
+                                title = inputElement[0].value;
+                            } else {
+                                // 下拉框未选则时，placeholder内容不显示
+                                if (placeholderElement.length !== 0 && placeholderElement[0].innerText === node.innerText) {
+                                    title = '';
+                                } else {
+                                    title = node.innerText;
+                                }
                             }
-                            return node.innerText;
+                            const rowspan = parseInt(node.getAttribute('rowspan')) || 1;
+                            const colspan = parseInt(node.getAttribute('colspan')) || 1;
+
+                            if (rowspan !== 1 || colspan !== 1) {
+                                mergesMap.push({
+                                    col: colIndex,
+                                    row: rowIndex + i + headerRowCount,
+                                    rowspan,
+                                    colspan,
+                                });
+                            }
+                            return title;
+                        } else {
+                            return null;
                         }
                     },
                 ));
@@ -1511,11 +1634,13 @@ export default {
                 const item = res[rowIndex];
                 for (let j = 0; j < item.length; j++) {
                     if (startIndexes[j] !== undefined)
-                        item[j] = startIndexes[j] + (hasHeader ? rowIndex - 1 : rowIndex);
+                        item[j] = startIndexes[j] + (hasHeader ? rowIndex - headerRowCount : rowIndex);
                 }
             }
 
-            res = this.removeExcludeColumns(res, excludeColumns);
+            const newResult = this.removeExcludeColumns(res, excludeColumns, mergesMap, titleColIndexRelations);
+            res = newResult[0];
+            mergesMap = newResult[1];
 
             // console.timeEnd('渲染数据');
 
@@ -1526,26 +1651,51 @@ export default {
             });
             // console.timeEnd('复原表格');
 
-            return res;
+            return [res, mergesMap];
         },
-        removeExcludeColumns(data, excludeColumns) {
-            const excludeIndex = [];
-            // 如果表头加了其他组件，如筛选下拉框，可能后面会有空格，把空格去掉
-            const titles = (data[0] || []).map((title) => title.trim());
-            // 过滤掉title为空的，如多选列等
-            titles.forEach((title, index) => {
-                if (title === '') {
-                    excludeIndex.push(index);
+        removeExcludeColumns(data, excludeColumns, merges, titleColIndexRelations) {
+            const excludeIndexMap = {};
+            const excludeColumnsMap = excludeColumns.reduce((acc, title) => ({
+                ...acc,
+                [title]: true,
+            }), {});
+
+            titleColIndexRelations.forEach(([titleRaw, colIndexs]) => {
+                const title = titleRaw.trim();
+                if (title === '' || excludeColumnsMap[title]) { // 过滤掉title为空字符串和命中excludeColumns
+                    colIndexs.forEach((index) => {
+                        excludeIndexMap[index] = true;
+                    });
                 }
             });
-            for (const title of excludeColumns) {
-                const titleTemp = title.trim();
-                const pos = titles.indexOf(titleTemp);
-                if (pos >= 0)
-                    excludeIndex.push(pos);
-            }
 
-            return data.map((arr) => arr.filter((item, index) => !excludeIndex.includes(index)));
+            let removeColCount = 0;
+            const removeColHelperArr = Array.from({ length: (data[0] || []).length }).map((_, index) => {
+                if (excludeIndexMap[index]) {
+                    ++removeColCount;
+                }
+                return removeColCount;
+            });
+            const newMerges = merges.map((merge) => {
+                const colStart = merge.col;
+                const colEnd = merge.col + merge.colspan - 1;
+                if (merge.colspan === 1 && excludeIndexMap[colStart]) {
+                    return null;
+                }
+                const newColStart = Math.max(colStart - removeColHelperArr[colStart], 0);
+                const newColEnd = colEnd - removeColHelperArr[colEnd];
+                const newColspan = newColEnd - newColStart + 1;
+                if (newColspan <= 0 || newColspan === 1 && merge.rowspan === 1) {
+                    return null;
+                }
+                return {
+                    ...merge,
+                    col: newColStart,
+                    colspan: newColspan,
+                };
+            }).filter(Boolean);
+
+            return [data.map((arr) => arr.filter((item, index) => !excludeIndexMap[index])), newMerges];
         },
         getSheetData(arr, hasHeader = true, columns) {
             const titles = hasHeader ? arr[0] : Array.from({ length: columns }, (item, index) => index);
@@ -1658,12 +1808,12 @@ export default {
         },
         /* Selection Methods */
         watchValue(value) {
-            if (this.selectedItem && this.$at(this.selectedItem, this.valueField) === value)
+            if (this.selectedItem && (this.$at(this.selectedItem, this.valueField) === value || String(this.$at(this.selectedItem, this.valueField)) === String(value)))
                 return;
             if (value === undefined)
                 this.selectedItem = undefined;
             else {
-                this.selectedItem = this.currentData && this.currentData.find((item) => this.$at(item, this.valueField) === value); // @TODO: Group
+                this.selectedItem = this.currentData && this.currentData.find((item) => this.$at(item, this.valueField) === value || String(this.$at(item, this.valueField)) === String(value)); // @TODO: Group
             }
         },
         watchValues(values) {
@@ -1671,7 +1821,7 @@ export default {
                 return;
             if (values) {
                 this.currentValues = values;
-                this.currentData && this.currentData.forEach((item) => (item.checked = values.includes(this.$at(item, this.valueField))));
+                this.currentData && this.currentData.forEach((item) => (item.checked = !!values.find(v=>v === this.$at(item, this.valueField) || String(v) === String(this.$at(item, this.valueField)))));
             } else {
                 const values = [];
                 this.currentData && this.currentData.forEach((item) => item.checked && values.push(this.$at(item, this.valueField)));
@@ -1840,7 +1990,7 @@ export default {
         getCheckedItems() {
             const items = [];
             Object.keys(this.checkedItems).forEach((itemKey) => {
-                const inValues = this.currentValues.find((value) => '' + value === itemKey);
+                const inValues = this.currentValues.find((value) => '' + value === itemKey || String(value) === String(itemKey));
                 if (inValues) {
                     items.push(this.checkedItems[itemKey]);
                 }
@@ -1931,8 +2081,8 @@ export default {
                         this.check(item, item.checked, true);
                     }
                     // 促使currentData更新
-                    const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField));
-                    const newDataIndex = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(result[0], this.valueField));
+                    const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField) || String(this.$at(currentData, this.valueField)) === String(this.$at(item, this.valueField)));
+                    const newDataIndex = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(result[0], this.valueField) || String(this.$at(currentData, this.valueField)) === String(this.$at(result[0], this.valueField)));
                     if (index !== -1 && newDataIndex === -1) {
                         const treeData = this.processTreeData(result, item.tableTreeItemLevel + 1, item);
                         this.currentData.splice(index + 1, 0, ...treeData);
@@ -1942,6 +2092,9 @@ export default {
                 });
             } else {
                 this.updateTreeExpanded(item, expanded);
+            }
+            if (this.virtual) {
+                this.throttledVirtualScroll({ target: this.$refs.scrollView[0].$refs.wrap });
             }
         },
         /**
@@ -1975,6 +2128,7 @@ export default {
                     }
                 });
             });
+            expandNode.expanded = expanded;
             this.$forceUpdate(); // 有loading的情况下，forceUpdate才会更新
         },
         onSetEditing(item, columnVM) {
@@ -1991,13 +2145,17 @@ export default {
             const style = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.style);
             const staticStyle = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.staticStyle);
             if (this.useStickyFixed) {
+                const elZIndex = +this.$el.style.zIndex;
+                // --z-index-layout: 100, 可能用于导航栏fixed，不能大于它
+                const zIndex = elZIndex > 99 ? elZIndex : 99;
                 if (this.fixedLeftList && this.fixedLeftList.length) {
                     const leftData = this.fixedLeftList[index];
                     if (leftData !== undefined && columnVM === leftData.columnVM) {
                         return Object.assign(staticStyle, style, {
                             position: 'sticky',
                             left: leftData.left + 'px',
-                            zIndex: 1,
+                            zIndex,
+                            overflow: 'hidden',
                         });
                     }
                 }
@@ -2008,7 +2166,8 @@ export default {
                         return Object.assign(staticStyle, style, {
                             position: 'sticky',
                             right: rightData.right + 'px',
-                            zIndex: 1,
+                            zIndex,
+                            overflow: 'hidden',
                         });
                     }
                 }
@@ -2024,7 +2183,12 @@ export default {
         /**
          * 拖拽开始
          */
-        onDragStart(e, item, rowIndex) {
+        async onDragStart(e, item, rowIndex) {
+            // 当不可拖拽节点里的文字双击选中时再拖拽，会触发dragstart事件，这里需要屏蔽
+            await this.canDraggable(item);
+            if (item.draggable === false) {
+                return;
+            }
             e.dataTransfer.setDragImage(this.getDragImage(e), 0, 0);
             this.dragState = {
                 dragging: true,
@@ -2040,24 +2204,77 @@ export default {
             // 该节点下的所有子节点不要响应dragover
             this.currentData.forEach((citem) => {
                 citem.draggoverDisabled = this.isSubNode(citem, item);
-                citem.disabledDrop = this.treeDisplay ? citem.disabled || citem.dropDisabled : true;
+                if (this.treeDisplay) {
+                    this.canDropin(citem);
+                } else {
+                    citem.disabledDrop = true;
+                }
             });
             // 本身不要线
             item.draggoverDisabled = true;
             this.$emit('dragstart', {
                 source: this.dragState.sourceData,
             });
+            this.currentDragoverItem = null;
+            if (this.acrossTableDrag) {
+                const dragStartData = {
+                    source: item,
+                    sourcePath: rowIndex, // 这里需要是表格中的具体行值，用于drop的时候判断
+                    sourceData: {
+                        item,
+                        level: item.tableTreeItemLevel,
+                        index: this.findItemIndex(item),
+                    },
+                };
+                e.dataTransfer.setData('application/json', JSON.stringify(dragStartData));
+                // 当不可拖拽节点里的文字双击选中时再拖拽，会触发dragstart事件，dragover的时候也会响应
+                // 这里增加信息，dragover的时候可以处理是否响应
+                e.dataTransfer.setData('info/acrosstabledrag', '');
+            }
         },
         /**
          * 拖拽经过行
          */
         onDragOver(e, item, rowIndex) {
             e.preventDefault();
-            if (!this.dragState.dragging)
+            // 表格内部或者跨表格可拖拽，其他屏蔽
+            if (!this.dragState.dragging && !this.acrossTableDrag)
                 return;
             if (item.draggoverDisabled) {
                 return;
             }
+            if (this.acrossTableDrag) {
+                const types = (e.dataTransfer && e.dataTransfer.types) || [];
+                const isAcrossTableDrag = types.find((type) => type === 'info/acrosstabledrag');
+                if (!isAcrossTableDrag)
+                    return;
+            }
+            // 行之间可以放
+            if (this.draggable) {
+                this.currentDragoverItem = item;
+                // 快速移动的时候不要计算
+                this.dragoverTimer = setTimeout(() => {
+                    if (this.currentDragoverItem === item) {
+                        this.throttledDragover(e, item, rowIndex);
+                    } else {
+                        clearTimeout(this.dragoverTimer);
+                        this.throttledDragover.cancel();
+                    }
+                }, 200);
+            } else if (this.acrossTableDrag) {
+                // 只能放入整个表格，并且是拖拽节点所在表格外的其他表格展示放置样式，拖拽节点所在的表格不展示放置样式
+                // this.dragState.sourcePath === undefined，表示是拖拽节点所在表格外的其他表格，因为其他表格没有响应dragstart事件，所以sourcePath为undefined
+                if (!this.dropData && this.dragState.sourcePath === undefined) {
+                    this.dropData = {
+                        dragoverElRect: this.$refs.body[0].getBoundingClientRect(),
+                        parentElRect: this.$refs.root.getBoundingClientRect(),
+                        position: 'append',
+                        left: 0,
+                    };
+                }
+            }
+        },
+        handleDragOver(e, item, rowIndex) {
             // 查找到tr行
             const target = this.getTrEl(e);
             const trRect = target.getBoundingClientRect();
@@ -2079,6 +2296,8 @@ export default {
                 if (treeExpanderEl) {
                     placeholderWith = treeExpanderEl.offsetWidth;
                 }
+            } else {
+                item.disabledDrop = true;
             }
 
             const disabledDrop = item.disabledDrop || item.draggoverDisabled;
@@ -2096,8 +2315,10 @@ export default {
                 // 在下部
                 position = 'insertAfter';
                 let level = (item.tableTreeItemLevel || 0);
-                if (item.expanded && item.children.length) {
-                    level = level + 1;
+                if (item.expanded) {
+                    const childList = this.$at(item, this.childrenField);
+                    if (childList && childList.length)
+                        level = level + 1;
                 }
                 left = level ? indentElRect.left - trRect.left : 0;
                 placeholderWith = level ? placeholderWith : 0;
@@ -2110,9 +2331,9 @@ export default {
             }
 
             // 如果一直更新会卡顿，这里设置有不一样的时候才更新
-            if (!this.dropData
+            if (!!this.currentDragoverItem && (!this.dropData
                 || JSON.stringify(this.dropData.dragoverElRect) !== JSON.stringify(trRect)
-                || this.dropData.position !== position) {
+                || this.dropData.position !== position)) {
                 this.dropData = {
                     dragoverElRect: trRect,
                     parentElRect: this.$refs.root.getBoundingClientRect(),
@@ -2139,12 +2360,48 @@ export default {
             if (!this.subTreeLoading)
                 this.clearDragState();
             this.$emit('dragend');
+            this.cleartDragoverTimer();
+            // item里添加的辅助拖拽字段需要删除，不然跨表格拖拽时会影响下一次的拖拽
+            this.clearDragItemData();
         },
         /**
          * 拖拽放置
          */
         onDrop(e) {
-            if (this.dragState
+            // 跨表格与表格内拖拽的drop处理区分开来
+            if (this.acrossTableDrag && this.dropData) {
+                const dragStartData = JSON.parse(e.dataTransfer.getData('application/json') || '{}');
+                ['disabledDrop', 'draggoverDisabled'].forEach((key) => {
+                    if (dragStartData.sourceData && dragStartData.sourceData.item) {
+                        delete dragStartData.sourceData.item[key];
+                    }
+                    if (dragStartData.targetData && dragStartData.targetData.item) {
+                        delete this.dragState.targetData.item[key];
+                    }
+                });
+                // 如果当前表格内部没有开启拖拽，那么放置到当前表格不应该有drop事件
+                if (!this.draggable && this.dragState.sourcePath === undefined) {
+                    this.$emit('drop', {
+                        source: dragStartData.sourceData,
+                        target: this.dragState.targetData,
+                        position: this.dropData && this.dropData.position || 'append',
+                        finalSource: null,
+                    });
+                } else if (this.draggable) {
+                    // 表格内拖拽，sourcePath和targetPath不一样的时候才emit事件
+                    // 当元素被移除的时候可能不会触发dragend，结合判断数据是否在table里
+                    const inTable = this.valueField ? dragStartData.sourceData && dragStartData.sourceData.item && !!this.currentData.find((titem) => this.$at(titem, this.valueField) === this.$at(dragStartData.sourceData.item, this.valueField) || String(this.$at(titem, this.valueField)) === String(this.$at(dragStartData.sourceData.item, this.valueField))) : true;
+                    const inTheSameTable = this.dragState.sourcePath !== undefined && inTable;
+                    const finalSource = Object.assign({}, dragStartData.sourceData);
+                    finalSource.index = this.dragState.targetPath;
+                    this.$emit('drop', {
+                        source: dragStartData.sourceData,
+                        target: this.dragState.targetData,
+                        position: this.dropData && this.dropData.position || 'append',
+                        finalSource: inTheSameTable ? finalSource : null,
+                    });
+                }
+            } else if (this.dragState
                 && this.dragState.dragging
                 && this.dragState.sourcePath !== this.dragState.targetPath
                 && this.dropData) {
@@ -2237,7 +2494,7 @@ export default {
                             if (!this.$at(parentNode, this.hasChildrenField) && !this.$at(parentNode, this.childrenField)) {
                                 this.setAtWithoutSync(parentNode, this.childrenField, []);
                             }
-                            parentNode.expanded = true;
+                            this.toggleTreeExpanded(parentNode, true);
                             const children = this.$at(parentNode, this.childrenField) || [];
                             children.push(this.dragState.source);
                             targetPath = children.length - 1;
@@ -2277,11 +2534,42 @@ export default {
                         targetList: dropList,
                     },
                 });
-                this.clearDragState();
             }
+            this.clearDragState();
+            this.cleartDragoverTimer();
+            this.clearDragItemData();
         },
         onRootDragover(e) {
             e.preventDefault();
+            // 当表格为空时，没有行的dragover事件，所以需要在这里处理
+            if (this.currentData.length === 0) {
+                if (!this.acrossTableDrag)
+                    return;
+                if (this.draggable || this.acrossTableDrag) {
+                    this.dropData = {
+                        dragoverElRect: this.$refs.body[0].getBoundingClientRect(),
+                        parentElRect: this.$refs.root.getBoundingClientRect(),
+                        position: 'append',
+                        left: 0,
+                    };
+                }
+            }
+        },
+        /**
+         * 拖拽离开，每个tr都会触发该事件，所以需要判断是否是真正的离开
+         * 结合dragleave和dragenter来判断
+         */
+        onRootDragleave(e) {
+            if (this.enterTarget === e.target) {
+                e.stopPropagation();
+                e.preventDefault();
+                this.dropData = undefined;
+                this.cleartDragoverTimer();
+                this.enterTarget = null;
+            }
+        },
+        onRootDragenter(e) {
+            this.enterTarget = e.target;
         },
         /**
          * 查找数据在数组的哪个位置
@@ -2322,6 +2610,23 @@ export default {
             };
             this.$nextTick(() => {
                 this.preventDatasourceWatch = false;
+            });
+            this.enterTarget = null;
+        },
+        /**
+         * 清除拖拽计时器
+         */
+        cleartDragoverTimer() {
+            clearTimeout(this.dragoverTimer);
+            this.currentDragoverItem = null;
+        },
+        /**
+         * 清除拖拽item的辅助数据，draggoverDisabled、disabledDrop
+         */
+        clearDragItemData() {
+            this.currentData.forEach((item) => {
+                delete item.draggoverDisabled;
+                delete item.disabledDrop;
             });
         },
         isSubNode(item, sourceNode) {
@@ -2383,6 +2688,7 @@ export default {
                 const tableElCrt = tableEl.cloneNode(true);
                 const tbody = tableElCrt.getElementsByTagName('tbody')[0];
                 tbody.innerHTML = '';
+                tableElCrt.style.transform = 'none';
                 tbody.appendChild(crt);
                 this.$refs.trDragGhost.innerHTML = '';
                 this.$refs.trDragGhost.appendChild(tableElCrt);
@@ -2431,26 +2737,26 @@ export default {
             this.autoRowSpan = [];
             this.visibleColumnVMs && this.visibleColumnVMs.forEach((columnVM, columnIndex) => {
                 if (columnVM.autoRowSpan && columnVM.field && Array.isArray(currentData)) {
-                    let count = 0
+                    let count = 0;
                     for (let i = currentData.length - 1; i >= 0; i--) {
                         const item = currentData[i];
-                        const itemValue = this.$at(item, columnVM.field)
-                        if (itemValue === this.$at(currentData[i - 1], columnVM.field)) {
+                        const itemValue = this.$at(item, columnVM.field);
+                        if (itemValue === this.$at(currentData[i - 1], columnVM.field) || String(itemValue) === String(this.$at(currentData[i - 1], columnVM.field))) {
                             if (!this.autoRowSpan[i]) {
                                 this.autoRowSpan[i] = [];
                             }
                             this.autoRowSpan[i][columnIndex] = 0;
-                            count++
+                            count++;
                         } else if (count) {
                             if (!this.autoRowSpan[i]) {
                                 this.autoRowSpan[i] = [];
                             }
                             this.autoRowSpan[i][columnIndex] = count + 1;
-                            count = 0
+                            count = 0;
                         }
                     }
                 }
-            })
+            });
             this.$forceUpdate();
         },
         getItemColSpan(item, rowIndex, columnIndex) {
@@ -2466,7 +2772,7 @@ export default {
                     return config[1];
                 }
             }
-            if (this.autoColSpan[rowIndex] && this.autoColSpan[rowIndex][columnIndex ] !== undefined) {
+            if (this.autoColSpan[rowIndex] && this.autoColSpan[rowIndex][columnIndex] !== undefined) {
                 return this.autoColSpan[rowIndex][columnIndex];
             }
         },
@@ -2483,9 +2789,53 @@ export default {
                     return config[1];
                 }
             }
-            if (this.autoRowSpan[rowIndex] && this.autoRowSpan[rowIndex][columnIndex ] !== undefined) {
+            if (this.autoRowSpan[rowIndex] && this.autoRowSpan[rowIndex][columnIndex] !== undefined) {
                 return this.autoRowSpan[rowIndex][columnIndex];
             }
+        },
+        /**
+         * IDE 里生成的事async函数，所以需要await处理
+         */
+        async canDraggable(item) {
+            if (this.canDragableHandler && (this.canDragableHandler instanceof Promise || typeof this.canDragableHandler === 'function')) {
+                const canDraggableResult = await this.canDragableHandler(item);
+                this.$set(item, 'draggable', canDraggableResult);
+            } else {
+                this.$set(item, 'draggable', true);
+            }
+        },
+        async canDropin(item) {
+            if (this.canDropinHandler && (this.canDropinHandler instanceof Promise || typeof this.canDropinHandler === 'function')) {
+                const canDropinResult = await this.canDropinHandler(item);
+                item.disabledDrop = item.disabledDrop || !canDropinResult;
+            } else {
+                item.disabledDrop = item.disabled;
+            }
+        },
+        onDblclickRow(e, item, rowIndex) {
+            this.$emit('dblclick-row', { item, index: rowIndex });
+        },
+        processTableDraggable(needProcessData) {
+            // 拖拽设置
+            const dragHandler = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'dragHandler');
+            if (!this.$env.VUE_APP_DESIGNER) {
+                this.rowDraggable = (this.draggable || this.acrossTableDrag) && !dragHandler;
+                this.handlerDraggable = (this.draggable || this.acrossTableDrag) && dragHandler;
+            }
+            if (needProcessData) {
+                if (this.draggable || this.acrossTableDrag) {
+                    this.currentData.forEach((item) => {
+                        this.canDraggable(item);
+                    });
+                }
+            }
+        },
+        handleResizeListener() {
+            const rootWidth = this.$refs.root.offsetWidth;
+            // 放在线性布局flex下，或者某些设置了fit-content，table-width会缓慢增长，导致表格一直动
+            // 如果两次width变化不大，不要重新计算每列的computedWidth等
+            const reComputedWidth = !this.preRootWidth || Math.abs(this.preRootWidth - rootWidth) > 8;
+            this.handleResize(reComputedWidth);
         },
     },
 };
@@ -2791,17 +3141,21 @@ export default {
         inset 0px -1px 0px 0px var(--table-view-row-selected-border-color),
         inset -1px 0px 0px 0px var(--table-view-row-selected-border-color);
 }
-.row[draggable] {
+.row[draggable="true"] {
     cursor: var(--table-view-drag-cursor);
 }
-.row[dragging] td {
+.row[dragging="true"] td {
     background: var(--table-view-row-background-dragging);
 }
-.row[dragging][subrow] td {
+.row[dragging="true"][subrow] td {
     background: var(--table-view-subrow-background-dragging);
 }
 .dragHandler {
     cursor: var(--table-view-drag-cursor);
+}
+.dragHandler[disabled] {
+    cursor: var(--table-view-drag-cursor-disabled);
+    color: var(--table-view-drag-color-disabled);
 }
 
 .expand-td {

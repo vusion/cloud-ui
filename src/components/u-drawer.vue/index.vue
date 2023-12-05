@@ -136,8 +136,11 @@ export default {
             const footEl = this.$refs.foot;
             if (!headEl && !footEl)
                 return;
-            const height = headEl.offsetHeight + footEl.offsetHeight;
-            this.bodyHeight = `calc(100% - ${height}px)`;
+            if (this.placement === 'right' || this.placement === 'left') {
+                const height = headEl.offsetHeight + footEl.offsetHeight;
+                this.bodyHeight = `calc(100% - ${height}px)`;
+            } else
+                this.bodyHeight = undefined;
         },
     },
 };
@@ -145,12 +148,14 @@ export default {
 
 <style module>
 .root {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: var(--z-index-modal);
+    position: fixed!important;
+    top: 0!important;
+    right: 0!important;
+    bottom: 0!important;
+    left: 0!important;
+    width: unset!important;
+    height: unset!important;
+    z-index: var(--z-index-modal)!important;
     -webkit-overflow-scrolling: touch;
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;
     overflow: hidden;
@@ -174,25 +179,30 @@ export default {
     width: var(--drawer-width);
     height: 100%;
     background: var(--drawer-background);
+    border-radius: var(--drawer-border-radius);
 }
 
 .root[placement="right"] .drawer {
     float: right;
 }
 
-.drawer[size="small"] {
+.root[placement="right"] > .drawer[size="small"],
+.root[placement="left"] > .drawer[size="small"] {
     width: var(--drawer-width-small);
 }
 
-.drawer[size="normal"] {
+.root[placement="right"] > .drawer[size="normal"],
+.root[placement="left"] > .drawer[size="normal"] {
     width: var(--drawer-width);
 }
 
-.drawer[size="large"] {
+.root[placement="right"] > .drawer[size="large"],
+.root[placement="left"] > .drawer[size="large"] {
     width: var(--drawer-width-large);
 }
 
-.drawer[size="auto"] {
+.root[placement="right"] > .drawer[size="auto"],
+.root[placement="left"] > .drawer[size="auto"] {
     width: auto;
 }
 
@@ -249,5 +259,53 @@ export default {
 }
 .root[hidemask] .drawer{
     border-left: 1px solid var(--drawer-border-color);
+}
+
+.root[placement="top"] > .drawer,
+.root[placement="bottom"] > .drawer {
+    float: initial;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.root[placement="top"] > .drawer {
+    top: 0;
+}
+.root[placement="bottom"] > .drawer {
+    bottom: 0;
+}
+
+.root[placement="top"] > .drawer > .body,
+.root[placement="bottom"] > .drawer > .body {
+    flex: 1;
+    height: var(--drawer-height);
+}
+.root[placement="top"] > .drawer > .foot,
+.root[placement="bottom"] > .drawer > .foot {
+    position: static;
+}
+
+.root[placement="top"] > .drawer[size="small"],
+.root[placement="bottom"] > .drawer[size="small"] {
+    height: var(--drawer-height-small);
+}
+
+.root[placement="top"] > .drawer[size="normal"],
+.root[placement="bottom"] > .drawer[size="normal"] {
+    height: var(--drawer-height);
+}
+
+.root[placement="top"] > .drawer[size="large"],
+.root[placement="bottom"] > .drawer[size="large"] {
+    height: var(--drawer-height-large);
+}
+
+.root[placement="top"] > .drawer[size="auto"],
+.root[placement="bottom"] > .drawer[size="auto"] {
+    height: auto;
+    max-height: var(--drawer-max-height);
 }
 </style>

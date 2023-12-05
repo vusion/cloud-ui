@@ -1,8 +1,8 @@
 <template>
 <div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled" :border="String(border)"
     :tabindex="readonly || disabled ? '' : 0"
-    @keydown.prevent.up="shift(-1)"
-    @keydown.prevent.down="shift(+1)">
+    @keydown.prevent.stop.up="shift(-1)"
+    @keydown.prevent.stop.down="shift(+1)">
     <div v-show="showHead" :class="$style.head">
         <slot name="head">
             <u-checkbox v-if="multiple" :value="allChecked" @check="checkAll($event.value)" :readonly="readonly" :disabled="disabled"></u-checkbox>
@@ -388,6 +388,8 @@ export default {
                 return undefined;
         },
         shift(count) {
+            if (this.readonly || this.disabled)
+                return;
             let selectedIndex = this.itemVMs.indexOf(this.selectedVM);
             if (count > 0) {
                 for (
@@ -603,7 +605,10 @@ export default {
                     itemVM.$emit('update:selected', itemVM.currentSelected);
                 }
             });
-            const value = selectedVMs.map((itemVM) => itemVM.value);
+            let value = selectedVMs.map((itemVM) => itemVM.value);
+            if (this.converter) {
+                value = this.currentConverter.get(value);
+            }
             this.$emit('input', value, this);
             this.$emit('update:value', value, this);
             this.$emit('checkAll', { value, oldValue, checked }, this);

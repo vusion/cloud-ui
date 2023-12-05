@@ -7,7 +7,7 @@
             type="text"
             :value="leftValue"
             ref="leftInput"
-            :prefix="preIcon"
+            :prefix="preIcon ? preIcon : undefined"
             :autofocus="autofocus"
             :readonly="readonly"
             :disabled="disabled"
@@ -21,6 +21,7 @@
                 <i-ico v-if="preIcon" :name="preIcon" :class="[$style.preIcon]" notext slot="prefix"></i-ico>
             </template>
         </u-input>
+        <span :class="$style.toIcon"></span>
         <u-input
             :width="rightWidth"
             height="full"
@@ -28,8 +29,7 @@
             type="text"
             :value="rightValue"
             ref="rightInput"
-            prefix
-            :suffix="suffixIcon"
+            :suffix="suffixIcon ? suffixIcon : undefined"
             :autofocus="autofocus"
             :readonly="readonly"
             :disabled="disabled"
@@ -41,9 +41,6 @@
             @clear="onClear"
             @update:value="onUpdateRightValue"
             @blur:value="onBlurRightValue">
-            <template #prefix>
-                <span :class="$style.toIcon"></span>
-            </template>
             <template #suffix>
                 <i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.suffixIcon]" notext></i-ico>
             </template>
@@ -57,7 +54,7 @@ export default {
     props: {
         leftValue: { type: String },
         rightValue: { type: String },
-        leftWidth: { type: String, default: undefined },
+        leftWidth: { type: String, default: 'full' },
         rightWidth: { type: String, default: 'full' },
         preIcon: {
             type: String,
@@ -166,6 +163,7 @@ export default {
     icon-font: url('./assets/to.svg');
     color: var(--datepicker-input-pre-icon-color);
     font-size: 16px;
+    line-height: var(--datetime-input-height);
 }
 
 .suffixIcon {

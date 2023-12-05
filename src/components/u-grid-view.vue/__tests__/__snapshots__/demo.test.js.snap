@@ -4045,7 +4045,7 @@ exports[`u-grid-view.vue Demo-结合卡片 1`] = `
       <div class="root sizer" tabindex="0">
         <span>b</span>
         <span style="display: none;">请选择</span>
-        <div style="direction: ltr;" tags-overflow="collapse">
+        <div class style="direction: ltr;" tags-overflow="collapse">
           12条/页
         </div>
         <transition-stub name="fade" style="width: 100%;">

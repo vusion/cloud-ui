@@ -134,6 +134,7 @@ export default {
         titleField: { type: String, default: 'title' },
         valueField: { type: String, default: 'value' },
         urlField: { type: String, default: 'url' },
+        contentField: { type: String, default: '' },
         closableField: { type: String, default: 'closable' },
     },
     data() {
@@ -142,6 +143,9 @@ export default {
         };
     },
     computed: {
+        currentUrlField() {
+            return this.contentField || this.urlField;
+        },
         currentItemWidth() {
             if (this.itemWidth === 'full')
                 return (1 / this.itemVMs.length) * 100 + '%';
@@ -190,7 +194,7 @@ export default {
                     this.$emit('click', e, itemVM);
                     const value = itemVM.value || this.$at(itemVM, this.valueField);
                     this.$emit('update:value', value, this);
-                    this.$router.replace(this.$at(itemVM, this.urlField));
+                    this.$router.replace(this.$at(itemVM, this.currentUrlField));
                     this.tabDataSource.forEach((item) => {
                         item.active = false;
                     });
@@ -246,7 +250,7 @@ export default {
                 const allNotSelected = this.tabDataSource.every((item) => !item.active);
                 if (allNotSelected && this.tabDataSource && this.tabDataSource.length) {
                     this.tabDataSource[0].active = true;
-                    this.$router.replace(this.$at(this.tabDataSource[0], this.urlField));
+                    this.$router.replace(this.$at(this.tabDataSource[0], this.currentUrlField));
                     this.$emit('input', this.$at(this.tabDataSource[0], this.valueField), this);
                     this.$emit('update:value', this.$at(this.tabDataSource[0], this.valueField), this);
                     this.$emit('close', {
@@ -356,9 +360,9 @@ export default {
             let matchItem = this.tabDataSource.find((itemVM) => String(this.$at(itemVM, this.valueField)) === String(value));
             matchItem = matchItem || this.tabDataSource[0];
             matchItem.active = true;
-            const url = this.$at(matchItem, this.urlField);
+            const url = this.$at(matchItem, this.currentUrlField);
             if (url)
-                this.$router.replace(this.$at(matchItem, this.urlField));
+                this.$router.replace(this.$at(matchItem, this.currentUrlField));
             this.$forceUpdate();
             // IDE 切换到数据源 item插槽里放数据会滚动，不要滚动
             if (!this.$env.VUE_APP_DESIGNER)

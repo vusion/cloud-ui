@@ -2,7 +2,7 @@
 <div>
     <div v-show="!isPreview" :class="$style.root" :color="color || formItemVM && formItemVM.color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
     :clearable="clearable && !!(filterable ? filterText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
-    :prefix="prefix" :suffix="suffix"
+    :prefix="prefix ? prefix : undefined" :suffix="suffix ? suffix : undefined"
     :start="!!prefix"
     :end="!!suffix"
     :tabindex="readonly || currentDisabled ? '' : 0"
@@ -13,80 +13,90 @@
     @keydown.esc.stop="close(), filterText = ''"
     @keydown.delete.stop="onDelete"
     @blur="onRootBlur">
-        <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-        <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
-        <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
-        <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}" ref="inputOuter">
-            <!-- @override: 添加了flag功能 -->
-            <slot name="flag">
-                <span v-if="selectedVM && selectedVM.flag !== undefined" :class="$style.flag" :layer="selectedVM && selectedVM.layer" v-tooltip.top="selectedVM && selectedVM.flag"></span>
-            </slot>
-            <span :class="$style.label" v-if="label || $slots.label">
-                {{ label }}
-                <slot name="label"></slot>
-            </span>
-            <template v-if="!multiple && !filterable">
-                <template v-if="selectedVM">
-                    <slot name="selected" :item="selectedVM.item" :value="selectedVM.value" :text="selectedVM.text">
-                        <f-render :vnode="selectedVM && (selectedVM.$slots&&selectedVM.$slots.default ? selectedVM.$slots.default : [$at2(selectedVM, field || textField)])"></f-render>
-                    </slot>
-                </template>
+    <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
+    <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
+    <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
+    <div :class="[$style.text,!multiple && $style.textEllipsis]" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}" ref="inputOuter">
+        <!-- @override: 添加了flag功能 -->
+        <slot name="flag">
+            <span v-if="selectedVM && selectedVM.flag !== undefined" :class="$style.flag" :layer="selectedVM && selectedVM.layer" v-tooltip.top="selectedVM && selectedVM.flag"></span>
+        </slot>
+        <span :class="$style.label" v-if="label || $slots.label">
+            {{ label }}
+            <slot name="label"></slot>
+        </span>
+        <template v-if="!multiple && !filterable">
+            <template v-if="selectedVM">
+                <slot name="selected" :item="selectedVM.item" :value="selectedVM.value" :text="selectedVM.text">
+                    <f-render :vnode="selectedVM && (selectedVM.$slots&&selectedVM.$slots.default ? selectedVM.$slots.default : [$at2(selectedVM, field || textField)])"></f-render>
+                </slot>
             </template>
-            <span v-else-if="multipleAppearance === 'text'">{{ currentText }}</span>
-            <template v-else-if="multipleAppearance === 'tags'">
-                <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
-                    <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '_' + index : itemVM.value">
-                        <span :class="[$style['tag-text'], iconField?$style.iconwrap:'']">
-                            <img :class="$style.icon" v-if="itemVM.icon" :src="itemVM.icon">
-                            {{ itemVM.currentText }}
-                        </span>
-                        <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
+        </template>
+        <span v-else-if="multipleAppearance === 'text'">{{ currentText }}</span>
+        <template v-else-if="multipleAppearance === 'tags'">
+            <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
+                <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '_' + index : itemVM.value" :ref="`item_${index}`">
+                    <span :class="[$style['tag-text'], iconField?$style.iconwrap:'']">
+                        <img :class="$style.icon" v-if="itemVM.icon" :src="itemVM.icon">
+                        {{ itemVM.currentText }}
                     </span>
-                </template>
-                <template v-else-if="tagsOverflow === 'collapse'">
-                    <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '__' + index : itemVM.value" :ref="`item_${index}`">
-                        <span :class="[$style['tag-text'], iconField?$style.iconwrap:'']"><img :class="$style.icon" v-if="itemVM.icon" :src="itemVM.icon">{{ itemVM.currentText }}</span>
-                        <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
-                    </span>
-                    <span :class="$style.tag" v-if="selectedVMs.length - collapseCounter >= 1 && selectedVMs.length !== 1">
-                        <span :class="$style['tag-text']">+{{ selectedVMs.length - collapseCounter }}</span>
-                    </span>
-                </template>
+                    <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
+                </span>
             </template>
-            <u-input v-if="filterable" :class="$style.input" ref="input" :readonly="readonly" :disabled="currentDisabled"
-                :filterable="filterable" :multiple-tags="multiple && multipleAppearance === 'tags'"
-                :value="filterText" @input="onInput" @focus="onFocus" @blur="onBlur"
-                @keydown.delete.stop="onInputDelete"
-                :style="{ width: multiple && (inputWidth + 'px') }"
-                @compositionstart="compositionInputing = true"
-                @compositionend="compositionInputing = false">
-            </u-input>
-        </div>
-        <span v-if="suffix" :name="suffix" :class="$style.suffix"
-                @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-        <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click.stop="clear"></span>
-        <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"
-            :style="{ width: currentPopperWidth }"
-            :footer="showRenderFooter"
-            @update:opened="$emit('update:opened', $event, this)"
-            @before-open="$emit('before-open', $event, this)"
-            @before-close="$emit('before-close', $event, this)"
-            @open="onOpen"
-            @close="onClose"
-            @before-toggle="$emit('before-toggle', $event, this)"
-            @toggle="$emit('toggle', $event, this)"
-            @click.stop @scroll.stop="onScroll" @mousedown.stop>
-            <div :class="$style.wrap" ref="popperwrap">
-                <slot></slot>
-                <template v-if="currentData">
-                    <div :class="$style.status" key="empty" v-if="!currentData.length && !currentLoading && showEmptyText">
-                        <slot name="empty">{{ emptyText }}</slot>
-                    </div>
-                    <template v-else>
-                        <component :is="ChildComponent"
-                            v-for="(item, index) in currentData"
-                            v-if="item"
-                            :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
+            <template v-else-if="tagsOverflow === 'collapse'">
+                <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '__' + index : itemVM.value" :ref="`item_${index}`">
+                    <span :class="[$style['tag-text'], iconField?$style.iconwrap:'']"><img :class="$style.icon" v-if="itemVM.icon" :src="itemVM.icon">{{ itemVM.currentText }}</span>
+                    <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
+                </span>
+                <span :class="$style.tag" v-if="selectedVMs.length - collapseCounter >= 1 && selectedVMs.length !== 1" :style="{ 'vertical-align': 'middle', 'padding-right': '6px' }">
+                    <span :class="$style['tag-text']">+{{ selectedVMs.length - collapseCounter }}...</span>
+                </span>
+            </template>
+        </template>
+        <u-input v-if="filterable" :class="$style.input" ref="input" :readonly="readonly" :disabled="currentDisabled"
+            :filterable="filterable" :multiple-tags="multiple && multipleAppearance === 'tags'"
+            :value="filterText" @input="onInput" @focus="onFocus" @blur="onBlur"
+            @keydown.delete.stop="onInputDelete"
+            :style="{ width: multiple && (inputWidth + 'px') }"
+            @compositionstart="compositionInputing = true"
+            @compositionend="compositionInputing = false">
+        </u-input>
+    </div>
+    <span v-if="suffix" :name="suffix" :class="$style.suffix"
+            @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
+    <span v-if="!currentDisabled && !readonly && clearable && !!(filterable ? filterText ||currentText : currentText)" :class="$style.clearable" @click.stop="clear"></span>
+    <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"
+        :style="{ width: currentPopperWidth }"
+        :footer="showRenderFooter"
+        @update:opened="$emit('update:opened', $event, this)"
+        @before-open="$emit('before-open', $event, this)"
+        @before-close="$emit('before-close', $event, this)"
+        @open="onOpen"
+        @close="onClose"
+        @before-toggle="$emit('before-toggle', $event, this)"
+        @toggle="$emit('toggle', $event, this)"
+        @click.stop @scroll.stop="onScroll" @mousedown.stop>
+        <div :class="$style.wrap" ref="popperwrap">
+            <u-select-item-all-check v-if="hasAllCheckItem && multiple" :all-checked="allChecked" :parent-v-m="this" :check-all="checkAll">{{ allCheckItemText }}</u-select-item-all-check>
+            <slot></slot>
+            <template v-if="currentData">
+                <div :class="$style.status" key="empty" v-if="!currentData.length && !currentLoading && showEmptyText">
+                    <slot name="empty">{{ emptyText }}</slot>
+                </div>
+                <template v-else>
+                    <component :is="ChildComponent"
+                        v-for="(item, index) in currentData"
+                        v-if="item"
+                        :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
+                        :text="$at2(item, field || textField)"
+                        :value="$at2(item, valueField)"
+                        :disabled="item.disabled || disabled"
+                        :item="item"
+                        :description="description ? $at2(item, descriptionField) : null"
+                        :icon="$at2(item, iconField)">
+                        <slot
+                            name="text"
+                            :item="item"
                             :text="$at2(item, field || textField)"
                             :value="$at2(item, valueField)"
                             :disabled="item.disabled || disabled"
@@ -138,12 +148,14 @@ import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
 import UPreview from '../u-text.vue';
 import MPreview from '../u-text.vue/preview';
+import AllCheck from './allCheck.vue';
 
 export default {
     name: 'u-select',
     mixins: [MPreview],
     component: {
-        UPreview
+        UPreview,
+        'u-select-item-all-check': AllCheck,
     },
     childName: 'u-select-item',
     groupName: 'u-select-group',
@@ -208,6 +220,8 @@ export default {
         description: { type: Boolean, default: false },
         showRenderFooter: { type: Boolean, default: false }, // 可扩展下拉项
         iconField: String,
+        hasAllCheckItem: { type: Boolean, default: false },
+        allCheckItemText: { type: String, default: '全选' },
     },
     data() {
         return {
@@ -264,6 +278,27 @@ export default {
 
             return !!this.pagination;
         },
+        allChecked() {
+            // readme:copy from u-list-view/index, changed some behavior for u-select function;
+            let checkedLength = 0;
+            let disabledUnCheckedItemCount = 0;
+            this.itemVMs.forEach((itemVM) => {
+                if (itemVM.currentSelected)
+                    checkedLength++;
+                else if (itemVM.disabled || itemVM.readonly)
+                    disabledUnCheckedItemCount++;
+            });
+
+            if (!this.hasAllCheckItem) {
+                disabledUnCheckedItemCount = 0;
+            }
+            if (checkedLength === 0)
+                return false;
+            else if ((checkedLength + disabledUnCheckedItemCount) === this.itemVMs.length)
+                return true;
+            else
+                return null;
+        },
     },
     watch: {
         filterText(filterText) {
@@ -306,18 +341,20 @@ export default {
             const popperVM = this.$refs.popper;
             popperVM && popperVM.currentOpened && popperVM.scheduleUpdate();
             // 计算折叠时，最多能展示几个标签
-            if (this.tagsOverflow === 'collapse') {
+            if (this.tagsOverflow === 'collapse' || this.tagsOverflow === 'hidden') {
                 this.$nextTick(() => {
                     this.collapseCounter = 0;
-                    const collapseTagWidth = 30;
-                    const marginWidth = 3;
+                    const collapseTagWidth = this.tagsOverflow === 'collapse' ? 34 : 0;
+                    const marginWidth = 4;
                     let lastAddElementWidth = 0;
+                    const inputElWidth = this.inputWidth || 0;
                     // 预留出"+N"的标签宽度
-                    let inputWidth = this.$refs.inputOuter.offsetWidth - collapseTagWidth;
+                    let inputWidth = this.$refs.inputOuter.offsetWidth - inputElWidth - collapseTagWidth;
                     // 先计算前N-1个元素长度是否超出输入框
                     for (let i = 0; i < this.selectedVMs.length - 1; i++) {
                         if (this.$refs[`item_${i}`]) {
                             this.$refs[`item_${i}`][0].style.display = 'inline-block';
+                            this.$refs[`item_${i}`][0].style['vertical-align'] = 'middle';
                             const itemWidth = this.$refs[`item_${i}`][0].offsetWidth + marginWidth;
                             if (inputWidth - itemWidth < 0) {
                                 break;
@@ -331,6 +368,7 @@ export default {
                         const lastItem = this.$refs[`item_${this.selectedVMs.length - 1}`];
                         if (lastItem) {
                             lastItem[0].style.display = 'inline-block';
+                            lastItem[0].style['vertical-align'] = 'middle';
                             lastAddElementWidth = lastItem[0].offsetWidth;
                         }
                         if (inputWidth > 0 && inputWidth - lastAddElementWidth > 0) {
@@ -677,7 +715,10 @@ export default {
             this.preventBlur = true;
             if (this.multiple) {
                 const oldValue = this.value;
-                const value = [];
+                let value = [];
+                if (this.converter) {
+                    value = this.currentConverter.get(value);
+                }
                 if (
                     this.$emitPrevent('before-clear', { oldValue, value }, this)
                 )
@@ -693,7 +734,10 @@ export default {
                 this.$emit('clear', { oldValue, value }, this);
             } else {
                 const oldValue = this.value;
-                const value = undefined;
+                let value;
+                if (this.converter) {
+                    value = this.currentConverter.get(value);
+                }
                 if (
                     this.$emitPrevent('before-clear', { oldValue, value }, this)
                 )

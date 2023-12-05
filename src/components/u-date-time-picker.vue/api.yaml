@@ -230,7 +230,7 @@
           value: date
         - title: YYYY-MM-DD HH:mm:ss
           value: format
-      default: format
+      default: json 
       description: ""
       clearable: true
       group: 主要属性

@@ -23,9 +23,10 @@
             <i-ico name="more" v-else :class="$style.iconMore"></i-ico>
         </div>
         <m-popper
+            ref="popper"
             :style="{ width: currentPopperWidth }"
             :class="$style.popper"
-            :trigger="trigger"
+            :trigger="$env.VUE_APP_DESIGNER? 'click' : trigger"
             :placement="placement"
             :disabled="disabled"
             :append-to="appendTo"
@@ -293,6 +294,9 @@ export default {
         },
         reload() {
             this.load();
+        },
+        close() {
+            this.$refs.popper.close();
         },
     },
 };

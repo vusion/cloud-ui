@@ -23,7 +23,7 @@
         - icon-field
         - value-field
         - parent-field
-        - link-type-field 
+        - link-type-field
         - target-field
     - name: data-source
       title: 数据源
@@ -160,14 +160,15 @@
       group: 交互属性
       brifeDoc: ""
       tooltipLink: ""
-      toggleupdate:
-        - value: true
-          updateData:
-            collapse: false
-    - name: collapse
+    - name: collapseMode
       title: 默认状态
-      type: boolean
-      default: false
+      type: string
+      options:
+        - value: fold
+          title: 收起
+        - value: expand
+          title: 展开
+      default: expand
       group: 交互属性
       tooltipLink: ""
       description: 侧边栏是否折叠
@@ -181,7 +182,6 @@
       group: 交互属性
       dependency:
         - "enable-collapse": true
-          "collapse": false
     - name: fold-icon
       title: 折叠图标
       type: icon
@@ -190,7 +190,6 @@
       group: 交互属性
       dependency:
         - "enable-collapse": true
-          "collapse": true
     - name: readonly
       title: 只读
       type: boolean

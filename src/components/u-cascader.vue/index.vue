@@ -37,7 +37,7 @@
                 </template>
             </m-popper>
         </u-input>
-        <span v-show="clearable && currentValue" :class="$style.clearable" @click="clear" @mousedown.prevent></span>
+        <span v-show="clearable && currentValue && !disabled && !readonly" :class="$style.clearable" @click="clear" @mousedown.prevent></span>
     </div>
 </template>
 
@@ -223,7 +223,7 @@ export default {
             this.selectMenuIndexs = [];
             this.lastRealValueArray.forEach((inputvalue, currentref) => {
                 const sub = (temp[currentref] || []).find((item, index) => {
-                    if (this.$at(item, this.valueField) === inputvalue) {
+                    if (this.$at(item, this.valueField) === inputvalue || String(this.$at(item, this.valueField)) === String(inputvalue)) {
                         this.selectMenuIndexs.push(index);
                         this.lastValueArray.push(this.$at(item, this.field));
                         return true;
@@ -281,7 +281,7 @@ export default {
                     inputValues.forEach((inputvalue, currentref) => {
                         this.lastValueArray.push(inputvalue);
                         const sub = (this.subComponents[currentref] || []).find((item, index) => {
-                            if (this.$at(item, this.field) === inputvalue) {
+                            if (this.$at(item, this.field) === inputvalue || String(this.$at(item, this.field)) === String(inputvalue)) {
                                 this.selectMenuIndexs.push(index);
                                 return true;
                             }
@@ -296,7 +296,7 @@ export default {
                 } else {
                     this.lastRealValueArray.forEach((inputvalue, currentref) => {
                         const sub = (this.subComponents[currentref] || []).find((item, index) => {
-                            if (this.$at(item, this.valueField) === inputvalue) {
+                            if (this.$at(item, this.valueField) === inputvalue || String(this.$at(item, this.valueField)) === String(inputvalue)) {
                                 this.selectMenuIndexs.push(index);
                                 this.lastValueArray.push(this.$at(item, this.field));
                                 return true;
@@ -391,6 +391,9 @@ export default {
             this.$refs.popper && this.$refs.popper.toggle(opened);
         },
         clear(...args) {
+            if (this.readonly || this.disabled) {
+                return;
+            }
             this.currentValue = '';
             this.lastValueString = '';
             this.lastRealValueArray = [];

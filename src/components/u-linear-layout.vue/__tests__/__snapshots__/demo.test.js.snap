@@ -294,7 +294,7 @@ exports[`u-linear-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" clearable="true" tabindex="0">
           <span>b</span>
           <span style="display: none;">请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
             块级
           </div>
           <span></span>
@@ -322,7 +322,7 @@ exports[`u-linear-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -345,7 +345,7 @@ exports[`u-linear-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -368,7 +368,7 @@ exports[`u-linear-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -400,7 +400,7 @@ exports[`u-linear-layout.vue Demo-测试多种布局属性影响 1`] = `
         <div class="root" tabindex="0">
           <span>b</span>
           <span>请选择</span>
-          <div style="direction: ltr;" tags-overflow="collapse">
+          <div class style="direction: ltr;" tags-overflow="collapse">
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
