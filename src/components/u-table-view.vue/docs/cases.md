@@ -1686,6 +1686,14 @@ export default {
                 </u-table-view-column-dynamic>
                 <u-table-view-column title="地址" field="address"></u-table-view-column>
                 <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+                <u-table-view-column-dynamic :data-source="loadSubList">
+                    <div slot="title" slot-scope="{ columnItem }">
+                        <u-text>{{ columnItem.name }}</u-text>
+                    </div>
+                    <div slot="cell" slot-scope="{ item, columnItem }">
+                        <u-text>{{ item.name }} {{ columnItem.name }}</u-text>
+                    </div>
+                </u-table-view-column-dynamic>
             </u-table-view>
         </u-linear-layout>
     </u-linear-layout>
@@ -1778,7 +1786,7 @@ export default {
                     <u-text>{{ current.columnItem.name }}</u-text>
                 </template>
                 <template #cell="current">
-                    <u-text>{{ current.item.address }}</u-text>
+                    <u-text overflow="ellipsis">{{ current.item.address }}</u-text>
                 </template>
             </u-table-view-column-dynamic>
         </u-table-view>

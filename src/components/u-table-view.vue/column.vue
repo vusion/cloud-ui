@@ -74,24 +74,11 @@ export default {
         },
         autoRowSpan() {
             this.$nextTick(() => {
-                this.parentVM && this.parentVM.autoMergeRow()
-            })
-        }
+                this.parentVM && this.parentVM.autoMergeRow();
+            });
+        },
     },
     created() {
-        // this.$parent.$options.name !== 'u-table-view-column-group' &&
-        //     !this.parentVM && this.$contact(this.$options.parentName, (parentVM) => {
-        //         this.parentVM = parentVM;
-        //         let slotVms = parentVM.$slots.default || [];
-        //         slotVms = slotVms.filter((vm) => !!vm.tag && !(vm.componentOptions.tag === 'u-table-view-column-group'
-        //             && vm.child && !vm.child.$slots.default));
-        //         const index = slotVms.indexOf(this.$vnode);
-        //         if (~index)
-        //             parentVM.columnVMs.splice(index, 0, this);
-        //         else {
-        //             parentVM.columnVMs.push(this);
-        //         }
-        //     });
         this.$contact('u-table-view', (parentVM) => {
             this.parentVM = parentVM;
             parentVM.columnVMsMap[this._uid] = {
@@ -105,15 +92,13 @@ export default {
         });
     },
     destroyed() {
-        // this.$parent.$options.name !== 'u-table-view-column-group' &&
-        //     this.$contact(this.$options.parentName, (parentVM) => {
-        //         parentVM.columnVMs.splice(parentVM.columnVMs.indexOf(this), 1);
-        //         this.parentVM = undefined;
-        //     });
-        this.$dispatch(
-            ($parent) => $parent.$options.name && $parent.$options.name === 'u-table-view',
-            'handle-columns',
-        );
+        this.$contact('u-table-view', (parentVM) => {
+            parentVM.columnVMsMap[this._uid] = null;
+            this.$dispatch(
+                ($parent) => $parent.$options.name && $parent.$options.name === 'u-table-view',
+                'handle-columns',
+            );
+        });
     },
 };
 </script>

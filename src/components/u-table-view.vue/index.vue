@@ -2158,7 +2158,7 @@ export default {
                 const zIndex = elZIndex > 99 ? elZIndex : 99;
                 if (this.fixedLeftList && this.fixedLeftList.length) {
                     const columnData = this.columnVMsMap[columnVM._uid];
-                    if (columnData !== undefined) {
+                    if (columnData) {
                         const inFixedLeftList = this.isInFixedList(columnVM, this.fixedLeftList);
                         if (inFixedLeftList) {
                             let left = columnData.left;
@@ -2178,7 +2178,7 @@ export default {
                 }
                 if (this.fixedRightList && this.fixedRightList.length) {
                     const columnData = this.columnVMsMap[columnVM._uid];
-                    if (columnData !== undefined) {
+                    if (columnData) {
                         const inFixedRightList = this.isInFixedList(columnVM, this.fixedRightList);
                         if (inFixedRightList) {
                             let right = columnData.right;
@@ -2880,11 +2880,20 @@ export default {
             this.preRootWidth = null;
             this.handleResize(true);
         },
+        /**
+         * 处理表格slots变化时，columnVMs数组、分组处理
+         */
         handleColumns() {
             const slotVMs = this.$slots.default || [];
             let columnVMs = [];
+            // 根据u-table-view里的$slots顺序，把columnVM放置到columnVMs里
             Object.keys(this.columnVMsMap).forEach((key) => {
-                const columnVM = this.columnVMsMap[key].columnVM;
+                const columnVMMap = this.columnVMsMap[key];
+                if (!columnVMMap)
+                    return;
+                const columnVM = columnVMMap.columnVM;
+                if (!columnVM)
+                    return;
                 if (columnVM.currentHidden)
                     return;
                 const vnode = columnVM.$vnode;
@@ -2905,6 +2914,8 @@ export default {
             const dynamicColumnVMs = [];
             Object.keys(this.dynamicColumnVMsMap).forEach((dkey) => {
                 const dynamicColumnItem = this.dynamicColumnVMsMap[dkey];
+                if (!dynamicColumnItem)
+                    return;
                 const index = columnVMs.findIndex((columnVm) => columnVm === dynamicColumnItem.columnVM);
                 if (index !== -1 && dynamicColumnItem.vms) {
                     columnVMs.splice(index, 1, ...dynamicColumnItem.vms);
@@ -2916,7 +2927,7 @@ export default {
             // 再替换分组
             const finalColumnVms = [...columnVMs];
             const result = [];
-            const groupColumnVMs = columnVMs.filter((columnVm) => columnVm.$vnode.tag.endsWith('-group'));
+            const groupColumnVMs = columnVMs.filter((columnVm) => columnVm.isGroup);
             groupColumnVMs.forEach((groupVM) => {
                 if (groupVM.$children.length) {
                     const columnsInGroup = this.setGroupData(groupVM, columnsInGroup);
@@ -2940,10 +2951,10 @@ export default {
                     result[i].forEach((columnVm, index) => {
                         if (!columnVm)
                             return;
-                        if (!columnVm.$vnode.tag.endsWith('-group') && i !== result.length - 1) {
+                        if (!columnVm.isGroup && i !== result.length - 1) {
                             columnVm.rowSpan = result.length - i;
                         }
-                        if (columnVm.colSpan > 1 && !columnVm.$vnode.tag.endsWith('-group')) {
+                        if (columnVm.colSpan > 1 && !columnVm.isGroup) {
                             // 如果当前列有合并，那么后面的列自动覆盖不显示
                             const cloumnsForColSpanHidden = [];
                             for (let j = index + 1; j < index + columnVm.colSpan && j < result[i].length; j++) {
@@ -3003,7 +3014,10 @@ export default {
                 column.$children.forEach((columnVM) => {
                     if (!columnVM || columnVM.currentHidden)
                         return;
-                    this.setGroupData(columnVM);
+                    // group才需要设置信息
+                    if (columnVM.$vnode && columnVM.$vnode.tag && columnVM.isGroup) {
+                        this.setGroupData(columnVM);
+                    }
                     result[level].push(columnVM);
                     this.getColumnChildren(columnVM, level, result);
                 });
@@ -3023,7 +3037,7 @@ export default {
          */
         getFixedWidth(columnVM, type) {
             const columnData = this.columnVMsMap[columnVM._uid];
-            if (columnData !== undefined) {
+            if (columnData) {
                 let width = columnData[type];
                 // 分组或者有合并列的情况处理
                 if (columnData.columnsInGroup || columnData.cloumnsForColSpanHidden) {
@@ -3044,9 +3058,14 @@ export default {
                 return width;
             }
         },
+        /**
+         * 判断是否在固定列里
+         * @param {*} columnVM
+         * @param {*} list lef｜rightFixedList
+         */
         isInFixedList(columnVM, list) {
             const columnData = this.columnVMsMap[columnVM._uid];
-            if (columnData !== undefined) {
+            if (columnData) {
                 if (columnData.columnsInGroup) {
                     return columnData.columnsInGroup.some((columnVM1) => {
                         const index = list.findIndex((data) => data.columnVM === columnVM1);

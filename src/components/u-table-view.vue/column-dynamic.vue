@@ -31,47 +31,25 @@ export default {
         },
     },
     destroyed() {
-        // this.$contact(this.$options.parentName, (parentVM) => {
-        //     // 清除添加的
-        //     this.clearVms(parentVM);
-        //     const index = parentVM.dynamicColumnVMs.findIndex(item => item === this);
-        //     if (index > -1) {
-        //         parentVM.dynamicColumnVMs.splice(index, 1);
-        //     }
-        // });
-        this.$dispatch(
-            ($parent) => $parent.$options.name && $parent.$options.name === 'u-table-view',
-            'handle-columns',
-        );
+        this.$contact('u-table-view', (parentVM) => {
+            parentVM.columnVMsMap[this._uid] = null;
+            parentVM.dynamicColumnVMsMap[this._uid] = null;
+            this.$dispatch(
+                ($parent) => $parent.$options.name && $parent.$options.name === 'u-table-view',
+                'handle-columns',
+            );
+        });
     },
     methods: {
         addVms() {
-            // this.$contact(this.$options.parentName, (parentVM) => {
-            //     parentVM.dynamicColumnVMs.push(this);
-                const isUnderGroup = this.$parent.$options.name === 'u-table-view-column-group'
-            //     const currentIndex = parentVM.columnVMs.findIndex((vm) => vm === this);
-                const vms = this.currentDataSource.data.map((item) => ({
-                    ...this,
-                    ...this._props,
-                    columnItem: item,
-                    field: this.$at(item, this.valueField),
-                    dynamicId: this._uid,
-                    colSpan: 1, // 列合并还原为默认值
-                    isUnderGroup,
-                }));
-            //     if (vms.length === 0) return;
-            //     // this是初始加载的组件，需要保留作为后续查找依据
-            //     this.columnItem = vms[0].columnItem;
-            //     this.field = vms[0].field;
-            //     this.clearVms(parentVM);
-            //     vms.shift();
-            //     vms.forEach((vm, index) => {
-            //         parentVM.columnVMs.splice(currentIndex + 1 + index, 0, vm);
-            //     });
-            //     if (isUnderGroup) {
-            //         this.$set(this.$parent.dynamicColumnLengthMap, this._uid, vms.length)
-            //     }
-            // });
+            const vms = this.currentDataSource.data.map((item) => ({
+                ...this,
+                ...this._props,
+                columnItem: item,
+                field: this.$at(item, this.valueField),
+                dynamicId: this._uid,
+                colSpan: 1, // 列合并还原为默认值
+            }));
             this.$contact('u-table-view', (parentVM) => {
                 this.parentVM = parentVM;
                 parentVM.columnVMsMap[this._uid] = {
@@ -88,12 +66,6 @@ export default {
                 );
             });
         },
-        // clearVms(parentVM) {
-        //     parentVM.columnVMs = parentVM.columnVMs.filter((vm) => !vm.dynamicId || vm.dynamicId !== this._uid);
-        //     if (this.$parent.$options.name === 'u-table-view-column-group') {
-        //         this.$delete(this.$parent.dynamicColumnLengthMap, this._uid)
-        //     }
-        // },
     },
 };
 /**
