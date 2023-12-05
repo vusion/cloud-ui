@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <div v-show="!isPreview" :class="$style.root">
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else>
       <u-checkbox
@@ -36,6 +36,7 @@
     </template>
     <slot></slot>
   </div>
+  <u-preview v-if="isPreview" :text="currentText"></u-preview>
 </template>
 
 <script>
@@ -44,14 +45,17 @@ import MField from "../m-field.vue";
 import MConverter from "../m-converter.vue";
 import SupportDataSource from "../../mixins/support.datasource";
 import UCheckbox from "../u-checkbox.vue";
+import MPreview from '../u-text.vue/preview';
+import UPreview from '../u-text.vue';
 
 export default {
   name: "u-checkboxes",
   childName: "u-checkbox",
   components: {
     UCheckbox,
+    UPreview
   },
-  mixins: [MParent, MField, MConverter, SupportDataSource],
+  mixins: [MParent, MField, MConverter, SupportDataSource, MPreview],
   props: {
     value: [Array, String],
     min: { type: Number, default: 0 },
@@ -61,12 +65,14 @@ export default {
     checkAll: { type: Boolean, default: false },
     checkAllDisplay: { type: String, default: "inline" },
     checkAllText: { type: String, default: "全选" },
+    preview: { type: Boolean, default: false },
   },
   data() {
     return {
       currentValue: null,
       itemVMs: [],
       all: false,
+      currentText : ''
     };
   },
   watch: {
@@ -80,7 +86,7 @@ export default {
       }
       this.$emit("change", { value, oldValue });
     },
-    itemVMs() {
+    itemVMs(itemVMs) {
       this.watchValue(this.value);
       // 不开启全选就直接return
       if (!this.checkAll) return;
@@ -97,6 +103,15 @@ export default {
         // 半选兜底
         this.all = null;
       }
+
+      // currentText
+      let texts = [];
+      itemVMs.forEach(it => {
+          if (it?.status == 'true') {
+              texts.push(it.$slots.item?.[0].componentOptions.propsData.text);
+          }
+      });
+      this.currentText = texts.join(',');
     },
   },
   computed: {
