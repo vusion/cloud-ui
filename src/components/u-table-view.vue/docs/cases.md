@@ -1686,14 +1686,6 @@ export default {
                 </u-table-view-column-dynamic>
                 <u-table-view-column title="地址" field="address"></u-table-view-column>
                 <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
-                <u-table-view-column-dynamic :data-source="loadSubList">
-                    <div slot="title" slot-scope="{ columnItem }">
-                        <u-text>{{ columnItem.name }}</u-text>
-                    </div>
-                    <div slot="cell" slot-scope="{ item, columnItem }">
-                        <u-text>{{ item.name }} {{ columnItem.name }}</u-text>
-                    </div>
-                </u-table-view-column-dynamic>
             </u-table-view>
         </u-linear-layout>
     </u-linear-layout>
@@ -1834,9 +1826,10 @@ export default {
         loadSubList() {
             console.log('loadSubList');
             this.count = this.count + 1;
-            const data = [{name: `一月份${this.count}`, columnName:'one'}, {name: `二月份${this.count}`, columnName:'tow'}];
+            let data = [{name: `一月份${this.count}`, columnName:'one'}, {name: `二月份${this.count}`, columnName:'tow'}];
             if(this.count === 3) {
-                data.push({name: `三月份${this.count}`, columnName:'three'});
+                // data.push({name: `三月份${this.count}`, columnName:'three'});
+                data = [];
             }
             if(this.count === 5) {
                 data.push({name: `三月份${this.count}`, columnName:'three'});
@@ -1969,14 +1962,15 @@ export default {
 <u-linear-layout direction="vertical">
     <u-text>静态列</u-text>
     <u-button @click="show=!show">显隐 {{ show }}</u-button>
-    <u-table-view line :data-source="data" :default-column-width="100">
+    <u-button color="primary" @click="() => $refs.tableView.exportExcel()">导出 Excel</u-button>
+    <u-table-view line :data-source="data" :default-column-width="100" ref="tableView" configurable>
         <u-table-view-column type="checkbox" title="选择" fixed></u-table-view-column>
-        <u-table-view-column title="地址" field="address" fixed></u-table-view-column>
-        <u-table-view-column title="3333地址" field="address" v-if="show" fixed></u-table-view-column>
+        <u-table-view-column title="地址" field="address" fixed ></u-table-view-column>
         <u-table-view-column-group title="用户信息2">
             <u-table-view-column title="用户名2" field="name" :auto-row-span="true" fixed></u-table-view-column>
             <u-table-view-column title="手机号码2" field="phone" fixed></u-table-view-column>
         </u-table-view-column-group>
+        <u-table-view-column title="3333地址" field="address" v-if="show" fixed></u-table-view-column>
         <u-table-view-column-group title="用户信息">
             <u-table-view-column title="用户名" field="name" :auto-row-span="true"></u-table-view-column>
             <u-table-view-column title="手机号码" field="phone"></u-table-view-column>
@@ -1987,6 +1981,7 @@ export default {
         </u-table-view-column-group>
         <!-- 测试空组过滤 -->
         <u-table-view-column-group title="用户信息"></u-table-view-column-group>
+        <u-table-view-column title="3333地址" field="address" v-if="show" fixed></u-table-view-column>
         <u-table-view-column-group title="用户信息2">
             <u-table-view-column title="用户名2" field="name" :auto-row-span="true"></u-table-view-column>
             <u-table-view-column title="手机号码2" field="phone"></u-table-view-column>

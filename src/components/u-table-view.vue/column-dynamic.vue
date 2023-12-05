@@ -30,6 +30,9 @@ export default {
             });
         },
     },
+    created() {
+        this.addVms();
+    },
     destroyed() {
         this.$contact('u-table-view', (parentVM) => {
             parentVM.columnVMsMap[this._uid] = null;
@@ -42,7 +45,7 @@ export default {
     },
     methods: {
         addVms() {
-            const vms = this.currentDataSource.data.map((item) => ({
+            let vms = this.currentDataSource.data.map((item) => ({
                 ...this,
                 ...this._props,
                 columnItem: item,
@@ -50,6 +53,10 @@ export default {
                 dynamicId: this._uid,
                 colSpan: 1, // 列合并还原为默认值
             }));
+            // 适配 IDE 展示
+            if (this.$env.VUE_APP_DESIGNER) {
+                vms = [this];
+            }
             this.$contact('u-table-view', (parentVM) => {
                 this.parentVM = parentVM;
                 parentVM.columnVMsMap[this._uid] = {
@@ -68,10 +75,4 @@ export default {
         },
     },
 };
-/**
- * TODO: 动态列和表头分组一起使用的问题：
- * 1. 第一次加载时，动态列直接插入到 columnVMs，不经过 group，可能会错位
- * 2. 动态列更新后，重新插入也会错位
- * 3. group 重新删除再渲染，会丢失动态列的内容
- */
 </script>

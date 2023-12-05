@@ -693,64 +693,6 @@ export default {
         hasGroupedColumn() {
             return !!Object.keys(this.columnGroupVMs).length;
         },
-        // tableHeadTrArr() {
-        //     // 重置被自动合并的列
-        //     this.visibleColumnVMs.filter((column) => column.colSpan === 0)
-        //         .forEach((column) => column.colSpan = 1);
-        //     this.visibleColumnVMs.forEach((columnVM, index) => {
-        //         if (columnVM.colSpan > 1) {
-        //             // 如果当前列有合并，那么后面的列自动覆盖不显示
-        //             for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
-        //                 this.visibleColumnVMs[i].colSpan = 0;
-        //             }
-        //         }
-        //     });
-        //     if (!this.hasGroupedColumn) {
-        //         return [this.visibleColumnVMs];
-        //     } else {
-        //         const result = [[]];
-        //         let dynamicOffset = 0;
-        //         this.visibleColumnVMs.forEach((columnVM, index) => {
-        //             if (!columnVM.isUnderGroup) {
-        //                 result[0].push(columnVM);
-        //                 // 统计出到当前 index 有多少个动态列（第一个动态列不计入，因为 vm 里已经占位，
-        //                 // 目前每一个动态列的第一个 vm 都没有 dynamicId，所以可以通过这个来判断）
-        //                 if (columnVM.$options.name === 'u-table-view-column-dynamic' && columnVM.dynamicId) {
-        //                     dynamicOffset++;
-        //                 }
-        //             } else if (this.columnGroupVMs[index - dynamicOffset]) {
-        //                 // 这里需要减去动态列带来的过多位移
-        //                 const groupVM = this.columnGroupVMs[index - dynamicOffset];
-        //                 result[0].push(groupVM);
-        //                 // 使用null占位来确保导出数据的正确形状
-        //                 const children = groupVM.$children || [];
-        //                 let columnVMCount = 0;
-        //                 for (let i = 0; i < children.length; ++i) {
-        //                     const vnode = children[i];
-        //                     if (vnode && vnode.$options && vnode.$options.name === 'u-table-view-column') {
-        //                         ++columnVMCount;
-        //                         if (columnVMCount > 1) {
-        //                             result[0].push(null);
-        //                         }
-        //                     }
-        //                 }
-        //             }
-        //         });
-        //         result[1] = result[0].reduce((acc, vm) => {
-        //             if (vm === null) {
-        //                 return acc;
-        //             }
-        //             if (vm.$options.name !== 'u-table-view-column-group') {
-        //                 return [...acc, null]; // 使用null占位来确保导出数据的正确形状
-        //             } else {
-        //                 return [...acc, ...vm.$children.filter((vnode) => vnode && vnode.$options && vnode.$options.name === 'u-table-view-column')];
-        //             }
-        //         }, []);
-        //         // result[1] = this.visibleColumnVMs.filter((columnVM) => columnVM.isUnderGroup);
-        //         console.log('group', result);
-        //         return result;
-        //     }
-        // },
     },
     watch: {
         data(data) {
@@ -2209,7 +2151,16 @@ export default {
             if (!columnVM)
                 return undefined;
             const inFixedLeftList = this.isInFixedList(columnVM, this.fixedLeftList);
-            return inFixedLeftList && list[columnIndex + 1] && !list[columnIndex + 1].fixed ? true : undefined;
+            let isLastInList = list[columnIndex + 1] && !list[columnIndex + 1].fixed;
+            if (columnVM.$parent.isGroup) {
+                const groupList = this.tableHeadTrArr.find((tableHeadTr) => tableHeadTr.includes(columnVM.$parent));
+                if (groupList) {
+                    const groupVMIndex = groupList.findIndex((groupVM) => groupVM === columnVM.$parent);
+                    const isGroupInLast = this.isLastLeftFixed(columnVM.$parent, groupVMIndex, groupList);
+                    isLastInList = isLastInList && isGroupInLast;
+                }
+            }
+            return inFixedLeftList && isLastInList ? true : undefined;
         },
         isTdLastLeftFixed(columnVM, columnIndex, columnVMList, item, rowIndex) {
             if (!columnVM)
@@ -2223,7 +2174,16 @@ export default {
         },
         isFirstRightFixed(columnVM, columnIndex, list) {
             const inFixedRightList = this.isInFixedList(columnVM, this.fixedRightList);
-            return inFixedRightList && list[columnIndex - 1] && !list[columnIndex - 1].fixed ? true : undefined;
+            let isLastInList = list[columnIndex - 1] && !list[columnIndex - 1].fixed;
+            if (columnVM.$parent.isGroup) {
+                const groupList = this.tableHeadTrArr.find((tableHeadTr) => tableHeadTr.includes(columnVM.$parent));
+                if (groupList) {
+                    const groupVMIndex = groupList.findIndex((groupVM) => groupVM === columnVM.$parent);
+                    const isGroupInLast = this.isFirstRightFixed(columnVM.$parent, groupVMIndex, groupList);
+                    isLastInList = isLastInList && isGroupInLast;
+                }
+            }
+            return inFixedRightList && isLastInList ? true : undefined;
         },
         /**
          * 拖拽开始
@@ -2887,6 +2847,7 @@ export default {
             this.handleResize(true);
         },
         /**
+         * 普通列、分组、动态列等增删时统一处理
          * 处理表格slots变化时，columnVMs数组、分组处理
          */
         handleColumns() {
@@ -2932,6 +2893,7 @@ export default {
 
             // 再替换分组
             const finalColumnVms = [...columnVMs];
+            // result 记录分组数据
             const result = [];
             const groupColumnVMs = columnVMs.filter((columnVm) => columnVm.isGroup);
             groupColumnVMs.forEach((groupVM) => {
@@ -2946,7 +2908,7 @@ export default {
                     this.getColumnChildren(groupVM, 0, result);
                 }
             });
-            // finalColumnVms 是最终展示的列
+            // finalColumnVms 是最终展示的列，赋值this.columnVMs，用于visibleColumnVMs的计算
             this.columnVMs = finalColumnVms;
 
             // 计算表头
@@ -2972,7 +2934,6 @@ export default {
                         }
                     });
                 }
-                console.log('result', result);
                 tableHeadTrArr = result;
             }
             this.tableHeadTrArr = tableHeadTrArr;
@@ -2985,7 +2946,7 @@ export default {
             groupVM.colSpan = columnsInGroup.length;
             // 自节点fixed的情况下，group也fixed
             const hasFixed = columnsInGroup.some((columnInGroup) => columnInGroup.fixed);
-            groupVM.fixed = hasFixed;
+            groupVM.fixed = hasFixed || groupVM.fixed;
             if (groupVM.fixed) {
                 columnsInGroup.forEach((columnInGroup) => columnInGroup.fixed = groupVM.fixed);
             }
@@ -2998,9 +2959,10 @@ export default {
          */
         getContainColumns(column) {
             if (column.$children.length) {
-                return flatMap(column.$children, this.getContainColumns);
+                const children = column.$children.filter((childrenVM) => this.isColumnVM(childrenVM));
+                return flatMap(children, this.getContainColumns);
             } else {
-                return [column];
+                return this.isColumnVM(column) ? [column] : [];
             }
         },
         /**
@@ -3019,6 +2981,8 @@ export default {
                 });
                 column.$children.forEach((columnVM) => {
                     if (!columnVM || columnVM.currentHidden)
+                        return;
+                    if (!this.isColumnVM(columnVM))
                         return;
                     // group才需要设置信息
                     if (columnVM.$vnode && columnVM.$vnode.tag && columnVM.isGroup) {
@@ -3047,18 +3011,19 @@ export default {
                 let width = columnData[type];
                 // 分组或者有合并列的情况处理
                 if (columnData.columnsInGroup || columnData.cloumnsForColSpanHidden) {
-                    const columnsInGroupLefts = (columnData.columnsInGroup || []).map((columnVM) => {
+                    const columnsInGroupWidth = (columnData.columnsInGroup || []).map((columnVM) => {
                         const columnData = this.columnVMsMap[columnVM._uid];
                         return columnData[type];
                     });
-                    const cloumnsForColSpanHiddenLefts = (columnData.cloumnsForColSpanHidden || []).map((columnVM) => {
+                    const cloumnsForColSpanHiddenWidth = (columnData.cloumnsForColSpanHidden || []).map((columnVM) => {
                         const columnData = this.columnVMsMap[columnVM._uid];
                         return columnData[type];
                     });
-                    if (type === 'right')
-                        width = Math.max(...columnsInGroupLefts.concat(cloumnsForColSpanHiddenLefts));
-                    else {
-                        width = Math.min(...columnsInGroupLefts.concat(cloumnsForColSpanHiddenLefts));
+                    const tempWidth = Math.min(...columnsInGroupWidth.concat(cloumnsForColSpanHiddenWidth));
+                    if (type === 'left' && width !== undefined) {
+                        width = Math.min(width, tempWidth);
+                    } else {
+                        width = tempWidth;
                     }
                 }
                 return width;
@@ -3082,7 +3047,13 @@ export default {
                     return index !== -1;
                 }
             }
-        }
+        },
+        /**
+         * column列里会有u-table-view-expander子组件，需要过滤掉
+         */
+        isColumnVM(columnVM) {
+            return columnVM && columnVM.$vnode && columnVM.$vnode.tag && columnVM.$vnode.tag.includes('-column');
+        },
     },
 };
 </script>
