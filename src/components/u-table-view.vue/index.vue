@@ -445,6 +445,7 @@ import SEmpty from '../../components/s-empty.vue';
 import throttle from 'lodash/throttle';
 import FVirtualTable from './f-virtual-table.vue';
 import flatMap from 'lodash/flatMap';
+import { createTableHeaderExportHelper } from './createTableHeadExporter';
 
 export default {
     name: 'u-table-view',
@@ -1552,7 +1553,9 @@ export default {
             }
 
             const titleColIndexRelations = [];
-            let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr, rowIndex) => Array.from(tr.childNodes).map((node, colIndex) => {
+            const headRows = Array.from(this.$el.querySelectorAll('[position=static] thead tr'));
+            const helper = createTableHeaderExportHelper(headRows.length);
+            headRows.map((tr, rowIndex) => Array.from(tr.childNodes).map((node, colIndex, currentArr) => {
                 if (node.nodeName === 'TH') {
                     const rowspan = parseInt(node.getAttribute('rowspan')) || 1;
                     const colspan = parseInt(node.getAttribute('colspan')) || 1;
@@ -1571,21 +1574,24 @@ export default {
                             title = node.innerText;
                         }
                     }
+                    const cols = helper.setCell(title, colIndex + 1 === currentArr.length, rowspan, colspan);
+                    const realColIndex = cols[0];
                     if (rowspan !== 1 || colspan !== 1) {
                         mergesMap.push({
-                            col: colIndex,
+                            col: realColIndex,
                             row: rowIndex,
                             rowspan,
                             colspan,
                         });
                     }
-                    titleColIndexRelations.push([title, Array.from({ length: colspan }, (_, idx) => idx + colIndex)]);
+                    titleColIndexRelations.push([title, cols]);
                     return title;
                 } else {
                     return null;
                 }
             }));
             // console.time('渲染数据');
+            let res = helper.eject();
             const startIndexes = [];
             for (let i = 0; i < this.visibleColumnVMs.length; i++) {
                 const vm = this.visibleColumnVMs[i];
