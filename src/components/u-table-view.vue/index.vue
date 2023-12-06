@@ -18,7 +18,7 @@
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth">
                 </colgroup>
                 <thead :grouped="hasGroupedColumn">
-                    <tr v-for="(headTr, trIndex) in tableHeadTrArr">
+                    <tr v-for="(headTr, trIndex) in visibleTableHeadTrArr">
                         <template v-for="(columnVM, columnIndex) in headTr">
                         <th
                             v-if="columnVM&&columnVM.colSpan !== 0"
@@ -625,6 +625,16 @@ export default {
                 return this.columnVMs;
             }
             return this.columnVMs.filter((columnVM) => columnVM && !columnVM.currentHidden);
+        },
+        visibleTableHeadTrArr() {
+            if (this.$env.VUE_APP_DESIGNER) {
+                return this.tableHeadTrArr;
+            }
+            const result = [];
+            this.tableHeadTrArr.forEach((headTr, index) => {
+                result[index] = headTr.filter((columnVM) => columnVM && !columnVM.currentHidden);
+            });
+            return result;
         },
         expanderColumnVM() {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
@@ -2153,7 +2163,7 @@ export default {
             const inFixedLeftList = this.isInFixedList(columnVM, this.fixedLeftList);
             let isLastInList = list[columnIndex + 1] && !list[columnIndex + 1].fixed;
             if (columnVM.$parent.isGroup) {
-                const groupList = this.tableHeadTrArr.find((tableHeadTr) => tableHeadTr.includes(columnVM.$parent));
+                const groupList = this.visibleTableHeadTrArr.find((tableHeadTr) => tableHeadTr.includes(columnVM.$parent));
                 if (groupList) {
                     const groupVMIndex = groupList.findIndex((groupVM) => groupVM === columnVM.$parent);
                     const isGroupInLast = this.isLastLeftFixed(columnVM.$parent, groupVMIndex, groupList);
@@ -2176,7 +2186,7 @@ export default {
             const inFixedRightList = this.isInFixedList(columnVM, this.fixedRightList);
             let isLastInList = list[columnIndex - 1] && !list[columnIndex - 1].fixed;
             if (columnVM.$parent.isGroup) {
-                const groupList = this.tableHeadTrArr.find((tableHeadTr) => tableHeadTr.includes(columnVM.$parent));
+                const groupList = this.visibleTableHeadTrArr.find((tableHeadTr) => tableHeadTr.includes(columnVM.$parent));
                 if (groupList) {
                     const groupVMIndex = groupList.findIndex((groupVM) => groupVM === columnVM.$parent);
                     const isGroupInLast = this.isFirstRightFixed(columnVM.$parent, groupVMIndex, groupList);
@@ -2861,8 +2871,6 @@ export default {
                 const columnVM = columnVMMap.columnVM;
                 if (!columnVM)
                     return;
-                if (columnVM.currentHidden)
-                    return;
                 const vnode = columnVM.$vnode;
                 const index = slotVMs.findIndex((slotVm) => slotVm === vnode);
                 if (index !== -1) {
@@ -2912,7 +2920,14 @@ export default {
             this.columnVMs = finalColumnVms;
 
             // 计算表头
-            let tableHeadTrArr = [finalColumnVms];
+            let tableHeadTrArr = [[]];
+            //需要处理下列设置了colSpan的情况
+            finalColumnVms.forEach((columnVM) => {
+                tableHeadTrArr[0].push(columnVM);
+            });
+            tableHeadTrArr[0].forEach((columnVM, index) => {
+                this.setColumnColSpanData(columnVM, index, tableHeadTrArr[0]);
+            });
             if (result.length) {
                 result[0] = columnVMs;
                 for (let i = 0; i < result.length; i++) {
@@ -2922,28 +2937,20 @@ export default {
                         if (!columnVm.isGroup && i !== result.length - 1) {
                             columnVm.rowSpan = result.length - i;
                         }
-                        if (columnVm.colSpan > 1 && !columnVm.isGroup) {
-                            // 如果当前列有合并，那么后面的列自动覆盖不显示
-                            const cloumnsForColSpanHidden = [];
-                            for (let j = index + 1; j < index + columnVm.colSpan && j < result[i].length; j++) {
-                                result[i][j].fixed = columnVm.fixed;
-                                cloumnsForColSpanHidden.push(result[i][j]);
-                                result[i].splice(j, 1, null);
-                            }
-                            this.setColumnVMsMap(columnVm._uid, { cloumnsForColSpanHidden });
-                        }
+                        this.setColumnColSpanData(columnVm, index, result[i]);
                     });
                 }
                 tableHeadTrArr = result;
             }
+            console.log('tableHeadTrArr', tableHeadTrArr);
             this.tableHeadTrArr = tableHeadTrArr;
         },
         /**
          * 设置分组数据
          */
         setGroupData(groupVM) {
-            const columnsInGroup = this.getContainColumns(groupVM).filter((columnVM) => !columnVM.currentHidden);
-            groupVM.colSpan = columnsInGroup.length;
+            const columnsInGroup = this.getContainColumns(groupVM);
+            groupVM.colSpan = columnsInGroup.filter((columnVM) => !columnVM.currentHidden).length;
             // 自节点fixed的情况下，group也fixed
             const hasFixed = columnsInGroup.some((columnInGroup) => columnInGroup.fixed);
             groupVM.fixed = hasFixed || groupVM.fixed;
@@ -2952,6 +2959,25 @@ export default {
             }
             this.setColumnVMsMap(groupVM._uid, { columnsInGroup });
             return columnsInGroup;
+        },
+        /**
+         * 设置colSpan数据
+         * @param {*} columnVM 当前列
+         * @param {*} index 当前列的索引
+         * @param {*} list 当前列所在的数组
+         */
+        setColumnColSpanData(columnVM, index, list) {
+            if (columnVM && columnVM.colSpan > 1 && !columnVM.isGroup) {
+                // 如果当前列有合并，那么后面的列自动覆盖不显示
+                const cloumnsForColSpanHidden = [];
+                for (let j = index + 1; j < index + columnVM.colSpan && j < list.length; j++) {
+                    list[j].fixed = columnVM.fixed;
+                    cloumnsForColSpanHidden.push(list[j]);
+                    list[j].currentHidden = columnVM.currentHidden;
+                    list.splice(j, 1, null);
+                }
+                this.setColumnVMsMap(columnVM._uid, { cloumnsForColSpanHidden });
+            }
         },
         /**
          * 得到group下最终的叶子结点
@@ -2980,7 +3006,7 @@ export default {
                     return index1 - index2;
                 });
                 column.$children.forEach((columnVM) => {
-                    if (!columnVM || columnVM.currentHidden)
+                    if (!columnVM)
                         return;
                     if (!this.isColumnVM(columnVM))
                         return;

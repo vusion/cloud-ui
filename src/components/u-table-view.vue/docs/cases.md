@@ -1322,7 +1322,7 @@ export default {
             <template #config-columns>
                 <u-table-view-column-config
                     :data-source="loadConfigData"
-                    :value.sync="configValue"
+                    :value="configValue"
                     value-field="key"
                     @select="onSelectConfig"
                     style="color:blue"
@@ -1467,7 +1467,7 @@ export default {
             variable1: ['name'],
             variable2: [],
             dataSource: undefined,
-            dataSource1: ['name', 'province']
+            dataSource1: ['name', 'province'],
         };
     },
     methods: {
@@ -1975,7 +1975,7 @@ export default {
             <u-table-view-column title="用户名" field="name" :auto-row-span="true"></u-table-view-column>
             <u-table-view-column title="手机号码" field="phone"></u-table-view-column>
             <u-table-view-column-group title="用户信息111">
-                <u-table-view-column title="用户名111" field="name" :auto-row-span="true"></u-table-view-column>
+                <u-table-view-column title="用户名111" field="name" :auto-row-span="true" :hidden="!show"></u-table-view-column>
                 <u-table-view-column title="手机号码111" field="phone"></u-table-view-column>
             </u-table-view-column-group>
         </u-table-view-column-group>

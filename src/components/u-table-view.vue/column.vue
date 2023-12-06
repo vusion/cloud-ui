@@ -71,6 +71,16 @@ export default {
         },
         hidden(value) {
             this.currentHidden = value;
+            // 分组下的列用hidden控制显隐，分组需要重新计算colSpan等
+            this.$contact('u-table-view', (parentVM) => {
+                const hasGroupedColumn = !!Object.keys(parentVM.columnGroupVMs).length;
+                if (hasGroupedColumn) {
+                    this.$dispatch(
+                        ($parent) => $parent.$options.name && $parent.$options.name === 'u-table-view',
+                        'handle-columns',
+                    );
+                }
+            });
         },
         autoRowSpan() {
             this.$nextTick(() => {

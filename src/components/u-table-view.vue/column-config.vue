@@ -67,11 +67,9 @@ export default {
     },
     watch: {
         value(value, oldValue) {
-            // 当绑定的是:value=['name']这样的，watch会一直进来，所以增加判断
-            if (JSON.stringify(value) === JSON.stringify(oldValue))
-                return;
             this.currentValue = value;
             this.handleColumnsHidden(value);
+            console.log('value watch');
         },
         'currentDataSource.data'(value) {
             this.setCurrentValue(value);
@@ -162,15 +160,31 @@ export default {
                 return;
             // 有些列可能不参与隐藏处理，即不在配置列的下拉数据里，这种列不能隐藏
             const configList = this.currentDataSource.data.map((item) => (this.$at(item, this.valueField) || item.value || item));
-            columnVMs.forEach((columnVM) => {
+            for (let i = 0; i < columnVMs.length; i++) {
+                const columnVM = columnVMs[i];
                 if (columnVM.field
                     && configList.includes(columnVM.field)
                     && !selectedValue.includes(columnVM.field)) {
                     columnVM.currentHidden = true;
+                    this.setColSpanColumn(columnVM, i, columnVMs);
+                    if (columnVM.colSpan > 1) {
+                        i = i + columnVM.colSpan;
+                    }
                 } else {
                     columnVM.currentHidden = columnVM.hidden;
+                    this.setColSpanColumn(columnVM, i, columnVMs);
+                    if (columnVM.colSpan > 1) {
+                        i = i + columnVM.colSpan;
+                    }
                 }
-            });
+            }
+        },
+        setColSpanColumn(columnVM, index, list) {
+            if (columnVM.colSpan > 1) {
+                for (let j = index + 1; j < index + columnVM.colSpan && j < list.length; j++) {
+                    list[j].currentHidden = columnVM.currentHidden;
+                }
+            }
         },
         /**
          * 配置列的下拉数据可能是个函数，需要等数据回来后再处理一遍显隐
