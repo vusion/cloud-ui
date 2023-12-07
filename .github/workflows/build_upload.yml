@@ -28,14 +28,14 @@ jobs:
         run: npm install
 
       - name: Build
-        run: LCAP_LIB_VERSION=${{ env.VERSION }} npm run build:theme-local
+        run: LCAP_LIB_VERSION=${{ env.VERSION }} npm run build:theme
 
       # 创建一个临时目录
-      - name: Create temp dir
-        run: mkdir temp && cp -r ./dist-theme ./temp/dist-theme && cp -r ./src ./temp/src
+      - name: Create Assets
+        run: LCAP_LIB_VERSION=${{ env.VERSION }} node bin/asset.js
 
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
-          name: 'cloud-ui.vusion@${{ env.VERSION }}'
-          path: temp
+          name: cloud-ui.vusion@${{ env.VERSION }}
+          path: cloud-ui.vusion@${{ env.VERSION }}
