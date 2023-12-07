@@ -68,7 +68,7 @@ export default {
 
 <style module>
 .root {
-    width: max(1940px, 100%);
+    width: max(1200px, 100%);
 }
 .cursor {
     cursor: pointer;

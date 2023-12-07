@@ -2154,6 +2154,75 @@ export default {
 </script>
 ```
 
+树型表格-虚拟列表
+
+``` vue
+<template>
+<u-linear-layout direction="vertical">
+<u-table-view :data-source="list" value-field="name" draggable virtual style="max-height: 100vh" tree-display :item-height="42">
+    <u-table-view-column type="dragHandler" width="30"></u-table-view-column>
+    <u-table-view-column type="checkbox" width="30"></u-table-view-column>
+    <u-table-view-column title="用户名" field="name" width="20%" ellipsis></u-table-view-column>
+    <u-table-view-column title="手机号码" field="phone" width="20%" ellipsis></u-table-view-column>
+    <u-table-view-column title="地址" field="address" ellipsis></u-table-view-column>
+    <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%" ellipsis></u-table-view-column>
+    <template #dragGhost="{item}">
+        <div style="padding:15px;background:white;border:1px solid #ddd; width:100px;">{{item && item.name}}</div>
+    </template>
+</u-table-view>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data(){
+        return {
+            list: this.getList(),
+        }
+    },
+    methods: {
+        getList1(index) {
+            return [
+                { name: '张三' + index, phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                { name: '张三dd' + index, phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, expanded:true, children:[
+                    { name: '张三11' + index, phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                    { name: '张三12'+ index, phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
+                    { name: '张三121'+ index, phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                    { name: '张三122'+ index, phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                ]},
+                ]},
+                { name: '小明'+ index, phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 , dropDisabled:true},
+                { name: '李四'+ index, phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+                { name: '李华'+ index, phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+                { name: '王五'+ index, phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+            ]
+        },
+        getList() {
+            const data = [
+                { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, expanded:true, children:[
+                    { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                    { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
+                    { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                    { name: '张三122', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+                ]},
+                ]},
+                { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 , dropDisabled:true},
+                { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+                { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+                { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+            ];
+            let result = [];
+            for (let i = 0; i < 500; i++) {
+                result = result.concat(this.getList1(i));
+            }
+            console.log(result.length, result[result.length-1].name)
+            return result;
+        }
+    },
+};
+</script>
+```
+
 树型表格-设置不可拖拽节点、不可放入节点
 
 ``` vue
@@ -2577,7 +2646,7 @@ export default {
 | remote-paging | boolean |  | `false` |  |
 | pagination | boolean |  |  | 设置是否分页展示数据 |
 | page-size | number |  | `20` |  |
-| show-sizer | boolean |  | `false` | 显示每页条数切换器 |
+| show-sizer | boolean |  | `true` | 显示每页条数切换器 |
 | page-size-options | Array\<number\> |  | `[10, 20, 50]` | 每页条数切换器的选项 |
 | page-number | number |  | `1` | 当前默认展示在第几页 |
 | show-total | boolean |  | `false` |  |
@@ -2610,6 +2679,9 @@ export default {
 | resizable | boolean |  | `false` | 设置是否可以调整列宽 |
 | resize-remaining | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'average'` | 设置调整列宽时如何处理剩余大小 |
 | configurable | boolean |  | `false` | 设置是否可以配置展示列 |
+| virtual | boolean |  | `false` | 虚拟滚动表示不展示所有的数据，只展示默认条数的数据，当滚动时再展示剩余的数据。当表格数据量大时，可设置为虚拟滚动，提高性能。默认关闭。 |
+| item-height | number |  |  | 与虚拟滚动配合使用，表示每一行的高度。请确保行里的数据不要换行 |
+| virtual-count | number |  | `60` | 与虚拟滚动配合使用，表示每屏展示的最大条数 |
 | initial-load | boolean |  | `true` | 设置初始时是否立即加载 |
 | designer-mode | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'success'` | 设置不同加载状态的展示内容 |
 | loading-text | string |  | `'正在加载中...'` | 加载中状态显示的提示文案 |
@@ -2749,6 +2821,16 @@ export default {
 | $event | object | 自定义事件对象 |
 | $event.item | object | 点击行相关对象 |
 | $event.index | number | 点击行索引 |
+
+#### @dblclick-row
+
+双击某一行时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.item | object | 双击行相关对象 |
+| $event.index | number | 双击行索引 |
 
 #### @before-select
 

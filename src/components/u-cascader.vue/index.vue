@@ -37,7 +37,7 @@
                 </template>
             </m-popper>
         </u-input>
-        <span v-show="clearable && currentValue" :class="$style.clearable" @click="clear" @mousedown.prevent></span>
+        <span v-show="clearable && currentValue && !disabled && !readonly" :class="$style.clearable" @click="clear" @mousedown.prevent></span>
     </div>
 </template>
 
@@ -391,6 +391,9 @@ export default {
             this.$refs.popper && this.$refs.popper.toggle(opened);
         },
         clear(...args) {
+            if (this.readonly || this.disabled) {
+                return;
+            }
             this.currentValue = '';
             this.lastValueString = '';
             this.lastRealValueArray = [];
