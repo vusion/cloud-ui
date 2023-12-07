@@ -69,7 +69,6 @@ export default {
         value(value, oldValue) {
             this.currentValue = value;
             this.handleColumnsHidden(value);
-            console.log('value watch');
         },
         'currentDataSource.data'(value) {
             this.setCurrentValue(value);

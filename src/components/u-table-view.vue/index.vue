@@ -2942,7 +2942,6 @@ export default {
                 }
                 tableHeadTrArr = result;
             }
-            console.log('tableHeadTrArr', tableHeadTrArr);
             this.tableHeadTrArr = tableHeadTrArr;
         },
         /**
