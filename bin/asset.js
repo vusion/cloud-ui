@@ -8,8 +8,11 @@ const { docs } = require('../vusion.config');
 const version = process.env.LCAP_LIB_VERSION || argv.version || pkg.version;
 
 const distDic = `cloud-ui.vusion@${version}`;
-execSync(`rm -rf ${distDic}`);
-console.log(chalk.green(`删除文件夹 ${distDic} 成功！`));
+
+if (fs.existsSync(distDic)) {
+    execSync(`rm -rf ${distDic}`);
+    console.log(chalk.green(`删除文件夹 ${distDic} 成功！`));
+}
 
 fs.mkdirSync(`${distDic}`);
 console.log(chalk.green(`新建空文件夹 ${distDic} 成功！`));

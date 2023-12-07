@@ -28,3 +28,5 @@ coverage
 *.tar.gz
 *.tgz
 cloud-ui.vusion@*
+
+scripts/lcap/usage.json

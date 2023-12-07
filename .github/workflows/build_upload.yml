@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: LCAP_LIB_VERSION=${{ env.VERSION }} npm run build:theme-local
+        run: LCAP_LIB_VERSION=${{ env.VERSION }} npm run build:theme
 
       # 创建一个临时目录
       - name: Create Assets

@@ -5570,7 +5570,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                   </th>
                   <th class="head-title boldHeader">
                     <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                      <div>Cannot read property 'name' of undefined</div>
+                      <div>Cannot read properties of undefined (reading 'name')</div>
                     </span>
                   </th>
                   <th class="head-title boldHeader">
@@ -5695,7 +5695,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                 </th>
                 <th class="head-title boldHeader">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                    <div>Cannot read property 'name' of undefined</div>
+                    <div>Cannot read properties of undefined (reading 'name')</div>
                   </span>
                 </th>
                 <th class="head-title boldHeader">
@@ -26363,7 +26363,7 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
               </th>
               <th class="head-title boldHeader" rowspan="2">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                  <div>Cannot read property 'name' of undefined</div>
+                  <div>Cannot read properties of undefined (reading 'name')</div>
                 </span>
               </th>
               <th class="head-title boldHeader" colspan="2">
