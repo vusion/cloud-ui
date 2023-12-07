@@ -55,7 +55,7 @@ export default {
             this.close();
         },
         close() {
-            if (this.groupVM.close) {
+            if (this.groupVM && this.groupVM.close) {
                 this.groupVM.close();
             }
         },
