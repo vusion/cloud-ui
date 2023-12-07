@@ -3,7 +3,7 @@
 ``` html
 <u-navbar-multi>
     <template #left>
-        <u-multi-layout-item align-items="center" style="width: 200px;">
+        <u-multi-layout-item alignItems="center" style="width: 200px;">
             <u-image fit="cover" src="/assets/lcap-logo-light.svg"
                     style="width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;"></u-image>
             <u-text text="应用名称" size="large" style="--custom-start: auto; vertical-align: middle;"></u-text>
@@ -12,7 +12,7 @@
     <u-navbar-item-multi><u-text>导航项1</u-text></u-navbar-item-multi>
     <u-navbar-item-multi><u-text>导航项2</u-text></u-navbar-item-multi>
     <template #right>
-        <u-multi-layout-item align-items="center" justify="end">
+        <u-multi-layout-item alignItems="center" justify="end">
             <u-dropdown style="margin-right: 10px;">
                 <template #title>
                     <u-linear-layout gap="small" v-if="$global.userInfo">
