@@ -1821,7 +1821,7 @@ export default {
                 return;
             if (values) {
                 this.currentValues = values;
-                this.currentData && this.currentData.forEach((item) => (item.checked = !!values.find(v=>v === this.$at(item, this.valueField) || String(v) === String(this.$at(item, this.valueField)))));
+                this.currentData && this.currentData.forEach((item) => (item.checked = values.findIndex((v) => v === this.$at(item, this.valueField) || String(v) === String(this.$at(item, this.valueField))) !== -1));
             } else {
                 const values = [];
                 this.currentData && this.currentData.forEach((item) => item.checked && values.push(this.$at(item, this.valueField)));
