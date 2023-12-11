@@ -2186,7 +2186,7 @@ exports[`u-select.vue Demo-前端过滤（搜索） 1`] = `
       </div>
     </transition-stub>
   </div>
-  <div class="root" multiple="multiple" multiple-tags="true" style="width: 240px;" tabindex="0">
+  <div class="root" clearable="true" multiple="multiple" multiple-tags="true" style="width: 240px;" tabindex="0">
     <span>b</span>
     <span style="display: none;">前端过滤（多选）</span>
     <div class style="direction: ltr;" tags-overflow="collapse">
