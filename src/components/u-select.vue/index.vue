@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :color="color || formItemVM && formItemVM.color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
-    :clearable="clearable && !!(filterable ? filterText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
+    :clearable="clearable && !!(filterable ? filterText ||currentText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
     :prefix="prefix ? prefix : undefined" :suffix="suffix ? suffix : undefined"
     :start="!!prefix"
     :end="!!suffix"
@@ -696,6 +696,7 @@ export default {
         },
         clear() {
             this.preventBlur = true;
+            this.currentText = '';
             if (this.multiple) {
                 const oldValue = this.value;
                 let value = [];
