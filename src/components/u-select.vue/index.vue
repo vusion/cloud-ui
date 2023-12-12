@@ -149,7 +149,6 @@ import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-select',
-    mixins: [MPreview],
     component: {
         'u-select-item-all-check': AllCheck,
     },
@@ -159,7 +158,7 @@ export default {
     directives: { ellipsisTitle },
     extends: UListView,
     // i18n,
-    mixins: [i18nMixin('u-select')],
+    mixins: [i18nMixin('u-select'), MPreview],
     props: {
         // @inherit: value: { type: String, default: '' },
         // @inherit: value: Array,
@@ -413,6 +412,8 @@ export default {
         if (!this.$env.VUE_APP_DESIGNER)
             this.toggle(this.opened);
         this.setPopperWidth();
+
+        console.log('');
     },
     destroyed() {
         clearTimeout(this.inputBlurTimer);
