@@ -39,11 +39,11 @@
             <div :class="$style.footer" v-if="showFooterButton || showRightNowButton">
                 <u-linear-layout justify="space-between">
                     <u-linear-layout :class="$style.ctimewrap">
-                        <u-link @click="setDateNow()" v-if="showRightNowButton" :readonly="readonly" :disabled="disabled || disabledNow">{{ rightNowTitle || $t('now') }}</u-link>
+                        <u-link @click="setDateNow()" v-if="showRightNowButton" :readonly="readonly" :disabled="disabled || disabledNow">{{ rightNowTitle || $tt('now') }}</u-link>
                     </u-linear-layout>
                     <u-linear-layout :class="$style.btnwrap" v-if="showFooterButton">
-                        <u-button @click="onCancel">{{ cancelTitle || $t('cancel') }}</u-button>
-                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ okTitle || $t('submit') }}</u-button>
+                        <u-button @click="onCancel">{{ cancelTitle || $tt('cancel') }}</u-button>
+                        <u-button @click="onConfirm" color="primary" :readonly="readonly" :disabled="disabled">{{ okTitle || $tt('submit') }}</u-button>
                     </u-linear-layout>
                 </u-linear-layout>
             </div>
@@ -64,6 +64,7 @@ import MField from '../m-field.vue';
 import i18n from './i18n';
 import UPreview from '../u-text.vue';
 import MPreview from '../u-text.vue/preview';
+import i18nMixin from '../../mixins/i18n';
 /**
  * @class DateTimePicker
  * @extend Dropdown
@@ -80,8 +81,8 @@ import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-date-time-picker',
-    i18n,
-    mixins: [MField, DateFormatMixin, MPreview],
+    // i18n,
+    mixins: [MField, DateFormatMixin, i18nMixin('u-date-time-picker'), MPreview],
     component: {
         UPreview
     },
@@ -99,7 +100,7 @@ export default {
         placeholder: {
             type: String,
             default() {
-                return this.$t('selectTimeText');
+                return this.$tt('selectTimeText');
             },
         },
         readonly: { type: Boolean, default: false },
@@ -150,7 +151,7 @@ export default {
             minTime: undefined,
             maxTime: undefined,
             currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
-            popperplaceholder: this.$t('selectPopperDateText'),
+            popperplaceholder: this.$tt('selectPopperDateText'),
             finalDateTime: this.format((this.value !== null && this.value !== undefined) ? this.value : this.date, 'YYYY-MM-DD HH:mm:ss'), // 最外面的输入框
             showDate: undefined, // popper里的日期输入框
             showTime: undefined, // popper里的时间输入框
@@ -251,7 +252,7 @@ export default {
             'update',
             this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
-        this.lastChangedValue = this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined
+        this.lastChangedValue = this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined;
     },
     mounted() {
         this.autofocus && this.$refs.input.focus();
@@ -344,11 +345,7 @@ export default {
             ) {
                 this.minTime = this.spMinTime;
                 this.maxTime = this.spMaxTime;
-            } else if (datetime === this.minCalendarDate)
-                this.minTime = this.spMinTime;
-            else if (datetime === this.maxCalendarDate)
-                this.maxTime = this.spMaxTime;
-            else if (
+            } else if (
                 datetime === this.minCalendarDate
                 && dtime < this.spMinTime
             ) {
@@ -364,7 +361,14 @@ export default {
                 date.setHours(spMaxTime[0]);
                 date.setMinutes(spMaxTime[1]);
                 date.setSeconds(spMaxTime[2]);
-            } else {
+            } else if (datetime === this.minCalendarDate) {
+                this.minTime = this.spMinTime;
+                this.maxTime = undefined;
+            } else if (datetime === this.maxCalendarDate) {
+                this.minTime = undefined;
+                this.maxTime = this.spMaxTime;
+            }
+            else {
                 this.minTime = undefined;
                 this.maxTime = undefined;
             } // if (datetime === this.minCalendarDate || datetime === this.maxCalendarDate)

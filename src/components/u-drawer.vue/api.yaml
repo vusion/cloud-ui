@@ -117,3 +117,16 @@
     - name: close
       description: 关闭抽屉
       params: []
+  i18n:
+    zh-CN:
+      uDrawer_dialog: '提示'
+      uDrawer_ok: '确定'
+      uDrawer_cancel: '取消'
+    en-US:
+      uDrawer_dialog: 'Dialog'
+      uDrawer_ok: 'OK'
+      uDrawer_cancel: 'Cancel'
+    ja:
+      uDrawer_dialog: 'ダイアログ'
+      uDrawer_ok: '確定'
+      uDrawer_cancel: 'キャンセル'

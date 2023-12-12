@@ -19,7 +19,7 @@
         <slot></slot>
         <div ref="virtual" v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length"
             :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
-            
+
             <component :is="ChildComponent"
                 v-for="(item, index) in virtualList"
                 v-if="item"
@@ -51,10 +51,10 @@
             </s-empty>
         </div>
         <div :class="$style.status" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
-            <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
+            <u-link @click="load(true)">{{ $tt('loadMore') }}</u-link>
         </div>
         <div :class="$style.status" v-else-if="((pageable === 'auto-more' && hasScroll) || pageable === 'load-more') && !currentDataSource.hasMore() && (currentData && currentData.length)">
-            {{ $t('noMore') }}
+            {{ $tt('noMore') }}
         </div>
         <div :class="$style.status" v-else-if="currentData && !currentData.length || currentEmpty" vusion-slot-name="empty">
             <slot name="empty">{{ emptyText }}</slot>
@@ -88,6 +88,7 @@ import debounce from 'lodash/debounce';
 import i18n from './i18n';
 import { findScrollParent } from '../../utils/dom';
 import SEmpty from '../s-empty.vue';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-list-view',
@@ -96,8 +97,8 @@ export default {
     components: {
         SEmpty,
     },
-    mixins: [MComplex, MGroupParent, MField, FVirtualList],
-    i18n,
+    mixins: [MComplex, MGroupParent, MField, FVirtualList, i18nMixin('u-list-view')],
+    // i18n,
     props: {
         // @inherit: value: null,
         // @inherit: value: Array,
@@ -122,20 +123,20 @@ export default {
         loadingText: {
             type: String,
             default() {
-                return this.$t('loading');
+                return this.$tt('loading');
             },
         },
         error: { type: Boolean, default: false },
         errorText: {
             type: String,
             default() {
-                return this.$t('error');
+                return this.$tt('error');
             },
         },
         emptyText: {
             type: String,
             default() {
-                return this.$t('empty');
+                return this.$tt('empty');
             },
         },
         initialLoad: { type: Boolean, default: true },
@@ -303,7 +304,7 @@ export default {
 
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-    
+
         if (this.currentDataSource && this.initialLoad) {
             if (this.pageNumber && (typeof this.pagination === 'undefined' ? this.pageable : this.pagination)) {
                 this.page(this.pageNumber);
@@ -320,18 +321,18 @@ export default {
     },
     methods: {
         isPrimitive(value) {
-            return typeof value !== "object" || value === null;
+            return typeof value !== 'object' || value === null;
         },
         isSimpleArray(arr) {
             if (!Array.isArray(arr)) {
-              return false; // 如果不是数组类型，则不满足条件，直接返回 false
+                return false; // 如果不是数组类型，则不满足条件，直接返回 false
             }
-            return arr.every(function(item) {
-              return typeof item !== 'object'; // 使用 typeof 判断是否为简单数据类型
-            });
+            return arr.every((item) =>
+                typeof item !== 'object', // 使用 typeof 判断是否为简单数据类型
+            );
         },
         getRealItem(item, field) {
-            return this.isSimpleArray(field) ? item.simple : item
+            return this.isSimpleArray(field) ? item.simple : item;
         },
         handleData() {
             // @TODO: undefined or null

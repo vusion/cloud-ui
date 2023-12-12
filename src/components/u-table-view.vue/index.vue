@@ -375,12 +375,12 @@
                     </tr>
                     <tr key="loadMore" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
-                            <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
+                            <u-link @click="load(true)">{{ $tt('loadMore') }}</u-link>
                         </td>
                     </tr>
                     <tr key="noMore" v-else-if="((pageable === 'auto-more' && hasScroll) || pageable === 'load-more') && !currentDataSource.hasMore() && (currentData && currentData.length)">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
-                            {{ $t('noMore') }}
+                            {{ $tt('noMore') }}
                         </td>
                     </tr>
                     <tr key="empty" v-else-if="!currentData.length || currentEmpty">
@@ -444,6 +444,7 @@ import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
 import throttle from 'lodash/throttle';
 import FVirtualTable from './f-virtual-table.vue';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-table-view',
@@ -451,8 +452,8 @@ export default {
         UTableViewDropGhost,
         SEmpty,
     },
-    mixins: [MEmitter, FVirtualTable],
-    i18n,
+    mixins: [MEmitter, i18nMixin('u-table-view'), FVirtualTable],
+    // i18n,
     props: {
         boldHeader: {
             type: Boolean,
@@ -490,20 +491,20 @@ export default {
         loadingText: {
             type: String,
             default() {
-                return this.$t('loading');
+                return this.$tt('loading');
             },
         },
         error: Boolean,
         errorText: {
             type: String,
             default() {
-                return this.$t('error');
+                return this.$tt('error');
             },
         },
         emptyText: {
             type: String,
             default() {
-                return this.$t('empty');
+                return this.$tt('empty');
             },
         },
         errorImage: {
@@ -651,7 +652,7 @@ export default {
                         hashSet.add(id);
                     });
 
-                    checkedLength = this.currentValues.filter((v) => hashSet.has(v) || hashSet.has(String(v))).length;
+                    checkedLength = this.currentValues.filter((v) => hashSet.has(v)).length;
                 } else {
                     checkedLength = this.currentValues.length;
                 }
@@ -1808,12 +1809,12 @@ export default {
         },
         /* Selection Methods */
         watchValue(value) {
-            if (this.selectedItem && (this.$at(this.selectedItem, this.valueField) === value || String(this.$at(this.selectedItem, this.valueField)) === String(value)))
+            if (this.selectedItem && this.$at(this.selectedItem, this.valueField) === value)
                 return;
             if (value === undefined)
                 this.selectedItem = undefined;
             else {
-                this.selectedItem = this.currentData && this.currentData.find((item) => this.$at(item, this.valueField) === value || String(this.$at(item, this.valueField)) === String(value)); // @TODO: Group
+                this.selectedItem = this.currentData && this.currentData.find((item) => this.$at(item, this.valueField) === value); // @TODO: Group
             }
         },
         watchValues(values) {
@@ -1821,7 +1822,7 @@ export default {
                 return;
             if (values) {
                 this.currentValues = values;
-                this.currentData && this.currentData.forEach((item) => (item.checked = !!values.find(v=>v === this.$at(item, this.valueField) || String(v) === String(this.$at(item, this.valueField)))));
+                this.currentData && this.currentData.forEach((item) => (item.checked = values.includes(this.$at(item, this.valueField))));
             } else {
                 const values = [];
                 this.currentData && this.currentData.forEach((item) => item.checked && values.push(this.$at(item, this.valueField)));
@@ -1990,7 +1991,7 @@ export default {
         getCheckedItems() {
             const items = [];
             Object.keys(this.checkedItems).forEach((itemKey) => {
-                const inValues = this.currentValues.find((value) => '' + value === itemKey || String(value) === String(itemKey));
+                const inValues = this.currentValues.find((value) => '' + value === itemKey);
                 if (inValues) {
                     items.push(this.checkedItems[itemKey]);
                 }
@@ -2081,8 +2082,8 @@ export default {
                         this.check(item, item.checked, true);
                     }
                     // 促使currentData更新
-                    const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField) || String(this.$at(currentData, this.valueField)) === String(this.$at(item, this.valueField)));
-                    const newDataIndex = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(result[0], this.valueField) || String(this.$at(currentData, this.valueField)) === String(this.$at(result[0], this.valueField)));
+                    const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField));
+                    const newDataIndex = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(result[0], this.valueField));
                     if (index !== -1 && newDataIndex === -1) {
                         const treeData = this.processTreeData(result, item.tableTreeItemLevel + 1, item);
                         this.currentData.splice(index + 1, 0, ...treeData);
@@ -2390,7 +2391,7 @@ export default {
                 } else if (this.draggable) {
                     // 表格内拖拽，sourcePath和targetPath不一样的时候才emit事件
                     // 当元素被移除的时候可能不会触发dragend，结合判断数据是否在table里
-                    const inTable = this.valueField ? dragStartData.sourceData && dragStartData.sourceData.item && !!this.currentData.find((titem) => this.$at(titem, this.valueField) === this.$at(dragStartData.sourceData.item, this.valueField) || String(this.$at(titem, this.valueField)) === String(this.$at(dragStartData.sourceData.item, this.valueField))) : true;
+                    const inTable = this.valueField ? dragStartData.sourceData && dragStartData.sourceData.item && !!this.currentData.find((titem) => this.$at(titem, this.valueField) === this.$at(dragStartData.sourceData.item, this.valueField)) : true;
                     const inTheSameTable = this.dragState.sourcePath !== undefined && inTable;
                     const finalSource = Object.assign({}, dragStartData.sourceData);
                     finalSource.index = this.dragState.targetPath;
@@ -2741,7 +2742,7 @@ export default {
                     for (let i = currentData.length - 1; i >= 0; i--) {
                         const item = currentData[i];
                         const itemValue = this.$at(item, columnVM.field);
-                        if (itemValue === this.$at(currentData[i - 1], columnVM.field) || String(itemValue) === String(this.$at(currentData[i - 1], columnVM.field))) {
+                        if (itemValue === this.$at(currentData[i - 1], columnVM.field)) {
                             if (!this.autoRowSpan[i]) {
                                 this.autoRowSpan[i] = [];
                             }

@@ -28354,7 +28354,7 @@ exports[`u-table-view.vue Demo-表格行拖拽 2`] = `
                     </td>
                   </tr>
                   <tr class="row">
-                    <td class="cell" disabled="disabled">
+                    <td class="cell">
                       <span>
                         <span class="lcp-iconv dragHandler" draggable="true">
                           <span class="iconwrap">
@@ -28380,13 +28380,13 @@ exports[`u-table-view.vue Demo-表格行拖拽 2`] = `
                       <span class="tree_placeholder"></span>
                       <span class="column-field" vusion-slot-name="cell">李华</span>
                     </td>
-                    <td class="cell" disabled="disabled">
+                    <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">18749261214</span>
                     </td>
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
                     </td>
-                    <td class="cell" disabled="disabled">
+                    <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
                     </td>
                   </tr>

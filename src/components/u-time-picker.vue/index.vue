@@ -52,6 +52,7 @@ import MField from '../m-field.vue';
 import UTimePickerPopper from './popper.vue';
 import UPreview from '../u-text.vue';
 import MPreview from '../u-text.vue/preview';
+import i18nMixin from '../../mixins/i18n';
 
 /**
  * @class TimePicker
@@ -69,9 +70,9 @@ import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-time-picker',
-    i18n,
-    components: { UTimePickerPopper , UPreview },
-    mixins: [MField, DateFormatMixin, MPreview],
+    // i18n,
+    components: { UTimePickerPopper, UPreview },
+    mixins: [MField, DateFormatMixin, i18nMixin('u-time-picker'), MPreview],
     props: {
         minUnit: { type: String, default: 'second' },
         time: { type: String, default: '' },
@@ -109,8 +110,13 @@ export default {
     data() {
         return {
             inputTime: this.value || this.time,
-            placeholder: this.$t('selectTimeText'),
+            placeholder: this.$tt('selectTimeText'),
         };
+    },
+    watch: {
+        time() {
+            this.inputTime = this.time;
+        },
     },
     computed: {
         validShowFormatters() {

@@ -319,3 +319,22 @@
           description: 原生事件对象
         - name: senderVM
           description: 发送事件实例
+  i18n:
+    zh-CN:
+      uTimePicker_selectTimeText: '请选择时间'
+      uTimePicker_now: '此刻'
+      uTimePicker_submit: '确 定'
+      uTimePicker_selectPopperDateText: '下方选择日期'
+      uTimePicker_cancel: '取 消'
+    en-US:
+      uTimePicker_selectTimeText: 'Please select time'
+      uTimePicker_now: 'now'
+      uTimePicker_submit: 'submit'
+      uTimePicker_selectPopperDateText: 'Please select date'
+      uTimePicker_cancel: 'cancel'
+    ja:
+      uTimePicker_selectTimeText: '時間を選択'
+      uTimePicker_now: '本日'
+      uTimePicker_submit: '確定'
+      uTimePicker_selectPopperDateText: '日付を選択'
+      uTimePicker_cancel: 'キャンセル'

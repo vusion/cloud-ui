@@ -1,6 +1,6 @@
 <template>
-    <div :class="[$style.root, isPreview ? $style.preview : '']" :color="color || formItemVM && formItemVM.color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
-    :clearable="clearable && !!(filterable ? filterText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
+<div :class="[$style.root, isPreview ? $style.preview : '']" :color="color || formItemVM && formItemVM.color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
+    :clearable="clearable && !!(filterable ? filterText ||currentText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
     :prefix="prefix ? prefix : undefined" :suffix="suffix ? suffix : undefined"
     :start="!!prefix"
     :end="!!suffix"
@@ -145,6 +145,7 @@ import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
 import MPreview from '../u-text.vue/preview';
 import AllCheck from './allCheck.vue';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-select',
@@ -157,7 +158,8 @@ export default {
     isSelect: true,
     directives: { ellipsisTitle },
     extends: UListView,
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-select')],
     props: {
         // @inherit: value: { type: String, default: '' },
         // @inherit: value: Array,
@@ -184,7 +186,7 @@ export default {
         emptyText: {
             type: String,
             default() {
-                return this.$t('empty');
+                return this.$tt('empty');
             },
         },
         emptyDisabled: { type: Boolean, default: false }, // @inherit: initialLoad: { type: Boolean, default: true },
@@ -708,6 +710,7 @@ export default {
         },
         clear() {
             this.preventBlur = true;
+            this.currentText = '';
             if (this.multiple) {
                 const oldValue = this.value;
                 let value = [];

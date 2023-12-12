@@ -2,9 +2,9 @@
 <div :class="$style.root">
     <u-linear-layout justify="space-between">
         <u-linear-layout v-if="showBasic" gap="small">
-            <u-button @click="onPrevMonth" size="mini" :disabled="prevDisabled">{{ $t('PrevMonth') }}</u-button>
-            <u-button v-if="showToday" @click="onToday" size="mini">{{ $t('Today') }}</u-button>
-            <u-button @click="onNextMonth" size="mini" :disabled="nextDisabled">{{ $t('NextMonth') }}</u-button>
+            <u-button @click="onPrevMonth" size="mini" :disabled="prevDisabled">{{ $tt('PrevMonth') }}</u-button>
+            <u-button v-if="showToday" @click="onToday" size="mini">{{ $tt('Today') }}</u-button>
+            <u-button @click="onNextMonth" size="mini" :disabled="nextDisabled">{{ $tt('NextMonth') }}</u-button>
         </u-linear-layout>
         <u-linear-layout v-if="showAdvance" gap="small">
             <u-select
@@ -66,15 +66,16 @@ import { DefaultFormatType, getDay } from './utils';
 import SEmpty from '../../components/s-empty.vue';
 import MEmitter from '../m-emitter.vue';
 import get from 'lodash/get';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-calendar-view',
-    i18n,
+    // i18n,
     components: {
         DateTable,
         SEmpty,
     },
-    mixins: [MEmitter],
+    mixins: [MEmitter, i18nMixin('u-calendar-view')],
     props: {
         value: {
             type: [Date, String, Number, Array],
@@ -118,22 +119,22 @@ export default {
 
         const fullMonths = [];
         const monthTexts = [
-            this.$t('January'),
-            this.$t('February'),
-            this.$t('March'),
-            this.$t('April'),
-            this.$t('May'),
-            this.$t('June'),
-            this.$t('July'),
-            this.$t('August'),
-            this.$t('September'),
-            this.$t('October'),
-            this.$t('November'),
-            this.$t('December'),
+            this.$tt('January'),
+            this.$tt('February'),
+            this.$tt('March'),
+            this.$tt('April'),
+            this.$tt('May'),
+            this.$tt('June'),
+            this.$tt('July'),
+            this.$tt('August'),
+            this.$tt('September'),
+            this.$tt('October'),
+            this.$tt('November'),
+            this.$tt('December'),
         ];
         for (let m = 0; m <= 11; m++) {
             fullMonths.push({
-                text: `${monthTexts[m]} ${this.$t('month')}`,
+                text: `${monthTexts[m]} ${this.$tt('month')}`,
                 value: m,
             });
         }
@@ -188,7 +189,7 @@ export default {
         },
         title() {
             const { monthTexts, month, year } = this;
-            return `${year} ${this.$t('year')} ${monthTexts[month]} ${this.$t('month')}`;
+            return `${year} ${this.$tt('year')} ${monthTexts[month]} ${this.$tt('month')}`;
         },
         tableData() {
             const { data, dataFromDataSource } = this;
@@ -327,7 +328,7 @@ export default {
             const years = [];
             for (let y = minYear; y <= maxYear; y++) {
                 years.push({
-                    text: `${y} ${this.$t('year')}`,
+                    text: `${y} ${this.$tt('year')}`,
                     value: y,
                 });
             }
@@ -343,20 +344,20 @@ export default {
             if (minYear === maxYear) {
                 for (let m = minMonth; m <= maxMonth; m++) {
                     minMonths.push({
-                        text: `${monthTexts[m]} ${this.$t('month')}`,
+                        text: `${monthTexts[m]} ${this.$tt('month')}`,
                         value: m,
                     });
                 }
             } else {
                 for (let m = minMonth; m <= 11; m++) {
                     minMonths.push({
-                        text: `${monthTexts[m]} ${this.$t('month')}`,
+                        text: `${monthTexts[m]} ${this.$tt('month')}`,
                         value: m,
                     });
                 }
                 for (let m = 0; m <= maxMonth; m++) {
                     maxMonths.push({
-                        text: `${monthTexts[m]} ${this.$t('month')}`,
+                        text: `${monthTexts[m]} ${this.$tt('month')}`,
                         value: m,
                     });
                 }

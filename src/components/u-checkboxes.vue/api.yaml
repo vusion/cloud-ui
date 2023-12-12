@@ -91,7 +91,9 @@
       docDescription: 多选组可以勾选多选框的最小数量。
       tooltipLink: ""
       dependency:
-        - check-all: false
+        - +check-all:
+          - null
+          - false
     - name: max
       title: 最大选中数
       type: number
@@ -101,7 +103,9 @@
       docDescription: 多选组可以勾选多选框的最大数量。
       tooltipLink: ""
       dependency:
-        - check-all: false
+        - +check-all:
+          - null
+          - false
     - name: converter
       title: 转换器
       type: string

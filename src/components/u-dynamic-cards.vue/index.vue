@@ -17,11 +17,12 @@
 import MDynamic from '../m-dynamic.vue';
 import UValidator from '../u-validator.vue';
 import i18n from './i18n';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-dynamic-cards',
-    mixins: [MDynamic, UValidator],
-    i18n,
+    mixins: [MDynamic, UValidator, i18nMixin('u-dynamic-cards')],
+    // i18n,
     props: {
         // data: Array,
         // getDefaultItem: Function,
@@ -30,7 +31,7 @@ export default {
         addButtonText: {
             type: String,
             default() {
-                return this.$t('add');
+                return this.$tt('add');
             },
         },
         miniFormatter: Function,

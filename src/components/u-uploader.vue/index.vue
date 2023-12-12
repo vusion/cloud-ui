@@ -31,8 +31,8 @@
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
                 <div :class="$style.textContainer" v-if="listType === 'text' && $slots['file-list']">
                         <span v-for="flag in fileListFlags" :key="flag">
-                            <component v-if="flag !== 'download-icon' && isShowFileListItem(flag)" :style="fileListStyleInfos[flag]" :is="fileListComponentFlagMap[flag].is" v-bind="fileListComponentFlagMap[flag].getProps(item)" />
-                            <a  v-else-if="downloadIconSwitcher && isShowFileListItem(flag)" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
+                            <component v-if="flag !== 'download-icon' && isShowFileListItem(flag)" :style="fileListStyleInfos[flag]" :is="fileListComponentFlagMap[flag].is" v-bind="fileListComponentFlagMap[flag].getProps(item)"></component>
+                            <a v-else-if="downloadIconSwitcher && isShowFileListItem(flag)" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
                                 <i-ico :name="downloadIcon" icotype="only"></i-ico>
                             </a>
                         </span>
@@ -72,7 +72,7 @@
                 </f-scroll-view>
             </div>
         </template>
-        <span v-show="$env.VUE_APP_DESIGNER && listType === 'text'"  vusion-slot-name="file-list">
+        <span v-show="$env.VUE_APP_DESIGNER && listType === 'text'" vusion-slot-name="file-list">
             <slot name="file-list" ref="file-list"></slot>
         </span>
     </div>
@@ -96,6 +96,7 @@ import MField from '../m-field.vue';
 import i18n from './i18n';
 import ajax from './ajax';
 import cropper from './cropper';
+import i18nMixin from '../../mixins/i18n';
 
 const SIZE_UNITS = {
     kB: 1024,
@@ -108,8 +109,8 @@ const SIZE_UNITS = {
 export default {
     name: 'u-uploader',
     components: { cropper },
-    mixins: [MField],
-    i18n,
+    mixins: [MField, i18nMixin('u-uploader')],
+    // i18n,
     props: {
         value: [Array, String],
         url: { type: String, required: true },
@@ -149,13 +150,13 @@ export default {
         openCropper: { type: Boolean, default: false },
         fixedCropper: { type: Boolean, default: false },
         cropperBoxWidth: { type: Number, default: 200 },
-        cropperBoxHeight: { type: Number, default: 200 },
+        cropperBoxHeight: { type: Number, default: 0 },
         cropperTitle: { type: String, default: '图片裁剪' },
         cropperPreviewShape: { type: String, default: 'circle' },
         viaOriginURL: { type: Boolean, default: false },
         lcapIsCompress: { type: Boolean, default: false },
         fileType: { type: String, default: 'default' },
-        iconMap: { type: Object, default: () => ({'doc|docx': 'file-doc', 'jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw': 'file-jpg', 'pdf': 'file-pdf', 'xlsx': 'file-xlxs', 'txt': 'file-txt', 'ppt|pptx': 'file-ppt', 'zip': 'file-zip', 'csv': 'file-csv'}) },
+        iconMap: { type: Object, default: () => ({ 'doc|docx': 'file-doc', 'jpg|jpeg|png|bmp|gif|tiff|tif|webp|svg|psd|raw': 'file-jpg', pdf: 'file-pdf', xlsx: 'file-xlxs', txt: 'file-txt', 'ppt|pptx': 'file-ppt', zip: 'file-zip', csv: 'file-csv' }) },
         downloadIcon: { type: String, default: 'download' },
         fileIconSwitcher: { type: Boolean, default: true },
         downloadIconSwitcher: { type: Boolean, default: true },
@@ -182,18 +183,9 @@ export default {
                 title: this.cropperTitle,
                 previewShape: this.cropperPreviewShape,
             },
-            fileListStyleInfos: {'file-icon': {}, 'file-name': {}, 'download-icon': {}, 'file-size': {}},
+            fileListStyleInfos: { 'file-icon': {}, 'file-name': {}, 'download-icon': {}, 'file-size': {} },
             fileListFlags: [],
         };
-    },
-    mounted() {
-        if(!this.$env.VUE_APP_DESIGNER && this.$slots['file-list'] && this.listType === 'text') {
-            const fileListVms = this.$slots['file-list'].filter(item => item.data && item.data.attrs && item.data.attrs.flag);
-            fileListVms.forEach(vm => {
-                this.$set(this.fileListStyleInfos, [vm.data.attrs.flag], vm.data.staticStyle);
-             })
-            this.fileListFlags = fileListVms.map(item => item.data.attrs.flag);
-        }
     },
     computed: {
         uploadEnable() {
@@ -203,12 +195,10 @@ export default {
             return {
                 'file-icon': {
                     is: 'i-ico',
-                    getProps: (item) => {
-                        return {
-                            name: this.fileTypeIcon(item),
-                            icotype: "only"
-                        }
-                    }
+                    getProps: (item) => ({
+                        name: this.fileTypeIcon(item),
+                        icotype: 'only',
+                    }),
                 },
                 'file-name': {
                     is: 'u-text',
@@ -221,23 +211,19 @@ export default {
                 },
                 'file-size': {
                     is: 'u-text',
-                    getProps: (item) => {
-                        return {
-                            text: item.size ? this.displayFileSize(item.size) : ''
-                        }
-                    }
+                    getProps: (item) => ({
+                        text: item.size ? this.displayFileSize(item.size) : '',
+                    }),
                 },
                 'download-icon': {
                     is: 'i-ico',
-                    getProps: (item) => {
-                        return {
-                            name: this.fileTypeIcon(item),
-                            icotype: "only"
-                        }
-                    }
-                }
-            }
-        }
+                    getProps: (item) => ({
+                        name: this.fileTypeIcon(item),
+                        icotype: 'only',
+                    }),
+                },
+            };
+        },
     },
     watch: {
         value(value) {
@@ -257,33 +243,41 @@ export default {
         fileIconSwitcher: {
             handler(switcher) {
                 this.$nextTick(() => {
-                    if(this.$env.VUE_APP_DESIGNER && this.$children.some(vm => vm.$attrs.flag === 'file-icon')) {
-                        this.$children.find(vm => vm.$attrs.flag === 'file-icon').$el.style.display = switcher ? 'inline-block' : 'none';
+                    if (this.$env.VUE_APP_DESIGNER && this.$children.some((vm) => vm.$attrs.flag === 'file-icon')) {
+                        this.$children.find((vm) => vm.$attrs.flag === 'file-icon').$el.style.display = switcher ? 'inline-block' : 'none';
                     }
-                })
+                });
             },
             immediate: true,
         },
         downloadIconSwitcher: {
             handler(switcher) {
                 this.$nextTick(() => {
-                    if(this.$env.VUE_APP_DESIGNER && this.$children.some(vm => vm.$attrs.flag === 'download-icon')) {
-                        this.$children.find(vm => vm.$attrs.flag === 'download-icon').$el.style.display = switcher ? 'inline-block' : 'none';
-
+                    if (this.$env.VUE_APP_DESIGNER && this.$children.some((vm) => vm.$attrs.flag === 'download-icon')) {
+                        this.$children.find((vm) => vm.$attrs.flag === 'download-icon').$el.style.display = switcher ? 'inline-block' : 'none';
                     }
-                })
+                });
             },
             immediate: true,
         },
         fileSize: {
             handler(switcher) {
                 this.$nextTick(() => {
-                    if(this.$env.VUE_APP_DESIGNER && this.$children.some(vm => vm.$attrs.flag === 'file-size')) {
-                        this.$children.find(vm => vm.$attrs.flag === 'file-size').$el.style.display = switcher ? 'inline-block' : 'none';
+                    if (this.$env.VUE_APP_DESIGNER && this.$children.some((vm) => vm.$attrs.flag === 'file-size')) {
+                        this.$children.find((vm) => vm.$attrs.flag === 'file-size').$el.style.display = switcher ? 'inline-block' : 'none';
                     }
-                })
+                });
             },
             immediate: true,
+        },
+    },
+    mounted() {
+        if (!this.$env.VUE_APP_DESIGNER && this.$slots['file-list'] && this.listType === 'text') {
+            const fileListVms = this.$slots['file-list'].filter((item) => item.data && item.data.attrs && item.data.attrs.flag);
+            fileListVms.forEach((vm) => {
+                this.$set(this.fileListStyleInfos, [vm.data.attrs.flag], vm.data.staticStyle);
+            });
+            this.fileListFlags = fileListVms.map((item) => item.data.attrs.flag);
         }
     },
     methods: {
@@ -300,22 +294,22 @@ export default {
             }
         },
         isShowFileListItem(flag) {
-            if(flag !== 'file-name') {
+            if (flag !== 'file-name') {
                 const map = {
                     'file-icon': 'fileIconSwitcher',
                     'file-size': 'fileSize',
                     'download-icon': 'downloadIconSwitcher',
-                }
+                };
                 return this[map[flag]];
             }
-            return true
+            return true;
         },
         fileTypeIcon(item) {
             const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes((item.name || item.url).split('.').pop()));
             return !!iconInfo ? (iconInfo[1] || 'file-default') : 'file-default'
         },
         encodeUrl(url) {
-            return encodeURI(url)
+            return encodeURI(url);
         },
         fromValue(value) {
             if (this.converter === 'json')
@@ -597,7 +591,7 @@ export default {
                 url,
                 headers,
                 withCredentials: this.withCredentials,
-                file: Array.isArray(file) ? file.map(item => (new File([item], item.name.replace(/[#\+]/g, ""), {type: item.type}))) : new File([file], file.name.replace(/[#\+]/g, ""), {type: file.type}),
+                file: Array.isArray(file) ? file.map((item) => (new File([item], item.name.replace(/[#\+]/g, ''), { type: item.type }))) : new File([file], file.name.replace(/[#\+]/g, ''), { type: file.type }),
                 data: formData,
                 name: this.name,
             };
@@ -805,7 +799,7 @@ export default {
         // 展示时使用接口返回路径对应的文件名
         handleFileName(url) {
             const match = url.match(/\/([^/]+)$/);
-            console.log('match', match)
+            console.log('match', match);
             return match ? match[1] : null;
         },
     },

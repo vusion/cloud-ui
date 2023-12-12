@@ -191,7 +191,7 @@ export default {
         },
         close() {
             this.toggle(false);
-            if (this.parentVM.close) {
+            if (this.parentVM && this.parentVM.close) {
                 this.parentVM.close();
             }
         },

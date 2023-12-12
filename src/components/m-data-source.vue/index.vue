@@ -2,10 +2,12 @@
 import DataSource from '../../utils/DataSource';
 import debounce from 'lodash/debounce';
 import i18n from './i18n';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'm-data-source',
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('m-data-source')],
     props: {
         dataSource: [DataSource, Function, Object, Array],
         initialLoad: { type: Boolean, default: true },
@@ -13,20 +15,20 @@ export default {
         loadingText: {
             type: String,
             default() {
-                return this.$t('loading');
+                return this.$tt('loading');
             },
         },
         error: { type: Boolean, default: false },
         errorText: {
             type: String,
             default() {
-                return this.$t('error');
+                return this.$tt('error');
             },
         },
         emptyText: {
             type: String,
             default() {
-                return this.$t('empty');
+                return this.$tt('empty');
             },
         },
         filterable: { type: Boolean, default: false },
@@ -199,7 +201,7 @@ export default {
                 this.$emit('update:input', this.value);
             }, 200);
         },
-    }
+    },
 };
 </script>
 

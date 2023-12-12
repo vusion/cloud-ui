@@ -159,6 +159,13 @@
           type: UFormTableView
           description: 发送事件实例
       title: 数量变更（添加/删除）时触发
+  i18n:
+    zh-CN:
+      uFormTableView_add: '添加'
+    en-US:
+      uFormTableView_add: 'add'
+    ja:
+      uFormTableView_add: '追加'
 - name: u-form-table-view-column
   title: 表单列元素
   next: false

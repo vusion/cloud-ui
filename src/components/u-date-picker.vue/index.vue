@@ -43,6 +43,7 @@ import MField from '../m-field.vue';
 import i18n from './i18n';
 import UPreview from '../u-text.vue';
 import MPreview from '../u-text.vue/preview';
+import i18nMixin from '../../mixins/i18n';
 
 const MS_OF_DAY = 24 * 3600 * 1000;
 
@@ -61,12 +62,9 @@ const MS_OF_DAY = 24 * 3600 * 1000;
 
 export default {
     name: 'u-date-picker',
-    i18n,
+    // i18n,
     directives: { clickOutside },
-    mixins: [MField, DateFormatMixin, MPreview],
-    component: {
-        UPreview
-    },
+    mixins: [MField, DateFormatMixin, i18nMixin('u-date-picker'), MPreview],
     props: {
         preIcon: {
             type: String,
@@ -88,7 +86,7 @@ export default {
         placeholder: {
             type: String,
             default() {
-                return this.$t('selectDateText');
+                return this.$tt('selectDateText');
             },
         },
         alignment: {
@@ -318,11 +316,11 @@ export default {
             } else if (typeof this.time === 'number') {
                 // 具体的时分秒
                 if (this.time < 0)
-                    throw new Error(this.$t('integerTip'));
+                    throw new Error(this.$tt('integerTip'));
                 time = this.time < 24 ? this.time + ':00:00' : '23:59:59';
             } else {
                 if (!/^[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}$/.test(this.time))
-                    throw new Error(this.$t('formatErrorTip'));
+                    throw new Error(this.$tt('formatErrorTip'));
                 time = this.time;
             }
             return date + ' ' + time;
