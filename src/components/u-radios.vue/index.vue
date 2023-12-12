@@ -1,31 +1,28 @@
 <template>
-<div>
-    <div v-show="!isPreview" :class="$style.root">
-        <u-loading v-if="loading" size="small"></u-loading>
-        <template v-else>
-            <u-radio
-                v-for="(node, index) in currentDataSource.data"
-                :key="index"
-                :text="$at2(node, textField)"
-                :label="$at2(node, valueField)"
-                :disabled="node.disabled"
-                :readonly="node.readonly"
-                :designer="$env.VUE_APP_DESIGNER"
-                :node="node"
-            >
-                <template #item="item">
-                    <slot name="item" v-bind="item" :index="index">
-                        {{ $at2(node, textField) }}
-                    </slot>
-                </template>
-            </u-radio>
-        </template>
-        <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
-            <span :class="$style.loadContent">{{ treeSelectTip }}</span>
-        </template>
-        <slot></slot>
-    </div>
-    <u-preview v-if="isPreview" :text="currentText"></u-preview>
+<div :class="$style.root">
+    <u-loading v-if="loading" size="small"></u-loading>
+    <template v-else>
+        <u-radio
+            v-for="(node, index) in currentDataSource.data"
+            :key="index"
+            :text="$at2(node, textField)"
+            :label="$at2(node, valueField)"
+            :disabled="node.disabled"
+            :readonly="node.readonly"
+            :designer="$env.VUE_APP_DESIGNER"
+            :node="node"
+        >
+            <template #item="item">
+                <slot name="item" v-bind="item" :index="index">
+                    {{ $at2(node, textField) }}
+                </slot>
+            </template>
+        </u-radio>
+    </template>
+    <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
+        <span :class="$style.loadContent">{{ treeSelectTip }}</span>
+    </template>
+    <slot></slot>
 </div>
 </template>
 
@@ -34,17 +31,14 @@ import { MParent } from '../m-parent.vue';
 import MField from '../m-field.vue';
 import URadio from './radio.vue';
 import SupportDataSource from '../../mixins/support.datasource.js';
-import UPreview from '../u-text.vue';
-import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-radios',
     childName: 'u-radio',
     components: {
         URadio,
-        UPreview,
     },
-    mixins: [MParent, MField, SupportDataSource, MPreview],
+    mixins: [MParent, MField, SupportDataSource],
     props: {
         value: null,
         readonly: { type: Boolean, default: false },

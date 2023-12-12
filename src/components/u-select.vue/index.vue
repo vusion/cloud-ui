@@ -13,7 +13,7 @@
     @keydown.delete.stop="onDelete"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
+    <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing && !isPreview" :class="$style.placeholder">{{ placeholder }}</span>
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <div :class="[$style.text,!multiple && $style.textEllipsis]" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}" ref="inputOuter">
         <!-- @override: 添加了flag功能 -->
@@ -143,7 +143,6 @@ import { ellipsisTitle } from '../../directives';
 import i18n from './i18n';
 import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
-import UPreview from '../u-text.vue';
 import MPreview from '../u-text.vue/preview';
 import AllCheck from './allCheck.vue';
 
@@ -151,7 +150,6 @@ export default {
     name: 'u-select',
     mixins: [MPreview],
     component: {
-        UPreview,
         'u-select-item-all-check': AllCheck,
     },
     childName: 'u-select-item',
