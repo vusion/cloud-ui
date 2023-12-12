@@ -1,42 +1,42 @@
 <template>
-  <div v-show="!isPreview" :class="$style.root">
-    <u-loading v-if="loading" size="small"></u-loading>
-    <template v-else>
-      <u-checkbox
-        v-if="checkAll"
-        label="check-all"
-        :value="all"
-        :disabled="disabled"
-        :readonly="readonly"
-        :style="{ display: checkAllDisplay }"
-      >
-        <slot name="check-all">
-          <u-text :text="checkAllText"></u-text>
+<div :class="$style.root">
+  <u-loading v-if="loading" size="small"></u-loading>
+  <template v-else>
+    <u-checkbox
+      v-if="checkAll"
+      label="check-all"
+      :value="all"
+      :disabled="disabled"
+      :readonly="readonly"
+      :style="{ display: checkAllDisplay }"
+    >
+      <slot name="check-all">
+        <u-text :text="checkAllText"></u-text>
+      </slot>
+    </u-checkbox>
+    <u-checkbox
+      v-for="(node, index) in currentDataSource.data"
+      :key="index"
+      :text="$at2(node, textField)"
+      :label="$at2(node, valueField)"
+      :disabled="node.disabled"
+      :readonly="node.readonly"
+      :designer="$env.VUE_APP_DESIGNER"
+      :node="node"
+    >
+      <template #item="item">
+        <slot name="item" v-bind="item" :index="index">
+          {{ $at2(node, textField) }}
         </slot>
-      </u-checkbox>
-      <u-checkbox
-        v-for="(node, index) in currentDataSource.data"
-        :key="index"
-        :text="$at2(node, textField)"
-        :label="$at2(node, valueField)"
-        :disabled="node.disabled"
-        :readonly="node.readonly"
-        :designer="$env.VUE_APP_DESIGNER"
-        :node="node"
-      >
-        <template #item="item">
-          <slot name="item" v-bind="item" :index="index">
-            {{ $at2(node, textField) }}
-          </slot>
-        </template>
-      </u-checkbox>
-    </template>
-    <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
-      <span :class="$style.loadContent">{{ treeSelectTip }}</span>
-    </template>
-    <slot></slot>
-  </div>
-  <u-preview v-if="isPreview" :text="currentText"></u-preview>
+      </template>
+    </u-checkbox>
+    <u-preview v-if="isPreview" :text="currentText"></u-preview>
+  </template>
+  <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
+    <span :class="$style.loadContent">{{ treeSelectTip }}</span>
+  </template>
+  <slot></slot>
+</div>
 </template>
 
 <script>
@@ -78,6 +78,14 @@ export default {
   watch: {
     value(value) {
       this.watchValue(value);
+       // currentText
+       let texts = [];
+      this.itemVMs.forEach(it => {
+          if (it?.status == 'true') {
+              texts.push(it.$slots.item?.[0].componentOptions.propsData.text);
+          }
+      });
+      this.currentText = texts.join(',');
     },
     currentValue(value, oldValue) {
       if (this.converter) {
@@ -86,7 +94,7 @@ export default {
       }
       this.$emit("change", { value, oldValue });
     },
-    itemVMs(itemVMs) {
+    itemVMs() {
       this.watchValue(this.value);
       // 不开启全选就直接return
       if (!this.checkAll) return;
@@ -104,14 +112,7 @@ export default {
         this.all = null;
       }
 
-      // currentText
-      let texts = [];
-      itemVMs.forEach(it => {
-          if (it?.status == 'true') {
-              texts.push(it.$slots.item?.[0].componentOptions.propsData.text);
-          }
-      });
-      this.currentText = texts.join(',');
+
     },
   },
   computed: {

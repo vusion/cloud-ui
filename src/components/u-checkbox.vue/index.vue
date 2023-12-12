@@ -1,5 +1,5 @@
 <template>
-<label :class="$style.root" :disabled="currentDisabled" @click="check()"
+<label v-show="!isPreview" :class="$style.root" :disabled="currentDisabled" @click="check()"
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
     @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.box" :status="status" :disabled="currentDisabled"></span>
@@ -15,6 +15,7 @@
 import { MChild } from '../m-parent.vue';
 import MField from '../m-field.vue';
 import SEmpty from '../s-empty.vue';
+import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-checkbox',
@@ -22,7 +23,7 @@ export default {
     components: {
         SEmpty,
     },
-    mixins: [MChild, MField],
+    mixins: [MChild, MField, MPreview],
     props: {
         value: { type: [String, Boolean, null], default: false },
         label: null,
