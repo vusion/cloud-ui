@@ -950,10 +950,12 @@ export default {
 ``` vue
 <template>
 <u-linear-layout>
+    <u-validator @blur-valid="blurvalid($event)">
 <u-select v-model="value" :data-source="load"
     filterable remote-filtering
-    clearable placeholder="后端过滤">
+    clearable placeholder="后端过滤" @blur="onBlur">
 </u-select>
+</u-validator>
 <u-select v-model="values" multiple :data-source="load"
     filterable remote-filtering
     clearable placeholder="后端过滤（多选）"
@@ -1042,6 +1044,12 @@ export default {
             return mockService.loadPartial(filterText)
                 .then((result) => this.result = result); // 这句只是在 Demo 中打印一下数据，方便查看
         },
+        onBlur() {
+            console.log('blur');
+        },
+        blurvalid() {
+            console.log('blur valid');
+        }
     }
 };
 </script>
