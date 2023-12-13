@@ -70,7 +70,7 @@
     - name: prefix
       title: 前缀图标
       type: string
-      setter: iconSelect
+      setter: IconSetter
       description: ""
       default: ""
       clearable: true
@@ -80,7 +80,7 @@
     - name: suffix
       title: 后缀图标
       type: string
-      setter: iconSelect
+      setter: IconSetter
       description: ""
       default: ""
       clearable: true

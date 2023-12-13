@@ -69,7 +69,7 @@
       type: string
       description: ""
       group: 主要属性
-      setter: iconSelect
+      setter: IconSetter
       docDescription: 支持从图标库选择或上传自定义图标。
       tooltipLink: ""
     - name: type

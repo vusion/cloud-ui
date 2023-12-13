@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'uploader',
         description: '通过点击或者拖拽上传文件。',
     })
-    export class UUploader extends VueComponent {
+    export class UUploader extends ViewComponent {
 
 
         @Method({
@@ -27,7 +27,7 @@ namespace nasl.ui {
         @Prop({
             title: '是否可以粘贴',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private pastable: nasl.core.Boolean = false;
@@ -36,7 +36,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '值',
             description: '当前文件列表',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前的文件列表',
         })
         value: nasl.collection.List<nasl.core.String> = [] as any;
@@ -64,7 +64,7 @@ namespace nasl.ui {
             tooltipLink: 'http://help.lcap.163yun.com/1.%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8/2.%E9%A1%B5%E9%9D%A2/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/06.%E8%A1%A8%E5%8D%95/150.%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0.html#%E7%BB%84%E4%BB%B6%E8%AF%B4%E6%98%8E',
             docDescription: '支持对上传的文件类型进行限制，格式为“.后缀名”，如“.jpeg”表示仅支持上传jpeg格式的文件。多个文件类型时需使用英文逗号隔开，如“.jpeg,.png,.gif”表示仅支持上传jpeg、png、gif格式的文件。若为空值，则支持上传所有类型的文件',
             setter: {
-                type: 'input',
+                concept: 'InputSetter',
                 placeholder: '所有类型',
             },
         })
@@ -76,7 +76,7 @@ namespace nasl.ui {
             description: '通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略',
             docDescription: '通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         withCredentials: nasl.core.Boolean = false;
@@ -93,7 +93,7 @@ namespace nasl.ui {
             title: '列表数量上限',
             docDescription: '列表数量上限，默认为999',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         limit: nasl.core.Decimal;
@@ -111,8 +111,8 @@ namespace nasl.ui {
             title: '列表类型',
             docDescription: '列表的展示类型，支持使用文本、图片和卡片',
             setter: {
-                type: 'enumSelect',
-                titles: ['文本', '图片', '卡片'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '文本' }, { title: '图片' }, { title: '卡片' }],
             },
         })
         listType: 'text' | 'image' | 'card' = 'text';
@@ -131,7 +131,7 @@ namespace nasl.ui {
             description: '是否展示文件图标',
             docDescription: '是否展示文件图标',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.listType === 'text',
         })
@@ -147,8 +147,8 @@ namespace nasl.ui {
             title: '文件类型',
             docDescription: '列表的展示类型，支持使用文本、图片和卡片',
             setter: {
-                type: 'enumSelect',
-                titles: ['文档', '图片', 'PDF', '表格', '文本', '幻灯片', '压缩包', 'CSV'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '文档' }, { title: '图片' }, { title: 'PDF' }, { title: '表格' }, { title: '文本' }, { title: '幻灯片' }, { title: '压缩包' }, { title: 'CSV' }],
             },
             if: _ => _.fileIconSwitcher === true && _.listType === 'text',
         })
@@ -159,7 +159,7 @@ namespace nasl.ui {
             title: '文件图标',
             docDescription: '支持从图标库选择图标或上传自定义图标。',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
                 title: '选择文件图标',
             },
             if: _ => _.fileIconSwitcher === true && _.listType === 'text',
@@ -172,7 +172,7 @@ namespace nasl.ui {
             description: '是否展示下载图标',
             docDescription: '是否展示下载图标',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.listType === 'text',
         })
@@ -182,7 +182,7 @@ namespace nasl.ui {
             group: '主要属性',
             title: '下载图标',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
             if: _ => _.downloadIconSwitcher === true && _.listType === 'text',
         })
@@ -194,7 +194,7 @@ namespace nasl.ui {
             description: '是否展示文件大小，单位小于1MB则展示KB，大于1MB则展示MB。',
             docDescription: '是否展示文件大小',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.listType === 'text',
         })
@@ -212,7 +212,7 @@ namespace nasl.ui {
             title: '多文件上传',
             docDescription: '开启后可上传多个文件，默认关闭，多文件可设置数量上限',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         multiple: nasl.core.Boolean = false;
@@ -223,7 +223,7 @@ namespace nasl.ui {
             description: '利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件',
             docDescription: '开启后支持一次性上传多个文件',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         multipleOnce: nasl.core.Boolean = false;
@@ -234,7 +234,7 @@ namespace nasl.ui {
             description: '设置是否启用图片裁剪功能，只对单文件上传有效',
             docDescription: '开启后支持对选择的图片进行裁剪后上传',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         openCropper: nasl.core.Boolean = false;
@@ -243,7 +243,7 @@ namespace nasl.ui {
             group: '主要属性',
             title: '固定图片裁剪框大小',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         fixedCropper: nasl.core.Boolean = false;
@@ -252,7 +252,7 @@ namespace nasl.ui {
             group: '主要属性',
             title: '图片裁剪框宽度',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         cropperBoxWidth: nasl.core.Decimal = 200;
@@ -261,7 +261,7 @@ namespace nasl.ui {
             group: '主要属性',
             title: '图片裁剪框高度',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.cropperPreviewShape === 'rect',
         })
@@ -271,10 +271,10 @@ namespace nasl.ui {
             group: '主要属性',
             title: '图片裁剪框预览形状',
             setter: {
-                type: 'enumSelect',
-                titles: ['矩形', '正方形', '圆形'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '矩形' }, { title: '正方形' }, { title: '圆形' }],
             },
-            onToggle: [
+            onChange: [
                 { update: {cropperBoxHeight:200}, if: _ => _ === 'rect' },
                 { update: {cropperBoxHeight:0}, if: _ => _ === 'circle' },
                 { update: {cropperBoxHeight:0}, if: _ => _ === 'square' },
@@ -293,7 +293,7 @@ namespace nasl.ui {
             title: '自动上传',
             docDescription: '开启后选择文件后会自动上传，默认开启',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private autoUpload: nasl.core.Boolean = true;
@@ -303,7 +303,7 @@ namespace nasl.ui {
             title: '显示文件列表',
             docDescription: '开启后上传多个文件时，会显示文件列表，默认开启',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showFileList: nasl.core.Boolean = true;
@@ -313,8 +313,8 @@ namespace nasl.ui {
             title: '转换器',
             docDescription: '支持使用JSON或URL字符串',
             setter: {
-                type: 'enumSelect',
-                titles: ['JSON', 'URL字符串'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: 'JSON' }, { title: 'URL字符串' }],
             },
         })
         converter: 'json' | 'simple' = 'json';
@@ -325,8 +325,8 @@ namespace nasl.ui {
             description: '行内展示，或块级换行展示',
             docDescription: '支持行内展示或块级换行展示',
             setter: {
-                type: 'enumSelect',
-                titles: ['行内展示', '块级展示，宽度会充满父元素'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '行内展示' }, { title: '块级展示，宽度会充满父元素' }],
             },
         })
         display: 'inline' | 'block' = 'block';
@@ -345,7 +345,7 @@ namespace nasl.ui {
             description: '设置是否展示上传时的出错信息，如超出数量、大小',
             docDescription: '是否展示上传时的出错信息，如超出数量、大小',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showErrorMessage: nasl.core.Boolean = true;
@@ -371,8 +371,8 @@ namespace nasl.ui {
             title: '文件访问策略',
             docDescription: '支持任何人可访问和用户登录后可访问两种方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['任何人可访问', '用户登录后可访问'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '任何人可访问' }, { title: '用户登录后可访问' }],
             },
         })
         access: 'public' | 'private';
@@ -383,7 +383,7 @@ namespace nasl.ui {
             description: '是否开启文件有效期控制',
             docDescription: '支持配置文件自动清理，开启后可自定义上传后有效天数',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         ttl: nasl.core.Boolean;
@@ -394,7 +394,7 @@ namespace nasl.ui {
             description: '文件上传后的有效期天数',
             docDescription: '开启文件有效期开关后显示，可配置文件自动清理的时间',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.ttl === true,
         })
@@ -406,7 +406,7 @@ namespace nasl.ui {
             description: '开启后支持通过文件存储源地址访问文件',
             docDescription: '开启后支持通过文件存储源地址访问文件',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         viaOriginURL: nasl.core.Boolean;
@@ -417,7 +417,7 @@ namespace nasl.ui {
             description: '启用压缩后上传的文件按压缩规则进行压缩后上传，压缩规则可在自定义配置参数管理',
             docDescription: '启用压缩后上传的文件按压缩规则进行压缩后上传，压缩规则可在自定义配置参数管理',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         lcapIsCompress: nasl.core.Boolean;
@@ -427,7 +427,7 @@ namespace nasl.ui {
             title: '可拖拽',
             docDescription: '开启后支持拖拽上传文件，默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         draggable: nasl.core.Boolean = false;
@@ -438,7 +438,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -449,7 +449,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -500,12 +500,12 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入文本 或 HTML。',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: '文件列表',
             description: '文件列表。',
         })
-        slotFileList: () => Array<VueComponent>;
+        slotFileList: () => Array<ViewComponent>;
     }
 }

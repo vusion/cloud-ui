@@ -1666,7 +1666,7 @@
     - name: expand-icon
       title: 展开时图标
       type: string
-      setter: iconSelect
+      setter: IconSetter
       description: 展开时图标
       brifeDoc: ""
       docDescription: ""
@@ -1674,7 +1674,7 @@
     - name: collapse-icon
       title: 关闭时图标
       type: string
-      setter: iconSelect
+      setter: IconSetter
       description: 关闭时图标
       brifeDoc: ""
       docDescription: ""

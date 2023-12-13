@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'navbar',
         description: '通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。',
     })
-    export class UNavbar extends VueComponent {
+    export class UNavbar extends ViewComponent {
 
         constructor(options?: Partial<UNavbarOptions>) { super(); }
     }
@@ -16,7 +16,7 @@ namespace nasl.ui {
             title: '使用路由',
             description: '是否根据 vue-router 来控制选择项',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         router: nasl.core.Boolean = true;
@@ -24,7 +24,7 @@ namespace nasl.ui {
         @Prop({
             title: '值',
             description: '当前选择的值',
-            syncMode: 'both',
+            sync: true,
         })
         value: nasl.core.String;
 
@@ -38,7 +38,7 @@ namespace nasl.ui {
             title: '只读',
             description: '是否只读',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -47,7 +47,7 @@ namespace nasl.ui {
             title: '禁用',
             description: '是否禁用',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -102,20 +102,20 @@ namespace nasl.ui {
             title: '左部区域',
             description: '左部区域，一般放置 logo 等',
         })
-        slotLeft: () => Array<VueComponent>;
+        slotLeft: () => Array<ViewComponent>;
 
         @Slot({
             title: '右部区域',
             description: '右部区域，一般放置用户个人信息等',
         })
-        slotRight: () => Array<VueComponent>;
+        slotRight: () => Array<ViewComponent>;
     }
 
     @Component({
         title: '导航栏项',
         description: '导航栏的子项目',
     })
-    export class UNavbarItem extends VueComponent {
+    export class UNavbarItem extends ViewComponent {
 
         constructor(options?: Partial<UNavbarItemOptions>) { super(); }
     }
@@ -137,7 +137,7 @@ namespace nasl.ui {
             title: '图标',
             description: '图标',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
         })
         icon: nasl.core.String = '';
@@ -146,7 +146,7 @@ namespace nasl.ui {
             title: '禁用',
             description: '禁用此项',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -162,8 +162,8 @@ namespace nasl.ui {
             description: '链接类型',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['页面跳转', '下载链接'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '页面跳转' }, { title: '下载链接' }],
             },
         })
         linkType: 'destination' | 'download' = 'destination';
@@ -178,8 +178,8 @@ namespace nasl.ui {
             title: '打开方式',
             description: '链接跳转方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['新窗口', '当前窗口', '父级窗口', '顶级窗口'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '新窗口' }, { title: '当前窗口' }, { title: '父级窗口' }, { title: '顶级窗口' }],
             },
         })
         target: '_blank' | '_self' | '_parent' | '_top' = '_self';
@@ -194,7 +194,7 @@ namespace nasl.ui {
             title: '替换地址',
             description: '需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private replace: nasl.core.Boolean = false;
@@ -203,7 +203,7 @@ namespace nasl.ui {
             title: '精确匹配',
             description: '需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private exact: nasl.core.Boolean = false;
@@ -231,7 +231,7 @@ namespace nasl.ui {
         title: '导航栏分割线',
         description: '导航栏的分割线',
     })
-    export class UNavbarDivider extends VueComponent {
+    export class UNavbarDivider extends ViewComponent {
 
         constructor(options?: Partial<UNavbarDividerOptions>) { super(); }
     }
@@ -244,7 +244,7 @@ namespace nasl.ui {
         title: '导航栏下拉菜单',
         description: '导航栏下拉菜单',
     })
-    export class UNavbarDropdown extends VueComponent {
+    export class UNavbarDropdown extends ViewComponent {
 
         constructor(options?: Partial<UNavbarDropdownOptions>) { super(); }
     }
@@ -254,8 +254,8 @@ namespace nasl.ui {
             title: '触发方式',
             description: '触发方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['点击', '悬浮', '右击', '双击', '手动'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '点击' }, { title: '悬浮' }, { title: '右击' }, { title: '双击' }, { title: '手动' }],
             },
         })
         trigger: 'click' | 'hover' | 'right-click' | 'double-click' | 'manual' = 'hover';
@@ -264,8 +264,8 @@ namespace nasl.ui {
             title: '弹出位置',
             description: '弹出方位',
             setter: {
-                type: 'enumSelect',
-                titles: ['上', '下', '左', '右', '上左', '上右', '下左', '下右', '左上', '左下', '右上', '右下'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '上' }, { title: '下' }, { title: '左' }, { title: '右' }, { title: '上左' }, { title: '上右' }, { title: '下左' }, { title: '下右' }, { title: '左上' }, { title: '左下' }, { title: '右上' }, { title: '右下' }],
             },
         })
         placement: 'top' | 'bottom' | 'left' | 'right' | 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end' | 'left-start' | 'left-end' | 'right-start' | 'right-end' = 'bottom';
@@ -274,7 +274,7 @@ namespace nasl.ui {
             title: '禁用',
             description: '是否禁用',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -284,7 +284,7 @@ namespace nasl.ui {
         title: '导航菜单',
         description: '导航菜单',
     })
-    export class UNavbarMenu extends VueComponent {
+    export class UNavbarMenu extends ViewComponent {
 
         constructor(options?: Partial<UNavbarMenuOptions>) { super(); }
     }
@@ -297,7 +297,7 @@ namespace nasl.ui {
         title: '导航菜单分组',
         description: '导航菜单分组',
     })
-    export class UNavbarMenuGroup extends VueComponent {
+    export class UNavbarMenuGroup extends ViewComponent {
 
         constructor(options?: Partial<UNavbarMenuGroupOptions>) { super(); }
     }
@@ -310,7 +310,7 @@ namespace nasl.ui {
         title: '导航菜单项',
         description: '导航菜单项',
     })
-    export class UNavbarMenuItem extends VueComponent {
+    export class UNavbarMenuItem extends ViewComponent {
 
         constructor(options?: Partial<UNavbarMenuItemOptions>) { super(); }
     }
@@ -323,7 +323,7 @@ namespace nasl.ui {
         title: '导航菜单分割线',
         description: '导航菜单分割线',
     })
-    export class UNavbarMenuDivider extends VueComponent {
+    export class UNavbarMenuDivider extends ViewComponent {
 
         constructor(options?: Partial<UNavbarMenuDividerOptions>) { super(); }
     }
@@ -336,7 +336,7 @@ namespace nasl.ui {
         title: '导航选择',
         description: '导航选择',
     })
-    export class UNavbarSelect extends VueComponent {
+    export class UNavbarSelect extends ViewComponent {
 
         constructor(options?: Partial<UNavbarSelectOptions>) { super(); }
     }
@@ -349,7 +349,7 @@ namespace nasl.ui {
         title: '导航选择分组',
         description: '导航选择分组',
     })
-    export class UNavbarSelectGroup extends VueComponent {
+    export class UNavbarSelectGroup extends ViewComponent {
 
         constructor(options?: Partial<UNavbarSelectGroupOptions>) { super(); }
     }
@@ -362,7 +362,7 @@ namespace nasl.ui {
         title: '导航选择项',
         description: '导航选择项',
     })
-    export class UNavbarSelectItem extends VueComponent {
+    export class UNavbarSelectItem extends ViewComponent {
 
         constructor(options?: Partial<UNavbarSelectItemOptions>) { super(); }
     }
@@ -375,7 +375,7 @@ namespace nasl.ui {
         title: '导航选择分割线',
         description: '导航选择分割线',
     })
-    export class UNavbarSelectDivider extends VueComponent {
+    export class UNavbarSelectDivider extends ViewComponent {
 
         constructor(options?: Partial<UNavbarSelectDividerOptions>) { super(); }
     }

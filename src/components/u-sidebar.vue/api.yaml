@@ -174,7 +174,7 @@
     - name: expand-icon
       title: 展开图标
       type: string
-      setter: iconSelect
+      setter: IconSetter
       default: expand
       description: 侧边栏展开图标
       group: 交互属性
@@ -183,7 +183,7 @@
     - name: fold-icon
       title: 折叠图标
       type: string
-      setter: iconSelect
+      setter: IconSetter
       default: fold
       description: 侧边栏折叠图标
       group: 交互属性
@@ -308,7 +308,7 @@
       group: 主要属性
       docDescription: 支持从图标库选择图标或上传自定义图标
       tooltipLink: ""
-      setter: iconSelect
+      setter: IconSetter
     - name: linkType
       title: 链接类型
       type: string

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'validator',
         description: '实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。',
     })
-    export class UValidator extends VueComponent {
+    export class UValidator extends ViewComponent {
 
 
         @Method({
@@ -89,7 +89,7 @@ namespace nasl.ui {
             title: '忽略验证',
             docDescription: '忽略验证',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         ignoreValidation: nasl.core.Boolean = false;
@@ -98,7 +98,7 @@ namespace nasl.ui {
             group: '主要属性',
             title: '忽略验证规则',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         ignoreRules: nasl.core.Boolean = false;
@@ -118,7 +118,7 @@ namespace nasl.ui {
             docDescription: `是否采取手动验证。如果为'true'，则验证器。
     将不会在监听到子组件的'input'、'change'和'blur'事件后进行相应的验证`,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         manual: nasl.core.Boolean = false;
@@ -129,8 +129,8 @@ namespace nasl.ui {
             description: `设置报错信息依据哪个元素定位位置。可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body`,
             docDescription: `设置添加到哪个元素。可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。当父级有overflow:hidden而又想展示出错信息，可以设置为body`,
             setter: {
-                type: 'enumSelect',
-                titles: ['引用元素下', '全局body'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '引用元素下' }, { title: '全局body' }],
             },
         })
         appendTo: 'reference' | 'body' = 'reference';
@@ -141,8 +141,8 @@ namespace nasl.ui {
             description: '设置报错信息展示的位置方向',
             docDescription: '提示信息显示位置',
             setter: {
-                type: 'enumSelect',
-                titles: ['提示信息在右侧显示', '提示信息在底部显示'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '提示信息在右侧显示' }, { title: '提示信息在底部显示' }],
             },
             if: _ => _.appendTo !== 'body',
         })
@@ -170,6 +170,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入继承了 MField 的组件，或子 UValidator，或其他 HTML 和文本。',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

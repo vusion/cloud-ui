@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'panel',
         description: '用于快速布局',
     })
-    export class UPanel extends VueComponent {
+    export class UPanel extends ViewComponent {
 
         constructor(options?: Partial<UPanelOptions>) { super(); }
     }
@@ -33,7 +33,7 @@ namespace nasl.ui {
             description: '设置是否显示边框',
             docDescription: '支持配置面板边框的显示和隐藏，默认显示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         bordered: nasl.core.Boolean = true;
@@ -46,9 +46,13 @@ namespace nasl.ui {
 - hover时显示：鼠标悬停在面板区域时显示面板阴影。
 - 不显示：不显示面板阴影`,
             setter: {
-                type: 'enumSelect',
-                titles: ['一直显示', 'hover时显示', '不显示'],
-            },
+                concept: 'EnumSelectSetter',
+                options: [
+                    { title: '一直显示' },
+                    { title: 'hover时显示' },
+                    { title: '不显示' },
+                ],
+            }
         })
         shadow: 'always' | 'hover' | 'never' = 'always';
 
@@ -69,7 +73,7 @@ namespace nasl.ui {
         title: '面板组',
         description: '面板组',
     })
-    class UPanelGroup extends VueComponent {
+    class UPanelGroup extends ViewComponent {
 
         constructor(options?: Partial<UPanelGroupOptions>) { super(); }
     }
@@ -87,6 +91,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入默认的元素',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

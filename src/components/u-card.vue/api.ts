@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'card',
         description: '用于快速布局',
     })
-    export class UCard extends VueComponent {
+    export class UCard extends ViewComponent {
 
         constructor(options?: Partial<UCardOptions>) { super(); }
     }
@@ -36,8 +36,8 @@ namespace nasl.ui {
 - hover时显示：鼠标悬停在卡片区域时显示卡片阴影。
 - 不显示：不显示卡片阴影`,
             setter: {
-                type: 'enumSelect',
-                titles: ['一直显示', 'hover时显示', '不显示'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '一直显示' }, { title: 'hover时显示' }, { title: '不显示' }],
             },
         })
         shadow: 'always' | 'hover' | 'never' = 'always';
@@ -47,7 +47,7 @@ namespace nasl.ui {
             title: '显示边框',
             docDescription: '控制卡片边框的显隐，默认开启',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         border: nasl.core.Boolean = true;
@@ -57,7 +57,7 @@ namespace nasl.ui {
             title: '分割线',
             docDescription: '控制卡片标题和内容间分割线的显隐，默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         split: nasl.core.Boolean = false;
@@ -108,20 +108,20 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入默认的元素',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '插入图片',
         })
-        slotCover: () => Array<VueComponent>;
+        slotCover: () => Array<ViewComponent>;
     }
 
     @Component({
         title: '卡片组',
         description: '卡片组',
     })
-    class UCardGroup extends VueComponent {
+    class UCardGroup extends ViewComponent {
 
         constructor(options?: Partial<UCardGroupOptions>) { super(); }
     }
@@ -137,12 +137,12 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入默认的元素',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '插入图片',
         })
-        slotCover: () => Array<VueComponent>;
+        slotCover: () => Array<ViewComponent>;
     }
 }

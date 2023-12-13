@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'steps',
         description: '当操作需要分步骤时使用',
     })
-    export class USelectableSteps<T> extends VueComponent {
+    export class USelectableSteps<T> extends ViewComponent {
 
 
         @Method({
@@ -38,7 +38,7 @@ namespace nasl.ui {
             title: '标签项标题',
             description: '数据源集合的元素，用于显示步骤标题的属性',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         private titleField: (item: T) => nasl.core.String;
@@ -48,7 +48,7 @@ namespace nasl.ui {
             title: '描述项标题',
             description: '数据源集合的元素，用于显示步骤描述的属性',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         private descField: (item: T) => nasl.core.String;
@@ -57,10 +57,10 @@ namespace nasl.ui {
             group: '数据属性',
             title: '当前步骤',
             description: '设置当前处于选中状态的步骤',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前步骤数',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         value: nasl.core.Decimal = 0;
@@ -70,8 +70,8 @@ namespace nasl.ui {
             title: '步骤条方向',
             docDescription: '步骤条的方向，支持水平或垂直',
             setter: {
-                type: 'enumSelect',
-                titles: ['横向', '竖向'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '横向' }, { title: '竖向' }],
             },
         })
         direction: 'horizontal' | 'vertical' = 'horizontal';
@@ -82,7 +82,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '是否只读，非只读的情况下可以选择',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -92,7 +92,7 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -102,8 +102,8 @@ namespace nasl.ui {
             title: '尺寸',
             docDescription: '设置尺寸',
             setter: {
-                type: 'enumSelect',
-                titles: ['自适应', '正常'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '自适应' }, { title: '正常' }],
             },
         })
         size: 'auto' | 'normal' = 'normal';
@@ -141,19 +141,19 @@ namespace nasl.ui {
         @Slot({
             title: '头部标题',
         })
-        slotTitle: (current: Current<T>) => Array<VueComponent>;
+        slotTitle: (current: Current<T>) => Array<ViewComponent>;
 
         @Slot({
             title: '描述',
         })
-        slotDesc: (current: Current<T>) => Array<VueComponent>;
+        slotDesc: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '步骤条项',
         description: '步骤条项',
     })
-    export class USelectableStep extends VueComponent {
+    export class USelectableStep extends ViewComponent {
 
         constructor(options?: Partial<USelectableStepOptions>) { super(); }
     }
@@ -176,8 +176,8 @@ namespace nasl.ui {
             title: '状态值',
             description: '若不配置该属性时，会使用步骤条的当前步骤来自动指定状态；如果该属性与当前步骤指定的状态不匹配会覆盖自动匹配的状态',
             setter: {
-                type: 'enumSelect',
-                titles: ['等待', '进行中', '完成', '错误'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '等待' }, { title: '进行中' }, { title: '完成' }, { title: '错误' }],
             },
         })
         status: 'pending' | 'selected' | 'passed' | 'failed';
@@ -196,7 +196,7 @@ namespace nasl.ui {
             tooltipLink: 'https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/07.%E9%80%89%E6%8B%A9%E5%99%A8/170.%E6%AD%A5%E9%AA%A4%E6%9D%A1.html',
             docDescription: '是否只读，非只读的情况下可以选择',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -207,7 +207,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '禁用该项',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -216,12 +216,12 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入文本或 HTML',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '自定义标题文本',
         })
-        slotTitle: () => Array<VueComponent>;
+        slotTitle: () => Array<ViewComponent>;
     }
 }

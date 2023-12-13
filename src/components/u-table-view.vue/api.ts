@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'table-view',
         description: '用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。',
     })
-    export class UTableView<T, T1, V, P extends boolean, M extends boolean> extends VueComponent {
+    export class UTableView<T, T1, V, P extends boolean, M extends boolean> extends ViewComponent {
         @Prop({
             title: '数据',
         })
@@ -54,7 +54,7 @@ namespace nasl.ui {
                 description: '排序顺序',
                 setter: {
                     type: 'enumSelect',
-                    titles: ['升序', '降序'],
+                    options: [{ title: '升序' }, { title: '降序' }],
                 },
             })
             order?: 'asc' | 'desc',
@@ -109,7 +109,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '前端分页',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private pageable: nasl.core.Boolean = false;
@@ -118,7 +118,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '后端分页',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.pageable === true,
         })
@@ -130,7 +130,7 @@ namespace nasl.ui {
             description: '设置是否分页展示数据',
             docDescription: '是否展示分页组件，数据源调用接口是否加入分页参数。默认开启',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         pagination: nasl.core.Boolean;
@@ -140,7 +140,7 @@ namespace nasl.ui {
             title: '默认每页条数',
             docDescription: '每页的数据条数。默认20条。在"分页"属性开启时有效',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.pagination === true,
         })
@@ -152,7 +152,7 @@ namespace nasl.ui {
             description: '显示每页条数切换器',
             docDescription: '分页组件处是否展示数据条数的选择列表。默认开启。在"分页"属性开启时有效',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.pagination === true,
         })
@@ -173,7 +173,7 @@ namespace nasl.ui {
             description: '当前默认展示在第几页',
             docDescription: '当前加载的表格页。默认1。在"分页"属性开启时有效',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.pagination === true,
         })
@@ -184,7 +184,7 @@ namespace nasl.ui {
             title: '显示总条数',
             docDescription: '分页组件处是否显示表格总数。默认关闭。在"分页"属性开启时有效',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.pagination === true,
         })
@@ -196,7 +196,7 @@ namespace nasl.ui {
             description: '显示页面跳转输入框',
             docDescription: '分页组件处是否展示跳转到某一页的输入框。默认关闭。在"分页"属性开启时有效',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.pagination === true,
         })
@@ -214,7 +214,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '排序',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private remoteSorting: nasl.core.Boolean = false;
@@ -223,8 +223,8 @@ namespace nasl.ui {
             group: '数据属性',
             title: '排序初始顺序',
             setter: {
-                type: 'enumSelect',
-                titles: ['升序', '倒序'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '升序' }, { title: '倒序' }],
             },
             if: _ => _.remoteSorting === true,
         })
@@ -233,7 +233,7 @@ namespace nasl.ui {
         @Prop({
             group: '数据属性',
             title: '筛选参数',
-            syncMode: 'onlySync',
+            sync: true,
         })
         private filtering: object;
 
@@ -242,7 +242,7 @@ namespace nasl.ui {
             title: '后端筛选',
             description: '是否使用后端筛选',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private remoteFiltering: nasl.core.Boolean = false;
@@ -253,7 +253,7 @@ namespace nasl.ui {
             description: '在单选、多选操作、渲染树形数据中，指定数据唯一值的字段',
             docDescription: '在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         valueField: (item: T) => V;
@@ -262,7 +262,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '单选值',
             description: '用于标识单选选项的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当表格设置了单选列，或开启了可选行，选中某一行时的值。该取值由值字段名决定。一般会是id等能唯一标识每一行数据的值',
         })
         value: T;
@@ -271,7 +271,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '多选值',
             description: '用于标识多选选项的值',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '当表格设置了多选列，选择多个值后获得了值列表数组。该取值由值字段名决定',
         })
         values: nasl.collection.List<T>;
@@ -282,7 +282,7 @@ namespace nasl.ui {
             description: '以树形数据展示表格',
             docDescription: '表格是否以树型方式展示。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         treeDisplay: nasl.core.Boolean = false;
@@ -293,7 +293,7 @@ namespace nasl.ui {
             description: '当数据源为平铺数据时自动生成树形数据的节点字段名，重要：值字段名需要一起配置',
             docDescription: '标识父节点字段名，用于标识表格行取哪个数据作为父级的判断，需同步配置“值字段名”。在"树行模式"属性开启时有效',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             if: _ => _.treeDisplay === true,
         })
@@ -305,7 +305,7 @@ namespace nasl.ui {
             description: '树形数据子节点字段名，默认为children',
             docDescription: '标识子节点字段名，用于表格显示时取哪个数据展示子树。在"树行模式"属性开启时有效',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             if: _ => _.treeDisplay === true,
         })
@@ -317,7 +317,7 @@ namespace nasl.ui {
             description: '该字段指定行数据是否包含子节点数据，默认为hasChildren',
             docDescription: '表示当前行是否需要展示子节点的"展开/收起"图标。在"树形模式"属性开启时有效',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             if: _ => _.treeDisplay === true,
         })
@@ -329,8 +329,8 @@ namespace nasl.ui {
             description: '父子树节点是否关联选中',
             docDescription: '当选中父节点时，子节点是否相应选中等。在"树形模式"属性开启并且表格存在"多选列"时有效',
             setter: {
-                type: 'enumSelect',
-                titles: ['父子双向关联选中', '单项父关联子', '单项子关联父', '父子不关联'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '父子双向关联选中' }, { title: '单项父关联子' }, { title: '单项子关联父' }, { title: '父子不关联' }],
             },
             if: _ => _.treeDisplay === true,
         })
@@ -348,7 +348,7 @@ namespace nasl.ui {
             title: '显示表格头部',
             docDescription: '是否显示表格头。默认开启',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showHead: nasl.core.Boolean = true;
@@ -358,7 +358,7 @@ namespace nasl.ui {
             title: '表格头部吸顶',
             docDescription: '当页面滚动到顶时，表格头是否固定在头部，不随页面滚动。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         stickHead: nasl.core.Boolean = false;
@@ -368,7 +368,7 @@ namespace nasl.ui {
             title: '表格头部吸顶偏移量',
             docDescription: '与"表格头部吸顶"选项配合使用，表示表格头吸顶时与顶部的距离',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         stickHeadOffset: nasl.core.Decimal = 0;
@@ -378,7 +378,7 @@ namespace nasl.ui {
             title: '悬浮高亮行',
             description: '表格行在悬浮时是否高亮显示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private hover: nasl.core.Boolean = false;
@@ -389,7 +389,7 @@ namespace nasl.ui {
             description: '设置是否可以单选行',
             docDescription: '表格行是否可点击选中，该取值由值字段名决定，一般会是id等能唯一标识每一行数据的值。默认关闭。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         selectable: nasl.core.Boolean = false;
@@ -400,7 +400,7 @@ namespace nasl.ui {
             description: '设置是否可以取消选择',
             docDescription: '与"可选行"属性对应，表示选中的行再点击时是否可以取消选中。默认关闭。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         cancelable: nasl.core.Boolean = false;
@@ -411,7 +411,7 @@ namespace nasl.ui {
             description: '设置是否可以拖拽行排序',
             docDescription: '表格行是否可拖拽放置。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         draggable: nasl.core.Boolean = false;
@@ -422,7 +422,7 @@ namespace nasl.ui {
             description: '设置多个表格间是否可以拖拽放置',
             docDescription: '表格间是否可拖拽放置。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         acrossTableDrag: nasl.core.Boolean = false;
@@ -451,7 +451,7 @@ namespace nasl.ui {
             description: '设置是否每次只展开一个',
             docDescription: '表示点击展开行时，其它已经展开的行是否收起。在表格存在"展开列"时有效',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         accordion: nasl.core.Boolean = false;
@@ -462,7 +462,7 @@ namespace nasl.ui {
             description: '设置是否可以调整列宽',
             docDescription: '表格列之间是否出现调整样式，可以手动调整列宽',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         resizable: nasl.core.Boolean = false;
@@ -473,8 +473,8 @@ namespace nasl.ui {
             description: '设置调整列宽时如何处理剩余大小',
             docDescription: '表示调整列宽时其他列宽的处理方式。在"可调整列宽"属性开启时有效',
             setter: {
-                type: 'enumSelect',
-                titles: ['保持总宽不变，优先后一列弥补宽度', '保持总宽不变，后面所有列平均弥补宽度', '不做任何处理，表格宽度变化'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '保持总宽不变，优先后一列弥补宽度' }, { title: '保持总宽不变，后面所有列平均弥补宽度' }, { title: '不做任何处理，表格宽度变化' }],
             },
         })
         resizeRemaining: 'sequence' | 'average' | 'none' = 'average';
@@ -484,7 +484,7 @@ namespace nasl.ui {
             title: '配置展示列',
             description: '设置是否可以配置展示列',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         configurable: nasl.core.Boolean = false;
@@ -494,7 +494,7 @@ namespace nasl.ui {
             title: '虚拟滚动',
             description: '虚拟滚动表示不展示所有的数据，只展示默认条数的数据，当滚动时再展示剩余的数据。当表格数据量大时，可设置为虚拟滚动，提高性能。默认关闭。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         virtual: nasl.core.Boolean = false;
@@ -504,7 +504,7 @@ namespace nasl.ui {
             title: '每行高度',
             description: '与虚拟滚动配合使用，表示每一行的高度。请确保行里的数据不要换行',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.virtual === true,
         })
@@ -515,7 +515,7 @@ namespace nasl.ui {
             title: '展示条数',
             description: '与虚拟滚动配合使用，表示每屏展示的最大条数',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.virtual === true,
         })
@@ -527,7 +527,7 @@ namespace nasl.ui {
             description: '设置初始时是否立即加载',
             docDescription: '- 是否在表格出现时立即加载数据，默认开启。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         initialLoad: nasl.core.Boolean = true;
@@ -539,8 +539,8 @@ namespace nasl.ui {
             docDescription: '可通过切换该选项，设置不同状态时该组件的展示形式，支持配置',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['加载完成-有数据', '加载完成-暂无数据', '加载中', '加载失败'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '加载完成-有数据' }, { title: '加载完成-暂无数据' }, { title: '加载中' }, { title: '加载失败' }],
             },
         })
         designerMode: 'success' | 'empty' | 'loading' | 'error' = 'success';
@@ -561,7 +561,7 @@ namespace nasl.ui {
             docDescription: '支持自定义状态的触发条件，未设置则默认为系统定义条件。',
             bindOpen: true,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.designerMode === 'loading',
         })
@@ -583,7 +583,7 @@ namespace nasl.ui {
             docDescription: '支持自定义状态的触发条件，未设置则默认为系统定义条件。',
             bindOpen: true,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.designerMode === 'error',
         })
@@ -604,7 +604,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -615,7 +615,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -625,8 +625,8 @@ namespace nasl.ui {
             title: '标题对齐方式',
             docDescription: '表格上方的标题信息的对齐方式。默认"居中对齐"。',
             setter: {
-                type: 'enumSelect',
-                titles: ['左对齐', '居中对齐', '右对齐'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '左对齐' }, { title: '居中对齐' }, { title: '右对齐' }],
             },
         })
         titleAlignment: 'left' | 'center' | 'right' = 'center';
@@ -636,7 +636,7 @@ namespace nasl.ui {
             title: '表头加粗',
             docDescription: '表格每一列的表头文字是否加粗。默认开启',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         boldHeader: nasl.core.Boolean = true;
@@ -646,7 +646,7 @@ namespace nasl.ui {
             title: '显示边框',
             docDescription: '表格是否展示边框。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private border: nasl.core.Boolean = false;
@@ -657,7 +657,7 @@ namespace nasl.ui {
             description: '单元格之间是否显示分隔线条',
             docDescription: '表格每列之间是否展示分隔线条。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         line: nasl.core.Boolean = false;
@@ -668,7 +668,7 @@ namespace nasl.ui {
             description: '表格行是否按斑马线条纹显示',
             docDescription: '表格行是否按斑马线条纹显示。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         striped: nasl.core.Boolean = false;
@@ -832,32 +832,32 @@ namespace nasl.ui {
             title: '加载中内容',
             description: '自定义加载中内容',
         })
-        slotLoading: () => Array<VueComponent>;
+        slotLoading: () => Array<ViewComponent>;
 
         @Slot({
             title: '加载错误内容',
             description: '自定义加载错误内容',
         })
-        slotError: () => Array<VueComponent>;
+        slotError: () => Array<ViewComponent>;
 
         @Slot({
             title: '暂无数据内容',
             description: '自定义暂无数据内容',
         })
-        slotEmpty: () => Array<VueComponent>;
+        slotEmpty: () => Array<ViewComponent>;
 
         @Slot({
             title: '拖拽缩略图',
             description: '自定义拖拽缩略图',
         })
-        slotDragGhost: (current: Current<T>) => Array<VueComponent>;
+        slotDragGhost: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '表格列',
         description: '表格列',
     })
-    export class UTableViewColumn<T, V, P extends boolean, M extends boolean> extends VueComponent {
+    export class UTableViewColumn<T, V, P extends boolean, M extends boolean> extends ViewComponent {
 
         constructor(options?: Partial<UTableViewColumnOptions<T, V, P, M>>) { super(); }
     }
@@ -889,7 +889,7 @@ namespace nasl.ui {
             description: '设置该列是否可以排序',
             docDescription: '开启后该列可排序，可设置默认顺序，升序或倒序',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         sortable: nasl.core.Boolean = false;
@@ -900,8 +900,8 @@ namespace nasl.ui {
             description: '该列首次点击时的排序顺序',
             docDescription: '该列首次点击时的排序顺序。与表格属性中的"默认排序顺序"相同',
             setter: {
-                type: 'enumSelect',
-                titles: ['升序', '倒序'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '升序' }, { title: '倒序' }],
             },
             if: _ => _.sortable === true,
         })
@@ -913,8 +913,8 @@ namespace nasl.ui {
             description: '支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序。选择编辑列需要先设置列字段。',
             docDescription: '可设置序号列、单选列、多选列、展开列或树型列',
             setter: {
-                type: 'enumSelect',
-                titles: ['普通列', '序号列', '单选列', '多选列', '展开列', '树形列', '编辑列', '拖拽标识列'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '普通列' }, { title: '序号列' }, { title: '单选列' }, { title: '多选列' }, { title: '展开列' }, { title: '树形列' }, { title: '编辑列', tooltip: '与列字段关联，列字段不能为空' }, { title: '拖拽标识列' }],
             },
         })
         type: 'normal' | 'index' | 'radio' | 'checkbox' | 'expander' | 'tree' | 'editable' | 'dragHandler' = 'normal';
@@ -925,7 +925,7 @@ namespace nasl.ui {
             description: '换页后，继续上一页的列序号进行编号',
             docDescription: '支持换页后，继续上一页的列序号进行编号',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.type === 'index',
         })
@@ -937,7 +937,7 @@ namespace nasl.ui {
             description: '序号列的起始序号',
             docDescription: '当列类型为"序号列"时有效。默认值为1',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.type === 'index' && _.autoIndex !== true,
         })
@@ -964,7 +964,7 @@ namespace nasl.ui {
             title: '固定列',
             description: '该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         fixed: nasl.core.Boolean = false;
@@ -975,7 +975,7 @@ namespace nasl.ui {
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '开启后，该列文本过长会省略显示，否则换行显示，默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         ellipsis: nasl.core.Boolean = false;
@@ -985,7 +985,7 @@ namespace nasl.ui {
             title: '隐藏列',
             docDescription: '开启后，当表格横向滚动条滚动时，该列会固定不会跟随滚动条滚动',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         hidden: nasl.core.Boolean = false;
@@ -996,8 +996,8 @@ namespace nasl.ui {
             description: '展开列图标的位置',
             docDescription: '展开列图标的位置。默认"左侧"。',
             setter: {
-                type: 'enumSelect',
-                titles: ['左侧', '右侧'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '左侧' }, { title: '右侧' }],
             },
             if: _ => _.type === 'expander',
         })
@@ -1015,7 +1015,7 @@ namespace nasl.ui {
             group: '样式属性',
             title: '合并列数',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 min: 1,
                 precision: 0,
             },
@@ -1026,7 +1026,7 @@ namespace nasl.ui {
             group: '样式属性',
             title: '自动合并相同数据',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autoRowSpan: nasl.core.Boolean = false;
@@ -1035,37 +1035,37 @@ namespace nasl.ui {
             title: '单元格',
             description: '对单元格的数据展示进行自定义',
         })
-        slotCell: (current: Current<T>) => Array<VueComponent>;
+        slotCell: (current: Current<T>) => Array<ViewComponent>;
 
         @Slot({
             title: '编辑单元格',
             description: '对单元格的编辑数据展示进行自定义',
         })
-        slotEditcell: (current: Current<T>) => Array<VueComponent>;
+        slotEditcell: (current: Current<T>) => Array<ViewComponent>;
 
         @Slot({
             title: '标题',
             description: '对标题进行自定义',
         })
-        slotTitle: () => Array<VueComponent>;
+        slotTitle: () => Array<ViewComponent>;
 
         @Slot({
             title: '展开列内容',
             description: '展开列的内容',
         })
-        slotExpandContent: (current: Current<T>) => Array<VueComponent>;
+        slotExpandContent: (current: Current<T>) => Array<ViewComponent>;
 
         @Slot({
             title: '展开列图标',
             description: '展开列图标',
         })
-        slotExpander: (current: Current<T>) => Array<VueComponent>;
+        slotExpander: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '表格配置列',
     })
-    export class UTableViewColumnConfig<T, V> extends VueComponent {
+    export class UTableViewColumnConfig<T, V> extends ViewComponent {
 
         constructor(options?: Partial<UTableViewColumnConfigOptions<T, V>>) { super(); }
     }
@@ -1075,7 +1075,7 @@ namespace nasl.ui {
             title: '文本字段',
             description: '配置列的下拉弹窗里，指定数据展示的字段',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         private textField: (item: T) => nasl.core.String;
@@ -1106,7 +1106,7 @@ namespace nasl.ui {
             tooltipLink: 'https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html',
             docDescription: '在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             disabledIf: _ => _.dataSource !== null,
         })
@@ -1115,7 +1115,7 @@ namespace nasl.ui {
         @Prop({
             group: '数据属性',
             title: '值',
-            syncMode: 'both',
+            sync: true,
             tooltipLink: 'https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html',
         })
         value: V;
@@ -1125,7 +1125,7 @@ namespace nasl.ui {
             title: '确定/取消按钮',
             description: '控制弹出层的确定/取消按钮是否展示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showFooter: nasl.core.Boolean = true;
@@ -1138,19 +1138,19 @@ namespace nasl.ui {
         @Slot({
             title: '配置列展示title',
         })
-        slotTitle: () => Array<VueComponent>;
+        slotTitle: () => Array<ViewComponent>;
 
         @Slot({
             title: '配置列展示item',
             description: '自定义选项的结构和样式',
         })
-        slotItem: (current: Current<T>) => Array<VueComponent>;
+        slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '表格动态列',
     })
-    export class UTableViewColumnDynamic<T, T1, V, P extends boolean, M extends boolean> extends VueComponent {
+    export class UTableViewColumnDynamic<T, T1, V, P extends boolean, M extends boolean> extends ViewComponent {
         @Prop({
             title: '数据',
         })
@@ -1185,7 +1185,7 @@ namespace nasl.ui {
             tooltipLink: 'https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/05.%E8%A1%A8%E6%A0%BC/100.%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC.html',
             docDescription: '在表格开启了单选、多选操作、渲染树形数据中，指定数据唯一值的字段',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             disabledIf: _ => _.dataSource !== null,
         })
@@ -1197,7 +1197,7 @@ namespace nasl.ui {
             description: '设置该列是否可以排序',
             docDescription: '开启后该列可排序，可设置默认顺序，升序或倒序',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         sortable: nasl.core.Boolean = false;
@@ -1208,8 +1208,8 @@ namespace nasl.ui {
             description: '该列首次点击时的排序顺序',
             docDescription: '该列首次点击时的排序顺序。与表格属性中的"默认排序顺序"相同',
             setter: {
-                type: 'enumSelect',
-                titles: ['升序', '倒序'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '升序' }, { title: '倒序' }],
             },
             if: _ => _.sortable === true,
         })
@@ -1220,7 +1220,7 @@ namespace nasl.ui {
             title: '固定列',
             description: '该列是否固定。左侧固定列需要从第一列到当前固定列之间的列都是固定列。右侧固定列需要最后一列到当前固定列之间的列都是固定列。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         fixed: nasl.core.Boolean = false;
@@ -1231,7 +1231,7 @@ namespace nasl.ui {
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '开启后，该列文本过长会省略显示，否则换行显示，默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         ellipsis: nasl.core.Boolean = false;
@@ -1241,7 +1241,7 @@ namespace nasl.ui {
             title: '隐藏列',
             docDescription: '开启后，当表格横向滚动条滚动时，该列会固定不会跟随滚动条滚动',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         hidden: nasl.core.Boolean = false;
@@ -1257,19 +1257,19 @@ namespace nasl.ui {
         @Slot({
             title: '配置列展示title',
         })
-        slotTitle: (current: Current<T1>) => Array<VueComponent>;
+        slotTitle: (current: Current<T1>) => Array<ViewComponent>;
 
         @Slot({
             title: '配置列展示item',
             description: '自定义选项的结构和样式',
         })
-        slotCell: (current: CurrentDynamic<T, T1>) => Array<VueComponent>;
+        slotCell: (current: CurrentDynamic<T, T1>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '表格列分组',
     })
-    export class UTableViewColumnGroup<T, V, P extends boolean, M extends boolean> extends VueComponent {
+    export class UTableViewColumnGroup<T, V, P extends boolean, M extends boolean> extends ViewComponent {
 
         constructor(options?: Partial<UTableViewColumnGroupOptions<T, V, P, M>>) { super(); }
     }
@@ -1298,13 +1298,13 @@ namespace nasl.ui {
             title: '标题',
             description: '对标题进行自定义',
         })
-        slotTitle: () => Array<VueComponent>;
+        slotTitle: () => Array<ViewComponent>;
     }
 
     @Component({
         title: '展开列图标',
     })
-    export class UTableViewExpander extends VueComponent {
+    export class UTableViewExpander extends ViewComponent {
 
         constructor(options?: Partial<UTableViewExpanderOptions>) { super(); }
     }
@@ -1314,7 +1314,7 @@ namespace nasl.ui {
             title: '展开时图标',
             description: '展开时图标',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
         })
         expandIcon: nasl.core.String;
@@ -1323,7 +1323,7 @@ namespace nasl.ui {
             title: '关闭时图标',
             description: '关闭时图标',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
         })
         collapseIcon: nasl.core.String;

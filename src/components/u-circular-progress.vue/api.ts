@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'circular-progress',
         description: '以圆形的形式描述当前进度',
     })
-    export class UCircularProgress extends VueComponent {
+    export class UCircularProgress extends ViewComponent {
 
         constructor(options?: Partial<UCircularProgressOptions>) { super(); }
     }
@@ -18,7 +18,7 @@ namespace nasl.ui {
             description: '进度条显示的进度百分比，1-100之间的数字',
             docDescription: '进度条显示的进度百分比，1-100之间的数字',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         percent: nasl.core.Decimal = 0;
@@ -29,8 +29,8 @@ namespace nasl.ui {
             description: '进度条大小',
             docDescription: '支持小、正常、大、巨大',
             setter: {
-                type: 'enumSelect',
-                titles: ['小', '正常', '大', '巨大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '小' }, { title: '正常' }, { title: '大' }, { title: '巨大' }],
             },
         })
         size: 'small' | 'normal' | 'large' | 'huge' = 'normal';
@@ -39,6 +39,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入文本或 HTML。',
         })
-        private slotDefault: () => Array<VueComponent>;
+        private slotDefault: () => Array<ViewComponent>;
     }
 }

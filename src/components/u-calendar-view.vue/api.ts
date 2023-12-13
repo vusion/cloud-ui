@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'calendar',
         description: '用于展示大量结构化数据。支持日历结构展示。',
     })
-    export class UCalendarView<T> extends VueComponent {
+    export class UCalendarView<T> extends ViewComponent {
 
 
         @Method({
@@ -41,7 +41,7 @@ namespace nasl.ui {
             description: '数据内表示开始时间的字段',
             docDescription: '数据内表示开始时间的字段，要求对应数据必须包含日期（日期/日期时间格式），**单独使用表示当天**；跟结束时间字段配合使用表示日期区间，组件根据日期区间判断展示在哪些日期内。',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         startKey: (item: T) => nasl.core.Date = ((item: any)  => item.startTime) as any;
@@ -52,7 +52,7 @@ namespace nasl.ui {
             description: '数据内表示结束时间的字段',
             docDescription: '数据内表示结束时间的字段，要求对应数据必须包含日期（日期/日期时间格式），跟开始时间字段配合使用表示日期区间，组件根据时间区间判断展示在哪些日期内。',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         endKey: (item: T) => nasl.core.Date = ((item: any)  => item.endTime) as any;
@@ -61,7 +61,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '当前选中的日期',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前选择的日期。',
         })
         value: nasl.core.Date = 'TODAY' as any;
@@ -87,7 +87,7 @@ namespace nasl.ui {
             title: '展示周天',
             docDescription: '控制头部示例星期几信息展示，默认开启',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showWeekDays: nasl.core.Boolean = true;
@@ -97,7 +97,7 @@ namespace nasl.ui {
             title: '展示周数',
             docDescription: '控制当前周为第几周信息展示，默认关闭。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showWeeks: nasl.core.Boolean = false;
@@ -108,7 +108,7 @@ namespace nasl.ui {
             description: '是否展示顶部左侧的 "<" "今天" ">" 等基础配置功能',
             docDescription: '控制顶部左侧 上个月、当天、下个月 的快捷操作入口展示，默认开启。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showBasic: nasl.core.Boolean = true;
@@ -119,7 +119,7 @@ namespace nasl.ui {
             description: '是否展示顶部右侧的年份、月份选项高级配置',
             docDescription: '控制顶部右侧 年份、月份 快捷切换操作入口展示，默认开启。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showAdvance: nasl.core.Boolean = true;
@@ -130,7 +130,7 @@ namespace nasl.ui {
             description: '填写数字1~7，分别表示周一~周日',
             docDescription: '0～7 (周一～周日) 数字配置，自定义每行从周几开始展示，默认 1，**当开启展示周数时固定周一开始**。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 precision: 0,
             },
         })
@@ -141,7 +141,7 @@ namespace nasl.ui {
             title: '可多选',
             description: '开启可多选后，可通过ctrl/command+鼠标多选',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         multiple: nasl.core.Boolean = false;
@@ -174,6 +174,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入文本或 HTML 至日期组件底部',
         })
-        slotDefault: (current: Current<T>) => Array<VueComponent>;
+        slotDefault: (current: Current<T>) => Array<ViewComponent>;
     }
 }

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'image',
         description: '可以用来展示一张图片，支持设置图片地址。',
     })
-    export class UImage extends VueComponent {
+    export class UImage extends ViewComponent {
 
         constructor(options?: Partial<UImageOptions>) { super(); }
     }
@@ -23,7 +23,7 @@ namespace nasl.ui {
             title: '地址',
             docDescription: '图片链接，可以是来自网络的链接，也可以上传本地图片。',
             setter: {
-                type: 'imageSelect',
+                concept: 'ImageSetter',
             },
         })
         src: nasl.core.String = '';
@@ -33,8 +33,8 @@ namespace nasl.ui {
             title: '填充方式',
             docDescription: '设置图片的显示方式，适应、适应（图片小于父元素时以原尺寸展示、原尺寸、拉伸、填充）',
             setter: {
-                type: 'enumSelect',
-                titles: ['适应', '适应（图片小于父元素时以原尺寸展示）', '原尺寸', '拉伸', '填充'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '适应' }, { title: '适应（图片小于父元素时以原尺寸展示）' }, { title: '原尺寸' }, { title: '拉伸' }, { title: '填充' }],
             },
         })
         fit: 'contain' | 'scale-down' | 'none' | 'fill' | 'cover' = 'contain';
@@ -44,7 +44,7 @@ namespace nasl.ui {
             title: '圆形遮罩',
             docDescription: '是否使用圆形进行图片展示。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         circle: nasl.core.Boolean = false;
@@ -54,8 +54,8 @@ namespace nasl.ui {
             title: '水平对齐方式',
             docDescription: '左对齐、右对齐、居中对齐',
             setter: {
-                type: 'enumSelect',
-                titles: ['左对齐', '居中对齐', '右对齐'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '左对齐' }, { title: '居中对齐' }, { title: '右对齐' }],
             },
         })
         horizontalCenter: 'left' | 'center' | 'right' = 'center';
@@ -65,8 +65,8 @@ namespace nasl.ui {
             title: '垂直对齐方式',
             docDescription: '顶部对齐、居中对齐、底部对齐',
             setter: {
-                type: 'enumSelect',
-                titles: ['顶部对齐', '居中对齐', '底部对齐'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '顶部对齐' }, { title: '居中对齐' }, { title: '底部对齐' }],
             },
         })
         verticalCenter: 'top' | 'center' | 'bottom' = 'center';
@@ -77,7 +77,7 @@ namespace nasl.ui {
             description: '是否支持点击放大全屏展示',
             docDescription: '是否支持点击放大全屏展示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         preview: nasl.core.Boolean = false;
@@ -85,8 +85,8 @@ namespace nasl.ui {
         @Prop({
             title: '加载样式',
             setter: {
-                type: 'enumSelect',
-                titles: ['Loading', '不显示加载状态', '自定义默认图'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: 'Loading' }, { title: '不显示加载状态' }, { title: '自定义默认图' }],
             },
         })
         loadingType: 'loading' | 'none' | 'placeholder' = 'loading';

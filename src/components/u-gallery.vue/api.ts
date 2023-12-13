@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'gallery',
         description: '画廊',
     })
-    export class UGallery<T> extends VueComponent {
+    export class UGallery<T> extends ViewComponent {
 
 
         @Method({
@@ -39,8 +39,8 @@ namespace nasl.ui {
             description: '图片的显示模式，支持大图模式和缩略图模式。',
             docDescription: '图片的显示模式，支持大图模式和缩略图模式',
             setter: {
-                type: 'enumSelect',
-                titles: ['缩略图模式', '大图模式'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '缩略图模式' }, { title: '大图模式' }],
             },
         })
         pattern: 'small' | 'big' = 'big';
@@ -50,7 +50,7 @@ namespace nasl.ui {
             title: '显示图片数',
             docDescription: '同时展示的图片数量',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         num: nasl.core.Decimal = 5;
@@ -60,7 +60,7 @@ namespace nasl.ui {
             title: '显示左右箭头',
             docDescription: '图片支持通过鼠标按住拖动或点击左右箭头的方式调整位置，关闭该选项后不显示左右箭头',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         arrow: nasl.core.Boolean = true;

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'number',
         description: '输入数字时使用',
     })
-    export class UNumberInput extends VueComponent {
+    export class UNumberInput extends ViewComponent {
 
         constructor(options?: Partial<UNumberInputOptions>) { super(); }
     }
@@ -22,10 +22,10 @@ namespace nasl.ui {
             group: '数据属性',
             title: '值',
             description: '输入的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '输入框的值。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         value: nasl.core.Decimal = 0;
@@ -36,7 +36,7 @@ namespace nasl.ui {
             description: '最小可输入的值',
             docDescription: '限制输入数值的最小值。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         min: nasl.core.Decimal;
@@ -47,7 +47,7 @@ namespace nasl.ui {
             description: '最大可输入的值',
             docDescription: '限制输入数值的最大值。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         max: nasl.core.Decimal;
@@ -58,7 +58,7 @@ namespace nasl.ui {
             description: '限制数字输入要保留的最小精度单位，默认不限制精度，如需保留两位小数，则填入0.01',
             docDescription: '限制数字要保留的最小单位，整数、小数均可，如需要保留两位小数，则填入0.01。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         private precision: nasl.core.Decimal = 1;
@@ -69,7 +69,7 @@ namespace nasl.ui {
             description: '控制数据存储时小数点后保留几位。例如：精度为2，则数据存储时小数点后保留2位。',
             docDescription: '限制值要保留的小数位数。默认0，不保留小数位',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         decimalLength: nasl.core.Decimal;
@@ -86,7 +86,7 @@ namespace nasl.ui {
             group: '主要属性',
             title: '千位符',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.advancedFormat.enable === false,
         })
@@ -96,7 +96,7 @@ namespace nasl.ui {
             group: '主要属性',
             title: '百分号',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.advancedFormat.enable === false,
         })
@@ -132,7 +132,7 @@ namespace nasl.ui {
             docDescription: '是否自动获取输入框的焦点。',
             designerValue: false,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autofocus: nasl.core.Boolean;
@@ -143,7 +143,7 @@ namespace nasl.ui {
             description: '是否隐藏上下点击按钮',
             docDescription: '是否隐藏数值加减按钮',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         hideButtons: nasl.core.Boolean = false;
@@ -154,7 +154,7 @@ namespace nasl.ui {
             description: '可点击清除按钮一键清除内容',
             docDescription: '开启并在输入框有内容时会显示清除按钮',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         clearable: nasl.core.Boolean;
@@ -165,7 +165,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -176,7 +176,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -187,7 +187,7 @@ namespace nasl.ui {
             description: '间隔，表示点击按钮或按上下键所增加或减少的量',
             docDescription: '限制点击按钮或按上下键所增加或减少的量。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         step: nasl.core.Decimal = 1;
@@ -198,8 +198,8 @@ namespace nasl.ui {
             description: '设置数字输入框宽度大小',
             docDescription: '设置数字输入框宽度大小，可选占满、巨大、大、中型、正常、小、迷你。',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         width: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -210,8 +210,8 @@ namespace nasl.ui {
             description: '设置数字输入框高度大小',
             docDescription: '设置数字输入框高度大小，可选占满、巨大、大、中型、正常、小、迷你。',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         height: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -262,6 +262,6 @@ namespace nasl.ui {
             title: '默认',
             description: '插入 HTML 或 `Component`, 可展示额外内容。',
         })
-        private slotDefault: () => Array<VueComponent>;
+        private slotDefault: () => Array<ViewComponent>;
     }
 }

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'transfer',
         description: '双栏穿梭选择框，常用于将多个项目从一边移动到另一边。',
     })
-    export class UTransfer<T, V> extends VueComponent {
+    export class UTransfer<T, V> extends ViewComponent {
 
 
         @Method({
@@ -43,7 +43,7 @@ namespace nasl.ui {
                 description: '方向',
                 setter: {
                     type: 'enumSelect',
-                    titles: ['从左向右', '从右向左'],
+                    options: [{ title: '从左向右' }, { title: '从右向左' }],
                 },
             })
             direction: 'forward' | 'reverse' = 'forward',
@@ -67,7 +67,7 @@ namespace nasl.ui {
             title: '分页',
             description: '是否需要分页',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private pageable: nasl.core.Boolean = false;
@@ -75,7 +75,7 @@ namespace nasl.ui {
         @Prop({
             title: '分页大小',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         private pageSize: nasl.core.Decimal = 50;
@@ -84,7 +84,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '原始数据',
             description: '原数据列表',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '支持动态绑定集合类型变量（List<T>）或输出参数为集合类型的逻辑。',
         })
         source: nasl.collection.List<T>;
@@ -93,7 +93,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '目标数据',
             description: '目标数据列表',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑。',
         })
         target: nasl.collection.List<T>;
@@ -120,7 +120,7 @@ namespace nasl.ui {
             description: '显示筛选（搜索框）',
             docDescription: '是否开启过滤输入框和过滤功能。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         filterable: nasl.core.Boolean = false;
@@ -131,7 +131,7 @@ namespace nasl.ui {
             description: '设置是否区分大小写',
             docDescription: '搜索是否大小写敏感。默认关闭。在过滤属性开启后有效。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.filterable === true,
         })
@@ -143,7 +143,7 @@ namespace nasl.ui {
             description: '可点击清除按钮一键清除搜索框内容',
             docDescription: '过滤输入框是否开启清除按钮。默认开启。在过滤属性开启后有效',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.filterable === true,
         })
@@ -154,7 +154,7 @@ namespace nasl.ui {
             title: '显示头部',
             docDescription: '开启后会显示头部全选栏。默认开启',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showHead: nasl.core.Boolean = false;
@@ -188,7 +188,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -199,7 +199,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -220,12 +220,12 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入文本或 HTML',
         })
-        private slotDefault: () => Array<VueComponent>;
+        private slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '自定义选项的结构和样式',
         })
-        private slotItem: (current: Current<T>) => Array<VueComponent>;
+        private slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 }

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'dropdown-new',
         description: '下拉菜单',
     })
-    export class UDropdown<T, V> extends VueComponent {
+    export class UDropdown<T, V> extends ViewComponent {
 
         constructor(options?: Partial<UDropdownOptions<T, V>>) { super(); }
     }
@@ -17,9 +17,9 @@ namespace nasl.ui {
             title: '数据源配置',
             bindHide: true,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
-            onToggle: [
+            onChange: [
                 { clear: ['data-source','data-schema','text-field','to-field','icon-field','value-field','parent-field','link-type-field','target-field'] }
             ],
         })
@@ -49,7 +49,7 @@ namespace nasl.ui {
             title: '文本字段',
             description: '集合的元素类型中，用于显示文本的属性名称',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             if: _ => _.hasDataSource === true,
         })
@@ -61,7 +61,7 @@ namespace nasl.ui {
             description: '集合的元素类型中，用于标识选中值的属性',
             docDescription: '集合的元素类型中，用于标识选中值的属性，支持自定义变更',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             if: _ => _.hasDataSource === true,
         })
@@ -72,7 +72,7 @@ namespace nasl.ui {
             title: '图标属性字段',
             description: '集合的元素类型中，用于图标的属性名称',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             if: _ => _.hasDataSource === true,
         })
@@ -83,7 +83,7 @@ namespace nasl.ui {
             title: '跳转链接字段',
             description: '集合的元素类型中，用于跳转链接的属性名称',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             if: _ => _.hasDataSource === true,
         })
@@ -95,7 +95,7 @@ namespace nasl.ui {
             description: '集合的元素类型中，用于标识父节点的属性',
             docDescription: '集合的元素类型中，用于标识父级字段的属性，支持自定义变更',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             if: _ => _.hasDataSource === true,
         })
@@ -106,8 +106,8 @@ namespace nasl.ui {
             title: '触发方式',
             description: '触发方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['点击', '悬浮', '右击', '双击', '手动'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '点击' }, { title: '悬浮' }, { title: '右击' }, { title: '双击' }, { title: '手动' }],
             },
         })
         trigger: 'click' | 'hover' | 'right-click' | 'double-click' | 'manual' = 'click';
@@ -117,8 +117,8 @@ namespace nasl.ui {
             title: '样式类型',
             docDescription: '支持基础按钮样式、主要按钮样式、次要按钮样式、普通按钮样式共4种样式',
             setter: {
-                type: 'enumSelect',
-                titles: ['基础按钮样式', '主要按钮样式', '次要按钮样式', '普通按钮样式', '更多按钮样式'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '基础按钮样式' }, { title: '主要按钮样式' }, { title: '次要按钮样式' }, { title: '普通按钮样式' }, { title: '更多按钮样式' }],
             },
         })
         type: 'text' | 'primary' | 'primary_secondary' | 'normal' | 'more' = 'text';
@@ -129,8 +129,8 @@ namespace nasl.ui {
             description: '弹出层的弹出方向',
             docDescription: '设置下拉菜单的弹出位置，支持上、下、左、右、上左、上右、下左、下右、左上、左下、右上、右下共12个方向',
             setter: {
-                type: 'enumSelect',
-                titles: ['上', '下', '左', '右', '上左', '上右', '下左', '下右', '左上', '左下', '右上', '右下'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '上' }, { title: '下' }, { title: '左' }, { title: '右' }, { title: '上左' }, { title: '上右' }, { title: '下左' }, { title: '下右' }, { title: '左上' }, { title: '左下' }, { title: '右上' }, { title: '右下' }],
             },
         })
         placement: 'top' | 'bottom' | 'left' | 'right' | 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end' | 'left-start' | 'left-end' | 'right-start' | 'right-end' = 'bottom';
@@ -141,8 +141,8 @@ namespace nasl.ui {
             description: `设置弹出层依据哪个元素定位位置，可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。`,
             docDescription: '设置弹出层在html里的位置，支持引用元素下、全局body设置。当把下拉菜单放入某个组件，而组件overflow是hidden的时候，需要设置为全局body',
             setter: {
-                type: 'enumSelect',
-                titles: ['引用元素下', '全局body'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '引用元素下' }, { title: '全局body' }],
             },
         })
         appendTo: 'reference' | 'body' = 'reference';
@@ -153,7 +153,7 @@ namespace nasl.ui {
             description: '是否使用 vue-router',
             docDescription: '设置使用vue-router。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         router: nasl.core.Boolean = true;
@@ -162,7 +162,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '当前选中的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前选择的值，值仅在不适用路由下支持编辑',
             if: _ => _.router === false,
         })
@@ -174,7 +174,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -182,10 +182,10 @@ namespace nasl.ui {
         @Prop({
             group: '状态属性',
             title: '显示状态',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '开启时进入页面即展示下拉菜单，默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         opened: nasl.core.Boolean = false;
@@ -212,7 +212,7 @@ namespace nasl.ui {
         icon: 'dropdown-new-item',
         description: '下拉菜单项',
     })
-    export class UDropdownItem extends VueComponent {
+    export class UDropdownItem extends ViewComponent {
 
         constructor(options?: Partial<UDropdownItemOptions>) { super(); }
     }
@@ -243,8 +243,8 @@ namespace nasl.ui {
             docDescription: '支持页面跳转、下载链接',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['页面跳转', '下载链接'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '页面跳转' }, { title: '下载链接' }],
             },
         })
         linkType: 'destination' | 'download' = 'destination';
@@ -262,8 +262,8 @@ namespace nasl.ui {
             description: '链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。',
             docDescription: '支持新窗口、当前窗口、父级窗口、顶级窗口四种方式，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口',
             setter: {
-                type: 'enumSelect',
-                titles: ['新窗口', '当前窗口', '父级窗口', '顶级窗口'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '新窗口' }, { title: '当前窗口' }, { title: '父级窗口' }, { title: '顶级窗口' }],
             },
         })
         target: '_blank' | '_self' | '_parent' | '_top' = '_self';
@@ -274,7 +274,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -290,7 +290,7 @@ namespace nasl.ui {
         title: '下拉菜单分组',
         description: '侧边栏分组',
     })
-    export class UDropdownGroup extends VueComponent {
+    export class UDropdownGroup extends ViewComponent {
 
         constructor(options?: Partial<UDropdownGroupOptions>) { super(); }
     }
@@ -308,7 +308,7 @@ namespace nasl.ui {
             description: '设置是否可以展开/折叠',
             docDescription: '设置分组是否可折叠',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         collapsible: nasl.core.Boolean = true;
@@ -318,8 +318,8 @@ namespace nasl.ui {
             title: '触发方式',
             description: '触发方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['点击', '悬浮', '右击', '双击', '与父级同步'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '点击' }, { title: '悬浮' }, { title: '右击' }, { title: '双击' }, { title: '与父级同步' }],
             },
         })
         trigger: 'click' | 'hover' | 'right-click' | 'double-click' | 'none' = 'none';
@@ -328,10 +328,10 @@ namespace nasl.ui {
             group: '状态属性',
             title: '展开状态',
             description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '设置分组的展开折叠状态。在某些场景下需要预置分组的展开或者折叠状态',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         expanded: nasl.core.Boolean = false;
@@ -342,7 +342,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止展开/折叠操作',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'alert',
         description: '公告。',
     })
-    export class UAlert extends VueComponent {
+    export class UAlert extends ViewComponent {
 
         constructor(options?: Partial<UAlertOptions>) { super(); }
     }
@@ -28,8 +28,8 @@ namespace nasl.ui {
             title: '对其方式',
             description: '选择对齐方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['左对齐', '居中对齐'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '左对齐' }, { title: '居中对齐' }],
             },
         })
         private horizontal: 'left' | 'center' = 'left';
@@ -39,8 +39,8 @@ namespace nasl.ui {
             title: '公告类型',
             docDescription: '信息、成功、警告、错误',
             setter: {
-                type: 'enumSelect',
-                titles: ['信息', '成功', '警告', '错误'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '信息' }, { title: '成功' }, { title: '警告' }, { title: '错误' }],
             },
         })
         type: 'info' | 'success' | 'warning' | 'error' = 'info';
@@ -50,7 +50,7 @@ namespace nasl.ui {
             title: '显示图标',
             docDescription: '是否展开图标',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showIcon: nasl.core.Boolean = true;
@@ -61,7 +61,7 @@ namespace nasl.ui {
             description: '是否可手动关闭公告',
             docDescription: '是否显示关闭按钮',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         closeable: nasl.core.Boolean = false;
@@ -71,7 +71,7 @@ namespace nasl.ui {
             title: '显示边框',
             docDescription: '是否显示边框',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         bordered: nasl.core.Boolean = true;
@@ -86,12 +86,12 @@ namespace nasl.ui {
             title: 'undefined',
             description: '辅助文本',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '标题',
         })
-        slotTitle: () => Array<VueComponent>;
+        slotTitle: () => Array<ViewComponent>;
     }
 }

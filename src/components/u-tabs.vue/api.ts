@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'tabs',
         description: '选项卡切换组件，常用于平级区域大块内容的收纳和展现。',
     })
-    export class UTabs<T, V> extends VueComponent {
+    export class UTabs<T, V> extends ViewComponent {
 
 
         @Method({
@@ -22,8 +22,8 @@ namespace nasl.ui {
             title: '显示滚动按钮',
             description: '是否显示标签滚动左右箭头按钮',
             setter: {
-                type: 'enumSelect',
-                titles: ['有滚动的情况下显示', '始终显示', '始终不显示'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '有滚动的情况下显示' }, { title: '始终显示' }, { title: '始终不显示' }],
             },
         })
         private showScrollButtons: 'auto' | 'always' | 'never' = 'auto';
@@ -59,7 +59,7 @@ namespace nasl.ui {
             description: '数据源集合的元素，用于标识标签值的属性',
             docDescription: '数据源集合的元素，用于标识标签值的属性',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         valueField: (item: T) => nasl.core.String;
@@ -70,7 +70,7 @@ namespace nasl.ui {
             description: '数据源集合的元素，用于标识当前打开的标签项',
             docDescription: '数据源集合的元素，用于标识当前打开的标签项',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         urlField: (item: T) => V;
@@ -79,7 +79,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '值',
             description: '指当前打开标签的标签项',
-            syncMode: 'both',
+            sync: true,
             docDescription: '指当前打开标签的标签项',
         })
         value: V;
@@ -90,7 +90,7 @@ namespace nasl.ui {
             description: '开启后，选项卡可设置跳转页面',
             docDescription: '开启后，选项卡可设置跳转页面',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         router: nasl.core.Boolean = false;
@@ -101,7 +101,7 @@ namespace nasl.ui {
             description: '设置标签项是否可关闭',
             docDescription: '数据源集合的元素，用于标识标签是否可关闭的属性',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         closableField: nasl.core.String = 'closable';
@@ -112,7 +112,7 @@ namespace nasl.ui {
             description: '设置标签是否可关闭',
             docDescription: '是否可以关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         closable: nasl.core.Boolean = false;
@@ -122,7 +122,7 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -132,7 +132,7 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -142,8 +142,8 @@ namespace nasl.ui {
             title: '展示外观',
             docDescription: '标签展示的外观',
             setter: {
-                type: 'enumSelect',
-                titles: ['方形卡片', '圆角卡片', '线条', '文本', '胶囊', '竖线分隔'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '方形卡片' }, { title: '圆角卡片' }, { title: '线条' }, { title: '文本' }, { title: '胶囊' }, { title: '竖线分隔' }],
             },
         })
         appear: 'square' | 'round' | 'line' | 'text' | 'capsule' | 'split' = 'square';
@@ -153,8 +153,8 @@ namespace nasl.ui {
             title: '标签尺寸',
             docDescription: '标签展示的尺寸',
             setter: {
-                type: 'enumSelect',
-                titles: ['正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         size: 'normal' | 'small' | 'mini' = 'normal';
@@ -218,24 +218,24 @@ namespace nasl.ui {
             title: '右侧附加',
             description: '在标签右侧可以附加的组件。',
         })
-        private slotExtra: () => Array<VueComponent>;
+        private slotExtra: () => Array<ViewComponent>;
 
         @Slot({
             title: '头部标题',
         })
-        slotTitle: (current: Current<T>) => Array<VueComponent>;
+        slotTitle: (current: Current<T>) => Array<ViewComponent>;
 
         @Slot({
             title: '内容区',
         })
-        slotContent: (current: Current<T>) => Array<VueComponent>;
+        slotContent: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '标签页',
         description: '标签页',
     })
-    export class UTab<V> extends VueComponent {
+    export class UTab<V> extends ViewComponent {
 
         constructor(options?: Partial<UTabOptions<V>>) { super(); }
     }
@@ -257,8 +257,8 @@ namespace nasl.ui {
             title: '打开方式',
             description: '打开方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['新窗口', '当前窗口', '父级窗口', '顶级窗口'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '新窗口' }, { title: '当前窗口' }, { title: '父级窗口' }, { title: '顶级窗口' }],
             },
         })
         private target: '_blank' | '_self' | '_parent' | '_top' = '_self';
@@ -273,7 +273,7 @@ namespace nasl.ui {
             title: '替换',
             description: '需要 router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private replace: nasl.core.Boolean = false;
@@ -282,7 +282,7 @@ namespace nasl.ui {
             title: '追加路径',
             description: '需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private append: nasl.core.Boolean = false;
@@ -291,7 +291,7 @@ namespace nasl.ui {
             title: '精确匹配',
             description: '需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private exact: nasl.core.Boolean = false;
@@ -308,8 +308,8 @@ namespace nasl.ui {
             title: '链接类型',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['页面跳转'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '页面跳转' }],
             },
         })
         linkType: 'destination' = 'destination';
@@ -326,7 +326,7 @@ namespace nasl.ui {
             description: '设置标签是否可关闭',
             docDescription: '控制标签页是否可关闭，开启效果如下',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         closable: nasl.core.Boolean = false;
@@ -337,7 +337,7 @@ namespace nasl.ui {
             description: '显示状态分为“True(显示)/False(隐藏)”，默认为“显示”',
             docDescription: '控制标签页是否默认显示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showTabItem: nasl.core.Boolean = true;
@@ -348,7 +348,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -357,12 +357,12 @@ namespace nasl.ui {
             title: '默认',
             description: '该 tab 下的内容',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: '标题',
             description: '自定义标题',
         })
-        slotTitle: () => Array<VueComponent>;
+        slotTitle: () => Array<ViewComponent>;
     }
 }

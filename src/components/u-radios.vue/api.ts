@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'radios',
         description: '多项中选择一个时使用',
     })
-    export class URadios<T, V> extends VueComponent {
+    export class URadios<T, V> extends ViewComponent {
 
 
         @Method({
@@ -40,7 +40,7 @@ namespace nasl.ui {
             title: '选项文本',
             description: '集合的元素类型中，用于显示文本的属性名称',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         private textField: (item: T) => nasl.core.String;
@@ -51,7 +51,7 @@ namespace nasl.ui {
             description: '集合的元素类型中，用于标识选中值的字段',
             docDescription: '集合的元素类型中，用于标识选中值的属性，支持自定义变更',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         valueField: (item: T) => V;
@@ -60,7 +60,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '当前选中的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前选择的值',
         })
         value: V;
@@ -71,7 +71,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -82,7 +82,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -140,14 +140,14 @@ namespace nasl.ui {
             title: 'undefined',
             description: '自定义选项的结构和样式',
         })
-        slotItem: (current: Current<T>) => Array<VueComponent>;
+        slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '单选项',
         description: '单选项',
     })
-    export class URadio<V> extends VueComponent {
+    export class URadio<V> extends ViewComponent {
 
         constructor(options?: Partial<URadioOptions<V>>) { super(); }
     }
@@ -172,7 +172,7 @@ namespace nasl.ui {
             title: '自动获取焦点',
             description: '设置是否自动获取焦点',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autofocus: nasl.core.Boolean = false;
@@ -183,7 +183,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -194,7 +194,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;

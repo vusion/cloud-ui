@@ -184,7 +184,7 @@
       type: string
       default: ""
       description: 图标
-      setter: iconSelect
+      setter: IconSetter
     - name: disabled
       title: 禁用
       type: boolean

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'watermark',
         description: '在页面显示水印',
     })
-    export class EWatermark extends VueComponent {
+    export class EWatermark extends ViewComponent {
 
         constructor(options?: Partial<EWatermarkOptions>) { super(); }
     }
@@ -32,7 +32,7 @@ namespace nasl.ui {
             description: '0-1之间的小数，0代表完全透明，1代表完全不透明',
             docDescription: '设置水印透明度，参数为0-1之间的小数，0代表完全透明，1代表完全不透明',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         opacity: nasl.core.Decimal = 0.1;

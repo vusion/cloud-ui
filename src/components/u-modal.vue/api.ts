@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'modal',
         description: '弹窗',
     })
-    export class UModal extends VueComponent {
+    export class UModal extends ViewComponent {
 
 
         @Method({
@@ -58,7 +58,7 @@ namespace nasl.ui {
             title: '嵌入页面显示',
             description: '是否嵌入页面显示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private static: nasl.core.Boolean = false;
@@ -67,7 +67,7 @@ namespace nasl.ui {
             group: '主要属性',
             title: '显示头部栏',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showHead: nasl.core.Boolean = true;
@@ -76,7 +76,7 @@ namespace nasl.ui {
             group: '主要属性',
             title: '显示底部栏',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showFoot: nasl.core.Boolean = true;
@@ -86,8 +86,8 @@ namespace nasl.ui {
             title: '提示图标',
             docDescription: '可设置成功、警告、错误，弹窗中会自动添加图标',
             setter: {
-                type: 'enumSelect',
-                titles: ['暂无', '成功', '警告', '错误'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '暂无' }, { title: '成功' }, { title: '警告' }, { title: '错误' }],
             },
         })
         icon: '' | 'success' | 'warning' | 'error' = '';
@@ -98,7 +98,7 @@ namespace nasl.ui {
             description: '点击遮罩关闭弹窗',
             docDescription: '开启时，点击遮罩则自动关闭弹窗，若关闭，需要手动设置关闭事件，默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         maskClose: nasl.core.Boolean = false;
@@ -107,10 +107,10 @@ namespace nasl.ui {
             group: '状态属性',
             title: '显示状态',
             description: '显示状态分为“True(打开)/False(关闭)”，默认为“打开”',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '开启时进入页面即显示弹窗，默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         visible: nasl.core.Boolean = false;
@@ -120,8 +120,8 @@ namespace nasl.ui {
             title: '尺寸',
             description: '弹窗的尺寸',
             setter: {
-                type: 'enumSelect',
-                titles: ['小', '正常', '大', '巨大', '自适应'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '小' }, { title: '正常' }, { title: '大' }, { title: '巨大' }, { title: '自适应' }],
             },
         })
         size: 'small' | 'normal' | 'large' | 'huge' | 'auto' = 'normal';
@@ -154,36 +154,36 @@ namespace nasl.ui {
             title: 'undefined',
             description: '弹窗标题自定义',
         })
-        slotTitle: () => Array<VueComponent>;
+        slotTitle: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '弹窗头部自定义',
         })
-        slotHead: () => Array<VueComponent>;
+        slotHead: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '弹窗中部自定义',
         })
-        slotBody: () => Array<VueComponent>;
+        slotBody: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '弹窗尾部自定义',
         })
-        slotFoot: () => Array<VueComponent>;
+        slotFoot: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '弹框小标题自定义',
         })
-        slotHeading: () => Array<VueComponent>;
+        slotHeading: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '弹窗内容自定义',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

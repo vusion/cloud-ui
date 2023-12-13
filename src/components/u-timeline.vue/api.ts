@@ -1,11 +1,11 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
         title: '时间线',
         icon: 'timeline',
     })
-    export class UTimeline<T> extends VueComponent {
+    export class UTimeline<T> extends ViewComponent {
 
         constructor(options?: Partial<UTimelineOptions<T>>) { super(); }
     }
@@ -33,8 +33,8 @@ namespace nasl.ui {
             description: '时间线节点与内容的排布方式',
             docDescription: '默认、时间线居中',
             setter: {
-                type: 'enumSelect',
-                titles: ['默认', '时间线居中'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '默认' }, { title: '时间线居中' }],
             },
         })
         mode: 'default' | 'label' = 'default';
@@ -45,7 +45,7 @@ namespace nasl.ui {
             description: '待定节点连接线为虚线展示，用于表示即将发生或者正在进行的节点',
             docDescription: '待定节点连接线为虚线展示，用于表示即将发生或者正在进行的节点',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         pending: nasl.core.Boolean = false;
@@ -66,13 +66,13 @@ namespace nasl.ui {
             title: 'undefined',
             description: '自定义选项的结构和样式',
         })
-        slotItem: (current: Current<T>) => Array<VueComponent>;
+        slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '时间线项',
     })
-    export class UTimelineItem extends VueComponent {
+    export class UTimelineItem extends ViewComponent {
 
         constructor(options?: Partial<UTimelineItemOptions>) { super(); }
     }
@@ -92,8 +92,8 @@ namespace nasl.ui {
             description: '指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效',
             docDescription: '指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效。',
             setter: {
-                type: 'enumSelect',
-                titles: ['左', '右'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '左' }, { title: '右' }],
             },
         })
         position: 'left' | 'right' = 'right';
@@ -110,18 +110,18 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入文本或 HTML',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '自定义图标',
         })
-        slotDot: () => Array<VueComponent>;
+        slotDot: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '自定义 `label` ，只在 `label` 模式下生效',
         })
-        slotLabel: () => Array<VueComponent>;
+        slotLabel: () => Array<ViewComponent>;
     }
 }

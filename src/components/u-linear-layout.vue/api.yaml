@@ -279,7 +279,7 @@
       group: 状态属性
       docDescription: 支持从图标库选择图标或上传自定义图标。
       tooltipLink: ""
-      setter: iconSelect
+      setter: IconSetter
     - name: loadingIconRotate
       title: 加载中图标旋转
       type: boolean

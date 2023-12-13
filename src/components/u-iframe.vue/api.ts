@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'iframe',
         description: '用于嵌入其他网页的容器。',
     })
-    export class UIframe extends VueComponent {
+    export class UIframe extends ViewComponent {
 
         constructor(options?: Partial<UIframeOptions>) { super(); }
     }

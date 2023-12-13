@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'anchor',
         description: '锚点',
     })
-    export class UAnchor extends VueComponent {
+    export class UAnchor extends ViewComponent {
 
         constructor(options?: Partial<UAnchorOptions>) { super(); }
     }

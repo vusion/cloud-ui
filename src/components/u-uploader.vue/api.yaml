@@ -153,7 +153,7 @@
     - name: file-icon
       title: 文件图标
       type: string
-      setter: iconSelect
+      setter: IconSetter
       setterTitle: 选择文件图标
       description: ""
       group: 主要属性
@@ -177,7 +177,7 @@
     - name: download-icon
       title: 下载图标
       type: string
-      setter: iconSelect
+      setter: IconSetter
       default: download
       description: ""
       group: 主要属性

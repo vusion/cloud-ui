@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'badge',
         description: '用于显示消息条数和提醒用户处理的角标。',
     })
-    export class UBadge extends VueComponent {
+    export class UBadge extends ViewComponent {
 
         constructor(options?: Partial<UBadgeOptions>) { super(); }
     }
@@ -16,7 +16,7 @@ namespace nasl.ui {
             title: '显示小圆点',
             description: '是否显示为小圆点',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private dot: nasl.core.Boolean = false;
@@ -43,7 +43,7 @@ namespace nasl.ui {
             description: '开启时提醒角标位置显示在右上角，关闭时提醒角标显示在组件右侧。',
             docDescription: '开启时提醒角标位置显示在右上角，关闭时提醒角标显示在组件右侧。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         corner: nasl.core.Boolean = false;
@@ -52,6 +52,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入需要附加徽章的元素。',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'time-picker',
         description: '时间选择',
     })
-    export class UTimePicker extends VueComponent {
+    export class UTimePicker extends ViewComponent {
 
         constructor(options?: Partial<UTimePickerOptions>) { super(); }
     }
@@ -18,8 +18,8 @@ namespace nasl.ui {
             description: '最小时间单位',
             docDescription: '最小时间单位，支持秒或分',
             setter: {
-                type: 'enumSelect',
-                titles: ['秒', '分'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '秒' }, { title: '分' }],
             },
         })
         minUnit: 'second' | 'minute' = 'second';
@@ -29,7 +29,7 @@ namespace nasl.ui {
             title: '区间选择',
             description: '是否支持进行时间区间选择，关闭则为时间点选择',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         range: nasl.core.Boolean = false;
@@ -38,7 +38,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '值',
             description: '默认显示的时间值，格式如08:08:08',
-            syncMode: 'both',
+            sync: true,
             docDescription: '默认显示的日期值。',
             if: _ => _.range !== true,
         })
@@ -48,7 +48,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '起始值',
             description: '默认显示的起始时间值，格式如08:08:08',
-            syncMode: 'onlySync',
+            sync: true,
             if: _ => _.range === true,
         })
         startTime: nasl.core.String;
@@ -57,7 +57,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '结束值',
             description: '默认显示的结束时间值，格式如08:08:08',
-            syncMode: 'onlySync',
+            sync: true,
             if: _ => _.range === true,
         })
         endTime: nasl.core.String;
@@ -82,8 +82,8 @@ namespace nasl.ui {
             group: '主要属性',
             title: '时间展示格式',
             setter: {
-                type: 'enumSelect',
-                titles: ['12:09:09', '12时09分09秒', '12:09', '12时09分'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '12: 09: 09' }, { title: '12时09分09秒' }, { title: '12: 09' }, { title: '12时09分' }],
             },
             if: _ => _.advancedFormat.enable === false,
         })
@@ -103,7 +103,7 @@ namespace nasl.ui {
             docDescription: '是否自动获得焦点',
             designerValue: false,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autofocus: nasl.core.Boolean = false;
@@ -114,7 +114,7 @@ namespace nasl.ui {
             description: '点击可快捷选择当前时间',
             docDescription: '是否展示此刻按钮',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showRightNowButton: nasl.core.Boolean = true;
@@ -132,7 +132,7 @@ namespace nasl.ui {
             description: '控制弹出层的关闭和设置的生效与否',
             docDescription: '是否展示取消/确定按钮',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showFooterButton: nasl.core.Boolean = true;
@@ -157,8 +157,8 @@ namespace nasl.ui {
             title: '前缀图标',
             docDescription: '支持配置选择框前缀图标，仅支持时间图标',
             setter: {
-                type: 'enumSelect',
-                titles: ['时间'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '时间' }],
             },
         })
         preIcon: 'time' = 'time';
@@ -168,8 +168,8 @@ namespace nasl.ui {
             title: '后缀图标',
             docDescription: '支持配置选择框后缀图标，仅支持时间图标',
             setter: {
-                type: 'enumSelect',
-                titles: ['时间'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '时间' }],
             },
         })
         suffixIcon: 'time';
@@ -180,8 +180,8 @@ namespace nasl.ui {
             description: `设置弹出层依据哪个元素定位位置，可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。`,
             docDescription: '设置添加到哪个元素：引用元素下、全局body',
             setter: {
-                type: 'enumSelect',
-                titles: ['引用元素下', '全局body'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '引用元素下' }, { title: '全局body' }],
             },
         })
         appendTo: 'reference' | 'body' = 'body';
@@ -192,7 +192,7 @@ namespace nasl.ui {
             description: '可点击清除按钮一键清除内容',
             docDescription: '是否展示清除按钮',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         clearable: nasl.core.Boolean = true;
@@ -202,7 +202,7 @@ namespace nasl.ui {
             title: '只读',
             description: '正常显示，但禁止选择/输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -212,7 +212,7 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -222,7 +222,7 @@ namespace nasl.ui {
             title: '显示状态',
             description: '显示状态分为“True(打开)/False(关闭)”，默认为“打开”',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private visible: nasl.core.Boolean = true;
@@ -233,8 +233,8 @@ namespace nasl.ui {
             description: '设置时间选择输入框宽度大小',
             docDescription: '支持占满、巨大、大、中型、正常、小、迷你',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         width: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -245,8 +245,8 @@ namespace nasl.ui {
             description: '设置时间选择输入框高度大小',
             docDescription: '支持占满、巨大、大、中型、正常、小、迷你',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         height: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';

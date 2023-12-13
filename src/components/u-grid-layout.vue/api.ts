@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'grid-layout',
         description: '内部元素按照一定的规则布局',
     })
-    export class UGridLayout extends VueComponent {
+    export class UGridLayout extends ViewComponent {
 
         constructor(options?: Partial<UGridLayoutOptions>) { super(); }
     }
@@ -18,8 +18,8 @@ namespace nasl.ui {
             description: '栅格行之间的间隔',
             docDescription: '支持修改栅格行之间的间隔，支持紧凑（-1）、无（0）、小（8）、正常（16）、大（32）共6种间隔模式。',
             setter: {
-                type: 'enumSelect',
-                titles: ['紧凑（-1）', '无（0）', '小（8）', '正常（16）', '大（32）'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '紧凑（-1）' }, { title: '无（0）' }, { title: '小（8）' }, { title: '正常（16）' }, { title: '大（32）' }],
             },
         })
         gap: 'compact' | 'none' | 'small' | 'normal' | 'large' = 'normal';
@@ -47,7 +47,7 @@ namespace nasl.ui {
         title: '栅格行',
         description: '内部元素行布局',
     })
-    export class UGridLayoutRow extends VueComponent {
+    export class UGridLayoutRow extends ViewComponent {
 
         constructor(options?: Partial<UGridLayoutRowOptions>) { super(); }
     }
@@ -59,10 +59,8 @@ namespace nasl.ui {
             docDescription: '支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。',
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['左对齐', '居中对齐', '右对齐', '平均分布(两端不留空)', '水平分布-左右留空'],
-                icons: ['horizontal-justify-start', 'horizontal-justify-center', 'horizontal-justify-end', 'horizontal-justify-space-between', 'horizontal-justify-space-around'],
-                tooltips: ['左对齐', '居中对齐', '右对齐', '平均分布(两端不留空)', '平均分布'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '左对齐', icon: 'horizontal-justify-start', tooltip: '左对齐' }, { title: '居中对齐', icon: 'horizontal-justify-center', tooltip: '居中对齐' }, { title: '右对齐', icon: 'horizontal-justify-end', tooltip: '右对齐' }, { title: '平均分布(两端不留空)', icon: 'horizontal-justify-space-between', tooltip: '平均分布(两端不留空)' }, { title: '水平分布-左右留空', icon: 'horizontal-justify-space-around', tooltip: '平均分布' }],
             },
         })
         justify: 'start' | 'center' | 'end' | 'space-between' | 'space-around' = 'start';
@@ -73,10 +71,8 @@ namespace nasl.ui {
             docDescription: '支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。',
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['顶对齐', '垂直居中', '底对齐', '行内文字基线对齐', '占满容器高度'],
-                icons: ['horizontal-alignment-start', 'horizontal-alignment-center', 'horizontal-alignment-end', 'horizontal-alignment-baseline', 'horizontal-alignment-stretch'],
-                tooltips: ['顶对齐', '垂直居中', '底对齐', '行内文字基线对齐', '占满容器高度'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '顶对齐', icon: 'horizontal-alignment-start', tooltip: '顶对齐' }, { title: '垂直居中', icon: 'horizontal-alignment-center', tooltip: '垂直居中' }, { title: '底对齐', icon: 'horizontal-alignment-end', tooltip: '底对齐' }, { title: '行内文字基线对齐', icon: 'horizontal-alignment-baseline', tooltip: '行内文字基线对齐' }, { title: '占满容器高度', icon: 'horizontal-alignment-stretch', tooltip: '占满容器高度' }],
             },
         })
         alignment: 'start' | 'center' | 'end' | 'baseline' | 'stretch' = 'stretch';
@@ -87,7 +83,7 @@ namespace nasl.ui {
             description: '默认24，可设置栅格行大小',
             docDescription: '支持设置栅格行大小，默认为24。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 min: 1,
                 max: 24,
             },
@@ -100,8 +96,8 @@ namespace nasl.ui {
             description: '栅格列之间的间隔',
             docDescription: '栅格列之间的间隔，支持无（0）、迷你（4）、小（8）、正常（16）、巨大（32）共6种间隔模式。',
             setter: {
-                type: 'enumSelect',
-                titles: ['无（0）', '迷你（4）', '小（8）', '正常（16）', '大（24）', '巨大（32）'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '无（0）' }, { title: '迷你（4）' }, { title: '小（8）' }, { title: '正常（16）' }, { title: '大（24）' }, { title: '巨大（32）' }],
             },
         })
         gap: 'none' | 'mini' | 'small' | 'normal' | 'large' | 'huge' = 'normal';
@@ -123,7 +119,7 @@ namespace nasl.ui {
         title: '栅格列',
         description: '内部元素行内列布局',
     })
-    export class UGridLayoutColumn extends VueComponent {
+    export class UGridLayoutColumn extends ViewComponent {
 
         constructor(options?: Partial<UGridLayoutColumnOptions>) { super(); }
     }
@@ -133,7 +129,7 @@ namespace nasl.ui {
             title: '响应很大屏',
             description: '响应式布局`<=1440px`的列跨越栅格数',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         private mediaHuge: nasl.core.Decimal;
@@ -142,7 +138,7 @@ namespace nasl.ui {
             title: '响应大屏',
             description: '响应式布局`<=1200px`的列跨越栅格数',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         private mediaLarge: nasl.core.Decimal;
@@ -151,7 +147,7 @@ namespace nasl.ui {
             title: '响应中屏',
             description: '响应式布局`<=960px`的列跨越栅格数',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         private mediaMedium: nasl.core.Decimal;
@@ -160,7 +156,7 @@ namespace nasl.ui {
             title: '响应小屏',
             description: '响应式布局`<=768px`的列跨越栅格数',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         private mediaSmall: nasl.core.Decimal;
@@ -169,7 +165,7 @@ namespace nasl.ui {
             title: '响应迷你屏',
             description: '响应式布局`<=480px`的列跨越栅格数',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         private mediaMini: nasl.core.Decimal;
@@ -181,12 +177,10 @@ namespace nasl.ui {
             docDescription: '内联布局：将当前元素修改为内联布局模式，各个内联布局模式的元素将默认排布在同一行中，若空间不足以排布下一个内联布局元素，则该元素将会换行。弹性布局：在弹性布局模式中，子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免溢出父元素。',
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['块级', '弹性'],
-                icons: ['layout-inline-block', 'layout-flex'],
-                tooltips: ['内联布局', '弹性布局'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '块级', icon: 'layout-inline-block', tooltip: '内联布局' }, { title: '弹性', icon: 'layout-flex', tooltip: '弹性布局' }],
             },
-            onToggle: [
+            onChange: [
                 { clear: ['justify','alignment','wrap','gap'] }
             ],
         })
@@ -198,13 +192,11 @@ namespace nasl.ui {
             docDescription: '横向：内部子元素进行横向排布，建议内部子元素使用行内布局。纵向：内部子元素进行纵向排布，建议内部子元素使用块级布局。',
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['横向排列', '纵向排列'],
-                icons: ['flex-horizontal', 'flex-vertical'],
-                tooltips: ['横向', '纵向'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '横向排列', icon: 'flex-horizontal', tooltip: '横向' }, { title: '纵向排列', icon: 'flex-vertical', tooltip: '纵向' }],
             },
             if: _ => _.mode === 'flex',
-            onToggle: [
+            onChange: [
                 { clear: ['justify','alignment'] }
             ],
         })
@@ -216,13 +208,11 @@ namespace nasl.ui {
             docDescription: '主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度。',
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['左对齐', '居中对齐', '右对齐', '平均分布(两端不留空)', '平均分布'],
-                icons: ['horizontal-justify-start', 'horizontal-justify-center', 'horizontal-justify-end', 'horizontal-justify-space-between', 'horizontal-justify-space-around'],
-                tooltips: ['左对齐', '居中对齐', '右对齐', '平均分布(两端不留空)', '平均分布'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '左对齐', icon: 'horizontal-justify-start', tooltip: '左对齐' }, { title: '居中对齐', icon: 'horizontal-justify-center', tooltip: '居中对齐' }, { title: '右对齐', icon: 'horizontal-justify-end', tooltip: '右对齐' }, { title: '平均分布(两端不留空)', icon: 'horizontal-justify-space-between', tooltip: '平均分布(两端不留空)' }, { title: '平均分布', icon: 'horizontal-justify-space-around', tooltip: '平均分布' }],
             },
             if: _ => _.mode === 'flex' && _.direction === 'horizontal',
-            onToggle: [
+            onChange: [
                 { update: {gap:'normal'}, if: _ => _ === 'space-between' },
                 { update: {gap:'normal'}, if: _ => _ === 'space-around' },
             ],
@@ -235,10 +225,8 @@ namespace nasl.ui {
             docDescription: '主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。',
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['顶对齐', '垂直居中', '底对齐', '行内文字基线对齐', '占满容器高度'],
-                icons: ['horizontal-alignment-start', 'horizontal-alignment-center', 'horizontal-alignment-end', 'horizontal-alignment-baseline', 'horizontal-alignment-stretch'],
-                tooltips: ['顶对齐', '垂直居中', '底对齐', '行内文字基线对齐', '占满容器高度'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '顶对齐', icon: 'horizontal-alignment-start', tooltip: '顶对齐' }, { title: '垂直居中', icon: 'horizontal-alignment-center', tooltip: '垂直居中' }, { title: '底对齐', icon: 'horizontal-alignment-end', tooltip: '底对齐' }, { title: '行内文字基线对齐', icon: 'horizontal-alignment-baseline', tooltip: '行内文字基线对齐' }, { title: '占满容器高度', icon: 'horizontal-alignment-stretch', tooltip: '占满容器高度' }],
             },
             if: _ => _.mode === 'flex' && _.direction === 'horizontal',
         })
@@ -250,10 +238,8 @@ namespace nasl.ui {
             docDescription: '主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。',
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['左对齐', '居中对齐', '右对齐', '拉伸子元素充满整个父元素空间'],
-                icons: ['vertical-alignment-start', 'vertical-alignment-center', 'vertical-alignment-end', 'vertical-alignment-stretch'],
-                tooltips: ['左对齐', '居中对齐', '右对齐', '占满容器宽度'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '左对齐', icon: 'vertical-alignment-start', tooltip: '左对齐' }, { title: '居中对齐', icon: 'vertical-alignment-center', tooltip: '居中对齐' }, { title: '右对齐', icon: 'vertical-alignment-end', tooltip: '右对齐' }, { title: '拉伸子元素充满整个父元素空间', icon: 'vertical-alignment-stretch', tooltip: '占满容器宽度' }],
             },
             if: _ => _.mode === 'flex' && _.direction === 'vertical',
         })
@@ -265,13 +251,11 @@ namespace nasl.ui {
             docDescription: '主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。 主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度。',
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['顶对齐', '垂直居中', '底对齐', '平均分布(两端不留空)', '平均分布'],
-                icons: ['vertical-justify-start', 'vertical-justify-center', 'vertical-justify-end', 'vertical-justify-space-between', 'vertical-justify-space-around'],
-                tooltips: ['顶对齐', '垂直居中', '底对齐', '平均分布(两端不留空)', '平均分布'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '顶对齐', icon: 'vertical-justify-start', tooltip: '顶对齐' }, { title: '垂直居中', icon: 'vertical-justify-center', tooltip: '垂直居中' }, { title: '底对齐', icon: 'vertical-justify-end', tooltip: '底对齐' }, { title: '平均分布(两端不留空)', icon: 'vertical-justify-space-between', tooltip: '平均分布(两端不留空)' }, { title: '平均分布', icon: 'vertical-justify-space-around', tooltip: '平均分布' }],
             },
             if: _ => _.mode === 'flex' && _.direction === 'vertical',
-            onToggle: [
+            onChange: [
                 { update: {gap:'normal'}, if: _ => _ === 'space-between' },
                 { update: {gap:'normal'}, if: _ => _ === 'space-around' },
             ],
@@ -284,7 +268,7 @@ namespace nasl.ui {
             description: '列占据栅格行的栅格数',
             docDescription: '支持设置当前栅格列占据的栅格数，不能超过当前栅格行栅格数。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         span: nasl.core.Decimal = 1;
@@ -295,7 +279,7 @@ namespace nasl.ui {
             description: '列偏移的栅格数',
             docDescription: '支持设置栅格列偏移数，控制当前栅格列与其左侧栅格列的距离，处于当前栅格列右侧的栅格列也会同步偏移。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         offset: nasl.core.Decimal = 0;
@@ -306,7 +290,7 @@ namespace nasl.ui {
             description: '列向左移动的栅格数',
             docDescription: '向左移动的栅格数，支持栅格互相重合。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         pull: nasl.core.Decimal = 0;
@@ -317,7 +301,7 @@ namespace nasl.ui {
             description: '列向右移动的栅格数',
             docDescription: '向右移动的栅格数，支持栅格互相重合。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         push: nasl.core.Decimal = 0;
@@ -328,7 +312,7 @@ namespace nasl.ui {
             description: '设置弹性布局下子元素总宽度超出父级时子元素是否换行展示',
             docDescription: '支持控制弹性布局模式下，子元素总宽度超过父级时是否换行展示，默认开启。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.mode === 'flex',
         })
@@ -340,8 +324,8 @@ namespace nasl.ui {
             description: '内容块间隙大小',
             docDescription: '布局内各个组件之间的间隔，通常有收缩、无、小、正常、大，默认为正常。',
             setter: {
-                type: 'enumSelect',
-                titles: ['收缩', '无', '小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '收缩' }, { title: '无' }, { title: '小' }, { title: '正常' }, { title: '大' }],
             },
             if: _ => _.mode === 'flex' && _.justify !== 'space-between' && _.justify !== 'space-around',
         })
@@ -357,6 +341,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入需要布局的元素。',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

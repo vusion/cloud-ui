@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'checkboxes',
         description: '多项中选择多个时使用',
     })
-    export class UCheckboxes<T, V, C extends string> extends VueComponent {
+    export class UCheckboxes<T, V, C extends string> extends ViewComponent {
 
 
         @Method({
@@ -48,7 +48,7 @@ namespace nasl.ui {
             description: '用于标识选中值的字段',
             docDescription: '集合的元素类型中，用于标识选中值的属性，支持自定义变更。',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         valueField: (item: T) => V;
@@ -57,7 +57,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '当前选中的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '多选组的选中项，返还结构为List\<T>。',
         })
         value: C extends '' ? nasl.collection.List<V> : nasl.core.String;
@@ -67,9 +67,9 @@ namespace nasl.ui {
             title: '全选控制',
             description: '是否进行全选',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
-            onToggle: [
+            onChange: [
                 { clear: ['min','max'] }
             ],
         })
@@ -88,8 +88,8 @@ namespace nasl.ui {
             title: '展示方式',
             description: '选择展开方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['同行展示', '分行展示'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '同行展示' }, { title: '分行展示' }],
             },
             if: _ => _.checkAll === true,
         })
@@ -101,7 +101,7 @@ namespace nasl.ui {
             description: '可以勾选多选框的最小数量',
             docDescription: '多选组可以勾选多选框的最小数量。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.checkAll === false,
         })
@@ -113,7 +113,7 @@ namespace nasl.ui {
             description: '可以勾选多选框的最大数量',
             docDescription: '多选组可以勾选多选框的最大数量。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.checkAll === false,
         })
@@ -126,8 +126,8 @@ namespace nasl.ui {
             docDescription: '将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['无', "以','连接", "以'|'连接", "以';'连接", 'json'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '无' }, { title: "以', '连接" }, { title: "以'|'连接" }, { title: "以';'连接" }, { title: 'json' }],
             },
         })
         converter: '' | 'join' | 'join:|' | 'join:;' | 'json' = '';
@@ -138,7 +138,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -149,7 +149,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -213,14 +213,14 @@ namespace nasl.ui {
             title: 'undefined',
             description: '自定义选项的结构和样式',
         })
-        slotItem: (current: Current<T>) => Array<VueComponent>;
+        slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '多选项',
         description: '多选项',
     })
-    export class UCheckbox<T, V> extends VueComponent {
+    export class UCheckbox<T, V> extends ViewComponent {
 
         constructor(options?: Partial<UCheckboxOptions<T, V>>) { super(); }
     }
@@ -236,7 +236,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '值',
             description: '标志选中状态的值，`null`表示不确定状态',
-            syncMode: 'both',
+            sync: true,
             docDescription: '选项返还的选项值。',
         })
         value: nasl.core.Boolean | null = false;
@@ -252,7 +252,7 @@ namespace nasl.ui {
             group: '主要属性',
             title: '自动获取焦点',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autofocus: nasl.core.Boolean = false;
@@ -263,7 +263,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -274,7 +274,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;

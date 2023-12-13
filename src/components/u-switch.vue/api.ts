@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'switch',
         description: '开关',
     })
-    export class USwitch extends VueComponent {
+    export class USwitch extends ViewComponent {
 
         constructor(options?: Partial<USwitchOptions>) { super(); }
     }
@@ -16,10 +16,10 @@ namespace nasl.ui {
             group: '数据属性',
             title: '值',
             description: '标识开关状态的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '开关状态，返还true或者false。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         value: nasl.core.Boolean = false;
@@ -30,7 +30,7 @@ namespace nasl.ui {
             description: '是否显示开关`ON`和`OFF`文字',
             docDescription: '设置开关是否显示开关`ON`和`OFF`文字。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         withText: nasl.core.Boolean = false;
@@ -41,7 +41,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -52,7 +52,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;

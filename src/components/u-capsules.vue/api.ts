@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'capsules',
         description: '多项中选择一项',
     })
-    export class UCapsules extends VueComponent {
+    export class UCapsules extends ViewComponent {
 
         constructor(options?: Partial<UCapsulesOptions>) { super(); }
     }
@@ -16,7 +16,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '当前选中的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前选择的值',
         })
         value: nasl.core.Any;
@@ -27,7 +27,7 @@ namespace nasl.ui {
             description: '是否自动选择第一个非禁用的项',
             docDescription: '是否自动选择第一个非禁用的项',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autoSelect: nasl.core.Boolean = false;
@@ -38,7 +38,7 @@ namespace nasl.ui {
             description: '是否可以取消选择',
             docDescription: '是否可以取消选择',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         cancelable: nasl.core.Boolean = false;
@@ -49,7 +49,7 @@ namespace nasl.ui {
             description: '是否可以多选',
             docDescription: '是否可以多选',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         multiple: nasl.core.Boolean = false;
@@ -60,7 +60,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -71,7 +71,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -117,7 +117,7 @@ namespace nasl.ui {
         title: '子选项',
         description: '子选项',
     })
-    export class UCapsule extends VueComponent {
+    export class UCapsule extends ViewComponent {
 
         constructor(options?: Partial<UCapsuleOptions>) { super(); }
     }
@@ -151,7 +151,7 @@ namespace nasl.ui {
             description: '是否右上角有flag标志',
             docDescription: '是否右上角有flag标志',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         flag: nasl.core.Boolean = false;
@@ -162,7 +162,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -173,8 +173,8 @@ namespace nasl.ui {
             description: '胶囊大小',
             docDescription: '支持小尺寸和正常尺寸',
             setter: {
-                type: 'enumSelect',
-                titles: ['小', '正常'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '小' }, { title: '正常' }],
             },
         })
         size: 'small' | 'normal' = 'normal';
@@ -195,14 +195,14 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入文本或 HTML。',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 
     @Component({
         title: '子选项组',
         description: '子选项组',
     })
-    export class UCapsulesGroup extends VueComponent {
+    export class UCapsulesGroup extends ViewComponent {
 
         constructor(options?: Partial<UCapsulesGroupOptions>) { super(); }
     }

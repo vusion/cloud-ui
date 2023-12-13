@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'popup',
         description: '点击/鼠标移入元素，弹出气泡式的卡片浮层。',
     })
-    export class UPopupCombination extends VueComponent {
+    export class UPopupCombination extends ViewComponent {
 
 
         @Method({
@@ -58,7 +58,7 @@ namespace nasl.ui {
             title: '合并边框',
             description: '是否自动合并内外边框',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private mergeBorders: nasl.core.Boolean = true;
@@ -77,8 +77,8 @@ namespace nasl.ui {
             description: '弹出层的弹出方向',
             docDescription: '设置弹出框的弹出方向',
             setter: {
-                type: 'enumSelect',
-                titles: ['上', '下', '左', '右', '上左', '上右', '下左', '下右', '左上', '左下', '右上', '右下'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '上' }, { title: '下' }, { title: '左' }, { title: '右' }, { title: '上左' }, { title: '上右' }, { title: '下左' }, { title: '下右' }, { title: '左上' }, { title: '左下' }, { title: '右上' }, { title: '右下' }],
             },
         })
         placement: 'top' | 'bottom' | 'left' | 'right' | 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end' | 'left-start' | 'left-end' | 'right-start' | 'right-end' = 'bottom-start';
@@ -89,7 +89,7 @@ namespace nasl.ui {
             description: `当触发方式为'悬浮'时，提示内容消失延迟时间，单位是毫秒(ms)`,
             docDescription: '当触发方式为悬浮时，弹出框内容消失的延迟时间，单位为ms',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         hideDelay: nasl.core.Decimal = 200;
@@ -99,7 +99,7 @@ namespace nasl.ui {
             title: '跟随鼠标',
             docDescription: '控制弹出框弹出位置，开启后会以鼠标点击位置为基点弹出，关闭则为默认弹出位置',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         followCursor: nasl.core.Boolean = false;
@@ -109,8 +109,8 @@ namespace nasl.ui {
             title: '展示方式',
             docDescription: '控制展示方式，支持行内展示、块级展示（占据整行）',
             setter: {
-                type: 'enumSelect',
-                titles: ['行内展示', '块级展示，宽度会充满父元素'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '行内展示' }, { title: '块级展示，宽度会充满父元素' }],
             },
         })
         display: 'inline' | 'block' = 'inline';
@@ -121,7 +121,7 @@ namespace nasl.ui {
             description: '文字过长是否省略显示。',
             docDescription: '开启时该项文本过长会省略显示，默认不开启为换行显示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         ellipsis: nasl.core.Boolean = false;
@@ -137,8 +137,8 @@ namespace nasl.ui {
 - 双击：左键双击弹出框触发组件。
 - 手动：无法直接通过弹出框组件触发，需要手动配置弹出框调用逻辑。`,
             setter: {
-                type: 'enumSelect',
-                titles: ['点击', '悬浮', '右击', '双击', '手动'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '点击' }, { title: '悬浮' }, { title: '右击' }, { title: '双击' }, { title: '手动' }],
             },
         })
         trigger: 'click' | 'hover' | 'right-click' | 'double-click' | 'manual' = 'click';
@@ -147,10 +147,10 @@ namespace nasl.ui {
             group: '状态属性',
             title: '弹出状态',
             description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '控制弹出框的默认状态。开启时弹出框默认为弹出状态，关闭时弹出框默认为关闭状态',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         opened: nasl.core.Boolean = false;
@@ -161,7 +161,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -206,12 +206,12 @@ namespace nasl.ui {
             title: 'undefined',
             description: '自定义弹出的内容。',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '弹出层触发节点。',
         })
-        slotReference: () => Array<VueComponent>;
+        slotReference: () => Array<ViewComponent>;
     }
 }

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'divider',
         description: '用于将内容分隔为多个区域',
     })
-    export class UDivider extends VueComponent {
+    export class UDivider extends ViewComponent {
 
         constructor(options?: Partial<UDividerOptions>) { super(); }
     }
@@ -23,8 +23,8 @@ namespace nasl.ui {
             title: '线条类型',
             docDescription: '实线、虚线',
             setter: {
-                type: 'enumSelect',
-                titles: ['虚线', '实线'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '虚线' }, { title: '实线' }],
             },
         })
         dashed: 'b' | 'a' = 'a';
@@ -34,8 +34,8 @@ namespace nasl.ui {
             title: '内容位置',
             docDescription: '居中、左、右',
             setter: {
-                type: 'enumSelect',
-                titles: ['居中', '左', '右'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '居中' }, { title: '左' }, { title: '右' }],
             },
         })
         contentPosition: 'center' | 'left' | 'right' = 'center';
@@ -45,8 +45,8 @@ namespace nasl.ui {
             title: '方向',
             docDescription: '横向、竖向',
             setter: {
-                type: 'enumSelect',
-                titles: ['横向', '竖向'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '横向' }, { title: '竖向' }],
             },
         })
         direction: 'horizontal' | 'column' = 'horizontal';
@@ -57,6 +57,6 @@ namespace nasl.ui {
             title: '默认',
             description: '显示的文本',
         })
-        private slotDefault: () => Array<VueComponent>;
+        private slotDefault: () => Array<ViewComponent>;
     }
 }

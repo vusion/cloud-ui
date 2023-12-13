@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'linear-layout',
         description: '内部元素按照一定的规则布局',
     })
-    export class ULinearLayout extends VueComponent {
+    export class ULinearLayout extends ViewComponent {
 
 
         @Method({
@@ -28,8 +28,8 @@ namespace nasl.ui {
             title: '展示方式',
             description: '行内展示，或块级换行展示',
             setter: {
-                type: 'enumSelect',
-                titles: ['行内', '块级'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '行内' }, { title: '块级' }],
             },
         })
         private display: 'inline' | 'block' = 'block';
@@ -38,8 +38,8 @@ namespace nasl.ui {
             title: '布局模式',
             description: '布局模式',
             setter: {
-                type: 'enumSelect',
-                titles: ['flex 布局模式'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: 'flex 布局模式' }],
             },
         })
         private type: 'flex';
@@ -53,12 +53,10 @@ namespace nasl.ui {
 弹性布局：在弹性布局模式中，子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免溢出父元素。`,
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['行内', '块级', '弹性'],
-                icons: ['layout-inline-block', 'layout-block', 'layout-flex'],
-                tooltips: ['内联布局', '块级布局', '弹性布局'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '行内', icon: 'layout-inline-block', tooltip: '内联布局' }, { title: '块级', icon: 'layout-block', tooltip: '块级布局' }, { title: '弹性', icon: 'layout-flex', tooltip: '弹性布局' }],
             },
-            onToggle: [
+            onChange: [
                 { clear: ['justify','alignment','wrap','layout'] }
             ],
         })
@@ -71,12 +69,10 @@ namespace nasl.ui {
 纵向：内部子元素进行纵向排布，建议内部子元素使用块级布局。`,
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['横向排列', '纵向排列'],
-                icons: ['flex-horizontal', 'flex-vertical'],
-                tooltips: ['横向', '纵向'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '横向排列', icon: 'flex-horizontal', tooltip: '横向' }, { title: '纵向排列', icon: 'flex-vertical', tooltip: '纵向' }],
             },
-            onToggle: [
+            onChange: [
                 { clear: ['justify','alignment'] }
             ],
         })
@@ -89,13 +85,11 @@ namespace nasl.ui {
 主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度，其中占满容器宽度仅在弹性布局模式下展示。`,
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['左对齐', '居中对齐', '右对齐', '平均分布(两端不留空)', '平均分布'],
-                icons: ['horizontal-justify-start', 'horizontal-justify-center', 'horizontal-justify-end', 'horizontal-justify-space-between', 'horizontal-justify-space-around'],
-                tooltips: ['左对齐', '居中对齐', '右对齐', '平均分布(两端不留空)', '平均分布'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '左对齐', icon: 'horizontal-justify-start', tooltip: '左对齐' }, { title: '居中对齐', icon: 'horizontal-justify-center', tooltip: '居中对齐' }, { title: '右对齐', icon: 'horizontal-justify-end', tooltip: '右对齐' }, { title: '平均分布(两端不留空)', icon: 'horizontal-justify-space-between', tooltip: '平均分布(两端不留空)' }, { title: '平均分布', icon: 'horizontal-justify-space-around', tooltip: '平均分布' }],
             },
             if: _ => _.direction === 'horizontal' || _.mode === 'inline' && _.direction === 'vertical' || _.mode === 'block' && _.direction === 'vertical',
-            onToggle: [
+            onChange: [
                 { update: {gap:'normal'}, if: _ => _ === 'space-between' },
                 { update: {gap:'normal'}, if: _ => _ === 'space-around' },
             ],
@@ -109,10 +103,8 @@ namespace nasl.ui {
 主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。`,
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['顶对齐', '垂直居中', '底对齐', '行内文字基线对齐', '占满容器高度'],
-                icons: ['horizontal-alignment-start', 'horizontal-alignment-center', 'horizontal-alignment-end', 'horizontal-alignment-baseline', 'horizontal-alignment-stretch'],
-                tooltips: ['顶对齐', '垂直居中', '底对齐', '行内文字基线对齐', '占满容器高度'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '顶对齐', icon: 'horizontal-alignment-start', tooltip: '顶对齐' }, { title: '垂直居中', icon: 'horizontal-alignment-center', tooltip: '垂直居中' }, { title: '底对齐', icon: 'horizontal-alignment-end', tooltip: '底对齐' }, { title: '行内文字基线对齐', icon: 'horizontal-alignment-baseline', tooltip: '行内文字基线对齐' }, { title: '占满容器高度', icon: 'horizontal-alignment-stretch', tooltip: '占满容器高度' }],
             },
             if: _ => _.mode === 'flex' && _.direction === 'horizontal',
         })
@@ -125,10 +117,8 @@ namespace nasl.ui {
 主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。`,
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['左对齐', '居中对齐', '右对齐', '拉伸子元素充满整个父元素空间'],
-                icons: ['vertical-alignment-start', 'vertical-alignment-center', 'vertical-alignment-end', 'vertical-alignment-stretch'],
-                tooltips: ['左对齐', '居中对齐', '右对齐', '占满容器宽度'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '左对齐', icon: 'vertical-alignment-start', tooltip: '左对齐' }, { title: '居中对齐', icon: 'vertical-alignment-center', tooltip: '居中对齐' }, { title: '右对齐', icon: 'vertical-alignment-end', tooltip: '右对齐' }, { title: '拉伸子元素充满整个父元素空间', icon: 'vertical-alignment-stretch', tooltip: '占满容器宽度' }],
             },
             if: _ => _.mode === 'flex' && _.direction === 'vertical',
         })
@@ -141,13 +131,11 @@ namespace nasl.ui {
 主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度，其中占满容器宽度仅在弹性布局模式下展示。`,
             bindHide: true,
             setter: {
-                type: 'capsules',
-                titles: ['顶对齐', '垂直居中', '底对齐', '平均分布(两端不留空)', '平均分布'],
-                icons: ['vertical-justify-start', 'vertical-justify-center', 'vertical-justify-end', 'vertical-justify-space-between', 'vertical-justify-space-around'],
-                tooltips: ['顶对齐', '垂直居中', '底对齐', '平均分布(两端不留空)', '平均分布'],
+                concept: 'CapsulesSetter',
+                options: [{ title: '顶对齐', icon: 'vertical-justify-start', tooltip: '顶对齐' }, { title: '垂直居中', icon: 'vertical-justify-center', tooltip: '垂直居中' }, { title: '底对齐', icon: 'vertical-justify-end', tooltip: '底对齐' }, { title: '平均分布(两端不留空)', icon: 'vertical-justify-space-between', tooltip: '平均分布(两端不留空)' }, { title: '平均分布', icon: 'vertical-justify-space-around', tooltip: '平均分布' }],
             },
             if: _ => _.mode === 'flex' && _.direction === 'vertical',
-            onToggle: [
+            onChange: [
                 { update: {gap:'normal'}, if: _ => _ === 'space-between' },
                 { update: {gap:'normal'}, if: _ => _ === 'space-around' },
             ],
@@ -160,8 +148,8 @@ namespace nasl.ui {
             description: '子元素行内展示或块级换行展示',
             docDescription: '布局内各个组件的布局方式，支持默认、行内和块级三种布局方式。',
             setter: {
-                type: 'enumSelect',
-                titles: ['子元素默认布局', '子元素行内布局', '子元素块级布局'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '子元素默认布局' }, { title: '子元素行内布局' }, { title: '子元素块级布局' }],
             },
             if: _ => _.mode === 'inline' || _.mode === 'block',
         })
@@ -173,7 +161,7 @@ namespace nasl.ui {
             description: '设置弹性布局下子元素总宽度超出父级时子元素是否换行展示',
             docDescription: '支持控制弹性布局模式下，子元素总宽度超过父级时是否换行展示，默认开启。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.mode === 'flex',
         })
@@ -185,7 +173,7 @@ namespace nasl.ui {
             description: '加载中状态显示的图标',
             docDescription: '支持从图标库选择图标或上传自定义图标。',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
         })
         loadingIcon: nasl.core.String = 'loading';
@@ -196,7 +184,7 @@ namespace nasl.ui {
             description: '设置加载中图标是否旋转，默认开启。',
             docDescription: '支持控制加载中图标是否旋转，默认开启。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         loadingIconRotate: nasl.core.Boolean = true;
@@ -215,8 +203,8 @@ namespace nasl.ui {
             description: '内容块间隙大小',
             docDescription: '布局内各个组件之间的间隔，通常有收缩、无、小、正常、大，默认为正常。',
             setter: {
-                type: 'enumSelect',
-                titles: ['收缩', '无', '小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '收缩' }, { title: '无' }, { title: '小' }, { title: '正常' }, { title: '大' }],
             },
             if: _ => _.justify !== 'space-between' && _.justify !== 'space-around',
         })
@@ -274,6 +262,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '内容',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'cascade-select',
         description: '一次选择多个相关联的项',
     })
-    export class UCascader<T, V> extends VueComponent {
+    export class UCascader<T, V> extends ViewComponent {
 
 
         @Method({
@@ -58,7 +58,7 @@ namespace nasl.ui {
             description: '集合的元素类型中，用于显示文本的属性名称',
             docDescription: '集合的元素类型中，用于显示文本的属性名称',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         field: (item: T) => nasl.core.String;
@@ -69,7 +69,7 @@ namespace nasl.ui {
             description: '集合的元素类型中，用于标识选中值的属性',
             docDescription: '集合的元素类型中，用于标识选中值的属性',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         valueField: (item: T) => V;
@@ -80,7 +80,7 @@ namespace nasl.ui {
             description: '树形数据子节点字段名，默认为children',
             docDescription: '树形数据子节点字段名，默认为children',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             disabledIf: _ => _.parentField !== null,
         })
@@ -92,7 +92,7 @@ namespace nasl.ui {
             description: '当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置',
             docDescription: '当数据源为平铺数据时自动生成级联数据的节点字段名，重要：值字段名需要一起配置',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             disabledIf: _ => _.childrenField !== null,
         })
@@ -101,7 +101,7 @@ namespace nasl.ui {
         @Prop({
             group: '数据属性',
             title: '值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '选择器的值',
         })
         value: V;
@@ -112,7 +112,7 @@ namespace nasl.ui {
             docDescription: '是否使用数组类型的value',
             bindHide: true,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         useArrayLikeValue: nasl.core.Boolean = false;
@@ -123,7 +123,7 @@ namespace nasl.ui {
             description: '设置是否可以筛选，开启将会显示搜索框。',
             docDescription: '是否可以过滤（搜索），开启将会显示搜索框',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         filterable: nasl.core.Boolean = false;
@@ -142,7 +142,7 @@ namespace nasl.ui {
             description: '定义是否显示完整的路径，ture时只显示最后一项',
             docDescription: '定义是否显示完整的路径，ture时只显示最后一项',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showFinalValue: nasl.core.Boolean = false;
@@ -154,7 +154,7 @@ namespace nasl.ui {
             docDescription: '是否自动获取焦点',
             designerValue: false,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autofocus: nasl.core.Boolean = false;
@@ -164,8 +164,8 @@ namespace nasl.ui {
             title: '触发方式',
             docDescription: '触发方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['点击', '悬浮'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '点击' }, { title: '悬浮' }],
             },
         })
         trigger: 'click' | 'hover' = 'click';
@@ -176,7 +176,7 @@ namespace nasl.ui {
             description: '设置是否可以清空搜索框，开启后将在有内容时显示清除按钮。',
             docDescription: '开启并在输入框有内容时会显示清除按钮',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         clearable: nasl.core.Boolean = false;
@@ -187,7 +187,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '禁用选择器',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -198,7 +198,7 @@ namespace nasl.ui {
             description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”',
             docDescription: '切换弹出/关闭状态',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         opened: nasl.core.Boolean = false;
@@ -209,8 +209,8 @@ namespace nasl.ui {
             description: '设置级联框宽度大小',
             docDescription: '设置级联框宽度大小',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         width: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -221,8 +221,8 @@ namespace nasl.ui {
             description: '设置级联框高度大小',
             docDescription: '设置级联框高度大小',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         height: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -232,8 +232,8 @@ namespace nasl.ui {
             title: '连接符',
             description: '将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值',
             setter: {
-                type: 'enumSelect',
-                titles: ["以','连接", "以'|'连接", "以' / '连接"],
+                concept: 'EnumSelectSetter',
+                options: [{ title: "以', '连接" }, { title: "以'|'连接" }, { title: "以' / '连接" }],
             },
         })
         private join: ',' | '|' | ' / ' = ' / ';

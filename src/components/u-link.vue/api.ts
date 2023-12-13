@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'link',
         description: '文字超链接',
     })
-    export class ULink extends VueComponent {
+    export class ULink extends ViewComponent {
 
         constructor(options?: Partial<ULinkOptions>) { super(); }
     }
@@ -22,7 +22,7 @@ namespace nasl.ui {
             title: '替换',
             description: '需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private replace: nasl.core.Boolean = false;
@@ -31,7 +31,7 @@ namespace nasl.ui {
             title: '追加路径',
             description: '需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private append: nasl.core.Boolean = false;
@@ -40,7 +40,7 @@ namespace nasl.ui {
             title: '下划线',
             description: '是否显示下划线',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private decoration: nasl.core.Boolean = true;
@@ -59,8 +59,8 @@ namespace nasl.ui {
             description: '设置主题颜色样式',
             docDescription: '设置文本的颜色，支持默认、浅色、成功色、警告色、危险色',
             setter: {
-                type: 'enumSelect',
-                titles: ['默认', '浅色', '成功色', '警告色', '危险色'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '默认' }, { title: '浅色' }, { title: '成功色' }, { title: '警告色' }, { title: '危险色' }],
             },
         })
         color: 'default' | 'light' | 'success' | 'warning' | 'danger' = 'default';
@@ -70,8 +70,8 @@ namespace nasl.ui {
             title: '展示方式',
             docDescription: '行内展示、块级展示（占据整行）',
             setter: {
-                type: 'enumSelect',
-                titles: ['行内展示', '块级展示，宽度会充满父元素'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '行内展示' }, { title: '块级展示，宽度会充满父元素' }],
             },
         })
         display: 'inline' | 'block' = 'inline';
@@ -82,8 +82,8 @@ namespace nasl.ui {
             docDescription: '支持页面跳转、普通链接、下载链接',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['页面跳转', '下载链接'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '页面跳转' }, { title: '下载链接' }],
             },
         })
         linkType: 'destination' | 'download' = 'destination';
@@ -101,8 +101,8 @@ namespace nasl.ui {
             description: '链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。',
             docDescription: '可选新窗口、父级窗口、当前窗口和顶级窗口，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口',
             setter: {
-                type: 'enumSelect',
-                titles: ['新窗口', '当前窗口', '父级窗口', '顶级窗口'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '新窗口' }, { title: '当前窗口' }, { title: '父级窗口' }, { title: '顶级窗口' }],
             },
         })
         target: '_blank' | '_self' | '_parent' | '_top' = '_self';
@@ -113,10 +113,10 @@ namespace nasl.ui {
             description: '鼠标悬停时的样式变化方式',
             docDescription: '支持鼠标悬停时样式变化，支持颜色变化和下划线两种方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['下划线', '颜色变化'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '下划线' }, { title: '颜色变化' }],
             },
-            onToggle: [
+            onChange: [
                 { clear: ['decoration'] }
             ],
         })
@@ -128,7 +128,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;

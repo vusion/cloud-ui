@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'select',
         description: '下拉选择器，支持单选、多选、搜索等功能',
     })
-    export class USelect<T, V, P extends boolean, M extends boolean, C extends string> extends VueComponent {
+    export class USelect<T, V, P extends boolean, M extends boolean, C extends string> extends ViewComponent {
         @Prop({
             title: '数据',
         })
@@ -84,7 +84,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '当前选中的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前选择的值',
         })
         value: M extends true ? (C extends '' ? nasl.collection.List<V> : nasl.core.String) : V;
@@ -95,7 +95,7 @@ namespace nasl.ui {
             description: '集合的元素类型中，用于显示文本的属性名称',
             docDescription: '集合的元素类型中，用于显示文本的属性名称，支持自定义变更。',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         textField: (item: T) => nasl.core.String;
@@ -106,7 +106,7 @@ namespace nasl.ui {
             description: '集合的元素类型中，用于标识选中值的属性',
             docDescription: '集合的元素类型中，用于标识选中值的属性，支持自定义变更',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         valueField: (item: T) => V;
@@ -117,7 +117,7 @@ namespace nasl.ui {
             description: '设置是否分页加载更多',
             docDescription: '是否使用分页功能加载更多',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private pageable: nasl.core.Boolean = false;
@@ -128,7 +128,7 @@ namespace nasl.ui {
             description: '是否使用后端分页',
             docDescription: '控制是否使用后端分页，不支持自定义分页条数，默认为50条',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private remotePaging: nasl.core.Boolean = false;
@@ -144,7 +144,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '默认每页条数',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 min: 10,
             },
             if: _ => _.pagination === true,
@@ -163,7 +163,7 @@ namespace nasl.ui {
             title: '选项辅助文本',
             description: '选项的辅助说明信息，展示在选项文本下方',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         description: nasl.core.Boolean = false;
@@ -174,7 +174,7 @@ namespace nasl.ui {
             description: '集合的元素类型中，用于显示文本下方辅助描述的字段',
             docDescription: '集合的元素类型中，用于显示文本下方辅助描述的属性名称',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
             if: _ => _.description === true,
         })
@@ -185,7 +185,7 @@ namespace nasl.ui {
             title: '图标展示字段',
             description: '集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         iconField: (item: T) => nasl.core.String;
@@ -204,7 +204,7 @@ namespace nasl.ui {
             description: '设置是否可以筛选，开启将会支持搜索。',
             docDescription: '开启后选择框可输入文本进行筛选',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         filterable: nasl.core.Boolean = false;
@@ -214,7 +214,7 @@ namespace nasl.ui {
             title: '后端筛选',
             description: '设置是否使用后端筛选',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private remoteFiltering: nasl.core.Boolean = false;
@@ -225,8 +225,8 @@ namespace nasl.ui {
             description: '过滤时的匹配方法',
             docDescription: '支持配置过滤时的匹配模式，共有包括、匹配开头或匹配结尾3种模式',
             setter: {
-                type: 'enumSelect',
-                titles: ['包括', '匹配开头', '匹配结尾'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '包括' }, { title: '匹配开头' }, { title: '匹配结尾' }],
             },
         })
         matchMethod: 'includes' | 'startsWith' | 'endsWith' = 'includes';
@@ -236,7 +236,7 @@ namespace nasl.ui {
             title: '可扩展下拉项',
             description: '设置是否可扩展下拉项,开启后可自定义下拉框选项',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showRenderFooter: nasl.core.Boolean = false;
@@ -247,7 +247,7 @@ namespace nasl.ui {
             description: '是否存在可以控制选项的全选/反选',
             docDescription: '是否存在可以控制选项的全选/反选',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         hasAllCheckItem: nasl.core.Boolean = false;
@@ -268,8 +268,8 @@ namespace nasl.ui {
             docDescription: '将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['无', "以','连接", "以'|'连接", "以';'连接", 'json'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '无' }, { title: "以', '连接" }, { title: "以'|'连接" }, { title: "以';'连接" }, { title: 'json' }],
             },
         })
         converter: '' | 'join' | 'join:|' | 'join:;' | 'json' = '';
@@ -289,7 +289,7 @@ namespace nasl.ui {
             docDescription: '控制是否在进入页面时聚焦到该组件',
             designerValue: false,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autofocus: nasl.core.Boolean = false;
@@ -299,8 +299,8 @@ namespace nasl.ui {
             title: '前缀图标',
             docDescription: '支持添加前缀图标，如搜索图标',
             setter: {
-                type: 'enumSelect',
-                titles: ['搜索'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '搜索' }],
             },
         })
         prefix: 'search';
@@ -310,8 +310,8 @@ namespace nasl.ui {
             title: '后缀图标',
             docDescription: '支持添加后缀图标，如搜索图标',
             setter: {
-                type: 'enumSelect',
-                titles: ['搜索'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '搜索' }],
             },
         })
         suffix: 'search';
@@ -322,8 +322,8 @@ namespace nasl.ui {
             description: '设置弹出层依据哪个元素定位位置，可选值：`body`表示添加到 document.body，`reference`表示添加到参考元素中。',
             docDescription: '设置添加到哪个元素',
             setter: {
-                type: 'enumSelect',
-                titles: ['引用元素下', '全局body'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '引用元素下' }, { title: '全局body' }],
             },
         })
         appendTo: 'reference' | 'body' = 'reference';
@@ -334,7 +334,7 @@ namespace nasl.ui {
             description: '可点击清除按钮一键清除所选内容',
             docDescription: '控制是否显示清除按钮，支持一键清除所选内容',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         clearable: nasl.core.Boolean = false;
@@ -344,8 +344,8 @@ namespace nasl.ui {
             title: '多选项展示形式',
             description: '多选项过多时的展示形式',
             setter: {
-                type: 'enumSelect',
-                titles: ['过多时省略', '过多时收缩', '过多时显示'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '过多时省略' }, { title: '过多时收缩' }, { title: '过多时显示' }],
             },
         })
         tagsOverflow: 'hidden' | 'collapse' | 'visible' = 'collapse';
@@ -355,7 +355,7 @@ namespace nasl.ui {
             title: '可取消',
             description: '设置是否可以取消选择',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private cancelable: nasl.core.Boolean = false;
@@ -374,7 +374,7 @@ namespace nasl.ui {
             description: '设置初始时是否立即加载',
             docDescription: '是否在初始时立即加载',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         initialLoad: nasl.core.Boolean = true;
@@ -392,7 +392,7 @@ namespace nasl.ui {
             description: '是否在数据为空时展示暂无数据的文字提示',
             docDescription: '是否在数据为空时展示暂无数据的文字提示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showEmptyText: nasl.core.Boolean = true;
@@ -411,7 +411,7 @@ namespace nasl.ui {
             description: '为空时置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         emptyDisabled: nasl.core.Boolean = false;
@@ -422,7 +422,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -433,7 +433,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -442,10 +442,10 @@ namespace nasl.ui {
             group: '状态属性',
             title: '弹出状态',
             description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '开启时加载下拉框时，下拉框自动弹出，默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         opened: nasl.core.Boolean = false;
@@ -456,8 +456,8 @@ namespace nasl.ui {
             description: '设置选择框宽度大小',
             docDescription: '设置选择框宽度大小，支持占满、巨大、大、中型、正常、小共6种模式',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         width: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -468,8 +468,8 @@ namespace nasl.ui {
             description: '设置选择框高度大小',
             docDescription: '设置选择框高度大小，支持占满、巨大、大、中型、正常、小共6种模式',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         height: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -486,7 +486,7 @@ namespace nasl.ui {
             title: '自动补全',
             description: '是否开启自动补充模式，用于增加列表中没有的项',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private autoComplete: nasl.core.Boolean = false;
@@ -600,7 +600,7 @@ namespace nasl.ui {
         title: '选择项',
         description: '选择项',
     })
-    export class USelectItem<T, V> extends VueComponent {
+    export class USelectItem<T, V> extends ViewComponent {
 
         constructor(options?: Partial<USelectItemOptions<T, V>>) { super(); }
     }
@@ -642,7 +642,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '该项不可选，默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -657,14 +657,14 @@ namespace nasl.ui {
             title: '默认',
             description: '插入文本或 HTML。',
         })
-        slotDefault: (current: Current<T>) => Array<VueComponent>;
+        slotDefault: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '选择分组',
         description: '选择分组',
     })
-    export class USelectGroup<T, V> extends VueComponent {
+    export class USelectGroup<T, V> extends ViewComponent {
 
         constructor(options?: Partial<USelectGroupOptions<T, V>>) { super(); }
     }
@@ -693,20 +693,20 @@ namespace nasl.ui {
             title: '标题',
             description: '自定义标题文本。',
         })
-        private slotTitle: () => Array<VueComponent>;
+        private slotTitle: () => Array<ViewComponent>;
 
         @Slot({
             title: '附加内容',
             description: '在右侧可以附加内容。',
         })
-        private slotExtra: () => Array<VueComponent>;
+        private slotExtra: () => Array<ViewComponent>;
     }
 
     @Component({
         title: '分隔线',
         description: '分隔线',
     })
-    export class USelectDivider extends VueComponent {
+    export class USelectDivider extends ViewComponent {
 
         constructor(options?: Partial<USelectDividerOptions>) { super(); }
     }

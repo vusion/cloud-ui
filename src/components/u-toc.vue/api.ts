@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'toc',
         description: '用于展示文档的目录',
     })
-    export class UToc extends VueComponent {
+    export class UToc extends ViewComponent {
 
         constructor(options?: Partial<UTocOptions>) { super(); }
     }
@@ -16,7 +16,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '当前选中的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前选择的值',
         })
         value: nasl.core.String;
@@ -49,7 +49,7 @@ namespace nasl.ui {
     @Component({
         title: '目录节点',
     })
-    export class UTocItem extends VueComponent {
+    export class UTocItem extends ViewComponent {
 
         constructor(options?: Partial<UTocItemOptions>) { super(); }
     }
@@ -83,8 +83,8 @@ namespace nasl.ui {
             docDescription: '支持页面跳转、普通链接、下载链接',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['页面跳转', '下载链接'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '页面跳转' }, { title: '下载链接' }],
             },
         })
         linkType: 'destination' | 'download' = 'destination';
@@ -102,8 +102,8 @@ namespace nasl.ui {
             description: '链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。',
             docDescription: '可选新窗口、父级窗口、当前窗口和顶级窗口，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口',
             setter: {
-                type: 'enumSelect',
-                titles: ['新窗口', '当前窗口', '父级窗口', '顶级窗口'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '新窗口' }, { title: '当前窗口' }, { title: '父级窗口' }, { title: '顶级窗口' }],
             },
         })
         target: '_blank' | '_self' | '_parent' | '_top' = '_self';
@@ -114,7 +114,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;

@@ -239,7 +239,7 @@
       group: 主要属性
       docDescription: 支持从图标库选择图标或上传自定义图标
       tooltipLink: ""
-      setter: iconSelect
+      setter: IconSetter
     - name: linkType
       title: 链接类型
       type: string

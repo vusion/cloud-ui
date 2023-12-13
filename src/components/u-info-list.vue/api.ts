@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'info-list',
         description: '详情列表',
     })
-    export class UInfoList extends VueComponent {
+    export class UInfoList extends ViewComponent {
 
         constructor(options?: Partial<UInfoListOptions>) { super(); }
     }
@@ -18,7 +18,7 @@ namespace nasl.ui {
             description: '整个详情列表的划分列数',
             docDescription: '- 设置列表信息展示的划分列数',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         repeat: nasl.core.Decimal = 3;
@@ -29,7 +29,7 @@ namespace nasl.ui {
             description: '是否显示表格头部',
             docDescription: '开启时会显示表格头部',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showHead: nasl.core.Boolean = true;
@@ -40,8 +40,8 @@ namespace nasl.ui {
             description: '设置详情列表所有列表项的标题宽度。',
             docDescription: '列表中所有列表项的标签大小',
             setter: {
-                type: 'enumSelect',
-                titles: ['自适应', '小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '自适应' }, { title: '小' }, { title: '正常' }, { title: '大' }],
             },
         })
         labelSize: 'auto' | 'small' | 'normal' | 'large' = 'auto';
@@ -67,7 +67,7 @@ namespace nasl.ui {
         title: '详情列表项',
         description: '详情列表项',
     })
-    export class UInfoListItem extends VueComponent {
+    export class UInfoListItem extends ViewComponent {
 
         constructor(options?: Partial<UInfoListItemOptions>) { super(); }
     }
@@ -84,7 +84,7 @@ namespace nasl.ui {
             description: '列跨越的格数',
             docDescription: '当前列表项占的列数，为空默认取列表组的列数值，优先取列表项的值',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         span: nasl.core.Decimal;
@@ -95,7 +95,7 @@ namespace nasl.ui {
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '开启时该项文本过长会省略显示，默认不开启为换行显示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         ellipsis: nasl.core.Boolean = false;
@@ -105,8 +105,8 @@ namespace nasl.ui {
             title: '列表项标题宽度',
             docDescription: '当前列表项的标签大小，优先取列表项的值',
             setter: {
-                type: 'enumSelect',
-                titles: ['自适应', '小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '自适应' }, { title: '小' }, { title: '正常' }, { title: '大' }],
             },
         })
         labelSize: 'auto' | 'small' | 'normal' | 'large' = 'auto';
@@ -115,20 +115,20 @@ namespace nasl.ui {
             title: '默认',
             description: '插入文本或HTML。',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: '自定义标签内容',
             description: '用于自定义 label 内容。',
         })
-        slotLabel: () => Array<VueComponent>;
+        slotLabel: () => Array<ViewComponent>;
     }
 
     @Component({
         title: '详情列表组',
         description: '详情列表组',
     })
-    export class UInfoListGroup extends VueComponent {
+    export class UInfoListGroup extends ViewComponent {
 
         constructor(options?: Partial<UInfoListGroupOptions>) { super(); }
     }
@@ -145,7 +145,7 @@ namespace nasl.ui {
             description: '当前组范围内的划分列数',
             docDescription: '当前组信息展示划分的列数，为空默认取详情列表的值，若和列表列数不一致，优先取列表组的值。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         repeat: nasl.core.Decimal;
@@ -156,8 +156,8 @@ namespace nasl.ui {
             description: '设置详情列表组所有列表项的标题宽度。',
             docDescription: '当前组列表项的标签大小，若和列表列数不一致，优先取列表组的值。',
             setter: {
-                type: 'enumSelect',
-                titles: ['自适应', '小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '自适应' }, { title: '小' }, { title: '正常' }, { title: '大' }],
             },
         })
         labelSize: 'auto' | 'small' | 'normal' | 'large' = 'auto';
@@ -178,12 +178,12 @@ namespace nasl.ui {
             title: '自定义标题',
             description: '自定义标题。',
         })
-        slotTitle: () => Array<VueComponent>;
+        slotTitle: () => Array<ViewComponent>;
 
         @Slot({
             title: '自定义额外操作项',
             description: '自定义额外操作项。',
         })
-        slotExtra: () => Array<VueComponent>;
+        slotExtra: () => Array<ViewComponent>;
     }
 }

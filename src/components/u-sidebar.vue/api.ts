@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'sidebar',
         description: '通常用于页面左侧的导航栏。',
     })
-    export class USidebar<T, V> extends VueComponent {
+    export class USidebar<T, V> extends ViewComponent {
 
 
         @Method({
@@ -29,9 +29,9 @@ namespace nasl.ui {
             title: '数据源配置',
             bindHide: true,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
-            onToggle: [
+            onChange: [
                 { clear: ['data-source','data-schema','text-field','to-field','icon-field','value-field','parent-field','link-type-field','target-field'] }
             ],
         })
@@ -104,9 +104,9 @@ namespace nasl.ui {
             description: '是否根据 vue-router 来控制选择哪一项',
             docDescription: '设置是否根据vue-router来控制选择哪一项，默认关闭。开启后当前所在的侧边栏项底部会有标识，',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
-            onToggle: [
+            onChange: [
                 { clear: ['value'] }
             ],
         })
@@ -116,7 +116,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '当前选中的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前选择的值，值仅在不适用路由下支持编辑',
             if: _ => _.router === false,
         })
@@ -128,7 +128,7 @@ namespace nasl.ui {
             description: '设置菜单项是否可以展开/折叠',
             docDescription: '设置分组是否可折叠。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         collapsible: nasl.core.Boolean = false;
@@ -139,7 +139,7 @@ namespace nasl.ui {
             description: '设置是否每次只展开一个',
             docDescription: ' 开启后每次仅会展开一个分组。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.collapsible === true,
         })
@@ -151,8 +151,8 @@ namespace nasl.ui {
             description: '展开/折叠操作的触发方式',
             docDescription: '支持整行点击均可触发和仅点击小箭头时触发两种方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['整行点击均可触发', '仅点击小箭头时触发'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '整行点击均可触发' }, { title: '仅点击小箭头时触发' }],
             },
             if: _ => _.collapsible === true,
         })
@@ -163,7 +163,7 @@ namespace nasl.ui {
             title: '侧边栏可折叠',
             description: '设置侧边栏是否可以展开/折叠',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         enableCollapse: nasl.core.Boolean = false;
@@ -173,8 +173,8 @@ namespace nasl.ui {
             title: '默认状态',
             description: '侧边栏是否折叠',
             setter: {
-                type: 'enumSelect',
-                titles: ['收起', '展开'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '收起' }, { title: '展开' }],
             },
             if: _ => _.enableCollapse === true,
         })
@@ -185,7 +185,7 @@ namespace nasl.ui {
             title: '展开图标',
             description: '侧边栏展开图标',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
             if: _ => _.enableCollapse === true,
         })
@@ -196,7 +196,7 @@ namespace nasl.ui {
             title: '折叠图标',
             description: '侧边栏折叠图标',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
             if: _ => _.enableCollapse === true,
         })
@@ -208,7 +208,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -219,7 +219,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -255,7 +255,7 @@ namespace nasl.ui {
         title: '侧边栏项',
         description: '侧边栏项',
     })
-    export class USidebarItem extends VueComponent {
+    export class USidebarItem extends ViewComponent {
 
         constructor(options?: Partial<USidebarItemOptions>) { super(); }
     }
@@ -283,7 +283,7 @@ namespace nasl.ui {
             title: '替换',
             description: '需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private replace: nasl.core.Boolean = false;
@@ -292,7 +292,7 @@ namespace nasl.ui {
             title: '精确匹配',
             description: '需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private exact: nasl.core.Boolean = false;
@@ -310,7 +310,7 @@ namespace nasl.ui {
             title: '图标',
             docDescription: '支持从图标库选择图标或上传自定义图标',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
         })
         icon: nasl.core.String = '';
@@ -321,8 +321,8 @@ namespace nasl.ui {
             docDescription: '支持页面跳转、普通链接、下载链接',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['页面跳转', '下载链接'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '页面跳转' }, { title: '下载链接' }],
             },
         })
         linkType: 'destination' | 'download' = 'destination';
@@ -340,8 +340,8 @@ namespace nasl.ui {
             description: '链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。',
             docDescription: '支持新窗口、当前窗口、父级窗口、顶级窗口四种方式，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口',
             setter: {
-                type: 'enumSelect',
-                titles: ['新窗口', '当前窗口', '父级窗口', '顶级窗口'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '新窗口' }, { title: '当前窗口' }, { title: '父级窗口' }, { title: '顶级窗口' }],
             },
         })
         target: '_blank' | '_self' | '_parent' | '_top' = '_self';
@@ -352,7 +352,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -422,7 +422,7 @@ namespace nasl.ui {
         title: '侧边栏分组',
         description: '侧边栏分组',
     })
-    export class USidebarGroup extends VueComponent {
+    export class USidebarGroup extends ViewComponent {
 
         constructor(options?: Partial<USidebarGroupOptions>) { super(); }
     }
@@ -440,7 +440,7 @@ namespace nasl.ui {
             description: '设置是否可以展开/折叠',
             docDescription: '设置分组是否可折叠',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         collapsible: nasl.core.Boolean = false;
@@ -449,10 +449,10 @@ namespace nasl.ui {
             group: '状态属性',
             title: '展开状态',
             description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '设置分组的展开折叠状态。在某些场景下需要预置分组的展开或者折叠状态',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         expanded: nasl.core.Boolean = false;
@@ -463,7 +463,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止展开/折叠操作',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -492,20 +492,20 @@ namespace nasl.ui {
             title: 'undefined',
             description: '自定义标题文本。',
         })
-        slotTitle: () => Array<VueComponent>;
+        slotTitle: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '在右侧可以附加内容。',
         })
-        slotExtra: () => Array<VueComponent>;
+        slotExtra: () => Array<ViewComponent>;
     }
 
     @Component({
         title: '侧边栏分隔线',
         description: '侧边栏分隔线',
     })
-    export class USidebarDivider extends VueComponent {
+    export class USidebarDivider extends ViewComponent {
 
         constructor(options?: Partial<USidebarDividerOptions>) { super(); }
     }

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'tree-view-new',
         description: '树形视图',
     })
-    export class UTreeViewNew<T, V, M extends boolean> extends VueComponent {
+    export class UTreeViewNew<T, V, M extends boolean> extends ViewComponent {
 
 
         @Method({
@@ -118,7 +118,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '选择后，所选中的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前选择的值',
         })
         value: V;
@@ -129,7 +129,7 @@ namespace nasl.ui {
             description: '开启后父节点选择不会全选子节点，子节点选择不会联动父节点',
             docDescription: '开启后父节点选择不会全选子节点，子节点选择不会联动父节点',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         checkControlled: nasl.core.Boolean = false;
@@ -140,7 +140,7 @@ namespace nasl.ui {
             description: '设置是否开启多选模式，显示多选框',
             docDescription: '开启后支持选中多项。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         checkable: nasl.core.Boolean = false;
@@ -151,7 +151,7 @@ namespace nasl.ui {
             description: '设置是否每次只展开一个',
             docDescription: '开启后每次只能展开一个分组，其他已经展开的分组会关闭。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         accordion: nasl.core.Boolean = false;
@@ -162,8 +162,8 @@ namespace nasl.ui {
             description: '展开/折叠的触发方式',
             docDescription: '树展开/折叠的方式。可选择整行点击均可触发、点击小箭头时触发。默认整行点击均可触发',
             setter: {
-                type: 'enumSelect',
-                titles: ['整行点击均可触发', '点击小箭头时触发'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '整行点击均可触发' }, { title: '点击小箭头时触发' }],
             },
         })
         expandTrigger: 'click' | 'click-expander' = 'click';
@@ -174,7 +174,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -185,7 +185,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -254,14 +254,14 @@ namespace nasl.ui {
             title: 'undefined',
             description: '自定义选项的结构和样式',
         })
-        slotItem: (current: Current<T>) => Array<VueComponent>;
+        slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '树形视图节点',
         description: '树形视图节点',
     })
-    export class UTreeViewNodeNew<V> extends VueComponent {
+    export class UTreeViewNodeNew<V> extends ViewComponent {
 
         constructor(options?: Partial<UTreeViewNodeNewOptions<V>>) { super(); }
     }
@@ -289,9 +289,9 @@ namespace nasl.ui {
         @Prop({
             group: '交互属性',
             title: '默认选中',
-            syncMode: 'onlySync',
+            sync: true,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         checked: nasl.core.Boolean;
@@ -300,9 +300,9 @@ namespace nasl.ui {
             group: '状态属性',
             title: '展开状态',
             description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
-            syncMode: 'onlySync',
+            sync: true,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         expanded: nasl.core.Boolean;
@@ -312,7 +312,7 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;

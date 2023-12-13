@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'date-picker',
         description: '日期选择',
     })
-    export class UDatePicker extends VueComponent {
+    export class UDatePicker extends ViewComponent {
 
         constructor(options?: Partial<UDatePickerOptions>) { super(); }
     }
@@ -18,8 +18,8 @@ namespace nasl.ui {
             description: '日期格式设置',
             docDescription: '日期选择弹出层里的日期展示格式，支持日期、月份、季度、年份4种模式。默认日期格式',
             setter: {
-                type: 'enumSelect',
-                titles: ['日期', '周', '月份', '季度', '年份'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '日期' }, { title: '周' }, { title: '月份' }, { title: '季度' }, { title: '年份' }],
             },
         })
         picker: 'date' | 'week' | 'month' | 'quarter' | 'year' = 'date';
@@ -29,7 +29,7 @@ namespace nasl.ui {
             title: '区间选择',
             description: '是否支持进行日期区间选择，关闭则为日期点选择',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         range: nasl.core.Boolean = false;
@@ -38,7 +38,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '值',
             description: '默认显示的日期值，格式如2018-08-08',
-            syncMode: 'both',
+            sync: true,
             docDescription: '当前选择的值',
             if: _ => _.range !== true,
         })
@@ -48,7 +48,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '起始值',
             description: '默认显示的起始日期值，格式如2018-08-08',
-            syncMode: 'onlySync',
+            sync: true,
             if: _ => _.range === true,
         })
         startDate: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
@@ -57,7 +57,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '结束值',
             description: '默认显示的结束日期值，格式如2018-08-08',
-            syncMode: 'onlySync',
+            sync: true,
             if: _ => _.range === true,
         })
         endDate: nasl.core.String | nasl.core.Decimal | nasl.core.Date;
@@ -91,7 +91,7 @@ namespace nasl.ui {
             description: '最小可选年份值与当前年份值的差值',
             docDescription: '设置日期范围，最小可选择的年份',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.range !== true,
         })
@@ -103,7 +103,7 @@ namespace nasl.ui {
             description: '最大可选年份值与当前年份值的差值',
             docDescription: '设置日期范围，最大可选择的年份',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
             if: _ => _.range !== true,
         })
@@ -113,8 +113,8 @@ namespace nasl.ui {
             group: '主要属性',
             title: '日期展示格式',
             setter: {
-                type: 'enumSelect',
-                titles: ['中国（2023年7月26日）', 'ISO（2023-07-26）', 'US（7/26/2023）', 'EU（26/7/2023）', '2023-28周', '2023年第28周', '2023-W28', '中国（2023年7月）', 'ISO（2023-07）', 'US/EU（7/2023）', '2023年第3季度', '2023年Q3', '2023-Q3', '中国（2023年）', 'ISO（2023）'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '中国（2023年7月26日）' }, { title: 'ISO（2023-07-26）' }, { title: 'US（7/26/2023）' }, { title: 'EU（26/7/2023）' }, { title: '2023-28周' }, { title: '2023年第28周' }, { title: '2023-W28' }, { title: '中国（2023年7月）' }, { title: 'ISO（2023-07）' }, { title: 'US/EU（7/2023）' }, { title: '2023年第3季度' }, { title: '2023年Q3' }, { title: '2023-Q3' }, { title: '中国（2023年）' }, { title: 'ISO（2023）' }],
             },
             if: _ => _.advancedFormat.enable === false,
         })
@@ -134,7 +134,7 @@ namespace nasl.ui {
             docDescription: '控制是否在进入页面时聚焦到该组件',
             designerValue: false,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autofocus: nasl.core.Boolean = false;
@@ -153,8 +153,8 @@ namespace nasl.ui {
             description: '日历弹窗对齐方式',
             docDescription: '日期选择弹出层与输入框的对齐方式，支持左对齐、右对齐2种模式。默认为左对齐',
             setter: {
-                type: 'enumSelect',
-                titles: ['左对齐', '右对齐'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '左对齐' }, { title: '右对齐' }],
             },
         })
         alignment: 'left' | 'right' = 'left';
@@ -165,8 +165,8 @@ namespace nasl.ui {
             description: '转换器，用于转换时间结果',
             docDescription: '用于转换选中的日期格式，支持JSON、Unix 时间戳、Date对象、YYYY-MM-DD共4种模式。默认YYYY-MM-DD',
             setter: {
-                type: 'enumSelect',
-                titles: ['JSON', 'Unix 时间戳', 'Date 对象', 'YYYY-MM-DD'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: 'JSON' }, { title: 'Unix 时间戳' }, { title: 'Date 对象' }, { title: 'YYYY-MM-DD' }],
             },
         })
         converter: 'json' | 'timestamp' | 'date' | 'format' = 'format';
@@ -176,8 +176,8 @@ namespace nasl.ui {
             title: '前缀图标',
             docDescription: '支持添加前缀图标，如搜索图标',
             setter: {
-                type: 'enumSelect',
-                titles: ['日历'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '日历' }],
             },
         })
         preIcon: 'calendar' = 'calendar';
@@ -187,8 +187,8 @@ namespace nasl.ui {
             title: '后缀图标',
             docDescription: '支持添加后缀图标，如搜索图标',
             setter: {
-                type: 'enumSelect',
-                titles: ['日历'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '日历' }],
             },
         })
         suffixIcon: 'calendar';
@@ -199,8 +199,8 @@ namespace nasl.ui {
             description: `设置弹出层依据哪个元素定位位置，可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。`,
             docDescription: '设置弹出层添加到哪个元素',
             setter: {
-                type: 'enumSelect',
-                titles: ['引用元素下', '全局body'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '引用元素下' }, { title: '全局body' }],
             },
         })
         appendTo: 'reference' | 'body' = 'body';
@@ -211,7 +211,7 @@ namespace nasl.ui {
             description: '可点击清除按钮一键清除内容',
             docDescription: '控制是否显示清除按钮，支持一键清除所选内容',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         clearable: nasl.core.Boolean;
@@ -222,7 +222,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -233,7 +233,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -244,7 +244,7 @@ namespace nasl.ui {
             description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭”',
             docDescription: '开启时加载日期组件时，下拉框自动弹出，默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         opened: nasl.core.Boolean = false;
@@ -255,8 +255,8 @@ namespace nasl.ui {
             description: '设置日期选择输入框宽度大小',
             docDescription: '设置日期选择框宽度大小，支持占满、巨大、大、中型、正常、小共6种模式',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         width: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -267,8 +267,8 @@ namespace nasl.ui {
             description: '设置日期选择输入框高度大小',
             docDescription: '设置日期选择框高度大小，支持占满、巨大、大、中型、正常、小共6种模式',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         height: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';

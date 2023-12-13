@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'button',
         description: '用于触发一个即时操作。',
     })
-    export class UButton extends VueComponent {
+    export class UButton extends ViewComponent {
 
         constructor(options?: Partial<UButtonOptions>) { super(); }
     }
@@ -22,7 +22,7 @@ namespace nasl.ui {
             title: '替换',
             description: '需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private replace: nasl.core.Boolean = false;
@@ -31,7 +31,7 @@ namespace nasl.ui {
             title: '追加路径',
             description: '需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private append: nasl.core.Boolean = false;
@@ -50,8 +50,8 @@ namespace nasl.ui {
             description: '设置主题颜色和按钮样式类型',
             docDescription: '- 支持定义按钮样式，包括主要按钮、次要按钮、普通按钮、危险操作按钮和次要危险操作按钮。',
             setter: {
-                type: 'enumSelect',
-                titles: ['主要按钮', '次要按钮', '普通按钮', '危险操作按钮', '次要危险操作按钮'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '主要按钮' }, { title: '次要按钮' }, { title: '普通按钮' }, { title: '危险操作按钮' }, { title: '次要危险操作按钮' }],
             },
         })
         color: 'primary' | 'primary_secondary' | 'default' | 'danger' | 'danger_secondary' = 'default';
@@ -62,8 +62,8 @@ namespace nasl.ui {
             description: '行内展示，或块级换行展示',
             docDescription: '控制展示方式，支持行内展示、块级展示（宽度会充满父元素）两种方式。',
             setter: {
-                type: 'enumSelect',
-                titles: ['行内展示', '块级展示，宽度会充满父元素'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '行内展示' }, { title: '块级展示，宽度会充满父元素' }],
             },
         })
         display: 'inline' | 'block' = 'inline';
@@ -73,7 +73,7 @@ namespace nasl.ui {
             title: '图标',
             docDescription: '支持从图标库选择图标或上传自定义图标。',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
         })
         icon: nasl.core.String = '';
@@ -82,8 +82,8 @@ namespace nasl.ui {
             title: '图标位置',
             description: '设置图标居左或居右显示',
             setter: {
-                type: 'enumSelect',
-                titles: ['左', '右'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '左' }, { title: '右' }],
             },
         })
         iconPosition: 'left' | 'right' = 'left';
@@ -94,8 +94,8 @@ namespace nasl.ui {
             docDescription: '支持页面跳转、普通链接、下载链接。',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['页面跳转', '下载链接'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '页面跳转' }, { title: '下载链接' }],
             },
         })
         linkType: 'destination' | 'download' = 'destination';
@@ -113,8 +113,8 @@ namespace nasl.ui {
             description: '链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。',
             docDescription: '可选新窗口、父级窗口、当前窗口和顶级窗口，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。',
             setter: {
-                type: 'enumSelect',
-                titles: ['新窗口', '当前窗口', '父级窗口', '顶级窗口'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '新窗口' }, { title: '当前窗口' }, { title: '父级窗口' }, { title: '顶级窗口' }],
             },
         })
         target: '_blank' | '_self' | '_parent' | '_top' = '_self';
@@ -125,7 +125,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -135,7 +135,7 @@ namespace nasl.ui {
             title: '加载中触发条件',
             description: '设置加载中状态的触发条件',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private loading: nasl.core.Boolean = false;
@@ -146,7 +146,7 @@ namespace nasl.ui {
             description: '设置是否显示虚线边框',
             docDescription: '启用后，按钮边框变为虚线，默认关闭。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         dashed: nasl.core.Boolean = false;
@@ -157,8 +157,8 @@ namespace nasl.ui {
             description: '设置按钮大小',
             docDescription: '按钮尺寸，支持设置巨大、大、中型、正常、小、迷你。',
             setter: {
-                type: 'enumSelect',
-                titles: ['巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         size: 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -169,8 +169,8 @@ namespace nasl.ui {
             description: '设置按钮形状',
             docDescription: '支持定义按钮形状，包括默认、方形、圆角、圆形四种。',
             setter: {
-                type: 'enumSelect',
-                titles: ['默认', '方形', '圆角', '圆形'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '默认' }, { title: '方形' }, { title: '圆角' }, { title: '圆形' }],
             },
         })
         shape: 'default' | 'square' | 'round' | 'circle' = 'default';

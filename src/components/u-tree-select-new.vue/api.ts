@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'tree-view',
         description: '树选择',
     })
-    export class UTreeSelectNew<T, V, M extends boolean> extends VueComponent {
+    export class UTreeSelectNew<T, V, M extends boolean> extends ViewComponent {
 
 
         @Method({
@@ -70,7 +70,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '选择后，所选中的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '通过组件进行选择后，最终选中的值，支持双向绑定到变量',
         })
         value: V;
@@ -81,7 +81,7 @@ namespace nasl.ui {
             description: '设置是否开启多选模式，显示多选框',
             docDescription: '开启后支持选中多项。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         checkable: nasl.core.Boolean = false;
@@ -98,7 +98,7 @@ namespace nasl.ui {
             description: '开启后父节点选择不会全选子节点，子节点选择不会联动父节点',
             docDescription: '开启后父节点选择不会全选子节点，子节点选择不会联动父节点',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         checkControlled: nasl.core.Boolean = false;
@@ -109,7 +109,7 @@ namespace nasl.ui {
             description: '集合的元素类型中，用于标识节点的disabled属性',
             docDescription: '集合的元素类型中，用于标识父级字段的属性，支持自定义变更',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         disabledField: nasl.core.String = 'disabled';
@@ -120,7 +120,7 @@ namespace nasl.ui {
             description: '设置是否开启可清除模式',
             docDescription: '开启后支持清除按钮。默认关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         clearable: nasl.core.Boolean = false;
@@ -131,8 +131,8 @@ namespace nasl.ui {
             description: `设置弹出层依据哪个元素定位位置，可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。`,
             docDescription: '设置弹出层在html里的位置，支持引用元素下、全局body设置。当把当前组件放入某个组件，而组件overflow是hidden的时候，需要设置为全局body',
             setter: {
-                type: 'enumSelect',
-                titles: ['引用元素下', '全局body'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '引用元素下' }, { title: '全局body' }],
             },
         })
         appendTo: 'reference' | 'body' = 'reference';
@@ -195,6 +195,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '自定义选项的结构和样式',
         })
-        slotItem: (current: Current<T>) => Array<VueComponent>;
+        slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 }

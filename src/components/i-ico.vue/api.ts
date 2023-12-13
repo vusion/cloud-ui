@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'icon',
         description: '图标',
     })
-    export class IIco extends VueComponent {
+    export class IIco extends ViewComponent {
 
         constructor(options?: Partial<IIcoOptions>) { super(); }
     }
@@ -25,8 +25,8 @@ namespace nasl.ui {
             description: '图标和文本的布局方式',
             docDescription: '支持选择图标的展示方式，包括仅图标、组合图标-上下、组合图标-左右三种方式。',
             setter: {
-                type: 'enumSelect',
-                titles: ['仅图标', '组合图标-上下', '组合图标-左右'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '仅图标' }, { title: '组合图标-上下' }, { title: '组合图标-左右' }],
             },
         })
         icotype: 'only' | 'top' | 'left' = 'top';
@@ -37,8 +37,8 @@ namespace nasl.ui {
             docDescription: '支持页面跳转、普通链接、下载链接。',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['页面跳转', '下载链接'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '页面跳转' }, { title: '下载链接' }],
             },
         })
         linkType: 'destination' | 'download' = 'destination';
@@ -56,8 +56,8 @@ namespace nasl.ui {
             description: '链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。',
             docDescription: '可选新窗口、父级窗口、当前窗口和顶级窗口，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口。',
             setter: {
-                type: 'enumSelect',
-                titles: ['新窗口', '当前窗口', '父级窗口', '顶级窗口'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '新窗口' }, { title: '当前窗口' }, { title: '父级窗口' }, { title: '顶级窗口' }],
             },
         })
         target: '_blank' | '_self' | '_parent' | '_top' = '_self';

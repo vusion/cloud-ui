@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'form',
         description: '具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。',
     })
-    export class UForm extends VueComponent {
+    export class UForm extends ViewComponent {
 
 
         @Method({
@@ -60,8 +60,8 @@ namespace nasl.ui {
         @Prop({
             title: '表单尺寸',
             setter: {
-                type: 'enumSelect',
-                titles: ['小', '正常'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '小' }, { title: '正常' }],
             },
         })
         private size: 'small' | 'normal' = 'normal';
@@ -81,10 +81,10 @@ namespace nasl.ui {
             title: '表单布局',
             docDescription: '更改表单的布局方式。行内展示，标签与表单项在一行展示。块级展示，宽度会充满父元素。栅格展示，可设置列数。',
             setter: {
-                type: 'enumSelect',
-                titles: ['行内展示', '块级展示，宽度会充满父元素', '栅格展示，可设置列数'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '行内展示' }, { title: '块级展示，宽度会充满父元素' }, { title: '栅格展示，可设置列数' }],
             },
-            onToggle: [
+            onChange: [
                 { clear: ['repeat'] }
             ],
         })
@@ -96,7 +96,7 @@ namespace nasl.ui {
             description: '整个表单的划分列数',
             docDescription: '整个表单的划分列数，此项需要设置表单布局为“栅格展示”。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 min: 1,
             },
             if: _ => _.layout === 'inline-flex' || _.repeat !== 1,
@@ -108,8 +108,8 @@ namespace nasl.ui {
             title: '标签布局',
             docDescription: '设置标签布局方式。行内展示；块级展示，标签与单项分行展示- ',
             setter: {
-                type: 'enumSelect',
-                titles: ['行内展示', '块级展示，标签与表单项分行展示'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '行内展示' }, { title: '块级展示，标签与表单项分行展示' }],
             },
         })
         labelLayout: 'inline' | 'block' = 'inline';
@@ -120,7 +120,7 @@ namespace nasl.ui {
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '文字过长是否省略显示，默认文字超出时会换行。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         labelEllipsis: nasl.core.Boolean = false;
@@ -131,7 +131,7 @@ namespace nasl.ui {
             description: '设置是否可以展开/折叠',
             docDescription: '分组是否可以折叠。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         collapsible: nasl.core.Boolean = false;
@@ -142,7 +142,7 @@ namespace nasl.ui {
             description: '设置是否每次只展开一个',
             docDescription: '是否每次只会展开一个分组。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         accordion: nasl.core.Boolean = false;
@@ -155,8 +155,8 @@ namespace nasl.ui {
 - 整行点击均可触发。
 - 仅点击小箭头时触发。`,
             setter: {
-                type: 'enumSelect',
-                titles: ['整行点击均可触发', '仅点击小箭头时触发'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '整行点击均可触发' }, { title: '仅点击小箭头时触发' }],
             },
         })
         expandTrigger: 'click' | 'click-expander' = 'click';
@@ -167,8 +167,8 @@ namespace nasl.ui {
             description: '设置表单列间隔大小',
             docDescription: '设置表单项间隔大小。支持无、小、正常、大四个级别，此项需要设置表单布局为“行内展示”。',
             setter: {
-                type: 'enumSelect',
-                titles: ['无', '小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '无' }, { title: '小' }, { title: '正常' }, { title: '大' }],
             },
             if: _ => _.layout === 'inline',
         })
@@ -180,8 +180,8 @@ namespace nasl.ui {
             description: '设置表单行间隔大小',
             docDescription: '设置表单行间隔大小。支持无、小、正常、大四个级别。',
             setter: {
-                type: 'enumSelect',
-                titles: ['无', '小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '无' }, { title: '小' }, { title: '正常' }, { title: '大' }],
             },
         })
         gapHeight: 'none' | 'small' | 'normal' | 'large' = 'normal';
@@ -191,8 +191,8 @@ namespace nasl.ui {
             title: '标签宽度',
             docDescription: '设置标签宽度。支持迷你、小、正常、大四个级别。',
             setter: {
-                type: 'enumSelect',
-                titles: ['迷你', '小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '迷你' }, { title: '小' }, { title: '正常' }, { title: '大' }],
             },
             if: _ => _.labelLayout === 'inline',
         })
@@ -226,7 +226,7 @@ namespace nasl.ui {
         title: '表单项',
         description: '表单项',
     })
-    export class UFormItem extends VueComponent {
+    export class UFormItem extends ViewComponent {
 
 
         @Method({
@@ -265,8 +265,8 @@ namespace nasl.ui {
             title: '验证是否静默',
             description: '验证是否静默',
             setter: {
-                type: 'enumSelect',
-                titles: ['只静默消息提示', '同时静默消息提示和红框提示', '不作处理'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '只静默消息提示' }, { title: '同时静默消息提示和红框提示' }, { title: '不作处理' }],
             },
         })
         private muted: 'message' | 'all' | 'none' = 'none';
@@ -275,8 +275,8 @@ namespace nasl.ui {
             title: '提示信息位置',
             description: '改变提示信息显示位置',
             setter: {
-                type: 'enumSelect',
-                titles: ['提示信息在右侧显示', '提示信息在底部显示'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '提示信息在右侧显示' }, { title: '提示信息在底部显示' }],
             },
         })
         private placement: 'right' | 'bottom' = 'right';
@@ -285,7 +285,7 @@ namespace nasl.ui {
             title: '忽略验证规则',
             description: '忽略验证规则。已废弃，同`ignore-validation`',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private ignoreRules: nasl.core.Boolean = false;
@@ -314,7 +314,7 @@ namespace nasl.ui {
             description: '列跨越的格数',
             docDescription: '列跨越的格数。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         span: nasl.core.Decimal = 1;
@@ -324,8 +324,8 @@ namespace nasl.ui {
             title: '标签布局',
             docDescription: '设置标签布局方式，行内展示、块级展示，标签与表单项分行展示',
             setter: {
-                type: 'enumSelect',
-                titles: ['行内展示', '块级展示，标签与表单项分行展示'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '行内展示' }, { title: '块级展示，标签与表单项分行展示' }],
             },
         })
         labelLayout: 'inline' | 'block' = 'inline';
@@ -336,7 +336,7 @@ namespace nasl.ui {
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '文字过长是否省略显示，默认文字超出时会换行。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         labelEllipsis: nasl.core.Boolean = false;
@@ -347,7 +347,7 @@ namespace nasl.ui {
             description: '是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。',
             docDescription: '是否必填。仅显示样式，如果要验证必填项，需要在rules中添加必填规则。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         required: nasl.core.Boolean = false;
@@ -356,8 +356,8 @@ namespace nasl.ui {
             group: '主要属性',
             title: '必填标记位置',
             setter: {
-                type: 'enumSelect',
-                titles: ['文本左侧', '文本右侧'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '文本左侧' }, { title: '文本右侧' }],
             },
             if: _ => _.required === true,
         })
@@ -385,8 +385,8 @@ namespace nasl.ui {
             description: '标签与表单元素的纵轴对齐方式，默认为顶对齐',
             docDescription: '标签与表单元素的纵轴对齐方式，默认为顶对齐。',
             setter: {
-                type: 'enumSelect',
-                titles: ['顶对齐', '居中对齐', '尾对齐'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '顶对齐' }, { title: '居中对齐' }, { title: '尾对齐' }],
             },
         })
         layout: 'block' | 'center' | 'end' = 'center';
@@ -405,7 +405,7 @@ namespace nasl.ui {
             title: '忽略验证',
             docDescription: '设置是否忽略验证。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         ignoreValidation: nasl.core.Boolean = false;
@@ -416,8 +416,8 @@ namespace nasl.ui {
             description: '单独设置表单项的内容大小',
             docDescription: '单独设置表单项的内容大小。',
             setter: {
-                type: 'enumSelect',
-                titles: ['迷你', '小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '迷你' }, { title: '小' }, { title: '正常' }, { title: '大' }],
             },
         })
         fieldSize: 'mini' | 'small' | 'normal' | 'large' = 'normal';
@@ -427,8 +427,8 @@ namespace nasl.ui {
             title: '表单项标题宽度',
             docDescription: '单独设置表单项的标签宽度大小。支持迷你、小、正常、大四个级别。',
             setter: {
-                type: 'enumSelect',
-                titles: ['迷你', '小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '迷你' }, { title: '小' }, { title: '正常' }, { title: '大' }],
             },
         })
         labelSize: 'mini' | 'small' | 'normal' | 'large' = 'normal';
@@ -443,32 +443,32 @@ namespace nasl.ui {
             title: '默认',
             description: '插入文本或 HTML。',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: '标签自定义',
             description: '插入自定义标签，代替`label`属性。',
         })
-        private slotLabel: () => Array<VueComponent>;
+        private slotLabel: () => Array<ViewComponent>;
 
         @Slot({
             title: '描述自定义',
             description: '插入自定义描述内容，代替`description`属性。',
         })
-        private slotDescription: () => Array<VueComponent>;
+        private slotDescription: () => Array<ViewComponent>;
 
         @Slot({
             title: '附加内容',
             description: '自定义标签右侧额外内容。',
         })
-        private slotExtra: () => Array<VueComponent>;
+        private slotExtra: () => Array<ViewComponent>;
     }
 
     @Component({
         title: '表单分组',
         description: '展开折叠前',
     })
-    export class UFormGroup extends VueComponent {
+    export class UFormGroup extends ViewComponent {
 
         constructor(options?: Partial<UFormGroupOptions>) { super(); }
     }
@@ -487,7 +487,7 @@ namespace nasl.ui {
             description: '整个表单的划分列数',
             docDescription: '整个表单的划分列数。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         repeat: nasl.core.Decimal = 1;
@@ -497,8 +497,8 @@ namespace nasl.ui {
             title: '标签布局',
             docDescription: '设置标签布局方式。行内展示、块级展示，标签与表单项分行展示。',
             setter: {
-                type: 'enumSelect',
-                titles: ['行内展示', '块级展示，标签与表单项分行展示'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '行内展示' }, { title: '块级展示，标签与表单项分行展示' }],
             },
         })
         labelLayout: 'inline' | 'block' = 'inline';
@@ -509,7 +509,7 @@ namespace nasl.ui {
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '文字过长是否省略显示。默认文字超出时会换行。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         labelEllipsis: nasl.core.Boolean = false;
@@ -520,7 +520,7 @@ namespace nasl.ui {
             description: '设置是否可以展开/折叠',
             docDescription: '分组是否可以折叠。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         collapsible: nasl.core.Boolean = false;
@@ -529,10 +529,10 @@ namespace nasl.ui {
             group: '状态属性',
             title: '展开状态',
             description: '展开状态分为“True(展开)/False(折叠)”，默认为“展开”',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '绑定展开/折叠状态的值',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         expanded: nasl.core.Boolean = false;
@@ -543,7 +543,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止展开/折叠操作',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -576,12 +576,12 @@ namespace nasl.ui {
             title: 'undefined',
             description: '自定义标题文本。',
         })
-        slotTitle: () => Array<VueComponent>;
+        slotTitle: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '在右侧可以附加内容。',
         })
-        slotExtra: () => Array<VueComponent>;
+        slotExtra: () => Array<ViewComponent>;
     }
 }

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'forcom',
         description: '组件列表',
     })
-    export class UListComponents<T> extends VueComponent {
+    export class UListComponents<T> extends ViewComponent {
 
         constructor(options?: Partial<UListComponentsOptions<T>>) { super(); }
     }
@@ -34,7 +34,7 @@ namespace nasl.ui {
             description: '为空时默认为5',
             docDescription: '支持定义每一行排列的项数，为空时会自适应宽度并自动换行。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         colnum: nasl.core.Decimal = 5;
@@ -47,7 +47,7 @@ namespace nasl.ui {
 - 开启：默认根据组件列表宽度自动计算每一项内容宽度，宽度为 100% / 每行项数。
 - 关闭：每一项内容自适应宽度。`,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         equalWidth: nasl.core.Boolean = true;
@@ -56,6 +56,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '内容自定义',
         })
-        slotDefault: (current: Current<T>) => Array<VueComponent>;
+        slotDefault: (current: Current<T>) => Array<ViewComponent>;
     }
 }

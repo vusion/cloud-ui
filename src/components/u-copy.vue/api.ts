@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'copy',
         description: '复制文本到剪切板',
     })
-    export class UCopy extends VueComponent {
+    export class UCopy extends ViewComponent {
 
         constructor(options?: Partial<UCopyOptions>) { super(); }
     }
@@ -28,8 +28,8 @@ namespace nasl.ui {
             title: '复制提示反馈方式',
             description: '复制提示反馈方式',
             setter: {
-                type: 'enumSelect',
-                titles: ['工具提示', '弹框提示', '无反馈'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '工具提示' }, { title: '弹框提示' }, { title: '无反馈' }],
             },
         })
         private feedback: 'tooltip' | 'toast' | 'none' = 'tooltip';
@@ -38,8 +38,8 @@ namespace nasl.ui {
             title: '提示框位置',
             description: 'tooltip 提示框位置',
             setter: {
-                type: 'enumSelect',
-                titles: ['上', '下', '左', '右', '上左', '上右', '下左', '下右', '左上', '左下', '右上', '右下'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '上' }, { title: '下' }, { title: '左' }, { title: '右' }, { title: '上左' }, { title: '上右' }, { title: '下左' }, { title: '下右' }, { title: '左上' }, { title: '左下' }, { title: '右上' }, { title: '右下' }],
             },
         })
         private placement: 'top' | 'bottom' | 'left' | 'right' | 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end' | 'left-start' | 'left-end' | 'right-start' | 'right-end' = 'top';
@@ -48,7 +48,7 @@ namespace nasl.ui {
             title: '提示框显示时长',
             description: '提示框显示时长',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 precision: 0,
             },
         })
@@ -66,7 +66,7 @@ namespace nasl.ui {
             title: '禁用',
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -81,6 +81,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '修改默认触发元素',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

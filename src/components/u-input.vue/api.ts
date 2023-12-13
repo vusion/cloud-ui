@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'input',
         description: '基本的表单输入组件',
     })
-    export class UInput extends VueComponent {
+    export class UInput extends ViewComponent {
 
 
         @Method({
@@ -33,7 +33,7 @@ namespace nasl.ui {
         @Prop({
             title: '最小长度',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 precision: 0,
             },
         })
@@ -43,7 +43,7 @@ namespace nasl.ui {
             title: '拼写检查',
             description: '原生属性',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private spellcheck: nasl.core.Boolean;
@@ -60,8 +60,8 @@ namespace nasl.ui {
             description: '文本框或者密码框',
             docDescription: '文本框或者密码框。文本：文本类型。密码：密码类型。',
             setter: {
-                type: 'enumSelect',
-                titles: ['文本', '密码'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '文本' }, { title: '密码' }],
             },
         })
         type: 'text' | 'password' = 'text';
@@ -70,7 +70,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '值',
             description: '输入的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '输入框的值。',
         })
         value: nasl.core.String;
@@ -88,7 +88,7 @@ namespace nasl.ui {
             title: '最大字符数',
             docDescription: '限定输入文本最大长度。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 precision: 0,
             },
         })
@@ -101,7 +101,7 @@ namespace nasl.ui {
             docDescription: '是否自动获取输入框焦点。',
             designerValue: false,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autofocus: nasl.core.Boolean = false;
@@ -111,7 +111,7 @@ namespace nasl.ui {
             title: '前缀图标',
             docDescription: '设置输入框的前缀图标。',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
         })
         prefix: nasl.core.String = '';
@@ -121,7 +121,7 @@ namespace nasl.ui {
             title: '后缀图标',
             docDescription: '设置输入框的后缀图标。',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
         })
         suffix: nasl.core.String = '';
@@ -132,7 +132,7 @@ namespace nasl.ui {
             description: '可点击清除按钮一键清除内容',
             docDescription: '是否在输入框有内容时会显示清除内容的按钮。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         clearable: nasl.core.Boolean;
@@ -143,7 +143,7 @@ namespace nasl.ui {
             description: '显示状态分为“True(显示)/False(隐藏)”，默认为“显示”',
             docDescription: '切换密码的显示/隐藏。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         password: nasl.core.Boolean = false;
@@ -154,7 +154,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -165,7 +165,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -176,8 +176,8 @@ namespace nasl.ui {
             description: '设置单行输入框宽度大小',
             docDescription: '设置单行输入框宽度大小，可选占满、巨大、大、中型、正常、小、迷你',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         width: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -188,8 +188,8 @@ namespace nasl.ui {
             description: '设置单行输入框高度大小',
             docDescription: '设置单行输入框高度大小，可选占满、巨大、大、中型、正常、小、迷你。',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '中型', '正常', '小', '迷你'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
             },
         })
         height: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
@@ -264,6 +264,6 @@ namespace nasl.ui {
             title: '默认',
             description: '插入 HTML 或 `Component`, 可展示额外内容。',
         })
-        private slotDefault: () => Array<VueComponent>;
+        private slotDefault: () => Array<ViewComponent>;
     }
 }

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'taskbox',
         description: '用于展示流程任务箱',
     })
-    export class UTaskbox extends VueComponent {
+    export class UTaskbox extends ViewComponent {
 
         constructor(options?: Partial<UTaskboxOptions>) { super(); }
     }
@@ -25,7 +25,7 @@ namespace nasl.ui {
             description: '每页展示的任务数量',
             docDescription: ' 每页展示的任务数量',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         size: nasl.core.Decimal = 5;
@@ -37,7 +37,7 @@ namespace nasl.ui {
             tooltipLink: 'https://help.lcap.163yun.com/99.%E5%8F%82%E8%80%83/40.%E9%A1%B5%E9%9D%A2IDE/30.%E9%A1%B5%E9%9D%A2%E7%BB%84%E4%BB%B6/05.PC%E9%A1%B5%E9%9D%A2%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/20.%E6%B5%81%E7%A8%8B/110.%E4%BB%BB%E5%8A%A1%E7%AE%B1.html',
             docDescription: '任务刷新时间间隔',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         interval: nasl.core.Decimal = 30;

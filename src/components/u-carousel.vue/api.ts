@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'carousel',
         description: '动态播放内部内容',
     })
-    export class UCarousel<T> extends VueComponent {
+    export class UCarousel<T> extends ViewComponent {
 
 
         @Method({
@@ -22,7 +22,7 @@ namespace nasl.ui {
             title: '循环播放',
             description: '是否循环播放',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private loop: nasl.core.Boolean = true;
@@ -59,7 +59,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '值',
             description: '播放位置',
-            syncMode: 'onlySync',
+            sync: true,
         })
         private value: nasl.core.Integer;
 
@@ -68,7 +68,7 @@ namespace nasl.ui {
             title: '轮播',
             docDescription: '是否循环播放所有图片',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         autoplay: nasl.core.Boolean = true;
@@ -79,7 +79,7 @@ namespace nasl.ui {
             description: '单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换',
             docDescription: '单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 precision: 0,
             },
         })
@@ -126,14 +126,14 @@ namespace nasl.ui {
             title: 'undefined',
             description: '自定义选项的结构和样式',
         })
-        slotItem: (current: Current<T>) => Array<VueComponent>;
+        slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 
     @Component({
         title: '幻灯片选项',
         description: '幻灯片选项',
     })
-    export class UCarouselItem extends VueComponent {
+    export class UCarouselItem extends ViewComponent {
 
         constructor(options?: Partial<UCarouselItemOptions>) { super(); }
     }
@@ -156,12 +156,12 @@ namespace nasl.ui {
             description: '插入文本或 HTML。',
             emptyBackground: 'image',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '自定义标题文本。',
         })
-        private slotTitle: () => Array<VueComponent>;
+        private slotTitle: () => Array<ViewComponent>;
     }
 }

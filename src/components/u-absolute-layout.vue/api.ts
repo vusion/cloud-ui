@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'absolute-layout',
         description: '拖拽内部元素到任意位置',
     })
-    export class UAbsoluteLayout extends VueComponent {
+    export class UAbsoluteLayout extends ViewComponent {
 
         constructor(options?: Partial<UAbsoluteLayoutOptions>) { super(); }
     }
@@ -60,6 +60,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '内容',
         })
-        slotDefault: () => Array<VueComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

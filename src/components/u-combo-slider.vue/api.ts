@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'slider',
         description: '滑动选择',
     })
-    export class UComboSlider extends VueComponent {
+    export class UComboSlider extends ViewComponent {
 
         constructor(options?: Partial<UComboSliderOptions>) { super(); }
     }
@@ -20,7 +20,7 @@ namespace nasl.ui {
         @Prop({
             group: '数据属性',
             title: '滑块值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '滑块的值',
         })
         value: nasl.core.Decimal | Array<nasl.core.Decimal> = 0;
@@ -30,7 +30,7 @@ namespace nasl.ui {
             title: '最小值',
             docDescription: '可设置的最大值 。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         min: nasl.core.Decimal = 0;
@@ -40,7 +40,7 @@ namespace nasl.ui {
             title: '最大值',
             docDescription: '可设置的最小值 。',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         max: nasl.core.Decimal = 100;
@@ -51,7 +51,7 @@ namespace nasl.ui {
             description: '间隔，`0`表示连续',
             docDescription: '表示点击按钮或按上下键所增加或减少的量，0表示连续',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         step: nasl.core.Decimal = 1;
@@ -62,7 +62,7 @@ namespace nasl.ui {
             description: '精度，表示数字要保留的最小单位，整数、小数均可',
             docDescription: '限制数字要保留的最小单位，整数、小数均可，如需要保留两位小数，则填入`0.01`',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         precision: nasl.core.Decimal = 1;
@@ -87,7 +87,7 @@ namespace nasl.ui {
             title: '双滑块',
             description: '设置是否展示双滑块',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         multiple: nasl.core.Boolean = false;
@@ -104,8 +104,8 @@ namespace nasl.ui {
             title: '同步时机',
             docDescription: '当使用输入框时数值同步的时机',
             setter: {
-                type: 'enumSelect',
-                titles: ['输入时同步', '失焦时同步'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '输入时同步' }, { title: '失焦时同步' }],
             },
         })
         syncOn: 'input' | 'blur' = 'input';
@@ -115,7 +115,7 @@ namespace nasl.ui {
             title: '隐藏按钮',
             docDescription: '是否隐藏上下调节按钮',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         hideButtons: nasl.core.Boolean = true;
@@ -126,7 +126,7 @@ namespace nasl.ui {
             description: '鼠标悬浮时展示Tooltip提示信息',
             docDescription: '鼠标悬浮时展示提示文字',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showTooltip: nasl.core.Boolean = false;
@@ -145,7 +145,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -156,7 +156,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -165,7 +165,7 @@ namespace nasl.ui {
             title: '值改变时',
             description: '滑块的值改变时触发',
         })
-        onInput: (event: nasl.core.Integer) => void;
+        onInput: (event: Integer) => void;
 
         @Event({
             title: '拖动滑块时',

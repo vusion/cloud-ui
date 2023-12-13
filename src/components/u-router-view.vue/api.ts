@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'router-view',
         description: '用于嵌入子页面的容器。',
     })
-    export class URouterView extends VueComponent {
+    export class URouterView extends ViewComponent {
 
         constructor(options?: Partial<URouterViewOptions>) { super(); }
     }
@@ -16,7 +16,7 @@ namespace nasl.ui {
             title: '进入已打开页面时刷新',
             description: '重新进入已打开页面时，会刷新页面',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disableKeepAlive: nasl.core.Boolean = true;

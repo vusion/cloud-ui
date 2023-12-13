@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'drawer',
         description: '抽屉',
     })
-    export class UDrawer extends VueComponent {
+    export class UDrawer extends ViewComponent {
 
 
         @Method({
@@ -30,8 +30,8 @@ namespace nasl.ui {
             description: '抽屉弹出的位置',
             docDescription: '支持选择抽屉的显示位置，支持左、右两个位置',
             setter: {
-                type: 'enumSelect',
-                titles: ['左', '右'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '左' }, { title: '右' }],
             },
         })
         placement: 'left' | 'right' = 'right';
@@ -41,7 +41,7 @@ namespace nasl.ui {
             title: '显示顶部栏',
             docDescription: '控制抽屉顶部栏的开启和关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showHead: nasl.core.Boolean = true;
@@ -51,7 +51,7 @@ namespace nasl.ui {
             title: '显示底部栏',
             docDescription: '控制抽屉底部栏的开启和关闭',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showFoot: nasl.core.Boolean = true;
@@ -64,7 +64,7 @@ namespace nasl.ui {
 - 开启：点击遮罩区域则自动关闭抽屉。
 - 关闭：点击遮罩区域无实际作用`,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         maskClosable: nasl.core.Boolean = true;
@@ -73,10 +73,10 @@ namespace nasl.ui {
             group: '状态属性',
             title: '显示状态',
             description: '显示状态分为“True(打开)/False(关闭)”，默认为“打开”',
-            syncMode: 'onlySync',
+            sync: true,
             docDescription: '控制抽屉是否进入页面时自动显示。开启表示自动显示，关闭表示不自动显示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         visible: nasl.core.Boolean = false;
@@ -87,8 +87,8 @@ namespace nasl.ui {
             description: '抽屉的尺寸',
             docDescription: '支持配置抽屉的宽度，支持小、正常、大三个尺寸',
             setter: {
-                type: 'enumSelect',
-                titles: ['小', '正常', '大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '小' }, { title: '正常' }, { title: '大' }],
             },
         })
         size: 'small' | 'normal' | 'large' = 'normal';

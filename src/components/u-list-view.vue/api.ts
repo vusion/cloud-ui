@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'list-view',
         description: '用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。',
     })
-    export class UListView<T, V, P extends boolean, M extends boolean, C extends string> extends VueComponent {
+    export class UListView<T, V, P extends boolean, M extends boolean, C extends string> extends ViewComponent {
         @Prop({
             title: '数据',
         })
@@ -44,7 +44,7 @@ namespace nasl.ui {
             description: '设置是否分页展示数据',
             docDescription: '是否展示分页组件，数据源调用接口是否加入分页参数。默认开启',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         pageable: nasl.core.Boolean = false;
@@ -54,7 +54,7 @@ namespace nasl.ui {
             title: '默认每页条数',
             docDescription: '每页的数据条数。默认50条。在"可分页"属性开启时有效',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 precision: 0,
             },
         })
@@ -66,7 +66,7 @@ namespace nasl.ui {
             description: '当前默认展示在第几页',
             docDescription: '当前加载的列表页。默认1。在"可分页"属性开启时有效',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
                 precision: 0,
             },
         })
@@ -85,7 +85,7 @@ namespace nasl.ui {
             title: '显示总条数',
             docDescription: '分页组件处是否显示列表总数。默认关闭。在"可分页"属性开启时有效',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showTotal: nasl.core.Boolean = false;
@@ -96,7 +96,7 @@ namespace nasl.ui {
             description: '显示每页条数切换器',
             docDescription: '是否展示数据条数的选择列表。默认开启。在"可分页"属性开启时有效',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showSizer: nasl.core.Boolean = false;
@@ -107,7 +107,7 @@ namespace nasl.ui {
             description: '显示页面跳转输入框',
             docDescription: '分页组件处是否展示跳转到某一页的输入框。默认关闭。在"可分页"属性开启时有效。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showJumper: nasl.core.Boolean = false;
@@ -118,7 +118,7 @@ namespace nasl.ui {
             description: '设置是否可以筛选，开启将会显示搜索框。',
             docDescription: '是否展示可筛选的输入框。默认关闭。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         filterable: nasl.core.Boolean = false;
@@ -129,7 +129,7 @@ namespace nasl.ui {
             description: '是否使用后端分页。',
             docDescription: '表示数据列表的分页由接口处理。分页参数传入后端接口，由后端接口返回相应的数据。默认开始。关闭后，如果"可分页"属性开启，分页将由列表组件处理，不会发送后端接口。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         remotePaging: nasl.core.Boolean = false;
@@ -139,7 +139,7 @@ namespace nasl.ui {
             title: '后端筛选',
             description: '是否使用后端过滤',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private remoteFiltering: nasl.core.Boolean = false;
@@ -158,7 +158,7 @@ namespace nasl.ui {
             description: '设置是否区分大小写',
             docDescription: '表示筛选时是否大小写敏感。当"可筛选"属性开启时有效。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         caseSensitive: nasl.core.Boolean = false;
@@ -176,7 +176,7 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选中值',
             description: '显示的值',
-            syncMode: 'both',
+            sync: true,
             docDescription: '在列表开启可多选时，指定数据唯一值的字段。',
         })
         value: M extends true ? (C extends '' ? nasl.collection.List<V> : nasl.core.String) : V;
@@ -187,7 +187,7 @@ namespace nasl.ui {
             description: '当开启可多选时，显示的选项文本字段名',
             docDescription: '当开启可多选时，显示的选项文本字段名。',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         textField: (item: T) => nasl.core.String;
@@ -198,7 +198,7 @@ namespace nasl.ui {
             description: '当开启可多选时，选项值的字段',
             docDescription: '当开启可多选时，选项值的字段名。当"可多选"属性开启时有效。',
             setter: {
-                type: 'propertySelect',
+                concept: 'PropertySelectSetter',
             },
         })
         valueField: (item: T) => V;
@@ -209,7 +209,7 @@ namespace nasl.ui {
             description: '与"可多选"属性对应，表示选中的行再点击时是否可以取消选中。默认关闭。',
             docDescription: '与"可多选"属性对应，表示选中的行再点击时是否可以取消选中。默认关闭。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         cancelable: nasl.core.Boolean = false;
@@ -228,7 +228,7 @@ namespace nasl.ui {
             description: '可点击搜索框中的清除按钮一键清除内容',
             docDescription: '搜索框是否有清除按钮，默认关闭。当"可筛选"属性开启时有效。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         clearable: nasl.core.Boolean = false;
@@ -238,7 +238,7 @@ namespace nasl.ui {
             title: '显示头部',
             docDescription: '是否显示列表头。默认关闭。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showHead: nasl.core.Boolean = false;
@@ -255,7 +255,7 @@ namespace nasl.ui {
             title: '显示底部',
             docDescription: '显示列表底部，包括分页组件。默认开启。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         showFoot: nasl.core.Boolean = true;
@@ -266,7 +266,7 @@ namespace nasl.ui {
             description: '设置初始时是否立即加载',
             docDescription: '是否在列表出现时立即加载数据，默认开启。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         initialLoad: nasl.core.Boolean = true;
@@ -277,8 +277,8 @@ namespace nasl.ui {
             description: '设置不同加载状态的展示内容',
             bindHide: true,
             setter: {
-                type: 'enumSelect',
-                titles: ['加载完成-有数据', '加载完成-暂无数据', '加载中', '加载失败'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '加载完成-有数据' }, { title: '加载完成-暂无数据' }, { title: '加载中' }, { title: '加载失败' }],
             },
         })
         designerMode: 'success' | 'empty' | 'loading' | 'error' = 'success';
@@ -298,7 +298,7 @@ namespace nasl.ui {
             description: '支持自定义状态的触发条件，未设置则默认为系统定义条件',
             bindOpen: true,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.designerMode === 'loading',
         })
@@ -320,7 +320,7 @@ namespace nasl.ui {
             docDescription: '控制表格加载失败的展示时机。默认关闭。',
             bindOpen: true,
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
             if: _ => _.designerMode === 'error',
         })
@@ -341,7 +341,7 @@ namespace nasl.ui {
             description: '正常显示，但禁止选择/输入',
             docDescription: '正常显示，但禁止选择或输入。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         readonly: nasl.core.Boolean = false;
@@ -352,7 +352,7 @@ namespace nasl.ui {
             description: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）',
             docDescription: '置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         disabled: nasl.core.Boolean = false;
@@ -362,7 +362,7 @@ namespace nasl.ui {
             title: '显示边框',
             docDescription: '列表是否展示边框。默认关闭。',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         border: nasl.core.Boolean = true;
@@ -373,8 +373,8 @@ namespace nasl.ui {
             description: '设置数据列表宽度大小',
             docDescription: '数据列表宽度。默认自适应。',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '正常', '自适应'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '正常' }, { title: '自适应' }],
             },
         })
         width: 'full' | 'huge' | 'large' | 'normal' | 'auto' = 'auto';
@@ -385,8 +385,8 @@ namespace nasl.ui {
             description: '设置数据列表高度大小',
             docDescription: '数据列表高度。默认正常。',
             setter: {
-                type: 'enumSelect',
-                titles: ['占满', '巨大', '大', '正常', '自适应'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '正常' }, { title: '自适应' }],
             },
         })
         height: 'full' | 'huge' | 'large' | 'normal' | 'auto' = 'normal';
@@ -432,12 +432,12 @@ namespace nasl.ui {
             description: '插入文本或 HTML',
             emptyBackground: 'drag-entity-here',
         })
-        private slotDefault: () => Array<VueComponent>;
+        private slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',
             description: '自定义选项的结构和样式',
         })
-        slotItem: (current: Current<T>) => Array<VueComponent>;
+        slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 }

@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'toast',
         description: '弹出消息',
     })
-    export class UToastSingle extends VueComponent {
+    export class UToastSingle extends ViewComponent {
 
 
         @Method({
@@ -34,8 +34,8 @@ namespace nasl.ui {
             title: '消息类型',
             description: '提示的类型',
             setter: {
-                type: 'enumSelect',
-                titles: ['成功', '警告', '错误', '加载中', '自定义'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '成功' }, { title: '警告' }, { title: '错误' }, { title: '加载中' }, { title: '自定义' }],
             },
         })
         color: 'success' | 'warning' | 'error' | 'loading' | 'custom' = 'custom';
@@ -43,7 +43,7 @@ namespace nasl.ui {
         @Prop<UToastSingleOptions, 'customIcon'>({
             title: '自定义图标',
             setter: {
-                type: 'iconSelect',
+                concept: 'IconSetter',
             },
             if: _ => _.color === 'custom',
         })
@@ -53,7 +53,7 @@ namespace nasl.ui {
             title: '停留时间',
             description: '自动关闭的延时，单位毫秒。设为 0 时不自动关闭',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         duration: nasl.core.Decimal = 2000;
@@ -62,8 +62,8 @@ namespace nasl.ui {
             title: '位置',
             description: '显示的位置',
             setter: {
-                type: 'enumSelect',
-                titles: ['上中', '上左', '上右', '下中', '下左', '下右', '静态'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '上中' }, { title: '上左' }, { title: '上右' }, { title: '下中' }, { title: '下左' }, { title: '下右' }, { title: '静态' }],
             },
         })
         private position: 'top-center' | 'top-left' | 'top-right' | 'bottom-center' | 'bottom-left' | 'bottom-right' | 'static' = 'top-center';
@@ -72,7 +72,7 @@ namespace nasl.ui {
             title: '合并',
             description: '多个提示会合并为一个',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private single: nasl.core.Boolean = false;
@@ -81,7 +81,7 @@ namespace nasl.ui {
             title: '关闭提示',
             description: '是否可以关闭提示',
             setter: {
-                type: 'switch',
+                concept: 'SwitchSetter',
             },
         })
         private closable: nasl.core.Boolean = false;

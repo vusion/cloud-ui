@@ -1,4 +1,4 @@
-/// <reference types="nasl" />
+/// <reference types="@nasl/types" />
 
 namespace nasl.ui {
     @Component({
@@ -6,7 +6,7 @@ namespace nasl.ui {
         icon: 'linear-progress',
         description: '以线条的形式描述当前进度',
     })
-    export class ULinearProgress extends VueComponent {
+    export class ULinearProgress extends ViewComponent {
 
         constructor(options?: Partial<ULinearProgressOptions>) { super(); }
     }
@@ -24,7 +24,7 @@ namespace nasl.ui {
             description: '进度条显示的进度百分比，1-100之间的数字',
             docDescription: '进度条显示的进度百分比，1-100之间的数字',
             setter: {
-                type: 'numberInput',
+                concept: 'NumberInputSetter',
             },
         })
         percent: nasl.core.Decimal = 0;
@@ -34,8 +34,8 @@ namespace nasl.ui {
             title: '进度条方向',
             docDescription: '横向、竖向',
             setter: {
-                type: 'enumSelect',
-                titles: ['横向', '竖向'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '横向' }, { title: '竖向' }],
             },
         })
         direction: 'horizontal' | 'vertical' = 'horizontal';
@@ -46,8 +46,8 @@ namespace nasl.ui {
             description: '进度条高度大小',
             docDescription: '支持小、正常、大、巨大',
             setter: {
-                type: 'enumSelect',
-                titles: ['小', '正常', '大', '巨大'],
+                concept: 'EnumSelectSetter',
+                options: [{ title: '小' }, { title: '正常' }, { title: '大' }, { title: '巨大' }],
             },
         })
         size: 'small' | 'normal' | 'large' | 'huge' = 'normal';
@@ -56,6 +56,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入文本或HTML。',
         })
-        private slotDefault: () => Array<VueComponent>;
+        private slotDefault: () => Array<ViewComponent>;
     }
 }
