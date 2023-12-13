@@ -412,8 +412,6 @@ export default {
         if (!this.$env.VUE_APP_DESIGNER)
             this.toggle(this.opened);
         this.setPopperWidth();
-
-        console.log('');
     },
     destroyed() {
         clearTimeout(this.inputBlurTimer);
