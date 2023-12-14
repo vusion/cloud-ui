@@ -13,9 +13,9 @@
     @keydown.delete.stop="onDelete"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing" :class="$style.placeholder">{{ placeholder }}</span>
+    <span v-show="!isItemDisplay || (!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing)" :class="$style.placeholder">{{ placeholder }}</span>
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
-    <div :class="[$style.text,!multiple && $style.textEllipsis]" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}" ref="inputOuter">
+    <div v-show="isItemDisplay" :class="[$style.text,!multiple && $style.textEllipsis]" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}" ref="inputOuter">
         <!-- @override: 添加了flag功能 -->
         <slot name="flag">
             <span v-if="selectedVM && selectedVM.flag !== undefined" :class="$style.flag" :layer="selectedVM && selectedVM.layer" v-tooltip.top="selectedVM && selectedVM.flag"></span>
@@ -207,6 +207,8 @@ export default {
         iconField: String,
         hasAllCheckItem: { type: Boolean, default: false },
         allCheckItemText: { type: String, default: '全选' },
+
+        isItemDisplay: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -308,6 +310,9 @@ export default {
             if (hasData && value.length === 2) {
                 this.loadMoreForSelected();
             }
+        },
+        popperWidth() {
+            this.setPopperWidth();
         },
     },
     created() {
@@ -519,7 +524,7 @@ export default {
         },
         onOpen($event) {
             this.popperOpened = true; // 刚打开时，除非是没有加载，否则保留上次的 filter 过的数据
-            if (this.filterable && !this.currentDataSource.initialLoaded) {
+            if (this.filterable && this.currentDataSource && !this.currentDataSource.initialLoaded) {
                 this.load().then(() => {
                     this.ensureFocusedInView(true);
                     this.$refs.input.focus();
@@ -627,6 +632,7 @@ export default {
                         );
                     } else {
                         this.filterText = '';
+                        this.currentText = this.filterText;
                         this.fastLoad(); // ensure
                     }
                 } else {
@@ -654,6 +660,9 @@ export default {
                         );
                     } else {
                         this.filterText = oldVM ? oldVM.currentText : '';
+                        if (this.filterText === '') {
+                            this.currentText = this.filterText;
+                        }
                         this.fastLoad(); // ensure
                     }
                 } else
@@ -665,7 +674,7 @@ export default {
         },
         onEnter(event) {
             // 当footer里的输入框按enter的时候，阻止行为
-            if (this.$refs.footer.contains(event.target))
+            if (this.$refs.footer && this.$refs.footer.contains(event.target))
                 return;
             if (this.focusedVM)
                 this.select(this.focusedVM);
