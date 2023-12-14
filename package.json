@@ -60,7 +60,7 @@
   ],
   "dependencies": {
     "@popperjs/core": "^2.10.2",
-    "@vusion/utils": "0.4.11",
+    "@vusion/utils": "^0.4.9",
     "@vusion/validator": "^0.4.8",
     "animate.css": "^4.1.1",
     "countup.js": "^1.9.3",
@@ -84,6 +84,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.21.0",
     "@babel/plugin-transform-nullish-coalescing-operator": "^7.22.5",
+    "@nasl/types": "^0.1.0",
     "@types/jest": "^28.1.8",
     "@vant/area-data": "1.1.1",
     "@vue/cli-plugin-babel": "^4.3.0",
