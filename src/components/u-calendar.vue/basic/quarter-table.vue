@@ -4,7 +4,7 @@
     <tr>
       <td :class="getCellStyle(cell)" v-for="(cell, key) in row" :key="key">
         <div>
-          <a :class="$style.cell">{{ $t('quarter') }}{{ $t(`Q${cell.text}`) }}</a>
+          <a :class="$style.cell">{{ $tt('quarter') }}{{ $tt(`Q${cell.text}`) }}</a>
         </div>
       </td>
     </tr>
@@ -22,6 +22,7 @@ import {
     coerceTruthyValueToArray,
 } from '../util';
 import i18n from '../i18n';
+import i18nMixin from '../../../mixins/i18n';
 
 const datesInQuarter = (year, quarter) => {
     const numOfDays = getDayCountOfQuarter(year, quarter);
@@ -36,7 +37,8 @@ const isInQuarter = (date, quarter) => {
 };
 
 export default {
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-calendar')],
     props: {
         disabledDate: {},
         value: {},

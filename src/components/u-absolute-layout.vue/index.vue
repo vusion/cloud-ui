@@ -19,7 +19,7 @@ export default {
     position: relative;
     width: 100%;
     height: 300px;
-    min-height: 100px;
+    min-height: 30px;
 }
 .root.empty{
     background: #F7F8FA;

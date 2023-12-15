@@ -49,6 +49,7 @@ import { formatterOptions } from './wrap';
 import i18n from './i18n';
 import MField from '../m-field.vue';
 import UTimePickerPopper from './popper.vue';
+import i18nMixin from '../../mixins/i18n';
 
 /**
  * @class TimePicker
@@ -66,9 +67,9 @@ import UTimePickerPopper from './popper.vue';
 
 export default {
     name: 'u-time-picker',
-    i18n,
+    // i18n,
     components: { UTimePickerPopper },
-    mixins: [MField, DateFormatMixin],
+    mixins: [MField, DateFormatMixin, i18nMixin('u-time-picker')],
     props: {
         minUnit: { type: String, default: 'second' },
         time: { type: String, default: '' },
@@ -105,8 +106,13 @@ export default {
     data() {
         return {
             inputTime: this.value || this.time,
-            placeholder: this.$t('selectTimeText'),
+            placeholder: this.$tt('selectTimeText'),
         };
+    },
+    watch: {
+        time() {
+            this.inputTime = this.time;
+        },
     },
     computed: {
         validShowFormatters() {

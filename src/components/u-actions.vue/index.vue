@@ -26,17 +26,19 @@
 
 <script>
 import i18n from './i18n';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-actions',
     childName: 'u-action',
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-actions')],
     props: {
         maxCount: { type: Number, default: 3 },
         menuTitle: {
             type: String,
             default() {
-                return this.$t('more');
+                return this.$tt('more');
             },
         },
         placement: { type: String, default: 'bottom-end' },

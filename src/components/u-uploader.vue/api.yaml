@@ -261,16 +261,20 @@
     - name: cropperBoxHeight
       title: 图片裁剪框高度
       type: number
-      default: 200
+      default: 0
       description: ""
       group: 主要属性
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+      dependency:
+      - cropperPreviewShape: rect
     - name: cropperPreviewShape
       title: 图片裁剪框预览形状
       type: string
       options:
+        - title: 矩形
+          value: rect
         - title: 正方形
           value: square
         - title: 圆形
@@ -281,6 +285,17 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+      toggleupdate:
+        - value: rect
+          updateData:
+            cropperBoxHeight: 200
+        - value: circle
+          updateData:
+            cropperBoxHeight: 0
+        - value: square
+          updateData:
+            cropperBoxHeight: 0
+      wrap: false
     - name: cropperTitle
       title: 图片裁剪框标题
       type: string
@@ -588,3 +603,10 @@
       title: 选择
       description: 选择文件上传
       params: []
+  i18n:
+    zh-CN:
+      uUploader_extensionError: '只能上传{extensions}类型的文件！'
+    en-US:
+      uUploader_extensionError: 'Only {extensions} files are permitted to upload!'
+    ja:
+      uUploader_extensionError: 'ファイルタイプは{extensions}のみアップロードできます！'

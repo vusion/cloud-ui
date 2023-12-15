@@ -2,13 +2,15 @@
 import { UListView } from '../u-list-view.vue';
 import i18n from './i18n';
 import { isIE } from '../../utils/dom';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-grid-view',
     groupName: 'u-grid-view-group',
     childName: 'u-grid-view-item',
     extends: UListView,
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-grid-view')],
     props: {
         repeat: { type: Number, default: 5 },
         showTitle: { type: Boolean, default: () => !isIE() }, // IE 默认不展示 title

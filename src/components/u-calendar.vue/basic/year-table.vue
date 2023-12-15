@@ -22,6 +22,7 @@ import {
     coerceTruthyValueToArray,
 } from '../util';
 import i18n from '../i18n';
+import i18nMixin from '../../../mixins/i18n';
 
 const datesInYear = (year) => {
     const numOfDays = getDayCountOfYear(year);
@@ -30,7 +31,8 @@ const datesInYear = (year) => {
 };
 
 export default {
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-calendar')],
     props: {
         disabledDate: {},
         value: {},

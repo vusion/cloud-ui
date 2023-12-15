@@ -27,7 +27,7 @@
       type: string
       default: value
       description: 集合的元素类型中，用于标识父节点的属性
-      group: 数据属性
+      group: 数据属性123
   slots:
     - concept: Slot
       name: default

@@ -246,3 +246,19 @@
           type: boolean
           default: false
           description: 是否验证后无提示
+  i18n:
+    zh-CN:
+      uDynamicCards_add: '添加'
+      uDynamicCards_remove: '删除'
+      uDynamicCards_expand: '展开'
+      uDynamicCards_collapse: '收起'
+    en-US:
+      uDynamicCards_add: 'add'
+      uDynamicCards_remove: 'remove'
+      uDynamicCards_expand: 'expand'
+      uDynamicCards_collapse: 'collapse'
+    ja:
+      uDynamicCards_add: '追加'
+      uDynamicCards_remove: '削除'
+      uDynamicCards_expand: '展開'
+      uDynamicCards_collapse: '折りたたみ'

@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" @mouseleave="onMouseleave" :readonly="readonly">
-    <span :class="$style.item" v-for="i in max" :key="i" :status="getFullStatus(i)"
+    <span :class="$style.item" v-for="i in currentMax" :key="i" :status="getFullStatus(i)"
         @mousemove="onMousemove(i, $event)"
         @click="select(i)" :half="getHalfStatus(i)"
         ref="star">
@@ -58,15 +58,17 @@ export default {
                 const value = Math.ceil(this.currentValue);
                 return value - 1;
             }
-        }
-
+        },
+        currentMax() {
+            return this.max > 10000 ? 10000 : this.max;
+        },
     },
     data() {
         const list = [];
         for (let i = 0; i < 5; i++)
             list.push({ index: i });
         return {
-            currentValue: Number(this.value),
+            currentValue: Number(this.value) > this.max ? this.max : Number(this.value),
             list,
             isHover: false,
             hoverIndex: -1,

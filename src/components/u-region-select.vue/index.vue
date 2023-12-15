@@ -2,11 +2,13 @@
 import { result } from 'lodash';
 import UCascader from '../u-cascader.vue';
 import i18n from './i18n';
+import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-region-select',
     extends: UCascader,
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-region-select')],
     props: {
         field: { type: String, default: 'value' },
         converter: String,
@@ -14,9 +16,9 @@ export default {
         //     type: Array,
         //     default() {
         //         return [
-        //             { label: this.$t('province'), placeholder: this.$t('placeholder') + this.$t('province') },
-        //             { label: this.$t('city'), placeholder: this.$t('placeholder') + this.$t('city') },
-        //             { label: this.$t('district'), placeholder: this.$t('placeholder') + this.$t('district') },
+        //             { label: this.$tt('province'), placeholder: this.$tt('placeholder') + this.$tt('province') },
+        //             { label: this.$tt('city'), placeholder: this.$tt('placeholder') + this.$tt('city') },
+        //             { label: this.$tt('district'), placeholder: this.$tt('placeholder') + this.$tt('district') },
         //         ];
         //     },
         // },
@@ -42,7 +44,8 @@ export default {
             this.syncValue(this.value);
         },
         async 'currentDataSource.data'(value, oldValue) {
-            if (this.data.length) return
+            if (this.data.length)
+                return;
             const currentData = require('./region');
             await new Promise((resolve) => setTimeout(resolve, 0));
             this.currentData = currentData.default;

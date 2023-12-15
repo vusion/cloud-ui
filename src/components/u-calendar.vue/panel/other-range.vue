@@ -59,6 +59,7 @@ import i18n from '../i18n';
 import MonthTable from '../basic/month-table';
 import QuarterTable from '../basic/quarter-table';
 import YearTable from '../basic/year-table';
+import i18nMixin from '../../../mixins/i18n';
 
 const pickerMap = {
     month: {
@@ -76,7 +77,8 @@ const pickerMap = {
 };
 
 export default {
-    i18n,
+    // i18n,
+    mixins: [i18nMixin('u-calendar')],
     props: {
         picker: { type: String, default: 'month' },
         visible: { type: Boolean, default: true },
