@@ -98,18 +98,22 @@ namespace nasl.ui {
             title: '打开时',
             description: '打开抽屉时触发',
         })
-        onOpen: (senderVM: UDrawer) => void;
+        onOpen: () => void;
 
         @Event({
             title: '关闭前',
             description: '关闭抽屉前触发',
         })
-        onBeforeClose: (ok: boolean) => void;
+        onBeforeClose: (event: {
+            ok: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '关闭时',
             description: '关闭抽屉时触发',
         })
-        onClose: (ok: boolean) => void;
+        onClose: (event: {
+            ok: nasl.core.Boolean;
+        }) => void;
     }
 }

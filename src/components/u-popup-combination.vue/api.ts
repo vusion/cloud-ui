@@ -171,37 +171,41 @@ namespace nasl.ui {
             title: '弹出前',
             description: '弹出前触发。',
         })
-        private onBeforeOpen: (event: EventTarget) => void;
+        private onBeforeOpen: () => void;
 
         @Event({
             title: '弹出时',
             description: '弹出时触发。',
         })
-        onOpen: (event: nasl.ui.BaseEvent) => void;
+        onOpen: () => void;
 
         @Event({
             title: '隐藏前',
             description: '隐藏前触发。',
         })
-        private onBeforeClose: (event: EventTarget) => void;
+        private onBeforeClose: () => void;
 
         @Event({
             title: '隐藏后',
             description: '隐藏时触发。',
         })
-        onClose: (event: nasl.ui.BaseEvent) => void;
+        onClose: () => void;
 
         @Event({
             title: '展开折叠前',
             description: '@deprecated',
         })
-        private onBeforeToggle: () => void;
+        private onBeforeToggle: (event: {
+            opened: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '展开折叠后',
             description: '@deprecated',
         })
-        private onToggle: () => void;
+        private onToggle: (event: {
+            opened: nasl.core.Boolean;
+        }) => void;
 
         @Slot({
             title: 'undefined',

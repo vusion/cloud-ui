@@ -11,7 +11,7 @@
 ### 动态数据源
 
 ``` html
-<u-tabs router :data-source="[{}]"></u-tabs>
+<u-tabs router :dataSource="[{}]"></u-tabs>
 ```
 
 ### 外观-方形卡片（默认）

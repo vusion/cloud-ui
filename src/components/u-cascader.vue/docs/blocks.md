@@ -1,7 +1,7 @@
 ### 基本用法
 
 ``` html
-<u-cascader :data-source="[
+<u-cascader :dataSource="[
     { text: '理学', value: '理学', children: [
         { text: '物理学', value: '物理学', children: [
             { text: '理论物理', value: '理论物理' },

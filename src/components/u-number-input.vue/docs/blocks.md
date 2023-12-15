@@ -7,5 +7,5 @@
 ### 按钮样式
 
 ``` html
-<u-number-input button-display="bothEnds"></u-number-input>
+<u-number-input buttonDisplay="bothEnds"></u-number-input>
 ```

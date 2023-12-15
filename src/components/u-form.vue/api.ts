@@ -203,7 +203,17 @@ namespace nasl.ui {
             title: '验证后',
             description: '验证时触发',
         })
-        onValidate: (event: nasl.ui.ValidateEvent) => void;
+        onValidate: (event: {
+            rawValue: nasl.core.String;
+            value: nasl.core.String;
+            trigger: nasl.core.String;
+            muted: nasl.core.String;
+            valid: nasl.core.Boolean;
+            touched: nasl.core.Boolean;
+            dirty: nasl.core.Boolean;
+            firstError: nasl.core.String;
+            triggerValid: nasl.core.Boolean;
+        }) => void;
 
         @Slot({
             title: 'undefined',
@@ -438,7 +448,17 @@ namespace nasl.ui {
             title: '验证后',
             description: '对于第一个 Field 或者所有子 UValidator：',
         })
-        onValidate: () => void;
+        onValidate: (event: {
+            rawValue: nasl.core.String;
+            value: nasl.core.String;
+            trigger: nasl.core.String;
+            muted: nasl.core.String;
+            valid: nasl.core.Boolean;
+            touched: nasl.core.Boolean;
+            dirty: nasl.core.Boolean;
+            firstError: nasl.core.String;
+            triggerValid: nasl.core.Boolean;
+        }) => void;
 
         @Slot({
             title: '默认',
@@ -553,13 +573,17 @@ namespace nasl.ui {
             title: '展开折叠前',
             description: '展开/折叠此分组前触发',
         })
-        private onBeforeToggle: (event: nasl.ui.CollapseEvent) => void;
+        private onBeforeToggle: (event: {
+            expanded: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '展开折叠后',
             description: '展开/折叠某分组时触发',
         })
-        onToggle: (event: nasl.ui.CollapseEvent) => void;
+        onToggle: (event: {
+            expanded: nasl.core.Boolean;
+        }) => void;
 
         @Slot({
             title: 'undefined',

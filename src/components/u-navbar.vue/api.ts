@@ -63,25 +63,43 @@ namespace nasl.ui {
             title: '输入前',
             description: '选择某一项前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+            selectedItem: nasl.core.Any;
+            item: nasl.core.Any;
+            oldItem: nasl.core.Any;
+        }) => void;
 
         @Event({
             title: '输入时',
             description: '选择某一项时触发',
         })
-        private onInput: (event: String) => void;
+        private onInput: (event: nasl.core.String) => void;
 
         @Event({
             title: '选择后',
             description: '选择某一项时触发',
         })
-        onSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        onSelect: (event: {
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+            selectedItem: nasl.core.Any;
+            item: nasl.core.Any;
+            oldItem: nasl.core.Any;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '选择值改变时触发',
         })
-        private onChange: (event: nasl.ui.ChangeItemEvent) => void;
+        private onChange: (event: {
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+            selectedItem: nasl.core.Any;
+            item: nasl.core.Any;
+            oldItem: nasl.core.Any;
+        }) => void;
 
         @Slot({
             title: '链接区域',
@@ -213,19 +231,33 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+            selectedItem: nasl.core.Any;
+            item: nasl.core.Any;
+            oldItem: nasl.core.Any;
+        }) => void;
 
         @Event({
             title: '导航前',
             description: '使用 router 相关属性切换路由前触发',
         })
-        private onBeforeNavigate: (event: nasl.ui.NavigateEvent) => void;
+        private onBeforeNavigate: (event: {
+            to: nasl.core.String;
+            replace: nasl.core.Boolean;
+            append: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '导航',
             description: '使用router相关属性切换路由时触发',
         })
-        private onNavigate: (event: nasl.ui.NavigateEvent) => void;
+        private onNavigate: (event: {
+            to: nasl.core.String;
+            replace: nasl.core.Boolean;
+            append: nasl.core.Boolean;
+        }) => void;
     }
 
     @Component({

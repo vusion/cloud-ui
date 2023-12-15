@@ -496,61 +496,86 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一项前触发。',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: T;
+            oldItem: T;
+            value: V;
+            oldValue: V;
+            items: nasl.collection.List<T>;
+            oldItems: nasl.collection.List<T>;
+        }) => void;
 
         @Event({
             title: '选择时',
             description: '选择某一项时触发',
         })
-        onInput: (event: String) => void;
+        onInput: (event: V) => void;
 
         @Event({
             title: '选择后',
             description: '选择某一项后触发。单选模式中：',
         })
-        onSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        onSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: T;
+            oldItem: T;
+            value: V;
+            oldValue: V;
+            items: nasl.collection.List<T>;
+            oldItems: nasl.collection.List<T>;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '选择值改变时触发。单选模式中：',
         })
-        onChange: (event: nasl.ui.ChangeItemEvent) => void;
+        onChange: (event: {
+            selected: nasl.core.Boolean;
+            item: T;
+            oldItem: T;
+            value: V;
+            oldValue: V;
+            values: nasl.collection.List<V>;
+            items: nasl.collection.List<T>;
+            oldItems: nasl.collection.List<T>;
+        }) => void;
 
         @Event({
             title: '弹出前',
             description: '弹出前触发。',
         })
-        private onBeforeOpen: (event: EventTarget) => void;
+        private onBeforeOpen: () => void;
 
         @Event({
             title: '弹出后',
             description: '弹出后触发。',
         })
-        onOpen: (event: nasl.ui.BaseEvent) => void;
+        onOpen: () => void;
 
         @Event({
             title: '关闭前',
             description: '关闭前触发。',
         })
-        private onBeforeClose: (event: EventTarget) => void;
+        private onBeforeClose: () => void;
 
         @Event({
             title: '关闭后',
             description: '关闭时触发。',
         })
-        onClose: (event: nasl.ui.BaseEvent) => void;
+        onClose: () => void;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => void;
+        private onBeforeLoad: () => void;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: nasl.ui.BaseEvent) => void;
+        onLoad: () => void;
 
         @Event({
             title: '点击前缀图标',
@@ -574,7 +599,9 @@ namespace nasl.ui {
             title: '搜索前',
             description: '可搜索输入框，在输入搜索文字时',
         })
-        onBeforeFilter: (event: DataSourceParams) => void;
+        onBeforeFilter: (event: {
+            filterText: nasl.core.String;
+        }) => void;
 
         @Slot({
             title: '默认',
@@ -652,7 +679,15 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: T;
+            oldItem: T;
+            value: V;
+            oldValue: V;
+            items: nasl.collection.List<T>;
+            oldItems: nasl.collection.List<T>;
+        }) => void;
 
         @Slot({
             title: '默认',

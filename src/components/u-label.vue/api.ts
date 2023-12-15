@@ -125,12 +125,12 @@ namespace nasl.ui {
             title: '删除前触发',
             description: '删除前触发',
         })
-        private onBeforeRemove: (event: EventTarget) => void;
+        private onBeforeRemove: () => void;
 
         @Event({
             title: '删除时触发',
             description: '删除时触发',
         })
-        onRemove: (event: null) => void;
+        onRemove: () => void;
     }
 }

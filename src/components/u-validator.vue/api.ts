@@ -153,19 +153,46 @@ namespace nasl.ui {
             title: '验证后',
             description: '对于第一个 Field 或者所有子 UValidator：',
         })
-        onValidate: (event: nasl.ui.ValidateEvent) => void;
+        onValidate: (event: { 
+            trigger: nasl.core.String;
+            valid: nasl.core.Boolean;
+            triggerValid: nasl.core.Boolean;
+            touched: nasl.core.Boolean;
+            dirty: nasl.core.Boolean;
+            firstError: nasl.core.String;
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '失焦验证通过后',
             description: '对于第一个 Field 或者所有子 UValidator：',
         })
-        onBlurValid: (event: nasl.ui.ValidateEvent) => void;
+        onBlurValid: (event: { 
+            trigger: nasl.core.String;
+            valid: nasl.core.Boolean;
+            triggerValid: nasl.core.Boolean;
+            touched: nasl.core.Boolean;
+            dirty: nasl.core.Boolean;
+            firstError: nasl.core.String;
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '失焦验证不通过后',
             description: '对于第一个 Field 或者所有子 UValidator：',
         })
-        onBlurInvalid: (event: nasl.ui.ValidateEvent) => void;
+        onBlurInvalid: (event: { 
+            trigger: nasl.core.String;
+            valid: nasl.core.Boolean;
+            triggerValid: nasl.core.Boolean;
+            touched: nasl.core.Boolean;
+            dirty: nasl.core.Boolean;
+            firstError: nasl.core.String;
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+        }) => void;
 
         @Slot({
             title: 'undefined',

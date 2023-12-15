@@ -92,7 +92,10 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一项前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            value: V;
+            oldValue: V;
+        }) => void;
 
         @Event({
             title: '输入时',
@@ -110,19 +113,22 @@ namespace nasl.ui {
             title: '改变后',
             description: '选择值改变时触发',
         })
-        onChange: (event: nasl.ui.ChangeItemEvent) => void;
+        onChange: (event: {
+            value: V;
+            oldValue: V;
+        }) => void;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => void;
+        private onBeforeLoad: () => void;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: null) => void;
+        onLoad: () => void;
 
         @Slot({
             title: 'undefined',
@@ -204,6 +210,9 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            value: V;
+            oldValue: V;
+        }) => void;
     }
 }

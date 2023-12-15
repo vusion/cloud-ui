@@ -62,36 +62,45 @@ namespace nasl.ui {
             title: '切换状态前',
             description: '切换开关状态前触发',
         })
-        private onBeforeToggle: (event: nasl.ui.ChangeEvent) => void;
+        private onBeforeToggle: (event: {
+            value: nasl.core.Boolean;
+            oldValue: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '输入时',
             description: '切换开关状态时触发',
         })
-        onInput: (event: Boolean) => void;
+        onInput: (event: nasl.core.Boolean) => void;
 
         @Event({
             title: '打开时',
             description: '开关打开时触发',
         })
-        onOn: (event: Boolean) => void;
+        onOn: () => void;
 
         @Event({
             title: '关闭时',
             description: '开关关闭时触发',
         })
-        onOff: (event: Boolean) => void;
+        onOff: () => void;
 
         @Event({
             title: '切换状态后',
             description: '切换开关状态时触发',
         })
-        onToggle: (event: nasl.ui.CollapseEvent) => void;
+        onToggle: (event: {
+            value: nasl.core.Boolean;
+            oldValue: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '开关状态改变时触发',
         })
-        onChange: (event: nasl.ui.CollapseEvent) => void;
+        onChange: (event: {
+            value: nasl.core.Boolean;
+            oldValue: nasl.core.Boolean;
+        }) => void;
     }
 }

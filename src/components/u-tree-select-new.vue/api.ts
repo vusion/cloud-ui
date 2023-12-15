@@ -142,43 +142,68 @@ namespace nasl.ui {
             title: 'undefined',
             description: '修改时触发',
         })
-        onChange: (event: nasl.ui.TreeChangeEvent) => void;
+        onChange: (event: {
+            value: V;
+            oldValue: V;
+            node: T;
+            oldNode: T;
+        }) => void;
 
         @Event({
             title: '选择后',
             description: '选择某一项时触发',
         })
-        onSelect: (event: nasl.ui.TreeChangeEvent) => void;
+        onSelect: (event: {
+            value: V;
+            oldValue: V;
+            node: T;
+            oldNode: T;
+        }) => void;
 
         @Event({
             title: '选中或取消后',
             description: '选中/取消节点时触发',
         })
-        onCheck: (event: nasl.ui.CheckedEvent) => void;
+        onCheck: (event: {
+            checked: nasl.core.Boolean;
+            oldChecked: nasl.core.Boolean;
+            node: T;
+            values: nasl.collection.List<V>; 
+        }) => void;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => void;
+        private onBeforeLoad: () => void;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: null) => void;
+        onLoad: () => void;
 
         @Event({
             title: '清空前',
             description: '清空前触发',
         })
-        onBeforeClear: (event: nasl.ui.ChangeEvent) => void;
+        onBeforeClear: (event: {
+            value: V;
+            oldValue: V;
+            values: nasl.collection.List<V>;
+            oldValues: nasl.collection.List<V>;
+        }) => void;
 
         @Event({
             title: '清空后',
             description: '清空时触发',
         })
-        onClear: (event: nasl.ui.ChangeEvent) => void;
+        onClear: (event: {
+            value: V;
+            oldValue: V;
+            values: nasl.collection.List<V>;
+            oldValues: nasl.collection.List<V>;
+        }) => void;
 
         @Slot({
             title: 'undefined',

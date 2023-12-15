@@ -199,19 +199,25 @@ namespace nasl.ui {
             title: '输入前',
             description: '输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value',
         })
-        private onBeforeInput: (event: nasl.ui.ChangeEvent) => void;
+        private onBeforeInput: (event: {
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '输入时',
             description: '输入时触发。',
         })
-        onInput: (event: string) => void;
+        onInput: (event: nasl.core.String) => void;
 
         @Event({
             title: '改变后',
             description: '值变化时触发。（注意：与原生事件不同）',
         })
-        onChange: (event: nasl.ui.ChangeEvent) => void;
+        onChange: (event: {
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '获得焦点',
@@ -229,13 +235,19 @@ namespace nasl.ui {
             title: '清空前',
             description: '清空前触发。',
         })
-        private onBeforeClear: (event: nasl.ui.ChangeEvent) => void;
+        private onBeforeClear: (event: {
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '清空后',
             description: '清空后触发。',
         })
-        onClear: (event: nasl.ui.ChangeEvent) => void;
+        onClear: (event: {
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '点击前缀图标',

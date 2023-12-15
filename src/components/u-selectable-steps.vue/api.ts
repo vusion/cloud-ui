@@ -113,19 +113,32 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一步骤前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeEvent) => void;
+        private onBeforeSelect: (event: {
+            value: nasl.core.Integer;
+            oldValue: nasl.core.Integer;
+            item: T;
+        }) => void;
 
         @Event({
             title: '选择后',
             description: '选择某一步骤时触发',
         })
-        onSelect: (event: nasl.ui.ChangeEvent) => void;
+        onSelect: (event: {
+            value: nasl.core.Integer;
+            oldValue: nasl.core.Integer;
+            item: T;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '步骤数改变后触发',
         })
-        onChange: (event: nasl.ui.ChangeEvent) => void;
+        onChange: (event: {
+            value: nasl.core.Integer;
+            oldValue: nasl.core.Integer;
+            item: T;
+            oldItem: T;
+        }) => void;
 
         @Slot({
             title: 'undefined',

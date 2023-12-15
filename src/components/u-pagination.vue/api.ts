@@ -141,24 +141,37 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择分页前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.PaginationEvent) => void;
+        private onBeforeSelect: (event: {
+            page: nasl.core.Integer;
+            oldPage: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '选择后',
             description: '选择分页时触发',
         })
-        onSelect: (event: nasl.ui.PaginationEvent) => void;
+        onSelect: (event:  {
+            page: nasl.core.Integer;
+            oldPage: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '页码改变时触发',
         })
-        onChange: (event: nasl.ui.PaginationEvent) => void;
+        onChange: (event:  {
+            page: nasl.core.Integer;
+            oldPage: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '条数改变后',
             description: '每页条数改变时触发',
         })
-        onChangePageSize: (event: nasl.ui.PaginationEvent) => void;
+        onChangePageSize: (event:  {
+            page: nasl.core.Integer;
+            oldPage: nasl.core.Integer;
+            pageSizeOptions: Array<nasl.core.Integer>;
+        }) => void;
     }
 }

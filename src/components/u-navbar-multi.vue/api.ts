@@ -159,7 +159,13 @@ namespace nasl.ui {
             title: '选择后',
             description: '选择某一项后触发。',
         })
-        onSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        onSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: T;
+            oldItem: T;
+            value: V;
+            oldValue: V;
+        }) => void;
 
         @Slot({
             title: 'undefined',
@@ -346,7 +352,11 @@ namespace nasl.ui {
             title: '切换路由后',
             description: '使用 router 相关属性切换路由后触发',
         })
-        private onNavigate: (event: nasl.ui.NavigateEvent) => void;
+        private onNavigate: (event: {
+            to: nasl.core.String;
+            replace: nasl.core.Boolean;
+            append: nasl.core.Boolean;
+        }) => void;
     }
 
     @Component({

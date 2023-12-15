@@ -227,7 +227,16 @@ namespace nasl.ui {
             title: '验证时',
             description: '输入验证时触发',
         })
-        onValidate: (event: nasl.ui.ValidateEvent) => void;
+        onValidate: (event: { 
+            trigger: nasl.core.String;
+            valid: nasl.core.Boolean;
+            triggerValid: nasl.core.Boolean;
+            touched: nasl.core.Boolean;
+            dirty: nasl.core.Boolean;
+            firstError: nasl.core.String;
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '改变后',

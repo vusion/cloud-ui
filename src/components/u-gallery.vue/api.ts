@@ -70,12 +70,12 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => void;
+        private onBeforeLoad: () => void;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: null) => void;
+        onLoad: () => void;
     }
 }

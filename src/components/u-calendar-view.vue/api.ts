@@ -151,19 +151,29 @@ namespace nasl.ui {
             title: '选择后',
             description: '选择某一个日期时触发',
         })
-        onSelect: () => void;
+        onSelect: (event: {
+            date: nasl.core.Integer;
+            timestamp: nasl.core.Integer;
+            value: nasl.core.String | nasl.core.Date;
+            oldValue: nasl.core.String | nasl.core.Date;
+            week: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '日期改变时触发',
         })
-        onChange: () => void;
+        onChange: (event: {
+            date: nasl.core.Integer;
+            timestamp: nasl.core.Integer;
+            week: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => void;
+        private onBeforeLoad: (event: null) => void;
 
         @Event({
             title: '加载后',

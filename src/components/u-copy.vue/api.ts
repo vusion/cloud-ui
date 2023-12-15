@@ -76,7 +76,9 @@ namespace nasl.ui {
             title: '复制成功后',
             description: '内容复制成功后触发',
         })
-        onCopy: (event: nasl.ui.ChangeEvent) => void;
+        onCopy: (event: {
+            value: nasl.core.String;
+        }) => void;
 
         @Slot({
             title: 'undefined',

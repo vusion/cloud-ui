@@ -19,7 +19,7 @@ namespace nasl.ui {
             title: '点击',
             description: '在元素上按下并释放任意鼠标按钮时触发。',
         })
-        onClick: () => void;
+        onClick: (event: MouseEvent) => void;
 
         @Event({
             title: '双击',
