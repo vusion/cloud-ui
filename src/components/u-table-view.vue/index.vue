@@ -2909,7 +2909,7 @@ export default {
             const groupColumnVMs = columnVMs.filter((columnVm) => columnVm.isGroup);
             groupColumnVMs.forEach((groupVM) => {
                 if (groupVM.$children.length) {
-                    const columnsInGroup = this.setGroupData(groupVM, columnsInGroup);
+                    const columnsInGroup = this.setGroupData(groupVM);
                     const index = finalColumnVms.findIndex((columnVm) => columnVm === groupVM);
                     if (index !== -1) {
                         finalColumnVms.splice(index, 1, ...columnsInGroup);
