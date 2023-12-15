@@ -18,7 +18,7 @@
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth">
                 </colgroup>
                 <thead :grouped="hasGroupedColumn">
-                    <tr v-for="(headTr, trIndex) in tableHeadTrArr">
+                    <tr v-for="(headTr, trIndex) in visibleTableHeadTrArr">
                         <template v-for="(columnVM, columnIndex) in headTr">
                         <th
                             v-if="columnVM&&columnVM.colSpan !== 0"
@@ -34,13 +34,13 @@
                             :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                             :vusion-template-title-node-path="columnVM.$attrs['vusion-template-title-node-path']"
                             :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)"
-                            :style="getStyle(columnIndex, columnVM)"
-                            :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
-                            :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
-                            :shadow="(isLastLeftFixed(columnVM, columnIndex) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
+                            :style="getStyle('th', columnVM)"
+                            :last-left-fixed="isLastLeftFixed(columnVM, columnIndex, headTr)"
+                            :first-right-fixed="isFirstRightFixed(columnVM, columnIndex, headTr)"
+                            :shadow="(isLastLeftFixed(columnVM, columnIndex, headTr) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex, headTr) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
                             :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden"
                             :colspan="columnVM.colSpan"
-                            :rowspan="hasGroupedColumn && trIndex === 0 && !columnVM.isGroup ? 2 : undefined">
+                            :rowspan="columnVM.rowSpan">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)" :disabled="disabled"></u-checkbox>
@@ -123,10 +123,10 @@
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
                                         :vusion-disabled-selected="rowIndex !== 0"
-                                        :style="getStyle(columnIndex, columnVM)"
-                                        :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
-                                        :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
-                                        :shadow="(isLastLeftFixed(columnVM, columnIndex)) || (isFirstRightFixed(columnVM, columnIndex))"
+                                        :style="getStyle('td', columnVM)"
+                                        :last-left-fixed="isLastLeftFixed(columnVM, columnIndex, visibleColumnVMs)"
+                                        :first-right-fixed="isFirstRightFixed(columnVM, columnIndex, visibleColumnVMs)"
+                                        :shadow="(isLastLeftFixed(columnVM, columnIndex, visibleColumnVMs)) || (isFirstRightFixed(columnVM, columnIndex, visibleColumnVMs))"
                                         :disabled="columnVM.currentHidden">
                                         <!-- <div :class="$style.tdmask" v-if="rowIndex !== 0"></div> -->
                                         <!--可视化占据的虚拟填充区域-->
@@ -212,10 +212,10 @@
                                         :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
                                         :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
-                                        :style="getStyle(columnIndex, columnVM)"
-                                        :last-left-fixed="isLastLeftFixed(columnVM, columnIndex)"
-                                        :first-right-fixed="isFirstRightFixed(columnVM, columnIndex)"
-                                        :shadow="(isLastLeftFixed(columnVM, columnIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex) && !scrollXEnd)"
+                                        :style="getStyle('td', columnVM)"
+                                        :last-left-fixed="isTdLastLeftFixed(columnVM, columnIndex, visibleColumnVMs, item, rowIndex)"
+                                        :first-right-fixed="isFirstRightFixed(columnVM, columnIndex, visibleColumnVMs)"
+                                        :shadow="(isTdLastLeftFixed(columnVM, columnIndex, visibleColumnVMs, item, rowIndex) && !scrollXStart) || (isFirstRightFixed(columnVM, columnIndex, visibleColumnVMs) && !scrollXEnd)"
                                         v-if="getItemColSpan(item, rowIndex, columnIndex) !== 0 && getItemRowSpan(item, rowIndex, columnIndex) !== 0"
                                         :colspan="getItemColSpan(item, rowIndex, columnIndex)"
                                         :rowspan="getItemRowSpan(item, rowIndex, columnIndex)"
@@ -444,6 +444,8 @@ import UTableViewDropGhost from './drop-ghost.vue';
 import SEmpty from '../../components/s-empty.vue';
 import throttle from 'lodash/throttle';
 import FVirtualTable from './f-virtual-table.vue';
+import flatMap from 'lodash/flatMap';
+import { createTableHeaderExportHelper } from './createTableHeadExporter';
 
 export default {
     name: 'u-table-view',
@@ -588,12 +590,15 @@ export default {
             handlerDraggable: false,
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
             configColumnVM: undefined,
-            dynamicColumnVMs: [],
-            columnGroupVMs: {},
+            dynamicColumnVMs: [], // 用于记录动态列
+            dynamicColumnVMsMap: {}, // 用于记录动态列
+            columnGroupVMs: {}, // 用于记录分组列
             slots: this.$slots,
             keyMap: new KeyMap(),
             autoColSpan: [], // 用于记录自动的的列合并
             autoRowSpan: [], // 用于记录自动的的行合并
+            columnVMsMap: {},
+            tableHeadTrArr: [],
         };
     },
     computed: {
@@ -620,6 +625,16 @@ export default {
                 return this.columnVMs;
             }
             return this.columnVMs.filter((columnVM) => columnVM && !columnVM.currentHidden);
+        },
+        visibleTableHeadTrArr() {
+            if (this.$env.VUE_APP_DESIGNER) {
+                return this.tableHeadTrArr;
+            }
+            const result = [];
+            this.tableHeadTrArr.forEach((headTr, index) => {
+                result[index] = headTr.filter((columnVM) => columnVM && !columnVM.currentHidden);
+            });
+            return result;
         },
         expanderColumnVM() {
             return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
@@ -688,63 +703,6 @@ export default {
         hasGroupedColumn() {
             return !!Object.keys(this.columnGroupVMs).length;
         },
-        tableHeadTrArr() {
-            // 重置被自动合并的列
-            this.visibleColumnVMs.filter((column) => column.colSpan === 0)
-                .forEach((column) => column.colSpan = 1);
-            this.visibleColumnVMs.forEach((columnVM, index) => {
-                if (columnVM.colSpan > 1) {
-                    // 如果当前列有合并，那么后面的列自动覆盖不显示
-                    for (let i = index + 1; i < index + columnVM.colSpan && i < this.visibleColumnVMs.length; i++) {
-                        this.visibleColumnVMs[i].colSpan = 0;
-                    }
-                }
-            });
-            if (!this.hasGroupedColumn) {
-                return [this.visibleColumnVMs];
-            } else {
-                const result = [[]];
-                let dynamicOffset = 0;
-                this.visibleColumnVMs.forEach((columnVM, index) => {
-                    if (!columnVM.isUnderGroup) {
-                        result[0].push(columnVM);
-                        // 统计出到当前 index 有多少个动态列（第一个动态列不计入，因为 vm 里已经占位，
-                        // 目前每一个动态列的第一个 vm 都没有 dynamicId，所以可以通过这个来判断）
-                        if (columnVM.$options.name === 'u-table-view-column-dynamic' && columnVM.dynamicId) {
-                            dynamicOffset++;
-                        }
-                    } else if (this.columnGroupVMs[index - dynamicOffset]) {
-                        // 这里需要减去动态列带来的过多位移
-                        const groupVM = this.columnGroupVMs[index - dynamicOffset];
-                        result[0].push(groupVM);
-                        // 使用null占位来确保导出数据的正确形状
-                        const children = groupVM.$children || [];
-                        let columnVMCount = 0;
-                        for (let i = 0; i < children.length; ++i) {
-                            const vnode = children[i];
-                            if (vnode && vnode.$options && vnode.$options.name === 'u-table-view-column') {
-                                ++columnVMCount;
-                                if (columnVMCount > 1) {
-                                    result[0].push(null);
-                                }
-                            }
-                        }
-                    }
-                });
-                result[1] = result[0].reduce((acc, vm) => {
-                    if (vm === null) {
-                        return acc;
-                    }
-                    if (vm.$options.name !== 'u-table-view-column-group') {
-                        return [...acc, null]; // 使用null占位来确保导出数据的正确形状
-                    } else {
-                        return [...acc, ...vm.$children.filter((vnode) => vnode && vnode.$options && vnode.$options.name === 'u-table-view-column')];
-                    }
-                }, []);
-                // result[1] = this.visibleColumnVMs.filter((columnVM) => columnVM.isUnderGroup);
-                return result;
-            }
-        },
     },
     watch: {
         data(data) {
@@ -772,13 +730,13 @@ export default {
             if (this.$env.VUE_APP_DESIGNER && this.designerMode !== 'success')
                 return;
             this.currentLoading = loading;
-            this.handleResize();
+            this.reHandleResize();
         },
         error(error) {
             if (this.$env.VUE_APP_DESIGNER && this.designerMode !== 'success')
                 return;
             this.currentError = error;
-            this.handleResize();
+            this.reHandleResize();
         },
         sorting: {
             deep: true,
@@ -829,7 +787,7 @@ export default {
             }
         },
         visibleColumnVMs() {
-            this.handleResize();
+            this.reHandleResize();
         },
         stickFixed(value) {
             this.useStickyFixed = value;
@@ -859,7 +817,7 @@ export default {
                         this.currentError = this.error;
                         this.currentEmpty = false;
                 }
-                this.handleResize();
+                this.reHandleResize();
             },
             immediate: true,
         },
@@ -883,6 +841,7 @@ export default {
         },
     },
     created() {
+        this.$on('handle-columns', this.handleColumns);
         // 自动补充 pageSizeOptions
         if (this.pageSizeOptions && !this.pageSizeOptions.includes(this.pageSize)) {
             for (let i = 0; i < this.pageSizeOptions.length; i++) {
@@ -922,7 +881,7 @@ export default {
         this.watchCurrentData();
         this.watchValue(this.value);
         this.watchValues(this.values);
-        this.handleResize();
+        this.reHandleResize();
         addResizeListener(this.$el, this.handleResizeListener);
 
         if (this.stickHead) {
@@ -1020,7 +979,7 @@ export default {
             // fix 2637418667735552 添加编辑行时已经添加的下拉框还是会重新load数据
             // 原因：list添加了一项，进入了dataSource的watch，该函数会进来，调用了load方法，会设置loading状态，导致表格重新渲染
             this.initialLoad && (typeof this.dataSource === 'function') && this.load();
-            this.handleResize();
+            this.reHandleResize();
             this.$nextTick(() => {
                 this.$forceUpdate();
             });
@@ -1227,6 +1186,7 @@ export default {
                                         columnVM,
                                         left: prev,
                                     });
+                                    this.setColumnVMsMap(columnVM._uid, { left: prev });
                                     return prev + columnVM.computedWidth;
                                 }, 0);
                         }
@@ -1239,6 +1199,7 @@ export default {
                                         columnVM,
                                         right: prev,
                                     });
+                                    this.setColumnVMsMap(columnVM._uid, { right: prev });
                                     return prev + columnVM.computedWidth;
                                 }, 0);
                         }
@@ -1329,7 +1290,7 @@ export default {
             $event.transferEl.style.left = '';
         },
         onResizerDragEnd($event, columnVM, index) {
-            this.handleResize();
+            this.reHandleResize();
             this.$emit('resize', {
                 columnVM,
                 index,
@@ -1435,7 +1396,7 @@ export default {
                         if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
                             this.page(1); // 数据发生变更时，回归到第 1 页
                     } // auto-more 状态的 resize 会频闪。
-                    this.pageable !== 'auto-more' && this.handleResize();
+                    this.pageable !== 'auto-more' && this.reHandleResize();
                     this.$emit('load', undefined, this);
                     return data;
                 })
@@ -1547,7 +1508,9 @@ export default {
             }
 
             const titleColIndexRelations = [];
-            let res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr, rowIndex) => Array.from(tr.childNodes).map((node, colIndex) => {
+            const headRows = Array.from(this.$el.querySelectorAll('[position=static] thead tr'));
+            const helper = createTableHeaderExportHelper(headRows.length);
+            headRows.map((tr, rowIndex) => Array.from(tr.childNodes).map((node, colIndex, currentArr) => {
                 if (node.nodeName === 'TH') {
                     const rowspan = parseInt(node.getAttribute('rowspan')) || 1;
                     const colspan = parseInt(node.getAttribute('colspan')) || 1;
@@ -1566,21 +1529,24 @@ export default {
                             title = node.innerText;
                         }
                     }
+                    const cols = helper.setCell(title, colIndex + 1 === currentArr.length, rowspan, colspan);
+                    const realColIndex = cols[0];
                     if (rowspan !== 1 || colspan !== 1) {
                         mergesMap.push({
-                            col: colIndex,
+                            col: realColIndex,
                             row: rowIndex,
                             rowspan,
                             colspan,
                         });
                     }
-                    titleColIndexRelations.push([title, Array.from({ length: colspan }, (_, idx) => idx + colIndex)]);
+                    titleColIndexRelations.push([title, cols]);
                     return title;
                 } else {
                     return null;
                 }
             }));
             // console.time('渲染数据');
+            let res = helper.eject();
             const startIndexes = [];
             for (let i = 0; i < this.visibleColumnVMs.length; i++) {
                 const vm = this.visibleColumnVMs[i];
@@ -2144,7 +2110,7 @@ export default {
         resetEdit(item) {
             item.editing = '';
         },
-        getStyle(index, columnVM) {
+        getStyle(type, columnVM) {
             const style = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.style);
             const staticStyle = Object.assign({}, columnVM.$vnode.data && columnVM.$vnode.data.staticStyle);
             if (this.useStickyFixed) {
@@ -2152,36 +2118,85 @@ export default {
                 // --z-index-layout: 100, 可能用于导航栏fixed，不能大于它
                 const zIndex = elZIndex > 99 ? elZIndex : 99;
                 if (this.fixedLeftList && this.fixedLeftList.length) {
-                    const leftData = this.fixedLeftList[index];
-                    if (leftData !== undefined && columnVM === leftData.columnVM) {
-                        return Object.assign(staticStyle, style, {
-                            position: 'sticky',
-                            left: leftData.left + 'px',
-                            zIndex,
-                            overflow: 'hidden',
-                        });
+                    const columnData = this.columnVMsMap[columnVM._uid];
+                    if (columnData) {
+                        const inFixedLeftList = this.isInFixedList(columnVM, this.fixedLeftList);
+                        if (inFixedLeftList) {
+                            let left = columnData.left;
+                            if (type === 'th') {
+                                left = this.getFixedWidth(columnVM, 'left');
+                            }
+                            if (left !== undefined) {
+                                return Object.assign(staticStyle, style, {
+                                    position: 'sticky',
+                                    left: left + 'px',
+                                    zIndex,
+                                    overflow: 'hidden',
+                                });
+                            }
+                        }
                     }
                 }
                 if (this.fixedRightList && this.fixedRightList.length) {
-                    const tempIndex = this.visibleColumnVMs.length - index - 1;
-                    const rightData = this.fixedRightList[tempIndex];
-                    if (rightData !== undefined && columnVM === rightData.columnVM) {
-                        return Object.assign(staticStyle, style, {
-                            position: 'sticky',
-                            right: rightData.right + 'px',
-                            zIndex,
-                            overflow: 'hidden',
-                        });
+                    const columnData = this.columnVMsMap[columnVM._uid];
+                    if (columnData) {
+                        const inFixedRightList = this.isInFixedList(columnVM, this.fixedRightList);
+                        if (inFixedRightList) {
+                            let right = columnData.right;
+                            if (type === 'th') {
+                                right = this.getFixedWidth(columnVM, 'right');
+                            }
+                            if (right !== undefined) {
+                                return Object.assign(staticStyle, style, {
+                                    position: 'sticky',
+                                    right: right + 'px',
+                                    zIndex,
+                                    overflow: 'hidden',
+                                });
+                            }
+                        }
                     }
                 }
             }
             return Object.assign(staticStyle, style);
         },
-        isLastLeftFixed(columnVM, columnIndex) {
-            return columnVM.fixed && columnIndex === this.fixedLeftList.length - 1 ? true : undefined;
+        isLastLeftFixed(columnVM, columnIndex, list) {
+            if (!columnVM)
+                return undefined;
+            const inFixedLeftList = this.isInFixedList(columnVM, this.fixedLeftList);
+            let isLastInList = list[columnIndex + 1] && !list[columnIndex + 1].fixed;
+            if (columnVM.$parent.isGroup) {
+                const groupList = this.visibleTableHeadTrArr.find((tableHeadTr) => tableHeadTr.includes(columnVM.$parent));
+                if (groupList) {
+                    const groupVMIndex = groupList.findIndex((groupVM) => groupVM === columnVM.$parent);
+                    const isGroupInLast = this.isLastLeftFixed(columnVM.$parent, groupVMIndex, groupList);
+                    isLastInList = isLastInList && isGroupInLast;
+                }
+            }
+            return inFixedLeftList && isLastInList ? true : undefined;
         },
-        isFirstRightFixed(columnVM, columnIndex) {
-            return columnVM.fixed && this.fixedRightList.length && columnIndex === this.visibleColumnVMs.length - this.fixedRightList.length ? true : undefined;
+        isTdLastLeftFixed(columnVM, columnIndex, columnVMList, item, rowIndex) {
+            if (!columnVM)
+                return undefined;
+            const colSpan = this.getItemColSpan(item, rowIndex, columnIndex);
+            if (colSpan > 1) {
+                const lastColumnVM = columnVMList[columnIndex + colSpan - 1];
+                return this.isLastLeftFixed(lastColumnVM, columnIndex + colSpan - 1, columnVMList);
+            }
+            return this.isLastLeftFixed(columnVM, columnIndex, columnVMList);
+        },
+        isFirstRightFixed(columnVM, columnIndex, list) {
+            const inFixedRightList = this.isInFixedList(columnVM, this.fixedRightList);
+            let isLastInList = list[columnIndex - 1] && !list[columnIndex - 1].fixed;
+            if (columnVM.$parent.isGroup) {
+                const groupList = this.visibleTableHeadTrArr.find((tableHeadTr) => tableHeadTr.includes(columnVM.$parent));
+                if (groupList) {
+                    const groupVMIndex = groupList.findIndex((groupVM) => groupVM === columnVM.$parent);
+                    const isGroupInLast = this.isFirstRightFixed(columnVM.$parent, groupVMIndex, groupList);
+                    isLastInList = isLastInList && isGroupInLast;
+                }
+            }
+            return inFixedRightList && isLastInList ? true : undefined;
         },
         /**
          * 拖拽开始
@@ -2839,6 +2854,233 @@ export default {
             // 如果两次width变化不大，不要重新计算每列的computedWidth等
             const reComputedWidth = !this.preRootWidth || Math.abs(this.preRootWidth - rootWidth) > 8;
             this.handleResize(reComputedWidth);
+        },
+        reHandleResize() {
+            this.preRootWidth = null;
+            this.handleResize(true);
+        },
+        /**
+         * 普通列、分组、动态列等增删时统一处理
+         * 处理表格slots变化时，columnVMs数组、分组处理
+         */
+        handleColumns() {
+            const slotVMs = this.$slots.default || [];
+            let columnVMs = [];
+            // 根据u-table-view里的$slots顺序，把columnVM放置到columnVMs里
+            Object.keys(this.columnVMsMap).forEach((key) => {
+                const columnVMMap = this.columnVMsMap[key];
+                if (!columnVMMap)
+                    return;
+                const columnVM = columnVMMap.columnVM;
+                if (!columnVM)
+                    return;
+                const vnode = columnVM.$vnode;
+                const index = slotVMs.findIndex((slotVm) => slotVm === vnode);
+                if (index !== -1) {
+                    if (this.columnGroupVMs[columnVM._uid]) {
+                        if (columnVM.$children.length) {
+                            columnVMs[index] = columnVM;
+                        }
+                    } else {
+                        columnVMs[index] = columnVM;
+                    }
+                }
+            });
+            columnVMs = columnVMs.filter((columnVm) => !!columnVm);
+
+            // 先替换动态列
+            const dynamicColumnVMs = [];
+            Object.keys(this.dynamicColumnVMsMap).forEach((dkey) => {
+                const dynamicColumnItem = this.dynamicColumnVMsMap[dkey];
+                if (!dynamicColumnItem)
+                    return;
+                const index = columnVMs.findIndex((columnVm) => columnVm === dynamicColumnItem.columnVM);
+                if (index !== -1 && dynamicColumnItem.vms) {
+                    columnVMs.splice(index, 1, ...dynamicColumnItem.vms);
+                }
+                dynamicColumnVMs.push(dynamicColumnItem.columnVM);
+            });
+            this.dynamicColumnVMs = dynamicColumnVMs;
+
+            // 再替换分组
+            const finalColumnVms = [...columnVMs];
+            // result 记录分组数据
+            const result = [];
+            const groupColumnVMs = columnVMs.filter((columnVm) => columnVm.isGroup);
+            groupColumnVMs.forEach((groupVM) => {
+                if (groupVM.$children.length) {
+                    const columnsInGroup = this.setGroupData(groupVM, columnsInGroup);
+                    const index = finalColumnVms.findIndex((columnVm) => columnVm === groupVM);
+                    if (index !== -1) {
+                        finalColumnVms.splice(index, 1, ...columnsInGroup);
+                    }
+                    result[0] = result[0] || [];
+                    result[0].push(groupVM);
+                    this.getColumnChildren(groupVM, 0, result);
+                }
+            });
+            // finalColumnVms 是最终展示的列，赋值this.columnVMs，用于visibleColumnVMs的计算
+            this.columnVMs = finalColumnVms;
+
+            // 计算表头
+            let tableHeadTrArr = [[]];
+            //需要处理下列设置了colSpan的情况
+            finalColumnVms.forEach((columnVM) => {
+                tableHeadTrArr[0].push(columnVM);
+            });
+            tableHeadTrArr[0].forEach((columnVM, index) => {
+                this.setColumnColSpanData(columnVM, index, tableHeadTrArr[0]);
+            });
+            if (result.length) {
+                result[0] = columnVMs;
+                for (let i = 0; i < result.length; i++) {
+                    result[i].forEach((columnVm, index) => {
+                        if (!columnVm)
+                            return;
+                        if (!columnVm.isGroup && i !== result.length - 1) {
+                            columnVm.rowSpan = result.length - i;
+                        }
+                        this.setColumnColSpanData(columnVm, index, result[i]);
+                    });
+                }
+                tableHeadTrArr = result;
+            }
+            this.tableHeadTrArr = tableHeadTrArr;
+        },
+        /**
+         * 设置分组数据
+         */
+        setGroupData(groupVM) {
+            const columnsInGroup = this.getContainColumns(groupVM);
+            groupVM.colSpan = columnsInGroup.filter((columnVM) => !columnVM.currentHidden).length;
+            // 自节点fixed的情况下，group也fixed
+            const hasFixed = columnsInGroup.some((columnInGroup) => columnInGroup.fixed);
+            groupVM.fixed = hasFixed || groupVM.fixed;
+            if (groupVM.fixed) {
+                columnsInGroup.forEach((columnInGroup) => columnInGroup.fixed = groupVM.fixed);
+            }
+            this.setColumnVMsMap(groupVM._uid, { columnsInGroup });
+            return columnsInGroup;
+        },
+        /**
+         * 设置colSpan数据
+         * @param {*} columnVM 当前列
+         * @param {*} index 当前列的索引
+         * @param {*} list 当前列所在的数组
+         */
+        setColumnColSpanData(columnVM, index, list) {
+            if (columnVM && columnVM.colSpan > 1 && !columnVM.isGroup) {
+                // 如果当前列有合并，那么后面的列自动覆盖不显示
+                const cloumnsForColSpanHidden = [];
+                for (let j = index + 1; j < index + columnVM.colSpan && j < list.length; j++) {
+                    list[j].fixed = columnVM.fixed;
+                    cloumnsForColSpanHidden.push(list[j]);
+                    list[j].currentHidden = columnVM.currentHidden;
+                    list.splice(j, 1, null);
+                }
+                this.setColumnVMsMap(columnVM._uid, { cloumnsForColSpanHidden });
+            }
+        },
+        /**
+         * 得到group下最终的叶子结点
+         * @param {*} column
+         */
+        getContainColumns(column) {
+            if (column.$children.length) {
+                const children = column.$children.filter((childrenVM) => this.isColumnVM(childrenVM));
+                return flatMap(children, this.getContainColumns);
+            } else {
+                return this.isColumnVM(column) ? [column] : [];
+            }
+        },
+        /**
+         * group下的children计算
+         */
+        getColumnChildren(column, level, result) {
+            level = level + 1;
+            if (column.$children.length) {
+                result[level] = result[level] || [];
+                const slotVMs = column.$slots.default || [];
+                // 使用v-if后，$children里的顺序会变化，与$slots里的顺序不一样，这里需要重新排序
+                column.$children.sort((column1, column2) => {
+                    const index1 = slotVMs.findIndex((slotVm) => slotVm === column1.$vnode);
+                    const index2 = slotVMs.findIndex((slotVm) => slotVm === column2.$vnode);
+                    return index1 - index2;
+                });
+                column.$children.forEach((columnVM) => {
+                    if (!columnVM)
+                        return;
+                    if (!this.isColumnVM(columnVM))
+                        return;
+                    // group才需要设置信息
+                    if (columnVM.$vnode && columnVM.$vnode.tag && columnVM.isGroup) {
+                        this.setGroupData(columnVM);
+                    }
+                    result[level].push(columnVM);
+                    this.getColumnChildren(columnVM, level, result);
+                });
+            }
+        },
+        /**
+         * map存放数据
+         */
+        setColumnVMsMap(key, valueObj) {
+            this.columnVMsMap[key] = this.columnVMsMap[key] || {};
+            Object.assign(this.columnVMsMap[key], valueObj);
+        },
+        /**
+         * 表头固定列需要重新计算左、右距离
+         * @param {*} columnVM 表格列
+         * @param {*} type left｜ right
+         */
+        getFixedWidth(columnVM, type) {
+            const columnData = this.columnVMsMap[columnVM._uid];
+            if (columnData) {
+                let width = columnData[type];
+                // 分组或者有合并列的情况处理
+                if (columnData.columnsInGroup || columnData.cloumnsForColSpanHidden) {
+                    const columnsInGroupWidth = (columnData.columnsInGroup || []).map((columnVM) => {
+                        const columnData = this.columnVMsMap[columnVM._uid];
+                        return columnData[type];
+                    });
+                    const cloumnsForColSpanHiddenWidth = (columnData.cloumnsForColSpanHidden || []).map((columnVM) => {
+                        const columnData = this.columnVMsMap[columnVM._uid];
+                        return columnData[type];
+                    });
+                    const tempWidth = Math.min(...columnsInGroupWidth.concat(cloumnsForColSpanHiddenWidth));
+                    if (type === 'left' && width !== undefined) {
+                        width = Math.min(width, tempWidth);
+                    } else {
+                        width = tempWidth;
+                    }
+                }
+                return width;
+            }
+        },
+        /**
+         * 判断是否在固定列里
+         * @param {*} columnVM
+         * @param {*} list lef｜rightFixedList
+         */
+        isInFixedList(columnVM, list) {
+            const columnData = this.columnVMsMap[columnVM._uid];
+            if (columnData) {
+                if (columnData.columnsInGroup) {
+                    return columnData.columnsInGroup.some((columnVM1) => {
+                        const index = list.findIndex((data) => data.columnVM === columnVM1);
+                        return index !== -1;
+                    });
+                } else {
+                    const index = list.findIndex((data) => data.columnVM === columnVM);
+                    return index !== -1;
+                }
+            }
+        },
+        /**
+         * column列里会有u-table-view-expander子组件，需要过滤掉
+         */
+        isColumnVM(columnVM) {
+            return columnVM && columnVM.$vnode && columnVM.$vnode.tag && columnVM.$vnode.tag.includes('-column');
         },
     },
 };
