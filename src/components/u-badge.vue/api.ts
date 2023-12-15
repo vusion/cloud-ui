@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '徽章',
         icon: 'badge',
         description: '用于显示消息条数和提醒用户处理的角标。',
+        group: "Display"
     })
     export class UBadge extends ViewComponent {
 

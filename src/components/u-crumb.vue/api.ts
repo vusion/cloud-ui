@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '面包屑',
         icon: 'crumb',
         description: '导航指引',
+        group: "Navigation"
     })
     export class UCrumb extends ViewComponent {
 

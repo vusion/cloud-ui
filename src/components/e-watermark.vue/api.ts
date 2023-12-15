@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '水印',
         icon: 'watermark',
         description: '在页面显示水印',
+        group: "Effects"
     })
     export class EWatermark extends ViewComponent {
 

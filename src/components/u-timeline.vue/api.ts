@@ -4,6 +4,7 @@ namespace nasl.ui {
     @Component({
         title: '时间线',
         icon: 'timeline',
+        group: 'Display'
     })
     export class UTimeline<T> extends ViewComponent {
 

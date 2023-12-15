@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '表单',
         icon: 'form',
         description: '具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。',
+        group: 'Form'
     })
     export class UForm extends ViewComponent {
 

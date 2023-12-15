@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '日期选择',
         icon: 'date-picker',
         description: '日期选择',
+        group: 'Selector'
     })
     export class UDatePicker extends ViewComponent {
 

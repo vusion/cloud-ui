@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '抽屉',
         icon: 'drawer',
         description: '抽屉',
+        group: 'Feedback'
     })
     export class UDrawer extends ViewComponent {
 

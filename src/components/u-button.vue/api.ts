@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '按钮',
         icon: 'button',
         description: '用于触发一个即时操作。',
+        group: "Display"
     })
     export class UButton extends ViewComponent {
 

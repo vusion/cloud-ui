@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '图标',
         icon: 'icon',
         description: '图标',
+        group: "Display"
     })
     export class IIco extends ViewComponent {
 

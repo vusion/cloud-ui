@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '卡片',
         icon: 'card',
         description: '用于快速布局',
+        group: "Container"
     })
     export class UCard extends ViewComponent {
 

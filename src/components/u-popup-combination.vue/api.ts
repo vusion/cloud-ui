@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '弹出框',
         icon: 'popup',
         description: '点击/鼠标移入元素，弹出气泡式的卡片浮层。',
+        group: 'Feedback'
     })
     export class UPopupCombination extends ViewComponent {
 

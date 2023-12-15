@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '下拉菜单',
         icon: 'dropdown-new',
         description: '下拉菜单',
+        group: 'Navigation'
     })
     export class UDropdown<T, V> extends ViewComponent {
 

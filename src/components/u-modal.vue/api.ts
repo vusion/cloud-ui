@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '弹窗',
         icon: 'modal',
         description: '弹窗',
+        group: 'Feedback'
     })
     export class UModal extends ViewComponent {
 

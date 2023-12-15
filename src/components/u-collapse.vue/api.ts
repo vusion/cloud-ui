@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '折叠面板',
         icon: 'collapse',
         description: '可以折叠/展开的内容区域。',
+        group: "Container"
     })
     export class UCollapse extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '翻页器',
         icon: 'pagination',
         description: '展示多页列表时使用',
+        group: 'Selector'
     })
     export class UPagination extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '选择器',
         icon: 'select',
         description: '下拉选择器，支持单选、多选、搜索等功能',
+        group: 'Selector'
     })
     export class USelect<T, V, P extends boolean, M extends boolean, C extends string> extends ViewComponent {
         @Prop({

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '幻灯片',
         icon: 'carousel',
         description: '动态播放内部内容',
+        group: "Display"
     })
     export class UCarousel<T> extends ViewComponent {
 

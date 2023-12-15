@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '树形视图',
         icon: 'tree-view-new',
         description: '树形视图',
+        group: 'Selector'
     })
     export class UTreeViewNew<T, V, M extends boolean> extends ViewComponent {
 

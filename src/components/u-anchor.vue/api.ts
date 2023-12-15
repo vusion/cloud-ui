@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '锚点',
         icon: 'anchor',
         description: '锚点',
+        group: "Navigation"
     })
     export class UAnchor extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '数据表格',
         icon: 'table-view',
         description: '用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。',
+        group: 'Table'
     })
     export class UTableView<T, T1, V, P extends boolean, M extends boolean> extends ViewComponent {
         @Prop({

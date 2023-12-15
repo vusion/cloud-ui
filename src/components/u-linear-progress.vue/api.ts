@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '线形进度条',
         icon: 'linear-progress',
         description: '以线条的形式描述当前进度',
+        group: 'Chart'
     })
     export class ULinearProgress extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '线性布局',
         icon: 'linear-layout',
         description: '内部元素按照一定的规则布局',
+        group: 'Layout'
     })
     export class ULinearLayout extends ViewComponent {
 

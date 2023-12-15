@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '链接',
         icon: 'link',
         description: '文字超链接',
+        group: 'Display'
     })
     export class ULink extends ViewComponent {
 

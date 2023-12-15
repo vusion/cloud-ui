@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: 'Iframe',
         icon: 'iframe',
         description: '用于嵌入其他网页的容器。',
+        group: 'Container'
     })
     export class UIframe extends ViewComponent {
 

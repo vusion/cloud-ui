@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '穿梭框',
         icon: 'transfer',
         description: '双栏穿梭选择框，常用于将多个项目从一边移动到另一边。',
+        group: 'Selector'
     })
     export class UTransfer<T, V> extends ViewComponent {
 

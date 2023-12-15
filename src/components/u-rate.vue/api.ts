@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '评分',
         icon: 'rate',
         description: '评分组件。',
+        group: 'Form'
     })
     export class URate extends ViewComponent {
 

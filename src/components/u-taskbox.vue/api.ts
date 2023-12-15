@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '任务箱',
         icon: 'taskbox',
         description: '用于展示流程任务箱',
+        group: 'Process'
     })
     export class UTaskbox extends ViewComponent {
 

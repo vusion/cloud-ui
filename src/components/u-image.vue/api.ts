@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '图片展示',
         icon: 'image',
         description: '可以用来展示一张图片，支持设置图片地址。',
+        group: 'Display'
     })
     export class UImage extends ViewComponent {
 

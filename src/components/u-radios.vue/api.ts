@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '单选组',
         icon: 'radios',
         description: '多项中选择一个时使用',
+        group: 'Form'
     })
     export class URadios<T, V> extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '胶囊',
         icon: 'capsules',
         description: '多项中选择一项',
+        group: "Form"
     })
     export class UCapsules extends ViewComponent {
 

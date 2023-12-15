@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '画廊',
         icon: 'gallery',
         description: '画廊',
+        group: 'Display'
     })
     export class UGallery<T> extends ViewComponent {
 

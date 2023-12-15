@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '目录',
         icon: 'toc',
         description: '用于展示文档的目录',
+        group: 'Navigation'
     })
     export class UToc extends ViewComponent {
 

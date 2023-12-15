@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '验证器',
         icon: 'validator',
         description: '实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。',
+        group: 'Form'
     })
     export class UValidator extends ViewComponent {
 

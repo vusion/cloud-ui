@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '选项卡',
         icon: 'tabs',
         description: '选项卡切换组件，常用于平级区域大块内容的收纳和展现。',
+        group: 'Selector'
     })
     export class UTabs<T, V> extends ViewComponent {
 

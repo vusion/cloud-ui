@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '地区选择',
         icon: 'region-select',
         description: '该组件从 UCascader 继承，仅填充了中国的行政区数据，其他功能与 UCascader 相同。',
+        group: 'Selector'
     })
     export class URegionSelect<T, V> extends ViewComponent {
 

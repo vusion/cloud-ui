@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '级联选择',
         icon: 'cascade-select',
         description: '一次选择多个相关联的项',
+        group: "Selector"
     })
     export class UCascader<T, V> extends ViewComponent {
 

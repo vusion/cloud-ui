@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '数字输入',
         icon: 'number',
         description: '输入数字时使用',
+        group: 'Form'
     })
     export class UNumberInput extends ViewComponent {
 

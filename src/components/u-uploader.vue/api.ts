@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '文件上传',
         icon: 'uploader',
         description: '通过点击或者拖拽上传文件。',
+        group: 'Form'
     })
     export class UUploader extends ViewComponent {
 

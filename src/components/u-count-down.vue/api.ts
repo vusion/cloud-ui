@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '计时器',
         icon: 'countdown',
         description: '用于计时',
+        group: "Display"
     })
     export class UCountDown extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '圆形进度条',
         icon: 'circular-progress',
         description: '以圆形的形式描述当前进度',
+        group: "Chart"
     })
     export class UCircularProgress extends ViewComponent {
 

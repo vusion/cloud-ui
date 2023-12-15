@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '日历',
         icon: 'calendar',
         description: '用于展示大量结构化数据。支持日历结构展示。',
+        group: "Table"
     })
     export class UCalendarView<T> extends ViewComponent {
 

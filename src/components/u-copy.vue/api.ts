@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '复制',
         icon: 'copy',
         description: '复制文本到剪切板',
+        group: "Effects"
     })
     export class UCopy extends ViewComponent {
 

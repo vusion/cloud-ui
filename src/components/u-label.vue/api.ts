@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '标签',
         icon: 'label',
         description: '用于展示状态、标签、分类等',
+        group: 'Display'
     })
     export class ULabel extends ViewComponent {
 

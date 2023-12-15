@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '开关',
         icon: 'switch',
         description: '开关',
+        group: 'Form'
     })
     export class USwitch extends ViewComponent {
 

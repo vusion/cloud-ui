@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '详情列表',
         icon: 'info-list',
         description: '详情列表',
+        group: 'Display'
     })
     export class UInfoList extends ViewComponent {
 

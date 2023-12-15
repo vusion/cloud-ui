@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '步骤条',
         icon: 'steps',
         description: '当操作需要分步骤时使用',
+        group: 'Selector'
     })
     export class USelectableSteps<T> extends ViewComponent {
 

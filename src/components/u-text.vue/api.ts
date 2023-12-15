@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '文本',
         icon: 'text',
         description: '用于展示文字或表达式',
+        group: 'Display'
     })
     export class UText extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '面板',
         icon: 'panel',
         description: '用于快速布局',
+        group: 'Container'
     })
     export class UPanel extends ViewComponent {
 

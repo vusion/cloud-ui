@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '导航栏',
         icon: 'navbar',
         description: '通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。',
+        group: 'Navigation'
     })
     export class UNavbar extends ViewComponent {
 

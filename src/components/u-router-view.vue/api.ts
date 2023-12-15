@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '子页面容器',
         icon: 'router-view',
         description: '用于嵌入子页面的容器。',
+        group: 'Container'
     })
     export class URouterView extends ViewComponent {
 

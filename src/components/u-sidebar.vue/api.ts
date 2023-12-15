@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '侧边栏',
         icon: 'sidebar',
         description: '通常用于页面左侧的导航栏。',
+        group: 'Navigation'
     })
     export class USidebar<T, V> extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '公告',
         icon: 'alert',
         description: '公告。',
+        group: "Display"
     })
     export class UAlert extends ViewComponent {
 

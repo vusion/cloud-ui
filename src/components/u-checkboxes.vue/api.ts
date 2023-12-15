@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '多选组',
         icon: 'checkboxes',
         description: '多项中选择多个时使用',
+        group: "Form"
     })
     export class UCheckboxes<T, V, C extends string> extends ViewComponent {
 

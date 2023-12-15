@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '自由布局',
         icon: 'absolute-layout',
         description: '拖拽内部元素到任意位置',
+        group: "Layout"
     })
     export class UAbsoluteLayout extends ViewComponent {
 

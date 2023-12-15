@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '多行输入',
         icon: 'textarea',
         description: '多行输入组件',
+        group: 'Form'
     })
     export class UTextarea extends ViewComponent {
 

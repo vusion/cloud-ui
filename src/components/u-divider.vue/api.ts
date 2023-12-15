@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '分隔线',
         icon: 'divider',
         description: '用于将内容分隔为多个区域',
+        group: 'Display'
     })
     export class UDivider extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '滑块',
         icon: 'slider',
         description: '滑动选择',
+        group: "Form"
     })
     export class UComboSlider extends ViewComponent {
 

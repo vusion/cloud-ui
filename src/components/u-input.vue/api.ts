@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '单行输入',
         icon: 'input',
         description: '基本的表单输入组件',
+        group: 'Form'
     })
     export class UInput extends ViewComponent {
 

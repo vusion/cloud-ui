@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '弹出消息',
         icon: 'toast',
         description: '弹出消息',
+        group: 'Feedback'
     })
     export class UToastSingle extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '分栏布局',
         icon: 'multi-layout',
         description: '一定的规则布局',
+        group: 'Layout'
     })
     export class UMultiLayout extends ViewComponent {
 

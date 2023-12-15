@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '组件列表',
         icon: 'forcom',
         description: '组件列表',
+        group: 'Table'
     })
     export class UListComponents<T> extends ViewComponent {
 

@@ -5,6 +5,7 @@ namespace nasl.ui {
         title: '栅格布局',
         icon: 'grid-layout',
         description: '内部元素按照一定的规则布局',
+        group: 'Layout'
     })
     export class UGridLayout extends ViewComponent {
 
