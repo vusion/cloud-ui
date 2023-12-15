@@ -284,24 +284,40 @@ namespace nasl.ui {
             title: '值变化时',
             description: '值变化时触发',
         })
-        onChange: (event: nasl.ui.DateEvent) => void;
+        onChange: (event: {
+            date: nasl.core.String;
+            time: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '选择时',
             description: '选择日期时触发',
         })
-        onSelect: (event: nasl.ui.DateEvent) => void;
+        onSelect: (event: {
+            date: nasl.core.String;
+            time: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '弹出/隐藏时',
             description: '弹出/隐藏时触发',
         })
-        private onToggle: (event: nasl.ui.CollapseEvent) => void;
+        private onToggle: (event: {
+            opened: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '失去焦点',
             description: '失去焦点时触发。',
         })
-        onBlur: (event: nasl.ui.FocusEvent) => void;
+        onBlur: (event: {
+            cancelBubble: nasl.core.Boolean;
+            detail: nasl.core.String;
+            layerX: nasl.core.Integer;
+            layerY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
     }
 }

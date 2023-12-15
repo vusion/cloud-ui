@@ -581,19 +581,59 @@ namespace nasl.ui {
             title: '点击前缀图标',
             description: '点击前缀图标后触发',
         })
-        onClickPrefix: (event: nasl.ui.MouseEvent) => void;
+        onClickPrefix: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '点击后缀图标',
             description: '点击后缀图标后触发',
         })
-        onClickSuffix: (event: nasl.ui.MouseEvent) => void;
+        onClickSuffix: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '失去焦点',
             description: '失去焦点时触发。',
         })
-        onBlur: (event: nasl.ui.FocusEvent) => void;
+        onBlur: (event: {
+            cancelBubble: nasl.core.Boolean;
+            detail: nasl.core.String;
+            layerX: nasl.core.Integer;
+            layerY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '搜索前',

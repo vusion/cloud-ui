@@ -81,25 +81,49 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一项前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: nasl.core.String;
+            oldItem: nasl.core.String;
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+            items: nasl.collection.List<nasl.core.String>;
+            oldItems: nasl.collection.List<nasl.core.String>;
+        }) => void;
 
         @Event({
             title: '输入时',
             description: '选择某一项时触发，仅在单选模式中生效',
         })
-        onInput: (event: String) => void;
+        onInput: (event: nasl.core.String) => void;
 
         @Event({
             title: '选择后',
             description: '选择某一项时触发。单选模式中：',
         })
-        onSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        onSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: nasl.core.String;
+            oldItem: nasl.core.String;
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+            items: nasl.collection.List<nasl.core.String>;
+            oldItems: nasl.collection.List<nasl.core.String>;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '选择值改变时触发。单选模式中：',
         })
-        onChange: (event: nasl.ui.ChangeItemEvent) => void;
+        onChange: (event: {
+            selected: nasl.core.Boolean;
+            item: nasl.core.String;
+            oldItem: nasl.core.String;
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+            items: nasl.collection.List<nasl.core.String>;
+            oldItems: nasl.collection.List<nasl.core.String>;
+        }) => void;
 
         @Slot({
             title: 'undefined',
@@ -184,13 +208,37 @@ namespace nasl.ui {
             title: '点击',
             description: '点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。',
         })
-        onClick: (event: nasl.ui.MouseEvent) => void;
+        onClick: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        private onBeforeSelect: (event: {
+            selected: nasl.core.Boolean;
+            item: nasl.core.String;
+            oldItem: nasl.core.String;
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+            items: nasl.collection.List<nasl.core.String>;
+            oldItems: nasl.collection.List<nasl.core.String>;
+        }) => void;
 
         @Slot({
             title: 'undefined',

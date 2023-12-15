@@ -165,13 +165,19 @@ namespace nasl.ui {
             title: '选中后',
             description: '切换选项时触发',
         })
-        onCheck: (event: nasl.ui.ChangeEvent) => void;
+        onCheck: (event: {
+            value: nasl.collection.List<V> | nasl.core.String;
+            oldValue: nasl.collection.List<V> | nasl.core.String;
+        }) => void;
 
         @Event({
             title: '改变后',
             description: '选中状态改变时触发',
         })
-        onChange: (event: nasl.ui.ChangeEvent) => void;
+        onChange: (event: {
+            value: nasl.collection.List<V> | nasl.core.String;
+            oldValue: nasl.collection.List<V> | nasl.core.String;
+        }) => void;
 
         @Event({
             title: '加载前',
@@ -183,7 +189,7 @@ namespace nasl.ui {
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: nasl.ui.BaseEvent) => void;
+        onLoad: () => void;
 
         @Slot({
             title: 'undefined',
@@ -284,7 +290,10 @@ namespace nasl.ui {
             title: '选中前',
             description: '切换选中状态前触发',
         })
-        private onBeforeCheck: (event: nasl.ui.ChangeEvent) => void;
+        private onBeforeCheck: (event: {
+            value: nasl.core.Boolean;
+            oldValue: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '输入时',

@@ -256,12 +256,23 @@ namespace nasl.ui {
             title: '改变后',
             description: '时间改变时触发',
         })
-        onChange: (event: nasl.ui.DateEvent) => void;
+        onChange: (event: {
+            date: nasl.core.String;
+            time: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '失去焦点',
             description: '失去焦点时触发。',
         })
-        onBlur: (event: nasl.ui.FocusEvent) => void;
+        onBlur: (event: {
+            cancelBubble: nasl.core.Boolean;
+            detail: nasl.core.String;
+            layerX: nasl.core.Integer;
+            layerY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
     }
 }

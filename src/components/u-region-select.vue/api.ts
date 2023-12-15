@@ -180,18 +180,34 @@ namespace nasl.ui {
             title: '获得焦点',
             description: '获得焦点时触发。',
         })
-        onFocus: (event: nasl.ui.FocusEvent) => void;
+        onFocus: (event: {
+            cancelBubble: nasl.core.Boolean;
+            detail: nasl.core.String;
+            layerX: nasl.core.Integer;
+            layerY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '失去焦点',
             description: '失去焦点时触发。',
         })
-        onBlur: (event: nasl.ui.FocusEvent) => void;
+        onBlur: (event: {
+            cancelBubble: nasl.core.Boolean;
+            detail: nasl.core.String;
+            layerX: nasl.core.Integer;
+            layerY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '清空后',
             description: '清空后触发。',
         })
-        onClear: (event: nasl.ui.ChangeEvent) => void;
+        onClear: () => void;
     }
 }

@@ -467,37 +467,79 @@ namespace nasl.ui {
             title: '进度改变时',
             description: '发送进度改变时触发，在上传进度条时使用',
         })
-        onProgress: (event: nasl.ui.UploadEvent) => void;
+        onProgress: (event: {
+            item: {
+                name: nasl.core.String;
+                status: nasl.core.String;
+                url: nasl.core.String;
+            };
+            file: File;
+        }) => void;
 
         @Event({
             title: '文件数量超额',
             description: '文件数量超额时触发',
         })
-        onCountExceed: (event: nasl.ui.UploadErrorEvent) => void;
+        onCountExceed: (event: {
+            item: {
+                name: nasl.core.String;
+                status: nasl.core.String;
+                url: nasl.core.String;
+            };
+            file: File;
+        }) => void;
 
         @Event({
             title: '文件大小超额',
             description: '文件大小超额时触发',
         })
-        onSizeExceed: (event: nasl.ui.UploadErrorEvent) => void;
+        onSizeExceed: (event: {
+            maxSize: nasl.core.Decimal;
+            size: nasl.core.Decimal;
+            message: nasl.core.String;
+            name: nasl.core.String;
+            file: File;
+        }) => void;
 
         @Event({
             title: '上传成功时',
             description: '上传成功时触发',
         })
-        onSuccess: (event: nasl.ui.UploadEvent) => void;
+        onSuccess: (event: {
+            item: {
+                name: nasl.core.String;
+                status: nasl.core.String;
+                url: nasl.core.String;
+            };
+            file: File;
+        }) => void;
 
         @Event({
             title: '上传错误时',
             description: '上传报错时触发',
         })
-        onError: (event: nasl.ui.UploadErrorEvent) => void;
+        onError: (event: {
+            item: {
+                name: nasl.core.String;
+                status: nasl.core.String;
+                url: nasl.core.String;
+            };
+            file: File;
+        }) => void;
 
         @Event({
             title: '删除时',
             description: '点击删除按钮时触发',
         })
-        onRemove: (event: nasl.ui.OperatorItemEvent) => void;
+        onRemove: (event: {
+            value: nasl.core.String,
+            item: {
+                name: nasl.core.String;
+                status: nasl.core.String;
+                url: nasl.core.String;
+            },
+            index: nasl.core.Integer;
+        }) => void;
 
         @Slot({
             title: 'undefined',

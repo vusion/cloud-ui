@@ -223,13 +223,29 @@ namespace nasl.ui {
             title: '获得焦点',
             description: '获得焦点时触发。',
         })
-        onFocus: (event: nasl.ui.FocusEvent) => void;
+        onFocus: (event: {
+            cancelBubble: nasl.core.Boolean;
+            detail: nasl.core.String;
+            layerX: nasl.core.Integer;
+            layerY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '失去焦点',
             description: '失去焦点时触发。',
         })
-        onBlur: (event: nasl.ui.FocusEvent) => void;
+        onBlur: (event: {
+            cancelBubble: nasl.core.Boolean;
+            detail: nasl.core.String;
+            layerX: nasl.core.Integer;
+            layerY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '清空前',
@@ -253,25 +269,75 @@ namespace nasl.ui {
             title: '点击前缀图标',
             description: '点击前缀图标后触发',
         })
-        onClickPrefix: (event: nasl.ui.MouseEvent) => void;
+        onClickPrefix: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '点击后缀图标',
             description: '点击后缀图标后触发',
         })
-        onClickSuffix: (event: nasl.ui.MouseEvent) => void;
+        onClickSuffix: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Event({
             title: '键盘按下',
             description: '键盘按键按下时触发',
         })
-        onKeydown: (event: nasl.ui.KeyboardEvent) => void;
+        onKeydown: (event: {
+            altKey: nasl.core.Boolean;
+            code: nasl.core.String;
+            ctrlKey: nasl.core.Boolean;
+            isComposing: nasl.core.Boolean;
+            key: nasl.core.String;
+            metaKey: nasl.core.Boolean;
+            repeat: nasl.core.Boolean;
+            shiftKey: nasl.core.Boolean;
+        }) => void;
 
         @Event({
             title: '键盘松开',
             description: '键盘按键松开时触发',
         })
-        onKeyup: (event: nasl.ui.KeyboardEvent) => void;
+        onKeyup: (event: {
+            altKey: nasl.core.Boolean;
+            code: nasl.core.String;
+            ctrlKey: nasl.core.Boolean;
+            isComposing: nasl.core.Boolean;
+            key: nasl.core.String;
+            metaKey: nasl.core.Boolean;
+            repeat: nasl.core.Boolean;
+            shiftKey: nasl.core.Boolean;
+        }) => void;
 
         @Slot({
             title: '默认',

@@ -26,7 +26,12 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一项前触发',
         })
-        onBeforeSelect: (event: nasl.ui.ChangeItemEvent) => void;
+        onBeforeSelect: (event: {
+            value: nasl.core.String;
+            oldValue: nasl.core.String;
+            node: nasl.core.String;
+            oldNode: nasl.core.String;
+        }) => void;
 
         @Event({
             title: '选择后',
@@ -129,7 +134,23 @@ namespace nasl.ui {
             title: '点击',
             description: '点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。',
         })
-        onClick: (event: nasl.ui.MouseEvent) => void;
+        onClick: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => void;
 
         @Slot({
             title: 'undefined',
