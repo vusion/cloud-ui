@@ -100,7 +100,7 @@
                 <tbody ref="virtual">
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in virtualList">
-                            <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item"
+                            <tr :key="getKey(item, rowIndex)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item"
                             v-if="item.display !== 'none'"
                             :draggable="rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
@@ -940,6 +940,9 @@ export default {
         this.enterTarget = null;
     },
     methods: {
+        getKey(item, index) {
+            typeof item === 'object' ? this.keyMap.getKey(item) : index;
+        },
         isSimpleArray(arr) {
             if (!Array.isArray(arr)) {
                 return false; // 如果不是数组类型，则不满足条件，直接返回 false
@@ -949,7 +952,7 @@ export default {
             );
         },
         getRealItem(item, rowIndex) {
-            const data = this.isSimpleArray(this.currentDataSource.data) ? (this.currentDataSource.arrangedData[rowIndex] && this.currentDataSource.arrangedData[rowIndex].simple) : item;
+            const data = (this.isSimpleArray(this.currentDataSource.data) && this.currentDataSource.data.length > 0) ? (this.currentDataSource.arrangedData[rowIndex] && this.currentDataSource.arrangedData[rowIndex].simple) : item;
             // 给u-table-view-expander用
             try {
                 data.toggle = () => this.toggleExpanded(data);
@@ -1648,7 +1651,12 @@ export default {
             // console.time('复原表格');
             this.exportData = undefined;
             await new Promise((res) => {
-                this.$once('hook:updated', res);
+                try {
+                    mergesMap.length > 0 ? this.$once('hook:updated', res): res();
+                } catch (error) {
+                    console.log('mergeMap格式不正确', error)
+                    this.$once('hook:updated', res)
+                }
             });
             // console.timeEnd('复原表格');
 
