@@ -100,7 +100,7 @@
                 <tbody ref="virtual">
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in virtualList">
-                            <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item"
+                            <tr :key="getKey(item, rowIndex)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item"
                             v-if="item.display !== 'none'"
                             :draggable="rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
@@ -940,6 +940,9 @@ export default {
         this.enterTarget = null;
     },
     methods: {
+        getKey(item, index) {
+            typeof item === 'object' ? this.keyMap.getKey(item) : index;
+        },
         isSimpleArray(arr) {
             if (!Array.isArray(arr)) {
                 return false; // 如果不是数组类型，则不满足条件，直接返回 false
