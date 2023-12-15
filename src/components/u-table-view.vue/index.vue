@@ -97,9 +97,10 @@
                 </colgroup>
                 <tbody>
                     <template v-if="(!currentLoading && !currentError && !currentEmpty || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
-                        <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="keyMap.getKey(item)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item" :style="{ display: item.display }"
-                            :draggable="rowDraggable?rowDraggable:undefined"
+                        <template v-for="(item, rowIndex) in virtualList">
+                            <tr :key="getKey(item, rowIndex)" :class="[$style.row, ($env.VUE_APP_DESIGNER && rowIndex !== 0) ? $style.trmask : '']" :color="item.rowColor" :selected="selectable && selectedItem === item"
+                            v-if="item.display !== 'none'"
+                            :draggable="rowDraggable && item.draggable || undefined"
                             :dragging="isDragging(item)"
                             :subrow="!!item.tableTreeItemLevel"
                             @dragstart="onDragStart($event, item, rowIndex)"
@@ -884,6 +885,9 @@ export default {
         this.clearTimeout();
     },
     methods: {
+        getKey(item, index) {
+            typeof item === 'object' ? this.keyMap.getKey(item) : index;
+        },
         isSimpleArray(arr) {
             if (!Array.isArray(arr)) {
                 return false; // 如果不是数组类型，则不满足条件，直接返回 false
