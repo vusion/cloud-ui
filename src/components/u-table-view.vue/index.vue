@@ -1538,7 +1538,12 @@ export default {
             // console.time('复原表格');
             this.exportData = undefined;
             await new Promise((res) => {
-                this.$once('hook:updated', res);
+                try {
+                    mergesMap.length > 0 ? this.$once('hook:updated', res): res();
+                } catch (error) {
+                    console.log('mergeMap格式不正确', error)
+                    this.$once('hook:updated', res)
+                }
             });
             // console.timeEnd('复原表格');
 
