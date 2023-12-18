@@ -42,10 +42,6 @@ namespace nasl.ui {
             @Param({
                 title: 'undefined',
                 description: '方向',
-                setter: {
-                    type: 'enumSelect',
-                    options: [{ title: '从左向右' }, { title: '从右向左' }],
-                },
             })
             direction: 'forward' | 'reverse' = 'forward',
             @Param({

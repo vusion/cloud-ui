@@ -215,7 +215,7 @@ namespace nasl.ui {
                 },
             ],
         })
-        slotDefault: () => Array<UTreeViewNodeNew<V>>;
+        slotDefault: () => Array<UTreeViewNodeNew<T, V>>;
 
         @Slot({
             title: 'undefined',

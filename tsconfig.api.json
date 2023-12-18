@@ -22,7 +22,6 @@
             "esnext",
             "dom"
         ],
-        "types": ["nasl"],
         "paths": {
             "@/*": ["*"]
         }

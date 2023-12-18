@@ -17,6 +17,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '图标',
             docDescription: '支持从图标库选择图标或上传自定义图标。',
+            setter: {
+                concept: 'IconSetter',
+            },
         })
         name: nasl.core.String = '';
 

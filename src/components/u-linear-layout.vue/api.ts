@@ -87,7 +87,17 @@ namespace nasl.ui {
             bindHide: true,
             setter: {
                 concept: 'CapsulesSetter',
-                options: [{ title: '左对齐', icon: 'horizontal-justify-start', tooltip: '左对齐' }, { title: '居中对齐', icon: 'horizontal-justify-center', tooltip: '居中对齐' }, { title: '右对齐', icon: 'horizontal-justify-end', tooltip: '右对齐' }, { title: '平均分布(两端不留空)', icon: 'horizontal-justify-space-between', tooltip: '平均分布(两端不留空)' }, { title: '平均分布', icon: 'horizontal-justify-space-around', tooltip: '平均分布' }],
+                options: [
+                    { title: '左对齐', icon: 'horizontal-justify-start', tooltip: '左对齐' }, 
+                    { title: '居中对齐', icon: 'horizontal-justify-center', tooltip: '居中对齐' }, 
+                    { title: '右对齐', icon: 'horizontal-justify-end', tooltip: '右对齐' }, 
+                    { 
+                        title: '平均分布(两端不留空)', 
+                        icon: 'horizontal-justify-space-between', 
+                        tooltip: '平均分布(两端不留空)' ,
+                        if: _  => _.mode === 'flex' || _.direction === 'horizontal'
+                    }, 
+                    { title: '平均分布', icon: 'horizontal-justify-space-around', tooltip: '平均分布' }],
             },
             if: _ => _.direction === 'horizontal' || _.mode === 'inline' && _.direction === 'vertical' || _.mode === 'block' && _.direction === 'vertical',
             onChange: [

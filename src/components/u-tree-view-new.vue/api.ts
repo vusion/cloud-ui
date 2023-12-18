@@ -272,7 +272,7 @@ namespace nasl.ui {
                 },
             ],
         })
-        slotDefault: () => Array<UTreeViewNodeNew<V>>;
+        slotDefault: () => Array<UTreeViewNodeNew<T, V>>;
 
         @Slot({
             title: 'undefined',
@@ -285,12 +285,12 @@ namespace nasl.ui {
         title: '树形视图节点',
         description: '树形视图节点',
     })
-    export class UTreeViewNodeNew<V> extends ViewComponent {
+    export class UTreeViewNodeNew<T, V> extends ViewComponent {
 
-        constructor(options?: Partial<UTreeViewNodeNewOptions<V>>) { super(); }
+        constructor(options?: Partial<UTreeViewNodeNewOptions<T, V>>) { super(); }
     }
 
-    export class UTreeViewNodeNewOptions<V> {
+    export class UTreeViewNodeNewOptions<T, V> {
         @Prop({
             title: '文本',
             description: '节点的文本',
@@ -385,6 +385,6 @@ namespace nasl.ui {
                 },
             ],
         })
-        slotDefault: () => Array<UTreeViewNodeNew<V>>;
+        slotDefault: () => Array<UTreeViewNodeNew<T, V>>;
     }
 }
