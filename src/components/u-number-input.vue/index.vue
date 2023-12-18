@@ -188,19 +188,21 @@ export default {
             this.$emit('input', this.currentValue, this);
             this.$emit('change', { value: this.currentValue, oldValue: _oldValue, formattedValue: this.formattedValue, valid: this.isValid(this.currentValue) }, this);
         },
-        max(value, oldValue) {
+        max(_value, oldValue) {
             // todo: 正常情况下，formattedValue应该设计为computed，目前在不影响的情况下，手动watch
-            if (value !== oldValue) {
+            if (_value !== oldValue) {
                 // 根据传入的 value 调整 fix 精度
+                const value = this.value;
                 const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
                 const currentValue = (this.currentValue = this.fix(value, currentPrecision));
                 this.formattedValue = this.currentFormatter.format(currentValue);
             }
         },
-        min(value, oldValue) {
+        min(_value, oldValue) {
             // todo: 正常情况下，formattedValue应该设计为computed，目前在不影响的情况下，手动watch
-            if (value !== oldValue) {
+            if (_value !== oldValue) {
                 // 根据传入的 value 调整 fix 精度
+                const value = this.value;
                 const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
                 const currentValue = (this.currentValue = this.fix(value, currentPrecision));
                 this.formattedValue = this.currentFormatter.format(currentValue);
