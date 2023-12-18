@@ -42,5 +42,5 @@ jobs:
 
   call-wexler:
     needs: build
-    uses: vusion/wexler/.github/workflows/release.yml@master
+    uses: vusion/wexler/.github/workflows/release-cloud-ui.yml@master
     secrets: inherit
