@@ -4,7 +4,7 @@
         :tabindex="readonly || disabled ? '' : 0"
         @drop.prevent="onDrop"
         @paste="onPaste"
-        @dragover.prevent="dragover = true"
+        wdragover.prevent="dragover = true"
         @dragleave.prevent="dragover = false">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <div>
@@ -650,13 +650,14 @@ export default {
                     }, this);
                 },
                 onError: (e, res) => {
+                    console.log('error', e)
                     const item = this.currentValue[index];
                     item.status = 'error';
 
                     const value = this.toValue(this.currentValue);
                     this.$emit('input', value);
                     this.$emit('update:value', value);
-                    const errorMessage = `文件${item.name}上传接口调用失败`;
+                    const errorMessage = e.msg ? JSON.parse(e.msg).Message : `文件${item.name}上传接口调用失败`;
                     this.errorMessage.push(errorMessage);
 
                     this.$emit('error', {
