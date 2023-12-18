@@ -83,19 +83,10 @@
                     <slot name="empty">{{ emptyText }}</slot>
                 </div>
                 <template v-else>
-                    <component :is="ChildComponent"
-                        v-for="(item, index) in currentData"
-                        v-if="item"
-                        :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
-                        :text="$at2(item, field || textField)"
-                        :value="$at2(item, valueField)"
-                        :disabled="item.disabled || disabled"
-                        :item="item"
-                        :description="description ? $at2(item, descriptionField) : null"
-                        :icon="$at2(item, iconField)">
-                        <slot
-                            name="text"
-                            :item="item"
+                        <component :is="ChildComponent"
+                            v-for="(item, index) in currentData"
+                            v-if="item"
+                            :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
                             :text="$at2(item, field || textField)"
                             :value="$at2(item, valueField)"
                             :disabled="item.disabled || disabled"
