@@ -35,7 +35,12 @@ jobs:
         run: mkdir temp && cp -r ./dist-theme ./temp/dist-theme && cp -r ./src ./temp/src
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: 'cloud-ui.vusion@${{ env.VERSION }}'
           path: temp
+
+  call-wexler:
+    needs: build
+    uses: vusion/wexler/.github/workflows/release-cloud-ui.yml@master
+    secrets: inherit
