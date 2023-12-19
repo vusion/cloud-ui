@@ -1,4 +1,4 @@
-# Vusion Cloud UI 
+# Vusion Cloud UI
 
 [![NPM Version][npm-img]][npm-url]
 [![Dependencies][david-img]][david-url]
