@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :color="color || formItemVM && formItemVM.color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
+<div :class="[$style.root, isPreview ? $style.preview : '']" :color="color || formItemVM && formItemVM.color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
     :clearable="clearable && !!(filterable ? filterText ||currentText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
     :prefix="prefix ? prefix : undefined" :suffix="suffix ? suffix : undefined"
     :start="!!prefix"
@@ -13,7 +13,7 @@
     @keydown.delete.stop="onDelete"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
-    <span v-show="!isItemDisplay || (!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing)" :class="$style.placeholder">{{ placeholder }}</span>
+    <span v-show="!isItemDisplay || (!filterText && (multiple ? !selectedVMs.length : !selectedVM) && !compositionInputing)" :class="$style.placeholder">{{ isPreview ? '--' : placeholder }}</span>
     <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <div v-show="isItemDisplay" :class="[$style.text,!multiple && $style.textEllipsis]" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}" ref="inputOuter">
         <!-- @override: 添加了flag功能 -->
@@ -39,13 +39,13 @@
                         <img :class="$style.icon" v-if="itemVM.icon" :src="itemVM.icon">
                         {{ itemVM.currentText }}
                     </span>
-                    <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
+                    <span v-show="!isPreview" :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
                 </span>
             </template>
             <template v-else-if="tagsOverflow === 'collapse'">
                 <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '__' + index : itemVM.value" :ref="`item_${index}`">
                     <span :class="[$style['tag-text'], iconField?$style.iconwrap:'']"><img :class="$style.icon" v-if="itemVM.icon" :src="itemVM.icon">{{ itemVM.currentText }}</span>
-                    <span :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
+                    <span v-show="!isPreview" :class="$style['tag-remove']" @click.stop="removeTag(itemVM, false)"></span>
                 </span>
                 <span :class="$style.tag" v-if="selectedVMs.length - collapseCounter >= 1 && selectedVMs.length !== 1" :style="{ 'vertical-align': 'middle', 'padding-right': '6px' }">
                     <span :class="$style['tag-text']">+{{ selectedVMs.length - collapseCounter }}...</span>
@@ -83,49 +83,49 @@
                     <slot name="empty">{{ emptyText }}</slot>
                 </div>
                 <template v-else>
-                    <component :is="ChildComponent"
-                        v-for="(item, index) in currentData"
-                        v-if="item"
-                        :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
-                        :text="$at2(item, field || textField)"
-                        :value="$at2(item, valueField)"
-                        :disabled="item.disabled || disabled"
-                        :item="item"
-                        :description="description ? $at2(item, descriptionField) : null"
-                        :icon="$at2(item, iconField)">
-                        <slot
-                            name="text"
-                            :item="item"
+                        <component :is="ChildComponent"
+                            v-for="(item, index) in currentData"
+                            v-if="item"
+                            :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
                             :text="$at2(item, field || textField)"
                             :value="$at2(item, valueField)"
                             :disabled="item.disabled || disabled"
+                            :item="item"
                             :description="description ? $at2(item, descriptionField) : null"
                             :icon="$at2(item, iconField)">
-                            <span :class="$style.iconwrap" v-if="iconField">
-                                <img :class="$style.icon" v-if="$at2(item, iconField)" :src="$at2(item, iconField)">
-                                {{ $at2(item, field || textField) }}
-                            </span>
-                            <template v-else>
-                                {{ $at2(item, field || textField) }}
-                            </template>
-                        </slot>
-                    </component>
+                            <slot
+                                name="text"
+                                :item="item"
+                                :text="$at2(item, field || textField)"
+                                :value="$at2(item, valueField)"
+                                :disabled="item.disabled || disabled"
+                                :description="description ? $at2(item, descriptionField) : null"
+                                :icon="$at2(item, iconField)">
+                                <span :class="$style.iconwrap" v-if="iconField">
+                                    <img :class="$style.icon" v-if="$at2(item, iconField)" :src="$at2(item, iconField)">
+                                    {{ $at2(item, field || textField) }}
+                                </span>
+                                <template v-else>
+                                    {{ $at2(item, field || textField) }}
+                                </template>
+                            </slot>
+                        </component>
+                    </template>
                 </template>
-            </template>
-            <div :class="$style.status" status="loading" v-if="currentLoading">
-                <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+                <div :class="$style.status" status="loading" v-if="currentLoading">
+                    <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+                </div>
             </div>
-        </div>
-        <div :class="$style.footer" v-if="showRenderFooter" vusion-slot-name="renderFooter" ref="footer">
-            <slot name="renderFooter">
-                <s-empty v-if="(!$slots.renderFooter)
-                    && $env.VUE_APP_DESIGNER
-                    && !!$attrs['vusion-node-path']">
-                </s-empty>
-            </slot>
-        </div>
-    </m-popper>
-</div>
+            <div :class="$style.footer" v-if="showRenderFooter" vusion-slot-name="renderFooter" ref="footer">
+                <slot name="renderFooter">
+                    <s-empty v-if="(!$slots.renderFooter)
+                        && $env.VUE_APP_DESIGNER
+                        && !!$attrs['vusion-node-path']">
+                    </s-empty>
+                </slot>
+            </div>
+        </m-popper>
+    </div>
 </template>
 
 <script>
@@ -134,6 +134,7 @@ import { ellipsisTitle } from '../../directives';
 import i18n from './i18n';
 import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
+import MPreview from '../u-text.vue/preview';
 import AllCheck from './allCheck.vue';
 import i18nMixin from '../../mixins/i18n';
 
@@ -148,7 +149,7 @@ export default {
     directives: { ellipsisTitle },
     extends: UListView,
     // i18n,
-    mixins: [i18nMixin('u-select')],
+    mixins: [i18nMixin('u-select'), MPreview],
     props: {
         // @inherit: value: { type: String, default: '' },
         // @inherit: value: Array,
@@ -168,6 +169,7 @@ export default {
         placeholder: { type: String, default: '请选择' },
         clearable: { type: Boolean, default: false },
         filterable: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
         matchMethod: { type: [String, Function], default: 'includes' },
         caseSensitive: { type: Boolean, default: false }, // @inherit: loadingText: { type: String, default: '加载中...' },
         placement: { type: String, validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value) },

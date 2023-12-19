@@ -384,6 +384,12 @@
       brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
+    - name: preview
+      title: 预览
+      type: boolean
+      default: false
+      description: 显示预览态
+      group: 状态属性
     - name: opened
       title: 弹出状态
       type: boolean

@@ -43,11 +43,13 @@ export default {
         value: null,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
     },
     data() {
         return {
             // inherit: itemVMs: [],
             selectedVM: undefined,
+            currentText: null,
         };
     },
     watch: {
@@ -65,6 +67,8 @@ export default {
                 },
                 this,
             );
+
+            this.currentText = selectedVM?.$slots?.item?.[0].componentOptions.propsData.text;
         },
         itemVMs() {
             this.selectedVM = undefined;

@@ -23,7 +23,7 @@
         - icon-field
         - value-field
         - parent-field
-        - link-type-field 
+        - link-type-field
         - target-field
     - name: data-source
       title: 数据源

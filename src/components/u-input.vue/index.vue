@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :readonly="readonly" :disabled="disabled" :color="currentColor || formItemVM && formItemVM.color"
+<div v-if="!isPreview" :class="$style.root" :readonly="readonly" :disabled="disabled" :color="currentColor || formItemVM && formItemVM.color"
     :focus="focused" :clearable="clearable && currentValue" :prefix="prefix" :suffix="suffix"
     :show-password="showPassword" :password="password"
     @click.self="!focused && focus()">
@@ -42,6 +42,7 @@
         <span :class="$style.clearable" v-if="clearable && !valueEmpty && !readonly && !disabled" @click.stop="clear"></span>
     </span>
 </div>
+<u-preview v-else :text="value"></u-preview>
 </template>
 
 <script>
@@ -49,14 +50,17 @@ import MField from '../m-field.vue';
 import { focus } from '../../directives';
 import { isIE } from '../../utils/dom';
 // import IIco from '../i-ico.vue';
+import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-input',
     component: {
         // IIco,
+        UPreview
     },
     directives: { focus },
-    mixins: [MField],
+    mixins: [MField, MPreview],
     props: {
         value: [String, Number],
         color: String,
@@ -65,6 +69,7 @@ export default {
         autofocus: { type: [Boolean, String], default: false },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
         password: { type: Boolean, default: false },
         type: { type: String, default: 'text' },
         maxlengthMessage: String,
@@ -284,7 +289,7 @@ export default {
                 this.$refs.input && this.$refs.input.select();
             });
         },
-    },
+    }
 };
 </script>
 

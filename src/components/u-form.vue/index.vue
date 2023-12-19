@@ -23,6 +23,7 @@ export default {
         repeat: { type: [String, Number], default: null },
         labelLayout: String,
         labelEllipsis: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
     },
     data() {
         return {
