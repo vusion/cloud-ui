@@ -32,7 +32,10 @@
                         :is-input="isInput"
                         :lazy="lazy"
                         :field="field"
-                        :data="item">
+                        :data="item"
+                        :change-on-select="changeOnSelect"
+                        :style="dynamicStyle"
+                        >
                     </u-cascader-item>
                 </template>
             </m-popper>
@@ -73,6 +76,15 @@ export default {
             type: Boolean,
             default: false,
         },
+
+        changeOnSelect: {
+            type: Boolean,
+            default: false,
+        },
+
+        filterHightlighterColor: {
+            type: String,
+        },
     },
     data() {
         return {
@@ -87,7 +99,19 @@ export default {
             typeMpopper: [], // mpopper显示的数据（有真正内容数据和搜索内容数据）
             isInput: false,
             currentOpened: false,
+            cssVariables: {},
         };
+    },
+    computed: {
+        dynamicStyle() {
+            if (this.filterHightlighterColor) {
+                return {
+                    ...this.cssVariables,
+                    '--cascader-item-highlighter': this.filterHightlighterColor,
+                };
+            }
+            return this.cssVariables;
+        },
     },
     watch: {
         currentValue(value) {
@@ -169,6 +193,7 @@ export default {
     mounted() {
         // 输入框是readonly时，autofocus不起作用，需要这样进行focus
         this.autofocus && this.$refs.input.focus();
+        this.extractCssVariables();
         // 在编辑器里不要打开
         if (!this.$env.VUE_APP_DESIGNER && this.currentData.length) {
             this.currentOpened = this.opened;
@@ -176,6 +201,20 @@ export default {
         }
     },
     methods: {
+        extractCssVariables() {
+            if (this.$vnode && this.$vnode.data && this.$vnode.data.staticStyle) {
+                this.cssVariables = Object.entries(this.$vnode.data.staticStyle).reduce((acc, [key, value]) => {
+                    if (!key.startsWith('--')) {
+                        return acc;
+                    } else {
+                        return {
+                            ...acc,
+                            [key]: value,
+                        };
+                    }
+                }, {});
+            }
+        },
         selectCascaderItem(selectNode, subIndex) {
             this.selectSubIdnex = subIndex;
 
@@ -204,7 +243,9 @@ export default {
                 this.lastValueArray.push(this.$at(selectNode, this.field));
                 this.lastRealValueArray.push(this.$at(selectNode, this.valueField));
             }
-            this.$refs.popper.scheduleUpdate();
+            if (!this.changeOnSelect || this.trigger !== 'click') {
+                this.$refs.popper.scheduleUpdate();
+            }
         },
         selectEnd() {
             this.lastValueString = this.lastValueArray.join(this.join);
@@ -374,8 +415,26 @@ export default {
             }
             this.open();
         },
+        markMatchingStrings(source, target) {
+            const regex = new RegExp(target, 'g');
+            const matched = regex.test(source);
+            if (!matched) {
+                return null;
+            }
+            return source.replace(regex, (match) => `<span class="${this.$style.filterHighlighter}">${match}</span>`);
+        },
         filter(filterParam) {
-            return this.allMergeText.filter((item) => item[this.field].search(filterParam) > -1);
+            return this.allMergeText.filter((item) => {
+                if (!item) {
+                    return false;
+                }
+                const highlighterHtml = this.markMatchingStrings(item[this.field], filterParam);
+                if (!highlighterHtml) {
+                    return false;
+                }
+                item.highlighterHtml = highlighterHtml;
+                return true;
+            });
         },
         onEnter() {
             const refVM = this.$refs[this.selectSubIdnex][0];
