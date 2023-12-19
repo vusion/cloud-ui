@@ -72,12 +72,11 @@ export default {
       currentValue: null,
       itemVMs: [],
       all: false,
-      currentText : ''
+      currentText : null
     };
   },
   watch: {
     value(value) {
-      console.log('value', value)
       this.watchValue(value);
        // currentText
        let texts = [];
@@ -86,7 +85,8 @@ export default {
               texts.push(it.$slots.item?.[0].componentOptions.propsData.text);
           }
       });
-      this.currentText = texts.join(',');
+      if (texts.length > 0)
+        this.currentText = texts.join(',');
     },
     currentValue(value, oldValue) {
       if (this.converter) {
