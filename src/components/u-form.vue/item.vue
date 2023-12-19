@@ -105,12 +105,7 @@ export default {
                 || (this.groupVM && this.groupVM.labelEllipsis)
                 || (this.rootVM && this.rootVM.labelEllipsis)
             );
-        },
-        preview() {
-            return (
-                this.rootVM && this.rootVM.preview
-            );
-        },
+        }
     },
     watch: {
         span(span) {
