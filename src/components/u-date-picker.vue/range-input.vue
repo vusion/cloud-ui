@@ -33,7 +33,7 @@
             :autofocus="autofocus"
             :readonly="readonly"
             :disabled="disabled"
-            :placeholder="placeholder"
+            :placeholder="rightPlaceholder"
             :clearable="clearable"
             @click.stop="onRightClick"
             @focus="onFocus"
@@ -72,6 +72,9 @@ export default {
                 return this.$t('selectDateText');
             },
         },
+        placeholderRight: {
+            type: String,
+        },
         clearable: { type: Boolean, default: false },
         color: { type: String },
     },
@@ -79,6 +82,11 @@ export default {
         return {
             focused: false,
         };
+    },
+    computed: {
+        rightPlaceholder() {
+            return this.placeholderRight || this.placeholder;
+        },
     },
     methods: {
         onLeftClick(event) {
