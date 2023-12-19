@@ -31,6 +31,8 @@
       default: false
       description: 是否支持进行日期区间选择，关闭则为日期点选择
       group: 数据属性
+      toggleclear:
+        - placeholderRight
     - name: value
       title: 值
       type: string,number,Date
@@ -201,12 +203,22 @@
     - name: placeholder
       title: 占位符
       type: string
-      default: 请输入
+      default: 请选择日期
       description: 为空时显示的占位符文本
       group: 主要属性
       brifeDoc: ""
       docDescription: 日期选择框无内容时的提示信息，支持自定义编辑，默认为请输入
       tooltipLink: ""
+    - name: placeholderRight
+      title: 右侧占位符
+      type: string
+      description: 为空时显示的占位符文本（右侧）
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 日期选择框无内容时的提示信息，支持自定义编辑, 在没有设置的时候使用placeholder作为右侧占位符内容
+      tooltipLink: ""
+      dependency:
+        - range: true
     - name: alignment
       title: 日历弹窗对齐方式
       type: string

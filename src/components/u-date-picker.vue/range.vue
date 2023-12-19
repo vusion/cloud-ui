@@ -8,7 +8,9 @@
         :disabled="disabled"
         :left-value="genDisplayFormatText(showStartDate)"
         :right-value="genDisplayFormatText(showEndDate)"
-        :clearable="clearable" :placeholder="placeholder"
+        :clearable="clearable"
+        :placeholder="placeholder"
+        :placeholder-right="placeholderRight"
         @left-click="toggle(true)"
         @right-click="toggle(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
@@ -88,6 +90,9 @@ export default {
             default() {
                 return this.$tt('selectDateText');
             },
+        },
+        placeholderRight: {
+            type: String,
         },
         alignment: {
             type: String,
