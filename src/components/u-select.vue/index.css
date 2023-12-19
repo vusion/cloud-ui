@@ -226,6 +226,10 @@
     padding-right: 30px;
 }
 
+.root[prefix] .input:not([multiple-tags])[filterable] {
+    padding-left: 24px;
+}
+
 .root[suffix]::after {
     display: none;
 }

@@ -90,8 +90,8 @@ import IIco from '../i-ico.vue';
 export default {
     name: 'u-steps',
     childName: 'u-step',
-    extends: UTabs,
     components: { IIco },
+    extends: UTabs,
     props: {
         value: { type: Number, default: 0 },
         readonly: { type: Boolean, default: true },
@@ -112,7 +112,7 @@ export default {
         },
         stepDataSource() {
             const data = this.currentDataSource && this.currentDataSource.data || [];
-            return data.map((item, index) => ({ ...item, index }))
+            return data.map((item, index) => ({ ...item, index }));
         },
     },
     watch: {
@@ -140,8 +140,12 @@ export default {
             if (value === undefined)
                 this.selectedVM = this.autoSelect ? this.itemVMs[0] : undefined;
             else {
+                let currentValue = value;
+                if (typeof value !== 'number') {
+                    currentValue = Number(value);
+                }
                 this.selectedVM = this.itemVMs.find(
-                    (itemVM) => itemVM.index === value,
+                    (itemVM) => itemVM.index === currentValue,
                 );
                 this.selectedVM
                     && this.selectedVM.groupVM

@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.19.0",
+  "version": "0.19.1",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -32,7 +32,7 @@
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
     "usage": "node ./scripts/lcap",
     "deploy:dev": "lcap deploy dist-theme --platform http://defaulttenant.lcap.hadev.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hadev.163yun.com",
-    "deploy:test": "npm test && lcap deploy dist-theme --platform http://defaulttenant.lcap.hatest.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hatest.163yun.com",
+    "deploy:test": "lcap deploy dist-theme --platform http://defaulttenant.lcap.hatest.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hatest.163yun.com",
     "deploy:test-without-img": "npm test &&lcap deploy dist-theme --platform http://defaulttenant.lcap.hatest.163yun.com",
     "deploy:pre": "npm test && lcap deploy dist-theme --platform http://defaulttenant.lcap.hadri.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hadri.163yun.com",
     "deploy:online": "npm test && lcap deploy dist-theme --platform http://netease-template.lcap.163yun.com && node bin/deploy-lcp-images --platform=http://netease-template.lcap.163yun.com",
@@ -60,8 +60,8 @@
   ],
   "dependencies": {
     "@popperjs/core": "^2.10.2",
-    "@vusion/utils": "^0.4.9",
-    "@vusion/validator": "^0.4.8",
+    "@vusion/utils": "0.4.11",
+    "@vusion/validator": "0.4.7",
     "animate.css": "^4.1.1",
     "countup.js": "^1.9.3",
     "dayjs": "^1.10.7",

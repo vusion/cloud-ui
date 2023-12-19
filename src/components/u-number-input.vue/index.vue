@@ -1,7 +1,7 @@
 <template>
     <u-input ref="input" :class="$style.root" :button-display="buttonDisplay" :value="formattedValue"
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
-        @keydown.native.up.prevent.stop="increase" @keydown.native.down.prevent.stop="decrease" @keydown.native.enter="onEnter"
+        @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside"
         :hide-buttons="hideButtons" :color="formItemVM && formItemVM.color" :prefix="!!showPrefix" :suffix="!!showSuffix">
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
@@ -23,8 +23,6 @@
 import MField from '../m-field.vue';
 import { repeatClick, clickOutside } from '../../directives';
 import { noopFormatter, NumberFormatter } from '../../utils/Formatters';
-import { Decimal } from 'decimal.js';
-
 const isNil = (value) => (typeof value === 'string' && value.trim() === '') || value === null || value === undefined;
 
 export default {
@@ -33,7 +31,7 @@ export default {
     mixins: [MField],
     props: {
         // String 类型是为了验证抛出
-        value: [Number, String, Object],
+        value: [Number, String],
         defaultValue: [String, Number],
         min: { type: Number, default: -Infinity },
         max: { type: Number, default: Infinity },
@@ -77,10 +75,6 @@ export default {
             type: Boolean,
             default: false,
         },
-        highPrecision: {
-            type: Boolean,
-            default: false,
-        },
         unit: {
             type: Object,
             default: () => ({
@@ -92,19 +86,7 @@ export default {
     data() {
         // 根据初始值计算 fix 精度
         const currentPrecision = this.getCurrentPrecision(this.value);
-        if (typeof this.value === 'object') {
-            this.value = String(this.value);
-        }
-        if (this.value === null || this.value === 'null') {
-            this.value = undefined;
-        }
-        let CoDecimal;
-
-        if (this.highPrecision && this?.decimalLength > -1) {
-            CoDecimal = this.getCloneDecimal();
-        }
         const data = {
-            Decimal: CoDecimal,
             // 当前使用的精度，当 precision 为 0 时，使用动态精度
             currentPrecision,
             currentValue: this.fix(this.value, currentPrecision), // 格式化后的 value，与`<input>`中的实际值保持一致
@@ -115,7 +97,7 @@ export default {
         if (this.formatter instanceof Object)
             data.currentFormatter = this.formatter;
         else if (typeof this.formatter === 'string')
-            data.currentFormatter = new NumberFormatter(this.formatter, { isDecimal: this.highPrecision });
+            data.currentFormatter = new NumberFormatter(this.formatter);
         else
             data.currentFormatter = noopFormatter; // 初始值需要在最小值和最大值范围之内
 
@@ -158,15 +140,14 @@ export default {
             }
 
             if (formatter) {
-                const option = { isDecimal: this.highPrecision };
-                if (!this.advancedFormat.enable) {
-                    option.percentSign = this.percentSign; // 百分比
-                }
-                data.currentFormatter = new NumberFormatter(formatter, option);
+                data.currentFormatter = new NumberFormatter(formatter, !this.advancedFormat.enable && {
+                    percentSign: this.percentSign, // 百分比
+                });
             }
         }
 
         data.formattedValue = data.currentFormatter.format(data.currentValue);
+
         return data;
     },
     computed: {
@@ -190,16 +171,9 @@ export default {
             if (value === this.currentValue) {
                 return;
             }
-            let curValue = value;
-            if (typeof value === 'object') {
-                curValue = String(value);
-            }
-            if (this.value === null || this.value === 'null') {
-                curValue = undefined;
-            }
-            const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(curValue));
+            const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
             const _oldValue = this.currentValue;
-            const currentValue = (this.currentValue = this.fix(curValue, currentPrecision));
+            const currentValue = (this.currentValue = this.fix(value, currentPrecision));
             this.formattedValue = this.currentFormatter.format(currentValue);
             this.$emit('update', this.currentValue, this);
             // 当点击了form的创建按钮等调用了validate方法，fieldTouched值会变为true，不会走update validate
@@ -207,19 +181,21 @@ export default {
             this.$emit('input', this.currentValue, this);
             this.$emit('change', { value: this.currentValue, oldValue: _oldValue, formattedValue: this.formattedValue, valid: this.isValid(this.currentValue) }, this);
         },
-        max(value, oldValue) {
+        max(_value, oldValue) {
             // todo: 正常情况下，formattedValue应该设计为computed，目前在不影响的情况下，手动watch
-            if (value !== oldValue) {
+            if (_value !== oldValue) {
                 // 根据传入的 value 调整 fix 精度
+                const value = this.value;
                 const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
                 const currentValue = (this.currentValue = this.fix(value, currentPrecision));
                 this.formattedValue = this.currentFormatter.format(currentValue);
             }
         },
-        min(value, oldValue) {
+        min(_value, oldValue) {
             // todo: 正常情况下，formattedValue应该设计为computed，目前在不影响的情况下，手动watch
-            if (value !== oldValue) {
+            if (_value !== oldValue) {
                 // 根据传入的 value 调整 fix 精度
+                const value = this.value;
                 const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
                 const currentValue = (this.currentValue = this.fix(value, currentPrecision));
                 this.formattedValue = this.currentFormatter.format(currentValue);
@@ -234,19 +210,6 @@ export default {
         this.autofocus && this.$refs.input.focus();
     },
     methods: {
-        getCloneDecimal() {
-            let CoDecimal;
-            if (this?.decimalLength === 0) {
-                // 平台long类型 最大精度20
-                CoDecimal = Decimal.clone({ precision: 20 });
-            } else {
-                const valueLen = String(this.value).length;
-                const len = Math.max(valueLen, this.decimalLength);
-                const rounding = len + 1;
-                CoDecimal = Decimal.clone({ precision: rounding * 2 });
-            }
-            return CoDecimal;
-        },
         strip(num, precision = 17) {
             return +parseFloat(num).toPrecision(precision);
         },
@@ -273,25 +236,11 @@ export default {
             else if (isNaN(value))
                 value = this.currentValue || this.defaultValue || 0;
 
-            if (this.highPrecision) {
-                // if (typeof value === 'object') {
-                //     value = value + '';
-                // }
-                if (!this.Decimal && this?.decimalLength > -1) {
-                    this.Decimal = this.getCloneDecimal();
-                }
-                value = this.Decimal.min(this.Decimal.max(this.min, new this.Decimal(value)), this.max).toString();
-            } else {
-                value = Math.min(Math.max(this.min, value), this.max);
-            }
+            value = Math.min(Math.max(this.min, value), this.max);
 
             // 配置了新的精度
             if (this.decimalLength >= 0) {
-                if (this.highPrecision) {
-                    value = new this.Decimal(String(value)).toFixed(Math.floor(this.decimalLength)).toString();
-                } else {
-                    value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
-                }
+                value = parseFloat(+value.toFixed(Math.floor(this.decimalLength)));
             } else if (this.precision > 0) {
                 let decimalLength = 0;
                 try {
@@ -307,11 +256,8 @@ export default {
                 } catch (error) {
                     console.log(error);
                 }
-                if (this.highPrecision) {
-                    value = new this.Decimal(String(value)).toFixed(this.Decimal.floor(decimalLength)).toString();
-                } else {
-                    value = parseFloat(+value.toFixed(Math.floor(decimalLength)));
-                }
+
+                value = parseFloat(+value.toFixed(Math.floor(decimalLength)));
             }
 
             return value;
@@ -396,24 +342,12 @@ export default {
         },
         increase() {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
-            let result;
-            if (this.highPrecision) {
-                result = new this.Decimal(String(this.currentValue)).add(new this.Decimal(String(step)));
-            } else {
-                result = +this.currentValue + (step - 0);
-            }
-            this.adjust(result.toString());
+            this.adjust(+this.currentValue + (step - 0));
             this.preventBlur = true;
         },
         decrease() {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : +this.step;
-            let result;
-            if (this.highPrecision) {
-                result = new this.Decimal(this.currentValue.toString()).minus(new this.Decimal(step.toString()));
-            } else {
-                result = +this.currentValue - step;
-            }
-            this.adjust(result.toString());
+            this.adjust(+this.currentValue - step);
             this.preventBlur = true;
         },
         onInput(rawValue) {

@@ -5130,7 +5130,6 @@
                     "name": "opened",
                     "title": "显示状态",
                     "type": "boolean",
-                    "sync": true,
                     "default": false,
                     "description": "",
                     "group": "状态属性",
@@ -17046,7 +17045,10 @@
                     "tooltipLink": "",
                     "dependency": [
                         {
-                            "check-all": false
+                            "+check-all": [
+                                null,
+                                false
+                            ]
                         }
                     ]
                 },
@@ -17060,7 +17062,10 @@
                     "tooltipLink": "",
                     "dependency": [
                         {
-                            "check-all": false
+                            "+check-all": [
+                                null,
+                                false
+                            ]
                         }
                     ]
                 },
@@ -17958,6 +17963,7 @@
                     "sync": true,
                     "model": true,
                     "default": 0,
+                    "max": 20,
                     "description": "",
                     "group": "数据属性",
                     "docDescription": "当前选择的值",
@@ -17968,6 +17974,7 @@
                     "title": "最大分数",
                     "type": "number",
                     "default": 5,
+                    "max": 20,
                     "description": "",
                     "group": "数据属性",
                     "docDescription": "评分组件的最大分数",
@@ -19709,7 +19716,7 @@
                     "type": "(item: T) => nasl.core.String",
                     "description": "数据源集合的元素，用于显示标签标题的属性",
                     "group": "数据属性",
-                    "advanced": true,
+                    "brifeDoc": "",
                     "docDescription": "数据源集合的元素，用于显示标签标题的属性",
                     "tooltipLink": ""
                 },
@@ -19727,6 +19734,17 @@
                     "name": "url-field",
                     "title": "标签项内容值字段",
                     "type": "(item: T) => V",
+                    "description": "数据源集合的元素，用于标识当前打开的标签项",
+                    "group": "数据属性",
+                    "display": "property-select",
+                    "tooltipLink": "",
+                    "docDescription": "数据源集合的元素，用于标识当前打开的标签项"
+                },
+                {
+                    "name": "content-field",
+                    "title": "标签项内容值",
+                    "type": "string",
+                    "default": "",
                     "description": "数据源集合的元素，用于标识当前打开的标签项",
                     "group": "数据属性",
                     "display": "property-select",
@@ -26244,7 +26262,99 @@
                     ],
                     "group": "主要属性",
                     "brifeDoc": "",
-                    "docDescription": "设置弹出层在html里的位置，支持引用元素下、全局body设置。当把当前组件放入某个组件，而组件overflow是hidden的时候，需要设置为全局body",
+                    "docDescription": "设置弹出层在html里的位置，支持引用元素下、全局body设置。当把当前组件放入某个组件，而组件overflow是hidden的时候，需要设置为全局body"
+                },
+                {
+                    "name": "disabled",
+                    "title": "禁用",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）",
+                    "group": "状态属性",
+                    "brifeDoc": "",
+                    "docDescription": "",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "width",
+                    "title": "宽度",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "full",
+                            "title": "占满"
+                        },
+                        {
+                            "value": "huge",
+                            "title": "巨大"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        },
+                        {
+                            "value": "medium",
+                            "title": "中型"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        },
+                        {
+                            "value": "small",
+                            "title": "小"
+                        },
+                        {
+                            "value": "mini",
+                            "title": "迷你"
+                        }
+                    ],
+                    "default": "normal",
+                    "description": "设置选择框宽度大小",
+                    "group": "样式属性",
+                    "brifeDoc": "",
+                    "docDescription": "设置选择框宽度大小，支持占满、巨大、大、中型、正常、小共6种模式",
+                    "tooltipLink": ""
+                },
+                {
+                    "name": "height",
+                    "title": "高度",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "full",
+                            "title": "占满"
+                        },
+                        {
+                            "value": "huge",
+                            "title": "巨大"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        },
+                        {
+                            "value": "medium",
+                            "title": "中型"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        },
+                        {
+                            "value": "small",
+                            "title": "小"
+                        },
+                        {
+                            "value": "mini",
+                            "title": "迷你"
+                        }
+                    ],
+                    "default": "normal",
+                    "description": "设置选择框高度大小",
+                    "group": "样式属性",
+                    "brifeDoc": "",
+                    "docDescription": "设置选择框高度大小，支持占满、巨大、大、中型、正常、小共6种模式",
                     "tooltipLink": ""
                 }
             ],
@@ -27403,6 +27513,14 @@
                         {
                             "value": "right",
                             "title": "右"
+                        },
+                        {
+                            "value": "top",
+                            "title": "上"
+                        },
+                        {
+                            "value": "bottom",
+                            "title": "下"
                         }
                     ],
                     "description": "抽屉弹出的位置",
@@ -27472,7 +27590,8 @@
                     "default": "normal",
                     "description": "抽屉的尺寸",
                     "group": "样式属性",
-                    "docDescription": "支持配置抽屉的宽度，支持小、正常、大三个尺寸",
+                    "brifeDoc": "",
+                    "docDescription": "支持配置抽屉的宽度或者高度，支持小、正常、大、三个尺寸",
                     "tooltipLink": ""
                 }
             ],

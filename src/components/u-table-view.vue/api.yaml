@@ -1628,6 +1628,15 @@
       description: ""
       advanced: true
       group: 主要属性
+    - name: fixed
+      title: 固定列
+      type: boolean
+      default: false
+      description: 该分组列是否固定。该分组列固定后，分组下的所有列都会固定
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: ""
+      tooltipLink: ""
   slots:
     - concept: Slot
       name: default

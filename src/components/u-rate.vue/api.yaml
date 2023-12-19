@@ -11,6 +11,7 @@
       sync: true
       model: true
       default: 0
+      max: 20
       description: ""
       group: 数据属性
       docDescription: 当前选择的值
@@ -19,6 +20,7 @@
       title: 最大分数
       type: number
       default: 5
+      max: 20
       description: ""
       group: 数据属性
       docDescription: 评分组件的最大分数

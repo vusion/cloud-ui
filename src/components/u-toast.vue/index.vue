@@ -192,6 +192,7 @@ export default {
     top: var(--toast-top);
     left: var(--toast-margin);
     pointer-events: none;
+    word-break: break-all;
 }
 
 .root[position='top-center'], .root[position='bottom-center'] {

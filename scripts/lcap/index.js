@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const map = [];
 const getUsage = require('vusion/lib/lcap');
+const argv = require('minimist')(process.argv.slice(2));
 const root = path.join(__dirname, '../../src/components');
 const defaultTheme = require('../genThemeConfig/property.json');
 const themeConfig = require('../genThemeConfig/result.json');
@@ -12,7 +13,10 @@ components.forEach((component) => {
     map.push(getUsage(targetFile));
 });
 const packageJSON = require('../../package.json');
-const libInfo = `${packageJSON.name}@${packageJSON.version}`;
+
+const version = process.env.LCAP_LIB_VERSION || argv.version || packageJSON.version;
+
+const libInfo = `${packageJSON.name}@${version}`;
 Object.values(map).forEach((item) => {
     let screenShot = JSON.parse(item.screenShot);
     screenShot = screenShot

@@ -28,14 +28,19 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build:theme
+        run: LCAP_LIB_VERSION=${{ env.VERSION }} npm run build:theme-local
 
       # 创建一个临时目录
       - name: Create temp dir
         run: mkdir temp && cp -r ./dist-theme ./temp/dist-theme && cp -r ./src ./temp/src
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: 'cloud-ui.vusion@${{ env.VERSION }}'
           path: temp
+
+  call-wexler:
+    needs: build
+    uses: vusion/wexler/.github/workflows/release-cloud-ui.yml@master
+    secrets: inherit

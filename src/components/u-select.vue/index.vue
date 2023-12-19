@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :color="color || formItemVM && formItemVM.color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
-    :clearable="clearable && !!(filterable ? filterText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
+    :clearable="clearable && !!(filterable ? filterText ||currentText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
     :prefix="prefix ? prefix : undefined" :suffix="suffix ? suffix : undefined"
     :start="!!prefix"
     :end="!!suffix"
@@ -63,7 +63,7 @@
     </div>
     <span v-if="suffix" :name="suffix" :class="$style.suffix"
             @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-    <span v-if="!currentDisabled && !readonly && clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click.stop="clear"></span>
+    <span v-if="!currentDisabled && !readonly && clearable && !!(filterable ? filterText ||currentText : currentText)" :class="$style.clearable" @click.stop="clear"></span>
     <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"
         :style="{ width: currentPopperWidth }"
         :footer="showRenderFooter"
@@ -698,6 +698,7 @@ export default {
         },
         clear() {
             this.preventBlur = true;
+            this.currentText = '';
             if (this.multiple) {
                 const oldValue = this.value;
                 let value = [];

@@ -211,7 +211,6 @@
     - name: opened
       title: 显示状态
       type: boolean
-      sync: true
       default: false
       description: ""
       group: 状态属性

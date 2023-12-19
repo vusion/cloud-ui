@@ -111,6 +111,12 @@ export default {
     height: 0;
 }
 
+/* 加强样式，以免嵌套被覆盖 */
+.root[native] ::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+}
+
 .wrap {
     overflow: auto;
     height: 100%;
