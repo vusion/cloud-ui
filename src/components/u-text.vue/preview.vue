@@ -1,7 +1,7 @@
 <template>
   <!-- $env.VUE_APP_DESIGNER -->
   <div>
-    <u-text :text="text"></u-text>
+    <u-text :text="text ? text : '--'"></u-text>
   </div>
 </template>
 
