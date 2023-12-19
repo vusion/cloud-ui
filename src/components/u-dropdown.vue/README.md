@@ -4,6 +4,7 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
+    - [触发方式](#触发方式)
 - [UDropdown API](#udropdown-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -119,6 +120,78 @@
     <u-dropdown-item icon="task" disabled text="item"></u-dropdown-item>
 </u-dropdown>
 ```
+
+### 触发方式
+
+使用`trigger`属性设置触发方式。
+
+``` html
+<u-linear-layout>
+    <u-dropdown trigger="hover">
+        <template #title="scope">
+            <u-text text="下拉菜单hover展开"></u-text>
+        </template>
+        <u-dropdown-item text="item"></u-dropdown-item>
+        <u-dropdown-item text="item"></u-dropdown-item>
+        <u-dropdown-item text="item"></u-dropdown-item>
+        <u-dropdown-item disabled text="item"></u-dropdown-item>
+        <u-dropdown-group title="下拉组">
+            <u-dropdown-item text="item1"></u-dropdown-item>
+            <u-dropdown-item text="item1"></u-dropdown-item>
+            <u-dropdown-item text="item1"></u-dropdown-item>
+            <u-dropdown-item disabled text="item1"></u-dropdown-item>
+        </u-dropdown-group>
+    </u-dropdown>
+    <u-dropdown trigger="click">
+        <template #title="scope">
+            <u-text text="下拉菜单click展开"></u-text>
+        </template>
+        <u-dropdown-item text="item"></u-dropdown-item>
+        <u-dropdown-item text="item"></u-dropdown-item>
+        <u-dropdown-item text="item"></u-dropdown-item>
+        <u-dropdown-item disabled text="item"></u-dropdown-item>
+        <u-dropdown-group title="下拉组">
+            <u-dropdown-item text="item1"></u-dropdown-item>
+            <u-dropdown-item text="item1"></u-dropdown-item>
+            <u-dropdown-item text="item1"></u-dropdown-item>
+            <u-dropdown-item disabled text="item1"></u-dropdown-item>
+        </u-dropdown-group>
+    </u-dropdown>
+</u-linear-layout>
+```
+
+#### 手动触发
+
+也可以手动触发工具提示的弹出/关闭：
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-button @click="opened = !opened">
+        {{ opened ? '隐藏' : '弹出' }}
+    </u-button>
+    <u-dropdown trigger="manual" :opened="opened">
+        <template #title="scope">
+            <u-text text="下拉菜单"></u-text>
+        </template>
+        <u-dropdown-item text="item"></u-dropdown-item>
+        <u-dropdown-item text="item"></u-dropdown-item>
+        <u-dropdown-item text="item"></u-dropdown-item>
+        <u-dropdown-item disabled text="item"></u-dropdown-item>
+    </u-dropdown>
+</u-linear-layout>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            opened: false,
+        };
+    },
+};
+</script>
+```
 ## UDropdown API
 ### Props/Attrs
 
@@ -132,13 +205,14 @@
 | icon-field | string |  | `'icon'` | 集合的元素类型中，用于图标的属性名称 |
 | to-field | string |  | `'to'` | 集合的元素类型中，用于跳转链接的属性名称 |
 | parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
-| trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'hover'` | 触发方式 |
+| trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'click'` | 触发方式 |
 | type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` |  |
 | placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'bottom'` | 弹出层的弹出方向 |
 | append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。 |
 | router | boolean |  | `true` | 是否使用 vue-router |
 | value.sync, v-model | any |  |  | 当前选中的值 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| opened | boolean |  | `false` |  |
 
 ### Slots
 
@@ -175,6 +249,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 显示的标题 |
 | collapsible | boolean |  | `true` | 设置是否可以展开/折叠 |
+| trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 触发方式 |
 | expanded.sync | boolean |  | `false` | 展开状态分为“True(展开)/False(折叠)”，默认为“展开” |
 | disabled | boolean |  | `false` | 置灰显示，且禁止展开/折叠操作 |
 
