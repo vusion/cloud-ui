@@ -86,7 +86,7 @@ namespace nasl.ui {
             group: '样式属性',
             title: '尺寸',
             description: '抽屉的尺寸',
-            docDescription: '支持配置抽屉的宽度，支持小、正常、大三个尺寸',
+            docDescription: '支持配置抽屉的宽度或者高度，支持小、正常、大、三个尺寸',
             setter: {
                 concept: 'EnumSelectSetter',
                 options: [{ title: '小' }, { title: '正常' }, { title: '大' }],

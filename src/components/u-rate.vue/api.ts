@@ -20,6 +20,7 @@ namespace nasl.ui {
             docDescription: '当前选择的值',
             setter: {
                 concept: 'NumberInputSetter',
+                max: 20,
             },
         })
         value: nasl.core.Decimal = 0;
@@ -30,6 +31,7 @@ namespace nasl.ui {
             docDescription: '评分组件的最大分数',
             setter: {
                 concept: 'NumberInputSetter',
+                max: 20,
             },
         })
         max: nasl.core.Decimal = 5;

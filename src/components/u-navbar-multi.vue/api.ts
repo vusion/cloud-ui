@@ -21,7 +21,7 @@ namespace nasl.ui {
                 concept: 'SwitchSetter',
             },
             onChange: [
-                { clear: ['data-source','data-schema','text-field','to-field','icon-field','value-field','parent-field','link-type-field','target-field'] }
+                { clear: ['dataSource','dataSchema','textField','toField','iconField','valueField','parentField','linkTypeField','targetField'] }
             ],
         })
         hasDataSource: nasl.core.Boolean = false;
@@ -72,6 +72,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '图标属性字段',
             description: '集合的元素类型中，用于图标的属性名称',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
             if: _ => _.hasDataSource === true,
         })
         iconField: (item: T) => nasl.core.String = ((item: any)  => item.icon) as any;

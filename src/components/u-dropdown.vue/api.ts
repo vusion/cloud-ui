@@ -21,7 +21,7 @@ namespace nasl.ui {
                 concept: 'SwitchSetter',
             },
             onChange: [
-                { clear: ['data-source','data-schema','text-field','to-field','icon-field','value-field','parent-field','link-type-field','target-field'] }
+                { clear: ['dataSource','dataSchema','textField','toField','iconField','valueField','parentField','linkTypeField','targetField'] }
             ],
         })
         hasDataSource: nasl.core.Boolean = false;
@@ -183,7 +183,6 @@ namespace nasl.ui {
         @Prop({
             group: '状态属性',
             title: '显示状态',
-            sync: true,
             docDescription: '开启时进入页面即展示下拉菜单，默认关闭',
             setter: {
                 concept: 'SwitchSetter',

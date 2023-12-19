@@ -52,7 +52,7 @@ namespace nasl.ui {
             description: '数据源集合的元素，用于显示标签标题的属性',
             docDescription: '数据源集合的元素，用于显示标签标题的属性',
         })
-        private titleField: (item: T) => nasl.core.String;
+        titleField: (item: T) => nasl.core.String;
 
         @Prop<UTabsOptions<T, V>, 'valueField'>({
             group: '数据属性',

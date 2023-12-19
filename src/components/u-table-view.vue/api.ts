@@ -53,10 +53,6 @@ namespace nasl.ui {
             @Param({
                 title: 'undefined',
                 description: '排序顺序',
-                setter: {
-                    type: 'enumSelect',
-                    options: [{ title: '升序' }, { title: '降序' }],
-                },
             })
             order?: 'asc' | 'desc',
             @Param({

@@ -33,7 +33,7 @@ namespace nasl.ui {
                 concept: 'SwitchSetter',
             },
             onChange: [
-                { clear: ['data-source','data-schema','text-field','to-field','icon-field','value-field','parent-field','link-type-field','target-field'] }
+                { clear: ['dataSource','dataSchema','textField','toField','iconField','valueField','parentField','linkTypeField','targetField'] }
             ],
         })
         hasDataSource: nasl.core.Boolean = false;
@@ -61,6 +61,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '文本字段',
             description: '集合的元素类型中，用于显示文本的属性名称',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
             if: _ => _.hasDataSource === true,
         })
         textField: nasl.core.String = 'text';
@@ -70,6 +73,9 @@ namespace nasl.ui {
             title: '值字段',
             description: '集合的元素类型中，用于标识选中值的属性',
             docDescription: '集合的元素类型中，用于标识选中值的属性，支持自定义变更',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
             if: _ => _.hasDataSource === true,
         })
         valueField: nasl.core.String = 'value';
@@ -78,6 +84,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '图标属性字段',
             description: '集合的元素类型中，用于图标的属性名称',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
             if: _ => _.hasDataSource === true,
         })
         iconField: nasl.core.String = 'icon';
@@ -86,6 +95,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '跳转链接字段',
             description: '集合的元素类型中，用于跳转链接的属性名称',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
             if: _ => _.hasDataSource === true,
         })
         toField: nasl.core.String = 'to';
@@ -95,6 +107,9 @@ namespace nasl.ui {
             title: '父级值字段',
             description: '集合的元素类型中，用于标识父节点的属性',
             docDescription: '集合的元素类型中，用于标识父级字段的属性，支持自定义变更',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
             if: _ => _.hasDataSource === true,
         })
         parentField: nasl.core.String = '';

@@ -74,7 +74,7 @@ namespace nasl.ui {
                 placeholder: '不限制',
             },
             onChange: [
-                { update: {'show-word-limit':false}, if: _ => _ === null },
+                { update: {showWordLimit:false}, if: _ => _ === null },
             ],
         })
         maxlength: nasl.core.Decimal;

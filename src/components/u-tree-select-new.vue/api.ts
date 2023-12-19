@@ -138,6 +138,40 @@ namespace nasl.ui {
         })
         appendTo: 'reference' | 'body' = 'reference';
 
+        @Prop({
+            group: '状态属性',
+            title: '禁用',
+            description: `置灰显示，且禁止任何交互（焦点、点击、选择、输入等）`,
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        disabled: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '样式属性',
+            title: '宽度',
+            description: '设置选择框宽度大小',
+            docDescription: '设置选择框宽度大小，可选占满、巨大、大、中型、正常、小、迷你',
+            setter: {
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
+            },
+        })
+        width: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
+
+        @Prop({
+            group: '样式属性',
+            title: '高度',
+            description: '设置选择框高度大小',
+            docDescription: '设置选择框高度大小，可选占满、巨大、大、中型、正常、小、迷你。',
+            setter: {
+                concept: 'EnumSelectSetter',
+                options: [{ title: '占满' }, { title: '巨大' }, { title: '大' }, { title: '中型' }, { title: '正常' }, { title: '小' }, { title: '迷你' }],
+            },
+        })
+        height: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
+
         @Event({
             title: 'undefined',
             description: '修改时触发',
