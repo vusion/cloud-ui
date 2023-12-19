@@ -201,14 +201,14 @@ export default {
                     }),
                 },
                 'file-name': {
-                    is: 'u-text', 
+                    is: 'u-text',
                     getProps: (item) => {
                         return {
                             text: item.name || item.url,
                             title: item.name || item.url,
                         }
                     }
-                }, 
+                },
                 'file-size': {
                     is: 'u-text',
                     getProps: (item) => ({
