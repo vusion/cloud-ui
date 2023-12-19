@@ -424,6 +424,23 @@
       brifeDoc: ""
       docDescription: 设置选择框宽度大小，支持占满、巨大、大、中型、正常、小共6种模式
       tooltipLink: ""
+    - name: popperWidth
+      title: 下拉列表宽度
+      type: string
+      description: 设置下拉列表宽度
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 设置下拉列表宽度
+      tooltipLink: ""
+    - name: isItemDisplay
+      title: 回显选项
+      type: boolean
+      default: true
+      description: 设置回显选项
+      group: 样式属性
+      brifeDoc: ""
+      docDescription: 设置回显选项
+      tooltipLink: ""
     - name: height
       title: 高度
       type: string
