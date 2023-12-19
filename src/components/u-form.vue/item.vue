@@ -106,11 +106,11 @@ export default {
                 || (this.rootVM && this.rootVM.labelEllipsis)
             );
         },
-        // preview() {
-        //     return (
-        //         this.rootVM && this.rootVM.preview
-        //     );
-        // },
+        previewItem() {
+            return (
+                this.rootVM && this.rootVM.preview
+            );
+        },
     },
     watch: {
         span(span) {
