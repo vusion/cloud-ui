@@ -1557,7 +1557,7 @@
     --pagination-sizer-width: 104px; /* @hidden */
     --pagination-jumper-width: 50px; /* @hidden */
     --pagination-item-height-small-line-height: var(--pagination-item-height-small); /* @hidden */
-    
+
     /* @component u-tree-select-new */
     /* @dependency-components u-tree-view */
     --tree-select-new-width: var(--select-width); /* @group 宽度 */ /* @desc 树选择器宽度,如 1px */ /* @depAttrs {"width": ["normal", null]} */ /* @depStaticStyles ["width"] */
@@ -1613,7 +1613,7 @@
     --tree-select-new-popper-box-shadow: var(--select-popper-box-shadow); /* @group 弹出层 */ /* @desc 树选择器弹出层边框阴影,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
     --tree-select-new-popper-min-width: var(--select-popper-min-width); /* @group 弹出层 */ /* @desc 树选择器弹出层最小宽度 */
     --tree-select-new-popper-width: var(--select-popper-width); /* @group 弹出层 */ /* @desc 树选择器弹出层宽度 */
-    
+
     --tree-select-new-background-inverse: var(--select-background-inverse); /* @hidden */
     --tree-select-new-border-color-inverse: var(--select-border-color-inverse); /* @hidden */
     --tree-select-new-color-inverse: var(--select-color-inverse); /* @hidden */
@@ -1627,7 +1627,7 @@
     --tree-select-new-tree-view-node-color-disabled-inverse: var(--tree-view-node-color-disabled-inverse); /* @hidden */
     --tree-select-new-tree-view-node-background-disabled-inverse: var(--tree-view-node-background-disabled-inverse); /* @hidden */
     --tree-select-new-tree-view-node-background-selected-disabled-inverse: var(--tree-view-node-background-selected-disabled-inverse); /* @hidden */
-   
+
     /**
      * ========================
      *   图表
