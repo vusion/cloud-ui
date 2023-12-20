@@ -1,5 +1,5 @@
 <template>
-    <u-input ref="input" :class="$style.root" :button-display="buttonDisplay" :value="formattedValue"
+    <u-input v-if="!isPreview" ref="input" :class="$style.root" :button-display="buttonDisplay" :value="formattedValue"
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
         @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside"
@@ -17,18 +17,24 @@
             <span v-if="showSuffix">{{ unit && unit.value }}</span>
         </template>
     </u-input>
+    <u-preview v-else :text="value"></u-preview>
 </template>
 
 <script>
 import MField from '../m-field.vue';
 import { repeatClick, clickOutside } from '../../directives';
 import { noopFormatter, NumberFormatter } from '../../utils/Formatters';
+import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 const isNil = (value) => (typeof value === 'string' && value.trim() === '') || value === null || value === undefined;
 
 export default {
     name: 'u-number-input',
+    component: {
+        UPreview
+    },
     directives: { repeatClick, clickOutside },
-    mixins: [MField],
+    mixins: [MField, MPreview],
     props: {
         // String 类型是为了验证抛出
         value: [Number, String],
@@ -49,6 +55,7 @@ export default {
         },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
         clearable: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
 
@@ -181,19 +188,21 @@ export default {
             this.$emit('input', this.currentValue, this);
             this.$emit('change', { value: this.currentValue, oldValue: _oldValue, formattedValue: this.formattedValue, valid: this.isValid(this.currentValue) }, this);
         },
-        max(value, oldValue) {
+        max(_value, oldValue) {
             // todo: 正常情况下，formattedValue应该设计为computed，目前在不影响的情况下，手动watch
-            if (value !== oldValue) {
+            if (_value !== oldValue) {
                 // 根据传入的 value 调整 fix 精度
+                const value = this.value;
                 const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
                 const currentValue = (this.currentValue = this.fix(value, currentPrecision));
                 this.formattedValue = this.currentFormatter.format(currentValue);
             }
         },
-        min(value, oldValue) {
+        min(_value, oldValue) {
             // todo: 正常情况下，formattedValue应该设计为computed，目前在不影响的情况下，手动watch
-            if (value !== oldValue) {
+            if (_value !== oldValue) {
                 // 根据传入的 value 调整 fix 精度
+                const value = this.value;
                 const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
                 const currentValue = (this.currentValue = this.fix(value, currentPrecision));
                 this.formattedValue = this.currentFormatter.format(currentValue);

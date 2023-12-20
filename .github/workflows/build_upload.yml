@@ -35,7 +35,12 @@ jobs:
         run: LCAP_LIB_VERSION=${{ env.VERSION }} node bin/asset.js
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cloud-ui.vusion@${{ env.VERSION }}
           path: cloud-ui.vusion@${{ env.VERSION }}
+
+  call-wexler:
+    needs: build
+    uses: vusion/wexler/.github/workflows/release-cloud-ui.yml@master
+    secrets: inherit

@@ -2,9 +2,9 @@
 <label :class="$style.root" :disabled="currentDisabled" @click="select()"
 tabindex="0" @keydown.space.prevent @keyup.space.prevent="select()"
 @focus="onFocus" @blur="onBlur" v-on="listeners" :readonly="currentReadonly">
-    <span :class="$style.radio" :selected="selected" :disabled="currentDisabled" :readonly="currentReadonly"></span>
+    <span v-if="!isPreview" :class="$style.radio" :selected="selected" :disabled="currentDisabled" :readonly="currentReadonly"></span>
     <slot></slot>
-    <span vusion-slot-name="item">
+    <span v-if="!isPreview || isPreview && selected" vusion-slot-name="item">
         <slot name="item" :item="node">{{ text }}</slot>
         <s-empty v-if="!$slots.item && !text && $env.VUE_APP_DESIGNER && ($attrs['vusion-node-path'] || $attrs.designer)" inline :class="$style.empty"></s-empty>
     </span>
@@ -15,6 +15,7 @@ tabindex="0" @keydown.space.prevent @keyup.space.prevent="select()"
 import { MChild } from '../m-parent.vue';
 import MField from '../m-field.vue';
 import SEmpty from '../s-empty.vue';
+import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-radio',
@@ -22,7 +23,7 @@ export default {
     components: {
         SEmpty,
     },
-    mixins: [MChild, MField],
+    mixins: [MChild, MField, MPreview],
     props: {
         text: String,
         value: { type: Boolean, default: false },
@@ -52,7 +53,7 @@ export default {
         },
         currentReadonly() {
             return this.readonly || (this.parentVM && this.parentVM.readonly);
-        },
+        }
     },
     mounted() {
         this.autofocus && this.$el.focus();

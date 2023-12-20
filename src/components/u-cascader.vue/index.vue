@@ -107,6 +107,13 @@ export default {
         },
 
         value(value) {
+            if (value === undefined || value === null || value === '') {
+                this.lastValueString = '';
+                this.lastRealValueArray = [];
+                this.selectSubIdnex = -1;
+                this.currentValue = '';
+                return;
+            }
             if (!this.converter) {
                 if (this.useArrayLikeValue && Array.isArray(value)) {
                     this.updateFromArrayLikeValue(JSON.parse(JSON.stringify(value)));
@@ -197,6 +204,7 @@ export default {
                 this.lastValueArray.push(this.$at(selectNode, this.field));
                 this.lastRealValueArray.push(this.$at(selectNode, this.valueField));
             }
+            this.$refs.popper.scheduleUpdate();
         },
         selectEnd() {
             this.lastValueString = this.lastValueArray.join(this.join);
