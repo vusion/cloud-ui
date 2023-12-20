@@ -29,22 +29,24 @@
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
-                <div :class="$style.textContainer" v-if="listType === 'text' && $slots['file-list']">
+                <template v-if="item.status !== 'error'"> 
+                    <div :class="$style.textContainer" v-if="listType === 'text' && $slots['file-list']">
                         <span v-for="flag in fileListFlags" :key="flag">
                             <component v-if="flag !== 'download-icon' && isShowFileListItem(flag)" :style="fileListStyleInfos[flag]" :is="fileListComponentFlagMap[flag].is" v-bind="fileListComponentFlagMap[flag].getProps(item)"></component>
                             <a v-else-if="downloadIconSwitcher && isShowFileListItem(flag)" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
                                 <i-ico :name="downloadIcon" icotype="only"></i-ico>
                             </a>
                         </span>
-                    <i-ico name="remove" :class="$style.remove" v-if="!readonly && !disabled && !$env.VUE_APP_DESIGNER" @click="remove(index)"></i-ico>
-                    <u-linear-progress v-if="item.showProgress && !$env.VUE_APP_DESIGNER" :class="$style.progress" :percent="item.percent"></u-linear-progress>
-                </div>
-                <div v-else>
-                    <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
-                    <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name || item.url }}</a>
-                    <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
-                    <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
-                </div>
+                        <i-ico name="remove" :class="$style.remove" v-if="!readonly && !disabled && !$env.VUE_APP_DESIGNER" @click="remove(index)"></i-ico>
+                        <u-linear-progress v-if="item.showProgress && !$env.VUE_APP_DESIGNER" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                    </div>
+                     <div v-else>
+                        <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
+                        <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name || item.url }}</a>
+                        <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
+                         <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                    </div>
+                </template>
             </div>
         </template>
         <template v-else>
@@ -466,27 +468,6 @@ export default {
             }, this))
                 return null;
 
-            // if (!this.checkSize(file)) {
-            //     this.errorMessage = `文件${file.name} ${file.size}超出大小${this.maxSize}！`;
-            //     this.$emit('size-exceed', {
-            //         maxSize: this.maxSize,
-            //         size: file.size,
-            //         message: this.errorMessage,
-            //     });
-            //     return null;
-            // } else {
-            //     this.errorMessage = '';
-            // }
-            // check format
-            // if (this.format.length) {
-            //     const _file_format = file.name.split('.').pop().toLocaleLowerCase();
-            //     const checked = this.format.some(item => item.toLocaleLowerCase() === _file_format);
-            //     if (!checked) {
-            //         this.onFormatError(file, this.fileList);
-            //         return null;
-            //     }
-            // }
-
             const item = {
                 uid: file.uid !== undefined ? file.uid : Date.now() + this.currentValue.length,
                 status: 'uploading',
@@ -516,25 +497,6 @@ export default {
                 files,
             }, this))
                 return null;
-
-            // if (!this.checkSize(file)) {
-            //     this.$emit('size-exceed', {
-            //         maxSize: this.maxSize,
-            //         size: file.size,
-            //         message: `文件${file.name} ${file.size}超出大小${this.maxSize}！`,
-            //     });
-            //     return null;
-            // }
-            // check format
-            // if (this.format.length) {
-            //     const _file_format = file.name.split('.').pop().toLocaleLowerCase();
-            //     const checked = this.format.some(item => item.toLocaleLowerCase() === _file_format);
-            //     if (!checked) {
-            //         this.onFormatError(file, this.fileList);
-            //         return null;
-            //     }
-            // }
-
             if (!files || !files.length)
                 return;
 
