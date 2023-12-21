@@ -51,7 +51,7 @@
     </m-popper>
     <slot></slot>
 </div>
-<u-preview v-else :text="value"></u-preview>
+<u-preview v-else :text="genDisplayFormatText(finalDateTime)"></u-preview>
 </template>
 
 <script>
