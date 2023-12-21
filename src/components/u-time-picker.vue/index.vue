@@ -40,7 +40,7 @@
         @update="onEmitUpdate"
     ></u-time-picker-popper>
 </span>
-<u-preview v-else :text="value"></u-preview>
+<u-preview v-else :text="genDisplayFormatText(inputTime)"></u-preview>
 </template>
 
 <script>

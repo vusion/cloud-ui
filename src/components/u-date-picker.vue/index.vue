@@ -29,7 +29,7 @@
         </div>
     </m-popper>
 </div>
-<u-preview v-else :text="value"></u-preview>
+<u-preview v-else :text="genDisplayFormatText(showDate)"></u-preview>
 </template>
 
 <script>
