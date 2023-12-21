@@ -120,10 +120,11 @@ namespace nasl.ui {
         })
         showRightNowButton: nasl.core.Boolean = true;
 
-        @Prop({
+        @Prop<UTimePickerOptions, 'rightNowTitle'>({
             group: '主要属性',
             title: '此刻按钮名称',
             docDescription: '支持自定义修改原此刻按钮名称',
+            if: _ => _.showRightNowButton === true,
         })
         rightNowTitle: nasl.core.String = '';
 
@@ -138,18 +139,20 @@ namespace nasl.ui {
         })
         showFooterButton: nasl.core.Boolean = true;
 
-        @Prop({
+        @Prop<UTimePickerOptions, 'cancelTitle'>({
             group: '主要属性',
             title: '取消按钮名称',
             docDescription: '支持自定义修改原取消按钮名称',
+            if: _ => _.showFooterButton === true,
         })
         cancelTitle: nasl.core.String = '';
 
-        @Prop({
+        @Prop<UTimePickerOptions, 'okTitle'>({
             group: '主要属性',
             title: '确定按钮名称',
             description: '确定按钮的显示名称，如果为空则不显示',
             docDescription: '支持自定义修改原确定按钮名称',
+            if: _ => _.showFooterButton === true,
         })
         okTitle: nasl.core.String = '';
 

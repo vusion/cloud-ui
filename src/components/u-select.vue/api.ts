@@ -99,7 +99,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        textField: (item: T) => nasl.core.String;
+        textField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.text) as any;
 
         @Prop<USelectOptions<T, V, P, M, C>, 'valueField'>({
             group: '数据属性',
@@ -110,7 +110,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        valueField: (item: T) => V;
+        valueField: (item: T) => V = ((item: any)  => item.value) as any;
 
         @Prop({
             group: '数据属性',
@@ -138,8 +138,11 @@ namespace nasl.ui {
             group: '数据属性',
             title: '分页',
             description: '设置是否分页展示数据',
+            setter: {
+                concept: 'SwitchSetter',
+            },
         })
-        pagination: P;
+        pagination: nasl.core.Boolean;
 
         @Prop<USelectOptions<T, V, P, M, C>, 'pageSize'>({
             group: '数据属性',
@@ -220,7 +223,7 @@ namespace nasl.ui {
         })
         private remoteFiltering: nasl.core.Boolean = false;
 
-        @Prop({
+        @Prop<USelectOptions<T, V, P, M, C>, 'matchMethod'>({
             group: '数据属性',
             title: '匹配方法',
             description: '过滤时的匹配方法',
@@ -229,6 +232,7 @@ namespace nasl.ui {
                 concept: 'EnumSelectSetter',
                 options: [{ title: '包括' }, { title: '匹配开头' }, { title: '匹配结尾' }],
             },
+            if: _ => _.filterable === true,
         })
         matchMethod: 'includes' | 'startsWith' | 'endsWith' = 'includes';
 
@@ -340,7 +344,7 @@ namespace nasl.ui {
         })
         clearable: nasl.core.Boolean = false;
 
-        @Prop({
+        @Prop<USelectOptions<T, V, P, M, C>, 'tagsOverflow'>({
             group: '交互属性',
             title: '多选项展示形式',
             description: '多选项过多时的展示形式',
@@ -348,6 +352,7 @@ namespace nasl.ui {
                 concept: 'EnumSelectSetter',
                 options: [{ title: '过多时省略' }, { title: '过多时收缩' }, { title: '过多时显示' }],
             },
+            if: _ => _.multiple === true,
         })
         tagsOverflow: 'hidden' | 'collapse' | 'visible' = 'collapse';
 
@@ -366,6 +371,9 @@ namespace nasl.ui {
             title: '可多选',
             description: '设置是否可以多选行',
             docDescription: '是否可以多选',
+            setter: {
+                concept: 'SwitchSetter',
+            },
         })
         multiple: M = false as any;
 

@@ -360,13 +360,14 @@ namespace nasl.ui {
         })
         stickHead: nasl.core.Boolean = false;
 
-        @Prop({
+        @Prop<UTableViewOptions<T, T1, V, P, M>, 'stickHeadOffset'>({
             group: '主要属性',
             title: '表格头部吸顶偏移量',
             docDescription: '与"表格头部吸顶"选项配合使用，表示表格头吸顶时与顶部的距离',
             setter: {
                 concept: 'NumberInputSetter',
             },
+            if: _ => _.stickHead === true,
         })
         stickHeadOffset: nasl.core.Decimal = 0;
 
@@ -1034,14 +1035,26 @@ namespace nasl.ui {
         })
         defaultOrder: 'asc' | 'desc' = 'asc';
 
-        @Prop({
+        @Prop<UTableViewColumnOptions<T, V, P, M>, 'type'>({
             group: '数据属性',
             title: '列类型',
             description: '支持序号列、单/多选、树形列和编辑列切换，序号列支持按照数字排序。选择编辑列需要先设置列字段。',
             docDescription: '可设置序号列、单选列、多选列、展开列或树型列',
             setter: {
                 concept: 'EnumSelectSetter',
-                options: [{ title: '普通列' }, { title: '序号列' }, { title: '单选列' }, { title: '多选列' }, { title: '展开列' }, { title: '树形列' }, { title: '编辑列', tooltip: '与列字段关联，列字段不能为空' }, { title: '拖拽标识列' }],
+                options: [
+                    { title: '普通列' }, 
+                    { title: '序号列' }, 
+                    { title: '单选列' }, 
+                    { title: '多选列' }, 
+                    { title: '展开列' }, 
+                    { title: '树形列' }, 
+                    { 
+                        title: '编辑列', 
+                        tooltip: '与列字段关联，列字段不能为空',
+                        disabledIf: _ => _.field === null,
+                    }, 
+                    { title: '拖拽标识列' }],
             },
         })
         type: 'normal' | 'index' | 'radio' | 'checkbox' | 'expander' | 'tree' | 'editable' | 'dragHandler' = 'normal';
@@ -1235,7 +1248,7 @@ namespace nasl.ui {
             setter: {
                 concept: 'PropertySelectSetter',
             },
-            disabledIf: _ => _.dataSource !== null,
+            disabledIf: _ => _.dataSource === null,
         })
         valueField: (item: T) => V;
 
@@ -1320,7 +1333,7 @@ namespace nasl.ui {
             setter: {
                 concept: 'PropertySelectSetter',
             },
-            disabledIf: _ => _.dataSource !== null,
+            disabledIf: _ => _.dataSource === null,
         })
         valueField: (item: T) => V = ((item: any)  => item.value) as any;
 

@@ -60,6 +60,7 @@ namespace nasl.ui {
             onChange: [
                 { clear: ['justify','alignment','wrap','layout'] }
             ],
+            tabKind: 'style'
         })
         mode: 'inline' | 'block' | 'flex' = 'block';
 
@@ -76,6 +77,7 @@ namespace nasl.ui {
             onChange: [
                 { clear: ['justify','alignment'] }
             ],
+            tabKind: 'style'
         })
         direction: 'horizontal' | 'vertical' = 'horizontal';
 
@@ -97,13 +99,19 @@ namespace nasl.ui {
                         tooltip: '平均分布(两端不留空)' ,
                         if: _  => _.mode === 'flex' || _.direction === 'horizontal'
                     }, 
-                    { title: '平均分布', icon: 'horizontal-justify-space-around', tooltip: '平均分布' }],
+                    { 
+                        title: '平均分布', 
+                        icon: 'horizontal-justify-space-around', 
+                        tooltip: '平均分布',
+                        if: _  => _.mode === 'flex'
+                    }],
             },
             if: _ => _.direction === 'horizontal' || _.mode === 'inline' && _.direction === 'vertical' || _.mode === 'block' && _.direction === 'vertical',
             onChange: [
                 { update: {gap:'normal'}, if: _ => _ === 'space-between' },
                 { update: {gap:'normal'}, if: _ => _ === 'space-around' },
             ],
+            tabKind: 'style'
         })
         justify: 'start' | 'center' | 'end' | 'space-between' | 'space-around' = 'start';
 
@@ -118,6 +126,7 @@ namespace nasl.ui {
                 options: [{ title: '顶对齐', icon: 'horizontal-alignment-start', tooltip: '顶对齐' }, { title: '垂直居中', icon: 'horizontal-alignment-center', tooltip: '垂直居中' }, { title: '底对齐', icon: 'horizontal-alignment-end', tooltip: '底对齐' }, { title: '行内文字基线对齐', icon: 'horizontal-alignment-baseline', tooltip: '行内文字基线对齐' }, { title: '占满容器高度', icon: 'horizontal-alignment-stretch', tooltip: '占满容器高度' }],
             },
             if: _ => _.mode === 'flex' && _.direction === 'horizontal',
+            tabKind: 'style'
         })
         alignment: 'start' | 'center' | 'end' | 'baseline' | 'stretch' = 'stretch';
 
@@ -132,6 +141,7 @@ namespace nasl.ui {
                 options: [{ title: '左对齐', icon: 'vertical-alignment-start', tooltip: '左对齐' }, { title: '居中对齐', icon: 'vertical-alignment-center', tooltip: '居中对齐' }, { title: '右对齐', icon: 'vertical-alignment-end', tooltip: '右对齐' }, { title: '拉伸子元素充满整个父元素空间', icon: 'vertical-alignment-stretch', tooltip: '占满容器宽度' }],
             },
             if: _ => _.mode === 'flex' && _.direction === 'vertical',
+            tabKind: 'style'
         })
         _alignment: 'start' | 'center' | 'end' | 'stretch' = 'stretch';
 
@@ -150,6 +160,7 @@ namespace nasl.ui {
                 { update: {gap:'normal'}, if: _ => _ === 'space-between' },
                 { update: {gap:'normal'}, if: _ => _ === 'space-around' },
             ],
+            tabKind: 'style'
         })
         _justify: 'start' | 'center' | 'end' | 'space-between' | 'space-around' = 'start';
 
@@ -163,6 +174,7 @@ namespace nasl.ui {
                 options: [{ title: '子元素默认布局' }, { title: '子元素行内布局' }, { title: '子元素块级布局' }],
             },
             if: _ => _.mode === 'inline' || _.mode === 'block',
+            tabKind: 'style'
         })
         layout: 'none' | 'inline' | 'block' = 'none';
 
@@ -175,6 +187,7 @@ namespace nasl.ui {
                 concept: 'SwitchSetter',
             },
             if: _ => _.mode === 'flex',
+            tabKind: 'style'
         })
         wrap: nasl.core.Boolean = true;
 

@@ -83,7 +83,6 @@ namespace nasl.ui {
             setter: {
                 concept: 'PropertySelectSetter',
             },
-            disabledIf: _ => _.parentField !== null,
         })
         childrenField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.children) as any;
 
@@ -95,7 +94,6 @@ namespace nasl.ui {
             setter: {
                 concept: 'PropertySelectSetter',
             },
-            disabledIf: _ => _.childrenField !== null,
         })
         parentField: (item: T) => nasl.core.String;
 

@@ -240,21 +240,23 @@ namespace nasl.ui {
         })
         openCropper: nasl.core.Boolean = false;
 
-        @Prop({
+        @Prop<UUploaderOptions, 'fixedCropper'>({
             group: '主要属性',
             title: '固定图片裁剪框大小',
             setter: {
                 concept: 'SwitchSetter',
             },
+            if: _ => _.openCropper === true && _.multiple !== true,
         })
         fixedCropper: nasl.core.Boolean = false;
 
-        @Prop({
+        @Prop<UUploaderOptions, 'cropperBoxWidth'>({
             group: '主要属性',
             title: '图片裁剪框宽度',
             setter: {
                 concept: 'NumberInputSetter',
             },
+            if: _ => _.openCropper === true && _.multiple !== true,
         })
         cropperBoxWidth: nasl.core.Decimal = 200;
 
@@ -264,7 +266,7 @@ namespace nasl.ui {
             setter: {
                 concept: 'NumberInputSetter',
             },
-            if: _ => _.cropperPreviewShape === 'rect',
+            if: _ => _.cropperPreviewShape === 'rect' && _.openCropper === true && _.multiple !== true,
         })
         cropperBoxHeight: nasl.core.Decimal = 0;
 
@@ -280,12 +282,14 @@ namespace nasl.ui {
                 { update: {cropperBoxHeight:0}, if: _ => _ === 'circle' },
                 { update: {cropperBoxHeight:0}, if: _ => _ === 'square' },
             ],
+            if: _ => _.openCropper === true && _.multiple !== true,
         })
         cropperPreviewShape: 'rect' | 'square' | 'circle' = 'circle';
 
-        @Prop({
+        @Prop<UUploaderOptions, 'cropperTitle'>({
             group: '主要属性',
             title: '图片裁剪框标题',
+            if: _ => _.openCropper === true && _.multiple !== true,
         })
         cropperTitle: nasl.core.String = '图片裁剪';
 
@@ -299,13 +303,14 @@ namespace nasl.ui {
         })
         private autoUpload: nasl.core.Boolean = true;
 
-        @Prop({
+        @Prop<UUploaderOptions, 'showFileList'>({
             group: '主要属性',
             title: '显示文件列表',
             docDescription: '开启后上传多个文件时，会显示文件列表，默认开启',
             setter: {
                 concept: 'SwitchSetter',
             },
+            if: _ => _.listType !== 'card',
         })
         showFileList: nasl.core.Boolean = true;
 
