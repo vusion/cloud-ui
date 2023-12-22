@@ -8,7 +8,20 @@ namespace nasl.ui {
         group: 'Table'
     })
     export class UGridView<T, V, P extends boolean, M extends boolean, C extends string> extends ViewComponent {
+        @Prop({
+            title: '数据',
+        })
+        data: UGridViewOptions<T, V, P, M, C>['dataSource'];
 
+        @Prop({
+            title: '分页大小',
+        })
+        size: UGridViewOptions<T, V, P, M, C>['pageSize'];
+
+        @Prop({
+            title: '当前页数',
+        })
+        page: UGridViewOptions<T, V, P, M, C>['pageNumber'];
 
         @Method({
             title: 'undefined',

@@ -8,7 +8,15 @@ namespace nasl.ui {
         group: 'Form'
     })
     export class URadios<T, V> extends ViewComponent {
+        @Prop({
+            title: '数据',
+        })
+        data: URadiosOptions<T, V>['dataSource'];
 
+        @Prop({
+            title: '选中值',
+        })
+        value: URadiosOptions<T, V>['value'];
 
         @Method({
             title: 'undefined',

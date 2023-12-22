@@ -13,6 +13,31 @@ namespace nasl.ui {
         })
         data: UTableViewOptions<T, T1, V, P, M>['dataSource'];
 
+        @Prop({
+            title: '分页大小',
+        })
+        size: UTableViewOptions<T, T1, V, P, M>['pageSize'];
+
+        @Prop({
+            title: '当前页数',
+        })
+        page: UTableViewOptions<T, T1, V, P, M>['pageNumber'];
+
+        @Prop({
+            title: '排序属性',
+        })
+        sort: UTableViewOptions<T, T1, V, P, M>['sorting'];
+
+        @Prop({
+            title: '单选选中值',
+        })
+        value: UTableViewOptions<T, T1, V, P, M>['value'];
+
+        @Prop({
+            title: '多选选中值',
+        })
+        values: UTableViewOptions<T, T1, V, P, M>['values'];
+
         @Method({
             title: 'undefined',
             description: '清除缓存，重新加载',

@@ -13,7 +13,25 @@ namespace nasl.ui {
         })
         data: USelectOptions<T, V, P, M, C>['dataSource'];
 
+        @Prop({
+            title: '选中值',
+        })
         value: USelectOptions<T, V, P, M, C>['value'];
+
+        @Prop({
+            title: '分页大小',
+        })
+        size: USelectOptions<T, V, P, M, C>['pageSize'];
+
+        @Prop({
+            title: '当前页数',
+        })
+        page: UListViewOptions<T, V, P, M, C>['pageNumber'];
+
+        @Prop({
+            title: '弹出状态',
+        })
+        opened: USelectOptions<T, V, P, M, C>['opened'];
 
         @Method({
             title: 'undefined',

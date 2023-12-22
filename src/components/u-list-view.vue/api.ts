@@ -13,6 +13,16 @@ namespace nasl.ui {
         })
         data: UListViewOptions<T, V, P, M, C>['dataSource'];
 
+        @Prop({
+            title: '分页大小',
+        })
+        size: UListViewOptions<T, V, P, M, C>['pageSize'];
+
+        @Prop({
+            title: '当前页数',
+        })
+        page: UListViewOptions<T, V, P, M, C>['pageNumber'];
+
         @Method({
             title: 'undefined',
             description: '清除缓存，重新加载',

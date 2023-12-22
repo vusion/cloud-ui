@@ -8,7 +8,15 @@ namespace nasl.ui {
         group: "Selector"
     })
     export class UCascader<T, V> extends ViewComponent {
+        @Prop({
+            title: '数据',
+        })
+        data: UCascaderOptions<T, V>['dataSource'];
 
+        @Prop({
+            title: '选中值',
+        })
+        value: UCascaderOptions<T, V>['value'];
 
         @Method({
             title: 'undefined',

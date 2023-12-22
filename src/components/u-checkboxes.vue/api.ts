@@ -8,7 +8,15 @@ namespace nasl.ui {
         group: "Form"
     })
     export class UCheckboxes<T, V, C extends string> extends ViewComponent {
+        @Prop({
+            title: '数据',
+        })
+        data: UCheckboxesOptions<T, V, C>['dataSource'];
 
+        @Prop({
+            title: '选中值',
+        })
+        value: UCheckboxesOptions<T, V, C>['value'];
 
         @Method({
             title: 'undefined',

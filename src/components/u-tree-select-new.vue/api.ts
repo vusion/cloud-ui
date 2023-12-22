@@ -8,7 +8,15 @@ namespace nasl.ui {
         group: 'Selector'
     })
     export class UTreeSelectNew<T, V, M extends boolean> extends ViewComponent {
+        @Prop({
+            title: '数据',
+        })
+        data: UTreeSelectNewOptions<T, V, M>['dataSource'];
 
+        @Prop({
+            title: '选中值',
+        })
+        value: UTreeSelectNewOptions<T, V, M>['value'];
 
         @Method({
             title: 'undefined',

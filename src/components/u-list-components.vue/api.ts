@@ -8,6 +8,10 @@ namespace nasl.ui {
         group: 'Table'
     })
     export class UListComponents<T> extends ViewComponent {
+        @Prop({
+            title: '数据',
+        })
+        data: UListComponentsOptions<T>['dataSource'];
 
         constructor(options?: Partial<UListComponentsOptions<T>>) { super(); }
     }
