@@ -601,6 +601,9 @@ export default {
                 if (this.preventBlur)
                     return (this.preventBlur = false);
                 this.selectByText(this.filterText);
+                if (this.filterText === '' && !this.selectedVM) {
+                    this.$emit('blur', e);
+                }
                 this.close();
                 if (this.hasFilter) {
                     this.resetFilterList();
