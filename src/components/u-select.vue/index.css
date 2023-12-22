@@ -535,3 +535,11 @@
     border-color: none;
     box-shadow: none;
 }
+
+.preview .tag {
+    max-width: none;
+}
+
+.preview .clearable{
+    display: none;
+}
