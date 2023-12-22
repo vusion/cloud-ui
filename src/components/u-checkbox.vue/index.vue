@@ -1,8 +1,8 @@
 <template>
-<label :class="$style.root" :disabled="currentDisabled" @click="check()"
+<label v-show="!isPreview" :class="$style.root" :disabled="currentDisabled" @click="check()"
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
     @focus="onFocus" @blur="onBlur" v-on="listeners">
-    <span :class="$style.box" :status="String(currentValue)" :disabled="currentDisabled"></span>
+    <span :class="$style.box" :status="status" :disabled="currentDisabled"></span>
     <slot></slot>
     <span vusion-slot-name="item">
         <slot name="item" :item="node">{{ text }}</slot>
@@ -15,6 +15,7 @@
 import { MChild } from '../m-parent.vue';
 import MField from '../m-field.vue';
 import SEmpty from '../s-empty.vue';
+import MPreview from '../u-text.vue/preview';
 
 export default {
     name: 'u-checkbox',
@@ -22,7 +23,7 @@ export default {
     components: {
         SEmpty,
     },
-    mixins: [MChild, MField],
+    mixins: [MChild, MField, MPreview],
     props: {
         value: { type: [String, Boolean, null], default: false },
         label: null,
@@ -46,6 +47,9 @@ export default {
         currentDisabled() {
             return this.disabled || (this.parentVM && this.parentVM.disabled) || (this.parentVM && this.parentVM.exceedMax() && !this.currentValue);
         },
+        status() {
+            return String(this.currentValue);
+        }
     },
     watch: {
         value: {

@@ -56,10 +56,10 @@
       type: "{ places: number, omit: boolean }"
       default: "{ places: null, omit: true }"
       compose:
-        - key: places 
+        - key: places
           type: number
           min: 0
-        - key: omit 
+        - key: omit
           type: switch
           suffix: 隐藏末尾0
       description: 控制数据展示时小数点后保留几位，仅影响展示，不影响数据实际存储的值。例如：小数位数为2，则数据展示时小数点后保留2位。
@@ -96,14 +96,14 @@
       type: "{ type: string, value: string }"
       default: "{ type: 'prefix', value: '' }"
       compose:
-        - key: type 
+        - key: type
           type: select
           options:
             - value: prefix
               title: 前缀
             - value: suffix
               title: 后缀
-        - key: value 
+        - key: value
           type: text
       description: 输入框中显示的单位
       group: 主要属性
@@ -166,6 +166,12 @@
       group: 状态属性
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
+    - name: preview
+      title: 预览
+      type: boolean
+      default: false
+      description: 显示预览态
+      group: 状态属性
     - name: step
       title: 间隔
       type: number

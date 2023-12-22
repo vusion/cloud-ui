@@ -291,6 +291,12 @@
       group: 状态属性
       docDescription: ""
       tooltipLink: ""
+    - name: preview
+      title: 预览
+      type: boolean
+      default: false
+      description: 显示预览态
+      group: 状态属性
     - name: width
       title: 宽度
       type: string

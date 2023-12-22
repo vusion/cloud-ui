@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :width="width" :height="height">
+<div v-if="!isPreview" :class="$style.root" :width="width" :height="height">
     <u-input
         ref="input"
         :class="$style.input"
@@ -29,6 +29,7 @@
         </div>
     </m-popper>
 </div>
+<u-preview v-else :text="genDisplayFormatText(showDate)"></u-preview>
 </template>
 
 <script>
@@ -40,6 +41,8 @@ import { clickOutside } from '../../directives';
 import { format, transformDate, ChangeDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
+import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 import i18nMixin from '../../mixins/i18n';
 
 const MS_OF_DAY = 24 * 3600 * 1000;
@@ -61,7 +64,7 @@ export default {
     name: 'u-date-picker',
     // i18n,
     directives: { clickOutside },
-    mixins: [MField, DateFormatMixin, i18nMixin('u-date-picker')],
+    mixins: [MField, DateFormatMixin, i18nMixin('u-date-picker'), MPreview],
     props: {
         preIcon: {
             type: String,
@@ -77,6 +80,7 @@ export default {
         maxDate: [String, Number, Date],
         picker: { type: String, default: 'date' },
         disabled: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
         placeholder: {

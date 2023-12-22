@@ -83,7 +83,7 @@
       docDescription: 开启后父节点选择不会全选子节点，子节点选择不会联动父节点
       tooltipLink: ""
     - name: disabled-field
-      title:  不可选择字段 
+      title:  不可选择字段
       type: string
       display: property-select
       default: "disabled"
