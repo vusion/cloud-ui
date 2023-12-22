@@ -200,6 +200,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '图标',
             docDescription: '在该步骤展示的图标',
+            setter: {
+                concept: 'IconSetter',
+            }
         })
         icon: nasl.core.String = '';
 

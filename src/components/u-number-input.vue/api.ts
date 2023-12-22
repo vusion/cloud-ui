@@ -183,6 +183,17 @@ namespace nasl.ui {
         disabled: nasl.core.Boolean = false;
 
         @Prop({
+            group: '状态属性',
+            title: '预览',
+            description: '显示预览态',
+            docDescription: '',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        preview: nasl.core.Boolean = false;
+
+        @Prop({
             group: '样式属性',
             title: '间隔',
             description: '间隔，表示点击按钮或按上下键所增加或减少的量',

@@ -51,8 +51,11 @@ namespace nasl.ui {
             title: '标签项标题',
             description: '数据源集合的元素，用于显示标签标题的属性',
             docDescription: '数据源集合的元素，用于显示标签标题的属性',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
         })
-        titleField: (item: T) => nasl.core.String;
+        titleField: (item: T) => nasl.core.String = ((item: any)  => item.title) as any;
 
         @Prop<UTabsOptions<T, V>, 'valueField'>({
             group: '数据属性',
@@ -63,7 +66,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        valueField: (item: T) => nasl.core.String;
+        valueField: (item: T) => V = ((item: any)  => item.value) as any;
 
         @Prop<UTabsOptions<T, V>, 'urlField'>({
             group: '数据属性',
@@ -74,7 +77,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        urlField: (item: T) => V;
+        urlField: (item: T) => nasl.core.String = ((item: any)  => item.url) as any;
 
         @Prop({
             group: '数据属性',

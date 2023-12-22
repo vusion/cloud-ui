@@ -32,6 +32,9 @@ namespace nasl.ui {
             setter: {
                 concept: 'SwitchSetter',
             },
+            onChange: [
+                { clear: ['placeholderRight'] }
+            ],
         })
         range: nasl.core.Boolean = false;
 
@@ -146,7 +149,16 @@ namespace nasl.ui {
             description: '为空时显示的占位符文本',
             docDescription: '日期选择框无内容时的提示信息，支持自定义编辑，默认为请输入',
         })
-        placeholder: nasl.core.String = '请输入';
+        placeholder: nasl.core.String = '请选择日期';
+
+        @Prop<UDatePickerOptions, 'placeholderRight'>({
+            group: '主要属性',
+            title: '右侧占位符',
+            description: '为空时显示的占位符文本（右侧）',
+            docDescription: '日期选择框无内容时的提示信息，支持自定义编辑, 在没有设置的时候使用placeholder作为右侧占位符内容',
+            if: _ => _.range === true,
+        })
+        placeholderRight: nasl.core.String = '请选择日期';
 
         @Prop({
             group: '主要属性',
@@ -238,6 +250,17 @@ namespace nasl.ui {
             },
         })
         disabled: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '状态属性',
+            title: '预览',
+            description: '显示预览态',
+            docDescription: '',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        preview: nasl.core.Boolean = false;
 
         @Prop({
             group: '状态属性',

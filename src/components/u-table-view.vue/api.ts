@@ -26,7 +26,12 @@ namespace nasl.ui {
         @Prop({
             title: '排序属性',
         })
-        sort: UTableViewOptions<T, T1, V, P, M>['sorting'];
+        sort: UTableViewOptions<T, T1, V, P, M>['sorting']['field'];
+
+        @Prop({
+            title: '排序属性',
+        })
+        order: UTableViewOptions<T, T1, V, P, M>['sorting']['order'];
 
         @Prop({
             title: '单选选中值',

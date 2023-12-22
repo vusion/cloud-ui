@@ -288,6 +288,17 @@ namespace nasl.ui {
         readonly: nasl.core.Boolean = false;
 
         @Prop({
+            group: '状态属性',
+            title: '预览',
+            description: '显示预览态',
+            docDescription: '',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        preview: nasl.core.Boolean = false;
+
+        @Prop({
             group: '样式属性',
             title: '宽度',
             description: '设置日期时间选择输入框宽度大小',

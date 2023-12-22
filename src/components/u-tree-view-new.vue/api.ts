@@ -88,16 +88,22 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选项文本',
             description: '集合的元素类型中，用于显示文本的属性名称',
+            setter: {
+                concept: 'PropertySelectSetter',
+            }
         })
-        textField: (item: T) => nasl.core.String;
+        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
 
         @Prop({
             group: '数据属性',
             title: '值字段',
             description: '集合的元素类型中，用于标识选中值的属性',
             docDescription: '集合的元素类型中，用于标识选中值的属性，支持自定义变更',
+            setter: {
+                concept: 'PropertySelectSetter',
+            }
         })
-        valueField: (item: T) => V;
+        valueField: (item: T) => V = ((item: any)  => item.value) as any;
 
         @Prop({
             group: '数据属性',

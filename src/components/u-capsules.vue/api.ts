@@ -202,7 +202,7 @@ namespace nasl.ui {
                 options: [{ title: '小' }, { title: '正常' }],
             },
         })
-        size: 'small' | 'normal' = 'normal';
+        private size: 'small' | 'normal' = 'normal';
 
         @Event({
             title: '点击',

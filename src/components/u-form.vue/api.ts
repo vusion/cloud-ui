@@ -162,6 +162,17 @@ namespace nasl.ui {
         })
         expandTrigger: 'click' | 'click-expander' = 'click';
 
+        @Prop({
+            group: '状态属性',
+            title: '预览',
+            description: '显示预览态',
+            docDescription: '',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        preview: nasl.core.Boolean = false;
+
         @Prop<UFormOptions, 'gapWidth'>({
             group: '样式属性',
             title: '列间隔',

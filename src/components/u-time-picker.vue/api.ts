@@ -223,6 +223,17 @@ namespace nasl.ui {
 
         @Prop({
             group: '状态属性',
+            title: '预览',
+            description: '显示预览态',
+            docDescription: '',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        preview: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '状态属性',
             title: '显示状态',
             description: '显示状态分为“True(打开)/False(关闭)”，默认为“打开”',
             setter: {

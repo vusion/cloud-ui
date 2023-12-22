@@ -26,7 +26,7 @@ namespace nasl.ui {
         @Prop({
             title: '当前页数',
         })
-        page: UListViewOptions<T, V, P, M, C>['pageNumber'];
+        page: USelectOptions<T, V, P, M, C>['pageNumber'];
 
         @Prop({
             title: '弹出状态',
@@ -172,6 +172,18 @@ namespace nasl.ui {
             if: _ => _.pagination === true,
         })
         pageSize: nasl.core.Decimal = 50;
+
+        @Prop({
+            group: '数据属性',
+            title: '当前页数',
+            description: '当前默认展示在第几页',
+            docDescription: '当前加载的列表页。默认1。在"可分页"属性开启时有效',
+            setter: {
+                concept: 'NumberInputSetter',
+                precision: 0,
+            },
+        })
+        private pageNumber: nasl.core.Integer = 1;
 
         @Prop({
             group: '数据属性',
@@ -467,6 +479,17 @@ namespace nasl.ui {
 
         @Prop({
             group: '状态属性',
+            title: '预览',
+            description: '显示预览态',
+            docDescription: '',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        preview: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '状态属性',
             title: '弹出状态',
             description: '弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出”',
             sync: true,
@@ -488,6 +511,25 @@ namespace nasl.ui {
             },
         })
         width: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
+
+        @Prop({
+            group: '样式属性',
+            title: '下拉列表宽度',
+            description: '设置下拉列表宽度',
+            docDescription: '设置下拉列表宽度',
+        })
+        popperWidth: nasl.core.String;
+
+        @Prop({
+            group: '样式属性',
+            title: '回显选项',
+            description: '设置回显选项',
+            docDescription: '设置回显选项',
+            setter: {
+                concept: 'SwitchSetter',
+            }
+        })
+        isItemDisplay: nasl.core.Boolean = true;
 
         @Prop({
             group: '样式属性',
