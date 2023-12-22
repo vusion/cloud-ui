@@ -17,6 +17,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '图标',
             docDescription: '图标',
+            setter: {
+                concept: 'IconSetter',
+            }
         })
         icon: nasl.core.String = '通知';
 

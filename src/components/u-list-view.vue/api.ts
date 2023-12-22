@@ -201,7 +201,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        textField: (item: T) => nasl.core.String;
+        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
 
         @Prop<UListViewOptions<T, V, P, M, C>, 'valueField'>({
             group: '数据属性',
@@ -212,7 +212,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        valueField: (item: T) => V;
+        valueField: (item: T) => V = ((item: any)  => item.value) as any;
 
         @Prop({
             group: '数据属性',
@@ -230,6 +230,9 @@ namespace nasl.ui {
             title: '可多选',
             description: '设置是否可以多选行',
             docDescription: '列表的行是否可选中。默认关闭。',
+            setter: {
+                concept: 'SwitchSetter',
+            }
         })
         multiple: M = false as any;
 

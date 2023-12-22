@@ -48,32 +48,44 @@ namespace nasl.ui {
             group: '数据属性',
             title: '文本字段',
             description: '集合的元素类型中，用于显示文本的属性名称',
+            setter: {
+                concept: 'PropertySelectSetter',
+            }
         })
-        textField: (item: T) => nasl.core.String;
+        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
 
         @Prop({
             group: '数据属性',
             title: '值字段',
             description: '集合的元素类型中，用于标识选中值的属性',
             docDescription: '集合的元素类型中，用于标识选中值的属性',
+            setter: {
+                concept: 'PropertySelectSetter',
+            }
         })
-        valueField: (item: T) => V;
+        valueField: (item: T) => V = ((item: any)  => item.value) as any;
 
         @Prop({
             group: '数据属性',
             title: '父级值字段',
             description: '集合的元素类型中，用于标识父节点的属性',
             docDescription: '集合的元素类型中，用于标识父节点的属性',
+            setter: {
+                concept: 'PropertySelectSetter',
+            }
         })
-        parentField: nasl.core.String = '';
+        parentField: (item: T) => nasl.core.String;
 
         @Prop({
             group: '数据属性',
             title: '子级值字段',
             description: '集合的元素类型中，用于标识子节点的属性，默认为children',
             docDescription: '集合的元素类型中，用于标识子节点的属性',
+            setter: {
+                concept: 'PropertySelectSetter',
+            }
         })
-        childrenField: nasl.core.String = 'children';
+        childrenField: (item: T) => nasl.core.String = ((item: any)  => item.children) as any;
 
         @Prop({
             group: '数据属性',

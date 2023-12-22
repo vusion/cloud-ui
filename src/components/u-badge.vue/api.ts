@@ -35,8 +35,11 @@ namespace nasl.ui {
             title: '最大值',
             description: '最大值，超过最大值会显示为“最大值+”的形式，当最大值是数字类型时生效',
             docDescription: '提醒消息的最大值，超过最大值将不再显示准确的数字，用最大值+代替，如99+。',
+            setter: {
+                concept: 'NumberInputSetter',
+            },
         })
-        max: nasl.core.Integer = 99;
+        max: nasl.core.Decimal = 99;
 
         @Prop({
             group: '主要属性',
