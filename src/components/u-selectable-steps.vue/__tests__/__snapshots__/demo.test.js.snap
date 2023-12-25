@@ -17,7 +17,7 @@ exports[`u-selectable-steps.vue Demo-动态数据渲染 1`] = `
           描述 1
         </span>
       </a>
-      <a class="item" desc="true" passed="true">
+      <a class="item" desc="true" selected="selected">
         <div class="item-body" title="步骤 2">
           <span class="radio"></span>
           <span class="title" vusion-slot-name="title">步骤 2</span>
