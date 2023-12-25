@@ -665,7 +665,7 @@ export default {
         },
         onEnter(event) {
             // 当footer里的输入框按enter的时候，阻止行为
-            if (this.$refs.footer.contains(event.target))
+            if (this.$refs.footer && this.$refs.footer.contains(event.target))
                 return;
             if (this.focusedVM)
                 this.select(this.focusedVM);
@@ -819,7 +819,7 @@ export default {
         },
         onDelete(event) {
             // 当footer里的输入框按delete的时候，阻止行为，不然弹层会关闭
-            if (this.$refs.footer.contains(event.target))
+            if (this.$refs.footer && this.$refs.footer.contains(event.target))
                 return;
             if (this.clearable) {
                 this.clear();
