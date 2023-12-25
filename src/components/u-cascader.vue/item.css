@@ -1,21 +1,24 @@
 
-.select_item[select]{
+.select_item[select] {
     /* color: #409eff;
     font-weight: 700; */
-    background: #337EFF;
-    color: #FFFFFF;
+    background: var(--cascader-item-background-selected);
+    color: var(--cascader-item-color-selected);
 }
-.select_item[select]::after{
-    color: #FFFFFF;
+.select_item[select]::after {
+    color: var(--cascader-item-expander-color-selected);
 }
 
-.select_item{
+.select_item {
     text-overflow: ellipsis;
-    overflow: hidden;  
+    overflow: hidden;
     margin-top: 8px;
+
+    color: var(--cascader-item-color);
+    background: var(--cascader-item-background);
 }
-.select_item::after{
-    color: #999999;
+.select_item::after {
+    color: var(--cascader-item-expander-color);
 }
 
 
@@ -76,3 +79,4 @@
     color: black;
     animation: linear-spin var(--spinner-animation-duration) linear 0s infinite;
 }
+

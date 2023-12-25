@@ -78,8 +78,15 @@ export default {
   watch: {
     value(value) {
       this.watchValue(value);
-       // currentText
-       let texts = [];
+    },
+    currentValue(value, oldValue) {
+      if (this.converter) {
+        value = this.currentConverter.get(value);
+        oldValue = this.currentConverter.get(oldValue);
+      }
+
+      // currentText
+      let texts = [];
       this.itemVMs.forEach(it => {
           if (it?.status == 'true') {
               texts.push(it.$slots.item?.[0].componentOptions.propsData.text);
@@ -87,12 +94,6 @@ export default {
       });
       if (texts.length > 0)
         this.currentText = texts.join(',');
-    },
-    currentValue(value, oldValue) {
-      if (this.converter) {
-        value = this.currentConverter.get(value);
-        oldValue = this.currentConverter.get(oldValue);
-      }
       this.$emit("change", { value, oldValue });
     },
     itemVMs() {

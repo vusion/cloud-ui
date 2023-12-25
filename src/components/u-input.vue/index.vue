@@ -42,7 +42,7 @@
         <span :class="$style.clearable" v-if="clearable && !valueEmpty && !readonly && !disabled" @click.stop="clear"></span>
     </span>
 </div>
-<u-preview v-else :text="value"></u-preview>
+<u-preview v-else :text="currentValue"></u-preview>
 </template>
 
 <script>
