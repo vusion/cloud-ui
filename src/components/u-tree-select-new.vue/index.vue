@@ -95,6 +95,7 @@
                 :is-leaf-field="isLeafField"
                 :children-field="childrenField"
                 :disabled-field="disabledField"
+                :expanded-field="expandedField"
                 :more-children-fields="moreChildrenFields"
                 :exclude-fields="excludeFields"
                 :checkable="checkable"
@@ -151,6 +152,7 @@ export default {
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
         disabledField: { type: String, default: 'disabled' },
+        expandedField: { type: String, default: 'expanded' },
         moreChildrenFields: Array,
         excludeFields: { type: Array, default: () => [] },
         checkable: { type: Boolean, default: false },

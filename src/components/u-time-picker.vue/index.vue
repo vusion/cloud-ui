@@ -3,7 +3,6 @@
     <u-input :class="$style.input" width="full" height="full" :value="genDisplayFormatText(inputTime)" :autofocus="autofocus" :disabled="!!readonly || disabled"
         ref="input"
         :clearable="clearable" :placeholder="placeholder"
-        :placeholder-right="placeholderRight"
         @update:value="onInputChange($event)"
         @click="onInputClick"
         @focus="onFocus" @blur="onBlur"
@@ -102,12 +101,6 @@ export default {
         rightNowTitle: { type: String, default: '' },
         cancelTitle: { type: String, default: '' },
         okTitle: { type: String, default: '' },
-        placeholder: {
-            type: String,
-            default() {
-                return this.$tt('selectTimeText');
-            },
-        },
         placeholderRight: {
             type: String,
         },
