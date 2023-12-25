@@ -106,11 +106,16 @@ export default {
         rightNowTitle: { type: String, default: '' },
         cancelTitle: { type: String, default: '' },
         okTitle: { type: String, default: '' },
+        placeholder: {
+            type: String,
+            default() {
+                return this.$tt('selectTimeText');
+            },
+        },
     },
     data() {
         return {
             inputTime: this.value || this.time,
-            placeholder: this.$tt('selectTimeText'),
         };
     },
     watch: {
