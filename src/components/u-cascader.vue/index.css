@@ -121,3 +121,7 @@
     min-height: 200px;
     padding: 5px;
 }
+
+.filterHighlighter {
+    color: var(--cascader-item-highlighter);
+}
