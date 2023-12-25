@@ -33,6 +33,11 @@ namespace nasl.ui {
         })
         opened: USelectOptions<T, V, P, M, C>['opened'];
 
+        @Prop({
+            title: '过滤文本',
+        })
+        filterText: nasl.core.String;
+
         @Method({
             title: 'undefined',
             description: '弹出选择框。',

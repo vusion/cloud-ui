@@ -17,7 +17,7 @@
         "baseUrl": ".",
         "declaration": true,
         "emitDeclarationOnly": true,
-        "outFile": "../../low-code-fe/packages/nasl/sandbox/stdlib/nasl.ui.pc.ts",
+        "outFile": "./dist-theme/nasl.ui.ts",
         "lib": [
             "esnext",
             "dom"

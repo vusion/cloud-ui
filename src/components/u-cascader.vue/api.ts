@@ -18,6 +18,11 @@ namespace nasl.ui {
         })
         value: UCascaderOptions<T, V>['value'];
 
+        @Prop({
+            title: '过滤文本',
+        })
+        filterText: nasl.core.String;
+
         @Method({
             title: 'undefined',
             description: '弹出实例。',

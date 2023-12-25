@@ -23,6 +23,11 @@ namespace nasl.ui {
         })
         page: UListViewOptions<T, V, P, M, C>['pageNumber'];
 
+        @Prop({
+            title: '过滤文本',
+        })
+        filterText: nasl.core.String;
+
         @Method({
             title: 'undefined',
             description: '清除缓存，重新加载',
