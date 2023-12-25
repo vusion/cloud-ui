@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.19.1",
+  "version": "0.20.0",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -31,7 +31,7 @@
     "ghpages": "vusion ghpages",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
     "usage": "node ./scripts/lcap",
-    "deploy:dev": "lcap deploy dist-theme --platform http://defaulttenant.lcap.hadev.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hadev.163yun.com",
+    "deploy:dev": "lcap deploy dist-theme --platform http://defaulttenant.lcap.codewave-dev.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.codewave-dev.163yun.com",
     "deploy:test": "lcap deploy dist-theme --platform http://defaulttenant.lcap.hatest.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hatest.163yun.com",
     "deploy:test-without-img": "npm test &&lcap deploy dist-theme --platform http://defaulttenant.lcap.hatest.163yun.com",
     "deploy:pre": "npm test && lcap deploy dist-theme --platform http://defaulttenant.lcap.hadri.163yun.com && node bin/deploy-lcp-images --platform=http://defaulttenant.lcap.hadri.163yun.com",

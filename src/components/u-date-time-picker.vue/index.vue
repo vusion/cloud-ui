@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :width="width" :height="height">
+<div v-if="!isPreview" :class="$style.root" :width="width" :height="height">
     <u-input :class="$style.input" width="full" height="full" :value="genDisplayFormatText(finalDateTime)" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
         :clearable="clearable" :placeholder="placeholder"
         @click.stop="toggle(true)"
@@ -51,6 +51,7 @@
     </m-popper>
     <slot></slot>
 </div>
+<u-preview v-else :text="genDisplayFormatText(finalDateTime)"></u-preview>
 </template>
 
 <script>
@@ -61,6 +62,8 @@ import { formatterOptions as timeFormatterOptions } from '../u-time-picker.vue/w
 import { format, transformDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
+import UPreview from '../u-text.vue';
+import MPreview from '../u-text.vue/preview';
 import i18nMixin from '../../mixins/i18n';
 /**
  * @class DateTimePicker
@@ -79,7 +82,10 @@ import i18nMixin from '../../mixins/i18n';
 export default {
     name: 'u-date-time-picker',
     // i18n,
-    mixins: [MField, DateFormatMixin, i18nMixin('u-date-time-picker')],
+    mixins: [MField, DateFormatMixin, i18nMixin('u-date-time-picker'), MPreview],
+    component: {
+        UPreview
+    },
     props: {
         preIcon: {
             type: String,
@@ -90,6 +96,7 @@ export default {
             default: '',
         },
         disabled: { type: Boolean, default: false },
+        preview: { type: Boolean, default: false },
         placeholder: {
             type: String,
             default() {
@@ -343,6 +350,7 @@ export default {
                 && dtime < this.spMinTime
             ) {
                 const spMinTime = this.spMinTime.split(':');
+                this.minTime = this.spMinTime;
                 date.setHours(spMinTime[0]);
                 date.setMinutes(spMinTime[1]);
                 date.setSeconds(spMinTime[2]);
@@ -351,6 +359,7 @@ export default {
                 && dtime > this.spMaxTime
             ) {
                 const spMaxTime = this.spMaxTime.split(':');
+                this.maxTime = this.spMaxTime;
                 date.setHours(spMaxTime[0]);
                 date.setMinutes(spMaxTime[1]);
                 date.setSeconds(spMaxTime[2]);
@@ -360,8 +369,7 @@ export default {
             } else if (datetime === this.maxCalendarDate) {
                 this.minTime = undefined;
                 this.maxTime = this.spMaxTime;
-            }
-            else {
+            } else {
                 this.minTime = undefined;
                 this.maxTime = undefined;
             } // if (datetime === this.minCalendarDate || datetime === this.maxCalendarDate)
