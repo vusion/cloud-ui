@@ -101,8 +101,11 @@ export default {
         rightNowTitle: { type: String, default: '' },
         cancelTitle: { type: String, default: '' },
         okTitle: { type: String, default: '' },
-        placeholderRight: {
+        placeholder: {
             type: String,
+            default() {
+                return this.$tt('selectTimeText');
+            },
         },
     },
     data() {
