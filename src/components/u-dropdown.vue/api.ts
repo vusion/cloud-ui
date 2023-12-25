@@ -205,6 +205,12 @@ namespace nasl.ui {
             ],
         })
         slotDefault: () => Array<UDropdownGroup | UDropdownItem>;
+
+        @Slot({
+            title: '标题',
+            description: '内容自定义',
+        })
+        slotTitle: () => Array<ViewComponent>;
     }
 
     @Component({
@@ -284,6 +290,12 @@ namespace nasl.ui {
             description: '点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。',
         })
         onClick: () => void;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML。',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 
     @Component({

@@ -102,5 +102,11 @@ namespace nasl.ui {
             value: nasl.core.Boolean;
             oldValue: nasl.core.Boolean;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '内容自定义',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 }

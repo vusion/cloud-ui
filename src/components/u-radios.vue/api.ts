@@ -233,5 +233,11 @@ namespace nasl.ui {
             value: V;
             oldValue: V;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '单选项内容自定义',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 }

@@ -189,6 +189,18 @@ namespace nasl.ui {
             ],
         })
         slotDefault: () => Array<UNavbarGroupMulti | UNavbarItemMulti | UNavbarDividerMulti>;
+
+        @Slot({
+            title: '左侧导航',
+            description: '内容自定义',
+        })
+        slotLeft: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '右侧导航',
+            description: '内容自定义',
+        })
+        slotRight: () => Array<ViewComponent>;
     }
 
     @Component({
@@ -360,6 +372,12 @@ namespace nasl.ui {
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '导航栏项的内容',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 
     @Component({

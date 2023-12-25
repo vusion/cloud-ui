@@ -842,7 +842,7 @@ namespace nasl.ui {
             title: '标题',
             description: '自定义标题文本。',
         })
-        private slotTitle: () => Array<ViewComponent>;
+        slotTitle: () => Array<ViewComponent>;
 
         @Slot({
             title: '附加内容',

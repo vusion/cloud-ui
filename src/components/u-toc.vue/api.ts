@@ -163,5 +163,11 @@ namespace nasl.ui {
             ],
         })
         slotDefault: () => Array<UTocItem>;
+
+        @Slot({
+            title: '标签',
+            description: '内容自定义',
+        })
+        slotLabel: () => Array<ViewComponent>;
     }
 }

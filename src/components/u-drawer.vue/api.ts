@@ -115,5 +115,23 @@ namespace nasl.ui {
         onClose: (event: {
             ok: nasl.core.Boolean;
         }) => void;
+
+        @Slot({
+            title: '头部',
+            description: '插入文本或 HTML。',
+        })
+        slotTitle: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '内容区',
+            description: '插入文本或 HTML。',
+        })
+        slotBody: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '底部',
+            description: '插入文本或 HTML。',
+        })
+        slotFoot: () => Array<ViewComponent>;
     }
 }

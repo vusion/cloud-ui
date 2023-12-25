@@ -336,5 +336,11 @@ namespace nasl.ui {
             value: V;
             oldValue: V;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML。',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 }

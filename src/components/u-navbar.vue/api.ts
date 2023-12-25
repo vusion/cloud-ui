@@ -274,6 +274,12 @@ namespace nasl.ui {
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '导航项自定义',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 
     @Component({

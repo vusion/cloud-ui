@@ -228,5 +228,11 @@ namespace nasl.ui {
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML。',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 }

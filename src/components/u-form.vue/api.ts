@@ -25,7 +25,7 @@ namespace nasl.ui {
                 description: '是否验证后无提示',
             })
             muted: nasl.core.Boolean = false,
-        ): void {}
+        ): any {}
 
         @Method({
             title: 'undefined',
@@ -47,7 +47,7 @@ namespace nasl.ui {
                 description: '是否验证后无提示',
             })
             muted: nasl.core.Boolean = false,
-        ): void {}
+        ): any {}
         constructor(options?: Partial<UFormOptions>) { super(); }
     }
 
@@ -266,7 +266,7 @@ namespace nasl.ui {
                 description: '是否验证后无提示',
             })
             muted: nasl.core.Boolean = false,
-        ): void {}
+        ): any {}
         constructor(options?: Partial<UFormItemOptions>) { super(); }
     }
 
@@ -481,7 +481,7 @@ namespace nasl.ui {
             title: '标签自定义',
             description: '插入自定义标签，代替`label`属性。',
         })
-        private slotLabel: () => Array<ViewComponent>;
+        slotLabel: () => Array<ViewComponent>;
 
         @Slot({
             title: '描述自定义',

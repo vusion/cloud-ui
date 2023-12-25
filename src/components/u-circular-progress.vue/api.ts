@@ -40,6 +40,6 @@ namespace nasl.ui {
             title: 'undefined',
             description: '插入文本或 HTML。',
         })
-        private slotDefault: () => Array<ViewComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

@@ -20,5 +20,11 @@ namespace nasl.ui {
             docDescription: '锚点的唯一标识，用于跳转链接，标识为空时，默认将组件名作为标识',
         })
         label: nasl.core.String;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML。',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 }
