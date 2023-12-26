@@ -171,7 +171,7 @@ namespace nasl.ui {
             },
             if: _ => _.pagination === true,
         })
-        pageSize: nasl.core.Decimal = 20;
+        pageSize: nasl.core.Integer = 20;
 
         @Prop<UTableViewOptions<T, V, P, M>, 'showSizer'>({
             group: '数据属性',
@@ -204,7 +204,7 @@ namespace nasl.ui {
             },
             if: _ => _.pagination === true,
         })
-        pageNumber: nasl.core.Decimal = 1;
+        pageNumber: nasl.core.Integer = 1;
 
         @Prop<UTableViewOptions<T, V, P, M>, 'showTotal'>({
             group: '数据属性',
@@ -1009,6 +1009,13 @@ namespace nasl.ui {
             description: '自定义拖拽缩略图',
         })
         slotDragGhost: (current: Current<T>) => Array<ViewComponent>;
+
+        @Slot({
+            title: '配置列',
+            description: '自定义配置列内容',
+        })
+        slotConfigColumns: () => Array<ViewComponent>;
+
     }
 
     @Component({
