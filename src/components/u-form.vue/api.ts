@@ -25,7 +25,7 @@ namespace nasl.ui {
                 description: '是否验证后无提示',
             })
             muted: nasl.core.Boolean = false,
-        ): void {}
+        ): any {}
 
         @Method({
             title: 'undefined',
@@ -47,11 +47,11 @@ namespace nasl.ui {
                 description: '是否验证后无提示',
             })
             muted: nasl.core.Boolean = false,
-        ): void {}
+        ): any {}
         constructor(options?: Partial<UFormOptions>) { super(); }
     }
 
-    export class UFormOptions {
+    export class UFormOptions  extends ViewComponentOptions {
         @Prop({
             title: '数据模型',
             description: '表单数据模型',
@@ -266,11 +266,11 @@ namespace nasl.ui {
                 description: '是否验证后无提示',
             })
             muted: nasl.core.Boolean = false,
-        ): void {}
+        ): any {}
         constructor(options?: Partial<UFormItemOptions>) { super(); }
     }
 
-    export class UFormItemOptions {
+    export class UFormItemOptions  extends ViewComponentOptions {
         @Prop({
             title: '字段名称',
             description: '表单项名称。已废弃',
@@ -481,7 +481,7 @@ namespace nasl.ui {
             title: '标签自定义',
             description: '插入自定义标签，代替`label`属性。',
         })
-        private slotLabel: () => Array<ViewComponent>;
+        slotLabel: () => Array<ViewComponent>;
 
         @Slot({
             title: '描述自定义',
@@ -505,7 +505,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UFormGroupOptions>) { super(); }
     }
 
-    export class UFormGroupOptions {
+    export class UFormGroupOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '标题',

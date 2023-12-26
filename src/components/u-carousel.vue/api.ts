@@ -18,7 +18,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCarouselOptions<T>>) { super(); }
     }
 
-    export class UCarouselOptions<T> {
+    export class UCarouselOptions<T> extends ViewComponentOptions {
         @Prop({
             title: '循环播放',
             description: '是否循环播放',
@@ -151,7 +151,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCarouselItemOptions>) { super(); }
     }
 
-    export class UCarouselItemOptions {
+    export class UCarouselItemOptions  extends ViewComponentOptions {
         @Prop({
             title: '标题',
             description: '该项的标题',

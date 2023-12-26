@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<URouterViewOptions>) { super(); }
     }
 
-    export class URouterViewOptions {
+    export class URouterViewOptions  extends ViewComponentOptions {
         @Prop({
             title: '进入已打开页面时刷新',
             description: '重新进入已打开页面时，会刷新页面',

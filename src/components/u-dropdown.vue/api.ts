@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UDropdownOptions<T, V>>) { super(); }
     }
 
-    export class UDropdownOptions<T, V> {
+    export class UDropdownOptions<T, V> extends ViewComponentOptions {
         @Prop<UDropdownOptions<T, V>, 'hasDataSource'>({
             group: '数据属性',
             title: '数据源配置',
@@ -205,6 +205,12 @@ namespace nasl.ui {
             ],
         })
         slotDefault: () => Array<UDropdownGroup | UDropdownItem>;
+
+        @Slot({
+            title: '标题',
+            description: '内容自定义',
+        })
+        slotTitle: () => Array<ViewComponent>;
     }
 
     @Component({
@@ -217,7 +223,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UDropdownItemOptions>) { super(); }
     }
 
-    export class UDropdownItemOptions {
+    export class UDropdownItemOptions  extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '显示文本内容',
@@ -284,6 +290,12 @@ namespace nasl.ui {
             description: '点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。',
         })
         onClick: () => void;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML。',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 
     @Component({
@@ -295,7 +307,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UDropdownGroupOptions>) { super(); }
     }
 
-    export class UDropdownGroupOptions {
+    export class UDropdownGroupOptions  extends ViewComponentOptions {
         @Prop({
             title: '标题',
             description: '显示的标题',

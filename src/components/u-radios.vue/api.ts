@@ -26,7 +26,7 @@ namespace nasl.ui {
         constructor(options?: Partial<URadiosOptions<T, V>>) { super(); }
     }
 
-    export class URadiosOptions<T, V> {
+    export class URadiosOptions<T, V> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
@@ -178,7 +178,7 @@ namespace nasl.ui {
         constructor(options?: Partial<URadioOptions<V>>) { super(); }
     }
 
-    export class URadioOptions<V> {
+    export class URadioOptions<V> extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '显示文本内容',
@@ -233,5 +233,11 @@ namespace nasl.ui {
             value: V;
             oldValue: V;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '单选项内容自定义',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 }

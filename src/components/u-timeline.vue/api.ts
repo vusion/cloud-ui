@@ -11,7 +11,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTimelineOptions<T>>) { super(); }
     }
 
-    export class UTimelineOptions<T> {
+    export class UTimelineOptions<T> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
@@ -78,7 +78,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTimelineItemOptions>) { super(); }
     }
 
-    export class UTimelineItemOptions {
+    export class UTimelineItemOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '标签',

@@ -36,7 +36,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCountDownOptions>) { super(); }
     }
 
-    export class UCountDownOptions {
+    export class UCountDownOptions extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '定时时长（秒）',

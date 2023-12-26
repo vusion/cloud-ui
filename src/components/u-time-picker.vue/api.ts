@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTimePickerOptions>) { super(); }
     }
 
-    export class UTimePickerOptions {
+    export class UTimePickerOptions  extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '最小单位',

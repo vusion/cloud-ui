@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UBadgeOptions>) { super(); }
     }
 
-    export class UBadgeOptions {
+    export class UBadgeOptions extends ViewComponentOptions {
         @Prop({
             title: '显示小圆点',
             description: '是否显示为小圆点',

@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCapsulesOptions>) { super(); }
     }
 
-    export class UCapsulesOptions {
+    export class UCapsulesOptions extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '选中值',
@@ -147,7 +147,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCapsuleOptions>) { super(); }
     }
 
-    export class UCapsuleOptions {
+    export class UCapsuleOptions extends ViewComponentOptions {
         @Prop({
             title: '相关对象',
             description: '相关对象。当选择此项时，抛出的事件会传递该对象，便于开发',
@@ -256,7 +256,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCapsulesGroupOptions>) { super(); }
     }
 
-    export class UCapsulesGroupOptions {
+    export class UCapsulesGroupOptions  extends ViewComponentOptions {
 
 
         @Slot({

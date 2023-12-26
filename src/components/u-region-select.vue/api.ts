@@ -30,7 +30,7 @@ namespace nasl.ui {
         constructor(options?: Partial<URegionSelectOptions<T, V>>) { super(); }
     }
 
-    export class URegionSelectOptions<T, V> {
+    export class URegionSelectOptions<T, V> extends ViewComponentOptions {
         @Prop({
             title: '连接符',
             description: '将选中的值以选择的符号作为连接符，转为字符串格式,不可为空值',

@@ -18,7 +18,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UGalleryOptions<T>>) { super(); }
     }
 
-    export class UGalleryOptions<T> {
+    export class UGalleryOptions<T> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',

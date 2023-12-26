@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTextOptions>) { super(); }
     }
 
-    export class UTextOptions {
+    export class UTextOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '文本',

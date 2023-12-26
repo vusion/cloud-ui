@@ -16,7 +16,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UListComponentsOptions<T>>) { super(); }
     }
 
-    export class UListComponentsOptions<T> {
+    export class UListComponentsOptions<T> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',

@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UDatePickerOptions>) { super(); }
     }
 
-    export class UDatePickerOptions {
+    export class UDatePickerOptions  extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '日期类型',

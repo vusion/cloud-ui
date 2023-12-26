@@ -49,7 +49,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCascaderOptions<T, V>>) { super(); }
     }
 
-    export class UCascaderOptions<T, V> {
+    export class UCascaderOptions<T, V> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',

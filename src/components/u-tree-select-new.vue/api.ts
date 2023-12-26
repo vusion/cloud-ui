@@ -26,7 +26,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTreeSelectNewOptions<T, V, M>>) { super(); }
     }
 
-    export class UTreeSelectNewOptions<T, V, M extends boolean> {
+    export class UTreeSelectNewOptions<T, V, M extends boolean> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',

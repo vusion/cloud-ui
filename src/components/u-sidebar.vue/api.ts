@@ -24,7 +24,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USidebarOptions<T, V>>) { super(); }
     }
 
-    export class USidebarOptions<T, V> {
+    export class USidebarOptions<T, V> extends ViewComponentOptions {
         @Prop<USidebarOptions<T, V>, 'hasDataSource'>({
             group: '数据属性',
             title: '数据源配置',
@@ -284,7 +284,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USidebarItemOptions>) { super(); }
     }
 
-    export class USidebarItemOptions {
+    export class USidebarItemOptions  extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '文本内容',
@@ -444,6 +444,12 @@ namespace nasl.ui {
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '侧边栏项自定义',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 
     @Component({
@@ -455,7 +461,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USidebarGroupOptions>) { super(); }
     }
 
-    export class USidebarGroupOptions {
+    export class USidebarGroupOptions  extends ViewComponentOptions {
         @Prop({
             title: '标题',
             description: '显示的标题',
@@ -538,7 +544,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USidebarDividerOptions>) { super(); }
     }
 
-    export class USidebarDividerOptions {
+    export class USidebarDividerOptions  extends ViewComponentOptions {
 
     }
 }

@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UComboSliderOptions>) { super(); }
     }
 
-    export class UComboSliderOptions {
+    export class UComboSliderOptions extends ViewComponentOptions {
         @Prop({
             title: '提示',
         })
@@ -199,5 +199,11 @@ namespace nasl.ui {
             description: '拖动滑块结束后触发',
         })
         private onSlideEnd: (event: nasl.core.Decimal) => void;
+
+        @Slot({
+            title: '提示',
+            description: '插入文本或 HTML。',
+        })
+        slotTip: () => Array<ViewComponent>;
     }
 }

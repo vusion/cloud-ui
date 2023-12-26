@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCrumbOptions>) { super(); }
     }
 
-    export class UCrumbOptions {
+    export class UCrumbOptions extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '自动生成',
@@ -68,7 +68,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCrumbItemOptions>) { super(); }
     }
 
-    export class UCrumbItemOptions {
+    export class UCrumbItemOptions extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '文本内容',
@@ -228,5 +228,11 @@ namespace nasl.ui {
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML。',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 }

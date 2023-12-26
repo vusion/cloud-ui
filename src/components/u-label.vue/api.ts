@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<ULabelOptions>) { super(); }
     }
 
-    export class ULabelOptions {
+    export class ULabelOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '文本',

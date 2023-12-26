@@ -66,7 +66,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTreeViewNewOptions<T, V, M>>) { super(); }
     }
 
-    export class UTreeViewNewOptions<T, V, M extends boolean> {
+    export class UTreeViewNewOptions<T, V, M extends boolean> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
@@ -296,7 +296,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTreeViewNodeNewOptions<T, V>>) { super(); }
     }
 
-    export class UTreeViewNodeNewOptions<T, V> {
+    export class UTreeViewNodeNewOptions<T, V> extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '节点的文本',

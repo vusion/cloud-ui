@@ -53,7 +53,7 @@ namespace nasl.ui {
             title: 'undefined',
             description: '获取所有表格列的 field',
         })
-        getFields(): void {}
+        getFields(): any {}
 
         @Method({
             title: 'undefined',
@@ -1020,7 +1020,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTableViewColumnOptions<T, V, P, M>>) { super(); }
     }
 
-    export class UTableViewColumnOptions<T, V, P extends boolean, M extends boolean> {
+    export class UTableViewColumnOptions<T, V, P extends boolean, M extends boolean> extends ViewComponentOptions {
         @Prop({
             title: '格式器',
             description: '格式器',
@@ -1240,7 +1240,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTableViewColumnConfigOptions<T, V>>) { super(); }
     }
 
-    export class UTableViewColumnConfigOptions<T, V> {
+    export class UTableViewColumnConfigOptions<T, V> extends ViewComponentOptions {
         @Prop<UTableViewColumnConfigOptions<T, V>, any>({
             title: '文本字段',
             description: '配置列的下拉弹窗里，指定数据展示的字段',
@@ -1450,7 +1450,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTableViewColumnGroupOptions<T, V, P, M>>) { super(); }
     }
 
-    export class UTableViewColumnGroupOptions<T, V, P extends boolean, M extends boolean> {
+    export class UTableViewColumnGroupOptions<T, V, P extends boolean, M extends boolean> extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '表格标题',
@@ -1485,7 +1485,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTableViewExpanderOptions>) { super(); }
     }
 
-    export class UTableViewExpanderOptions {
+    export class UTableViewExpanderOptions  extends ViewComponentOptions {
         @Prop({
             title: '展开时图标',
             description: '展开时图标',

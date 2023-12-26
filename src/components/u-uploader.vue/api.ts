@@ -18,7 +18,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UUploaderOptions>) { super(); }
     }
 
-    export class UUploaderOptions {
+    export class UUploaderOptions  extends ViewComponentOptions {
         @Prop({
             title: '接收数据类型',
             description: '接收数据类型。可选值：`text`、`xml`、`json`',

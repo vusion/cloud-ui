@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<URateOptions>) { super(); }
     }
 
-    export class URateOptions {
+    export class URateOptions  extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '评分值',

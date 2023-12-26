@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USwitchOptions>) { super(); }
     }
 
-    export class USwitchOptions {
+    export class USwitchOptions  extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '值',
@@ -102,5 +102,11 @@ namespace nasl.ui {
             value: nasl.core.Boolean;
             oldValue: nasl.core.Boolean;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '内容自定义',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 }

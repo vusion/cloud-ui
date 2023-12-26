@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UDividerOptions>) { super(); }
     }
 
-    export class UDividerOptions {
+    export class UDividerOptions  extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '文本',
@@ -58,6 +58,6 @@ namespace nasl.ui {
             title: '默认',
             description: '显示的文本',
         })
-        private slotDefault: () => Array<ViewComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

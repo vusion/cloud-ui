@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<IIcoOptions>) { super(); }
     }
 
-    export class IIcoOptions {
+    export class IIcoOptions extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '图标',
@@ -101,5 +101,11 @@ namespace nasl.ui {
             description: '鼠标按下此项时触发',
         })
         onDown: () => void;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML。',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 }

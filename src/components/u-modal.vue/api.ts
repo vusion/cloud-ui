@@ -24,7 +24,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UModalOptions>) { super(); }
     }
 
-    export class UModalOptions {
+    export class UModalOptions  extends ViewComponentOptions {
         @Prop({
             title: '标题',
             description: '弹窗的标题',

@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UIframeOptions>) { super(); }
     }
 
-    export class UIframeOptions {
+    export class UIframeOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '网页地址',

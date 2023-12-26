@@ -26,7 +26,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCheckboxesOptions<T, V, C>>) { super(); }
     }
 
-    export class UCheckboxesOptions<T, V, C extends string> {
+    export class UCheckboxesOptions<T, V, C extends string> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
@@ -240,7 +240,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCheckboxOptions<T, V>>) { super(); }
     }
 
-    export class UCheckboxOptions<T, V> {
+    export class UCheckboxOptions<T, V> extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '显示文本内容',
@@ -336,5 +336,11 @@ namespace nasl.ui {
             value: V;
             oldValue: V;
         }) => void;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML。',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 }

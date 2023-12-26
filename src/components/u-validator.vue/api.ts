@@ -29,7 +29,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UValidatorOptions>) { super(); }
     }
 
-    export class UValidatorOptions {
+    export class UValidatorOptions  extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '验证值',

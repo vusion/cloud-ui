@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<EWatermarkOptions>) { super(); }
     }
 
-    export class EWatermarkOptions {
+    export class EWatermarkOptions  extends ViewComponentOptions {
         @Prop({
             title: '水印图案',
             description: '水印图案。如果没有，则默认按文本绘制',
