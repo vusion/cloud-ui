@@ -10,6 +10,7 @@
         :left-value="genDisplayFormatText(finalStartDateTime)"
         :right-value="genDisplayFormatText(finalEndDateTime)"
         :clearable="clearable" :placeholder="placeholder"
+        :placeholder-right="placeholderRight"
         @left-click="toggleLeft(true)"
         @right-click="toggleRight(true)"
         @update:value="onInput($event)" @focus="onFocus" @blur="onBlur"
@@ -101,6 +102,9 @@ export default {
             default() {
                 return this.$tt('selectTimeText');
             },
+        },
+        placeholderRight: {
+            type: String,
         },
         readonly: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },

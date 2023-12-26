@@ -6169,19 +6169,6 @@
                             ]
                         }
                     },
-                    "--drawer-max-height": {
-                        "type": "input",
-                        "desc": "large抽屉最大高度,如 1px",
-                        "depAttrs": {
-                            "size": [
-                                "auto"
-                            ],
-                            "placement": [
-                                "top",
-                                "bottom"
-                            ]
-                        }
-                    },
                     "--drawer-background": {
                         "type": "color",
                         "desc": "抽屉背景色"
@@ -6536,16 +6523,6 @@
                         "type": "color",
                         "group": "分组",
                         "desc": "侧边栏分组头部背景色（hover状态）,如：#223325",
-                        "prefix": "sidebar-group",
-                        "excludeTags": [
-                            "u-sidebar-item",
-                            "u-sidebar-divider"
-                        ]
-                    },
-                    "--sidebar-group-head-color-selected": {
-                        "type": "color",
-                        "group": "分组",
-                        "desc": "侧边栏分组头部选中背景色,如：#223325",
                         "prefix": "sidebar-group",
                         "excludeTags": [
                             "u-sidebar-item",
@@ -7432,6 +7409,46 @@
                     "--taskbox-icon-font-size": {
                         "type": "input",
                         "desc": "任务箱图标大小,如：1px"
+                    }
+                }
+            },
+            {
+                "id": 61,
+                "name": "u-cascader",
+                "title": "级联选择",
+                "toPosition": "cascader",
+                "type": [],
+                "preview": {
+                    "template": "<u-cascader filterable :data-source=\"[\n    { text: '理学', value: '理学', children: [\n        { text: '物理学', value: '物理学', children: [\n            { text: '理论物理', value: '理论物理' },\n            { text: '凝聚态物理', value: '凝聚态物理' },\n            { text: '材料物理', value: '材料物理' },\n        ]},\n        { text: '数学', value: '数学', children: [\n            { text: '基础数学', value: '基础数学' },\n            { text: '计算数学', value: '计算数学' },\n            { text: '应用数学', value: '应用数学' },\n        ]},\n        { text: '化学', value: '化学' },\n    ]},\n    { text: '工学', value: '工学', children: [\n        { text: '计算机科学与技术', value: '计算机科学与技术', children: [\n            { text: '计算机系统结构', value: '计算机系统结构' },\n            { text: '计算机软件与理论', value: '计算机软件与理论', disabled: true },\n            { text: '计算机应用技术', value: '计算机应用技术' },\n        ] },\n        { text: '软件工程', value: '软件工程', disabled: true },\n        { text: '机械工程', value: '机械工程', children: [\n            { text: '机械制造及其自动化', value: '机械制造及其自动化' },\n            { text: '机械电子工程', value: '机械电子工程' },\n            { text: '机械设计及理论', value: '机械设计及理论', disabled: true },\n            { text: '车辆工程', value: '车辆工程', disabled: true },\n        ] },\n    ] },\n]\">\n</u-cascader>"
+                },
+                "cssProperty": {
+                    "--cascader-item-color": {
+                        "type": "color",
+                        "desc": "下拉选项文字颜色"
+                    },
+                    "--cascader-item-background": {
+                        "type": "color",
+                        "desc": "下拉选项背景颜色"
+                    },
+                    "--cascader-item-expander-color": {
+                        "type": "color",
+                        "desc": "下拉选项展开图标颜色"
+                    },
+                    "--cascader-item-color-selected": {
+                        "type": "color",
+                        "desc": "下拉选项选中文字颜色"
+                    },
+                    "--cascader-item-background-selected": {
+                        "type": "color",
+                        "desc": "下拉选项选中背景颜色"
+                    },
+                    "--cascader-item-expander-color-selected": {
+                        "type": "color",
+                        "desc": "下拉选项选中展开图标颜色"
+                    },
+                    "--cascader-item-highlighter": {
+                        "type": "color",
+                        "desc": "下拉选项高亮文字颜色"
                     }
                 }
             }

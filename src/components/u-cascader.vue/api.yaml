@@ -81,6 +81,19 @@
       brifeDoc: ""
       docDescription: 选择器的值
       tooltipLink: ""
+    - name: changeOnSelect 
+      title: 是否可以选择非叶节点
+      advance: true
+      default: false
+      model: false
+      bindHide: true
+      sync: false
+      type: boolean
+      description: ""
+      group: 数据属性
+      brifeDoc: ""
+      docDescription: 是否可以选择非叶节点
+      tooltipLink: ""
     - name: useArrayLikeValue
       title: 绑定值使用值字段
       default: false
@@ -102,6 +115,16 @@
       brifeDoc: ""
       docDescription: 是否可以过滤（搜索），开启将会显示搜索框
       tooltipLink: ""
+    - name: filterHightlighterColor
+      title: 筛选文字高亮颜色
+      type: string
+      description: 设置筛选文字高亮颜色
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 设置筛选文字高亮颜色
+      tooltipLink: ""
+      dependency:
+        - filterable: true
     - name: placeholder
       title: 占位符
       type: string
