@@ -50,7 +50,7 @@ import { formatterOptions } from './wrap';
 import i18n from './i18n';
 import MField from '../m-field.vue';
 import UTimePickerPopper from './popper.vue';
-import UPreview from '../u-text.vue';
+import UPreview from '../u-text.vue/preview.vue';
 import MPreview from '../u-text.vue/preview';
 import i18nMixin from '../../mixins/i18n';
 
