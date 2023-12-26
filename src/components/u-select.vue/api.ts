@@ -122,7 +122,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        textField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.text) as any;
+        textField: (item: T) => nasl.core.String;
 
         @Prop<USelectOptions<T, V, P, M, C>, 'valueField'>({
             group: '数据属性',
