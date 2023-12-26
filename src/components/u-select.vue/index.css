@@ -543,3 +543,7 @@
 .preview .clearable{
     display: none;
 }
+
+.preview .placeholder {
+    color: var(--select-color);
+}
