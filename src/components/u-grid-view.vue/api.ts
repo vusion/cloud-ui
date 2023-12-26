@@ -74,7 +74,7 @@ namespace nasl.ui {
             docDescription: '组件的数据源，配置内容为数据集对象或者返回数据集的逻辑。',
             designerValue: [{}, {}, {}, {}, {}, {}, {}, {}],
         })
-        dataSource: P extends true ? { list: nasl.collection.List<T>; total: nasl.core.Integer } : nasl.collection.List<T>;
+        dataSource: { list: nasl.collection.List<T>; total: nasl.core.Integer } | nasl.collection.List<T>;
 
         @Prop({
             group: '数据属性',
