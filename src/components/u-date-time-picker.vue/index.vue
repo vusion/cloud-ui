@@ -350,6 +350,7 @@ export default {
                 && dtime < this.spMinTime
             ) {
                 const spMinTime = this.spMinTime.split(':');
+                this.minTime = this.spMinTime;
                 date.setHours(spMinTime[0]);
                 date.setMinutes(spMinTime[1]);
                 date.setSeconds(spMinTime[2]);
@@ -358,6 +359,7 @@ export default {
                 && dtime > this.spMaxTime
             ) {
                 const spMaxTime = this.spMaxTime.split(':');
+                this.maxTime = this.spMaxTime;
                 date.setHours(spMaxTime[0]);
                 date.setMinutes(spMaxTime[1]);
                 date.setSeconds(spMaxTime[2]);
@@ -367,8 +369,7 @@ export default {
             } else if (datetime === this.maxCalendarDate) {
                 this.minTime = undefined;
                 this.maxTime = this.spMaxTime;
-            }
-            else {
+            } else {
                 this.minTime = undefined;
                 this.maxTime = undefined;
             } // if (datetime === this.minCalendarDate || datetime === this.maxCalendarDate)

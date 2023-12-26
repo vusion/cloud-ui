@@ -32,8 +32,28 @@ namespace nasl.ui {
             setter: {
                 concept: 'SwitchSetter',
             },
+            onChange: [
+                { clear: ['placeholderRight'] }
+            ]
         })
         range: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '主要属性',
+            title: '占位符',
+            description: '为空时显示的占位符文本',
+            docDescription: '时间选择框无内容时的提示信息，支持自定义编辑，默认为请输入',
+        })
+        placeholder: nasl.core.String = '请选择时间';
+
+        @Prop<UTimePickerOptions, 'placeholderRight'>({
+            group: '主要属性',
+            title: '右侧占位符',
+            description: '为空时显示的占位符文本（右侧）',
+            docDescription: '时间选择框无内容时的提示信息，支持自定义编辑, 在没有设置的时候使用placeholder作为右侧占位符内容',
+            if: _ => _.range === true,
+        })
+        placeholderRight: nasl.core.String = '请选择时间';
 
         @Prop<UTimePickerOptions, 'value'>({
             group: '数据属性',

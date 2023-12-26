@@ -50,7 +50,7 @@ import { formatterOptions } from './wrap';
 import i18n from './i18n';
 import MField from '../m-field.vue';
 import UTimePickerPopper from './popper.vue';
-import UPreview from '../u-text.vue';
+import UPreview from '../u-text.vue/preview.vue';
 import MPreview from '../u-text.vue/preview';
 import i18nMixin from '../../mixins/i18n';
 
@@ -106,11 +106,16 @@ export default {
         rightNowTitle: { type: String, default: '' },
         cancelTitle: { type: String, default: '' },
         okTitle: { type: String, default: '' },
+        placeholder: {
+            type: String,
+            default() {
+                return this.$tt('selectTimeText');
+            },
+        },
     },
     data() {
         return {
             inputTime: this.value || this.time,
-            placeholder: this.$tt('selectTimeText'),
         };
     },
     watch: {

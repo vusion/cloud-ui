@@ -140,6 +140,15 @@ namespace nasl.ui {
         })
         filterable: nasl.core.Boolean = false;
 
+        @Prop<UCascaderOptions<T, V>, 'filterHightlighterColor'>({
+            group: '主要属性',
+            title: '筛选文字高亮颜色',
+            description: '设置筛选文字高亮颜色',
+            docDescription: '设置筛选文字高亮颜色',
+            if: _ => _.filterable === true,
+        })
+        filterHightlighterColor: nasl.core.String;
+
         @Prop({
             group: '主要属性',
             title: '占位符',

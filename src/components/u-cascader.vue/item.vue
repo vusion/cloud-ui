@@ -8,7 +8,10 @@
                     :class="$style.select_item"
                     :select="index === umenuIndex"
                     @click="clickMenuitem(item, index)">
-                    {{ $at(item, field) }}
+                    <span v-if="item.highlighterHtml" v-html="item.highlighterHtml"></span>
+                    <template v-else>
+                        {{ $at(item, field) }}
+                    </template>
                     <span :class="$style.spinner" v-if="item.loading"></span>
                 </u-menu-item>
             </u-menu>
@@ -29,6 +32,11 @@ export default {
         selectSubIdnex: Number, // parent选择了第几个cascaderitem组件
         isInput: Boolean,
         menuIndex: Number,
+
+        changeOnSelect: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -58,9 +66,9 @@ export default {
             this.selectMenuitem(index);
             this.$emit('select-umenuitem', selectItem, this.componentIndex);
             if (this.lazy) {
-                if (selectItem.leaf)
+                if (selectItem.leaf || this.changeOnSelect)
                     this.$emit('select-lastvalue');
-            } else if (!selectItem.children) {
+            } else if (!selectItem.children || this.changeOnSelect) {
                 this.$emit('select-lastvalue');
             }
         },
@@ -114,8 +122,9 @@ export default {
                 return;
             const selectItem = this.data[newUmenuIndex];
             this.selectMenuitem(newUmenuIndex);
+
             this.$emit('select-umenuitem', selectItem, this.componentIndex);
-            if (enter && !selectItem.children)
+            if (enter && (!selectItem.children || this.changeOnSelect))
                 this.$emit('select-lastvalue');
         },
         hasSub(item) {
