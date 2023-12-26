@@ -106,7 +106,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTableViewOptions<T, V, P, M>>) { super(); }
     }
 
-    export class UTableViewOptions<T, V, P extends boolean, M extends boolean> {
+    export class UTableViewOptions<T, V, P extends boolean, M extends boolean> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
@@ -1334,7 +1334,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTableViewColumnDynamicOptions<T, V, P, M, T1>>) { super(); }
     }
 
-    export class UTableViewColumnDynamicOptions<T, V, P extends boolean, M extends boolean, T1> {
+    export class UTableViewColumnDynamicOptions<T, V, P extends boolean, M extends boolean, T1> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
