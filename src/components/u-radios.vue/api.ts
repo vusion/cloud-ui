@@ -239,5 +239,11 @@ namespace nasl.ui {
             description: '单选项内容自定义',
         })
         slotDefault: () => Array<ViewComponent>;
+
+        @Slot({
+            title: 'undefined',
+            description: '自定义选项的结构和样式',
+        })
+        slotItem: () => Array<ViewComponent>;
     }
 }
