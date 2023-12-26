@@ -96,7 +96,7 @@ namespace nasl.ui {
             oldItem: T;
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择后',
@@ -108,19 +108,19 @@ namespace nasl.ui {
             oldItem: T;
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => void;
+        private onBeforeLoad: (event: EventTarget) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: null) => void;
+        onLoad: (event: null) => any;
 
         @Slot({
             title: 'undefined',

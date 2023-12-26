@@ -117,7 +117,7 @@ namespace nasl.ui {
             value: nasl.core.Integer;
             oldValue: nasl.core.Integer;
             item: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择后',
@@ -127,7 +127,7 @@ namespace nasl.ui {
             value: nasl.core.Integer;
             oldValue: nasl.core.Integer;
             item: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -138,7 +138,7 @@ namespace nasl.ui {
             oldValue: nasl.core.Integer;
             item: T;
             oldItem: T;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

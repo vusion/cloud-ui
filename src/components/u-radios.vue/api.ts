@@ -114,19 +114,19 @@ namespace nasl.ui {
         private onBeforeSelect: (event: {
             value: V;
             oldValue: V;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '输入时',
             description: '选择某一项时触发',
         })
-        onInput: (event: String) => void;
+        onInput: (event: String) => any;
 
         @Event({
             title: '选择后',
             description: '选择某一项时触发',
         })
-        onSelect: () => void;
+        onSelect: () => any;
 
         @Event({
             title: '改变后',
@@ -135,19 +135,19 @@ namespace nasl.ui {
         onChange: (event: {
             value: V;
             oldValue: V;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => void;
+        private onBeforeLoad: () => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => void;
+        onLoad: () => any;
 
         @Slot({
             title: 'undefined',
@@ -232,7 +232,7 @@ namespace nasl.ui {
         private onBeforeSelect: (event: {
             value: V;
             oldValue: V;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',

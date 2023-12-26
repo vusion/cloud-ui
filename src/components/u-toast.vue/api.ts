@@ -96,7 +96,7 @@ namespace nasl.ui {
             color: nasl.core.String;
             duration: nasl.core.Integer;
             timestamp: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '关闭后',
@@ -107,6 +107,6 @@ namespace nasl.ui {
             color: nasl.core.String;
             duration: nasl.core.Integer;
             timestamp: nasl.core.Integer;
-        }) => void;
+        }) => any;
     }
 }

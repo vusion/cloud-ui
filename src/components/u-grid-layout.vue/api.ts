@@ -36,7 +36,7 @@ namespace nasl.ui {
             scrollHeight: nasl.core.Integer;
             clientWidth: nasl.core.Integer;
             clientHeight: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',
@@ -343,7 +343,7 @@ namespace nasl.ui {
             title: '响应窗口变化时',
             description: '响应式布局引发栅格变化时触发',
         })
-        private onResponsive: () => void;
+        private onResponsive: () => any;
 
         @Slot({
             title: 'undefined',

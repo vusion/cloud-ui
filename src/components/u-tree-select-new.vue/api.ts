@@ -201,7 +201,7 @@ namespace nasl.ui {
             oldValue: V;
             node: T;
             oldNode: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择后',
@@ -212,7 +212,7 @@ namespace nasl.ui {
             oldValue: V;
             node: T;
             oldNode: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选中或取消后',
@@ -223,19 +223,19 @@ namespace nasl.ui {
             oldChecked: nasl.core.Boolean;
             node: T;
             values: nasl.collection.List<V>; 
-        }) => void;
+        }) => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => void;
+        private onBeforeLoad: () => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => void;
+        onLoad: () => any;
 
         @Event({
             title: '清空前',
@@ -246,7 +246,7 @@ namespace nasl.ui {
             oldValue: V;
             values: nasl.collection.List<V>;
             oldValues: nasl.collection.List<V>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '清空后',
@@ -257,7 +257,7 @@ namespace nasl.ui {
             oldValue: V;
             values: nasl.collection.List<V>;
             oldValues: nasl.collection.List<V>;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

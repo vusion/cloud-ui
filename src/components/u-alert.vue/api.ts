@@ -81,7 +81,7 @@ namespace nasl.ui {
             title: '关闭时',
             description: '关闭时触发',
         })
-        onClose: () => void;
+        onClose: () => any;
 
         @Slot({
             title: 'undefined',

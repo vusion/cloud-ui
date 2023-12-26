@@ -157,7 +157,7 @@ namespace nasl.ui {
             value: nasl.core.String | nasl.core.Date;
             oldValue: nasl.core.String | nasl.core.Date;
             week: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -167,19 +167,19 @@ namespace nasl.ui {
             date: nasl.core.Integer;
             timestamp: nasl.core.Integer;
             week: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: null) => void;
+        private onBeforeLoad: (event: null) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: null) => void;
+        onLoad: (event: null) => any;
 
         @Slot({
             title: 'undefined',

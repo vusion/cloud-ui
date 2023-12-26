@@ -422,13 +422,13 @@ namespace nasl.ui {
             oldValue: V;
             items: nasl.collection.List<T>;
             oldItems: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择时',
             description: '选择某一项时触发',
         })
-        onInput: (event: V) => void;
+        onInput: (event: V) => any;
 
         @Event({
             title: '选择后',
@@ -442,7 +442,7 @@ namespace nasl.ui {
             oldValue: V;
             items: nasl.collection.List<T>;
             oldItems: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -456,19 +456,19 @@ namespace nasl.ui {
             oldValue: V;
             items: nasl.collection.List<T>;
             oldItems: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => void;
+        private onBeforeLoad: () => any;
 
         @Event({
             title: '加载后',
             description: '加载时触发',
         })
-        onLoad: () => void;
+        onLoad: () => any;
 
         @Slot({
             title: '默认',

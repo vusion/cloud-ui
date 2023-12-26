@@ -75,13 +75,13 @@ namespace nasl.ui {
             title: '展开时',
             description: '展开此面板时触发',
         })
-        onExpand: () => void;
+        onExpand: () => any;
 
         @Event({
             title: '折叠时',
             description: '折叠某面板时触发',
         })
-        onCollapse: () => void;
+        onCollapse: () => any;
 
         @Slot({
             title: 'undefined',
@@ -139,13 +139,13 @@ namespace nasl.ui {
             title: '展开时',
             description: '展开此面板时触发',
         })
-        onExpand: () => void;
+        onExpand: () => any;
 
         @Event({
             title: '折叠时',
             description: '折叠某面板时触发',
         })
-        onCollapse: () => void;
+        onCollapse: () => any;
 
         @Slot({
             title: 'undefined',

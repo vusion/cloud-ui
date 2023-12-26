@@ -466,7 +466,7 @@ namespace nasl.ui {
         })
         onBeforeUpload: (event: {
             file: File;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '进度改变时',
@@ -479,7 +479,7 @@ namespace nasl.ui {
                 url: nasl.core.String;
             };
             file: File;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '文件数量超额',
@@ -492,7 +492,7 @@ namespace nasl.ui {
                 url: nasl.core.String;
             };
             file: File;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '文件大小超额',
@@ -504,7 +504,7 @@ namespace nasl.ui {
             message: nasl.core.String;
             name: nasl.core.String;
             file: File;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '上传成功时',
@@ -517,7 +517,7 @@ namespace nasl.ui {
                 url: nasl.core.String;
             };
             file: File;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '上传错误时',
@@ -530,7 +530,7 @@ namespace nasl.ui {
                 url: nasl.core.String;
             };
             file: File;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '删除时',
@@ -544,7 +544,7 @@ namespace nasl.ui {
                 url: nasl.core.String;
             },
             index: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

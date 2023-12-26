@@ -73,7 +73,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '输入前',
@@ -85,13 +85,13 @@ namespace nasl.ui {
             selectedItem: nasl.core.Any;
             item: nasl.core.Any;
             oldItem: nasl.core.Any;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '输入时',
             description: '选择某一项时触发',
         })
-        private onInput: (event: nasl.core.String) => void;
+        private onInput: (event: nasl.core.String) => any;
 
         @Event({
             title: '选择后',
@@ -103,7 +103,7 @@ namespace nasl.ui {
             selectedItem: nasl.core.Any;
             item: nasl.core.Any;
             oldItem: nasl.core.Any;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -115,7 +115,7 @@ namespace nasl.ui {
             selectedItem: nasl.core.Any;
             item: nasl.core.Any;
             oldItem: nasl.core.Any;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '链接区域',
@@ -253,7 +253,7 @@ namespace nasl.ui {
             selectedItem: nasl.core.Any;
             item: nasl.core.Any;
             oldItem: nasl.core.Any;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '导航前',
@@ -263,7 +263,7 @@ namespace nasl.ui {
             to: nasl.core.String;
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '导航',
@@ -273,7 +273,7 @@ namespace nasl.ui {
             to: nasl.core.String;
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',

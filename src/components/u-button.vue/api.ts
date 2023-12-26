@@ -196,7 +196,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '双击',
@@ -218,7 +218,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '右键点击',
@@ -240,7 +240,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '鼠标按下',
@@ -262,7 +262,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '鼠标释放',
@@ -284,7 +284,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '鼠标移入',
@@ -306,7 +306,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '鼠标移出',
@@ -328,19 +328,19 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '获得焦点',
             description: '获得焦点时触发。',
         })
-        onFocus: () => void;
+        onFocus: () => any;
 
         @Event({
             title: '失去焦点',
             description: '失去焦点时触发。',
         })
-        onBlur: () => void;
+        onBlur: () => any;
 
         @Event({
             title: '切换路由前',
@@ -350,7 +350,7 @@ namespace nasl.ui {
             to: nasl.core.String;
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '切换路由后',
@@ -360,6 +360,6 @@ namespace nasl.ui {
             to: nasl.core.String;
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
-        }) => void;
+        }) => any;
     }
 }

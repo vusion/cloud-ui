@@ -301,7 +301,7 @@ namespace nasl.ui {
             title: '值输入时',
             description: '值变化时触发 (表单验证可以检测到其值得变化)',
         })
-        onInput: (event: Date) => void;
+        onInput: (event: Date) => any;
 
         @Event({
             title: '值变化时',
@@ -310,7 +310,7 @@ namespace nasl.ui {
         onChange: (event: {
             date: nasl.core.String;
             time: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择时',
@@ -319,7 +319,7 @@ namespace nasl.ui {
         onSelect: (event: {
             date: nasl.core.String;
             time: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '弹出/隐藏时',
@@ -327,7 +327,7 @@ namespace nasl.ui {
         })
         private onToggle: (event: {
             opened: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '失去焦点',
@@ -341,6 +341,6 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
     }
 }

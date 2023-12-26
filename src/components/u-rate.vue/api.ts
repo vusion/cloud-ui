@@ -114,6 +114,6 @@ namespace nasl.ui {
         onChange: (event: {
             value: nasl.core.Decimal;
             oldValue: nasl.core.Decimal;
-        }) => void;
+        }) => any;
     }
 }

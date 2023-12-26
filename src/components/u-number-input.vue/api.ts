@@ -232,7 +232,7 @@ namespace nasl.ui {
             title: '输入时',
             description: '输入时触发',
         })
-        onInput: (event: String) => void;
+        onInput: (event: String) => any;
 
         @Event({
             title: '验证时',
@@ -247,7 +247,7 @@ namespace nasl.ui {
             firstError: nasl.core.String;
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -258,7 +258,7 @@ namespace nasl.ui {
             oldValue: nasl.core.Decimal;
             formattedValue: nasl.core.String;
             valid: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '聚焦后',
@@ -272,7 +272,7 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '失焦后',
@@ -286,7 +286,7 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '键盘按下',
@@ -301,7 +301,7 @@ namespace nasl.ui {
             metaKey: nasl.core.Boolean;
             repeat: nasl.core.Boolean;
             shiftKey: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '键盘松开',
@@ -316,7 +316,7 @@ namespace nasl.ui {
             metaKey: nasl.core.Boolean;
             repeat: nasl.core.Boolean;
             shiftKey: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',

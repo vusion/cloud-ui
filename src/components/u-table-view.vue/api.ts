@@ -713,13 +713,13 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: null) => void;
+        private onBeforeLoad: (event: null) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: null) => void;
+        onLoad: (event: null) => any;
 
         @Event({
             title: '切换分页前',
@@ -730,7 +730,7 @@ namespace nasl.ui {
             oldSize: nasl.core.Integer,
             number: nasl.core.Integer,
             oldNumber: nasl.core.Integer,
-        }) => void;
+        }) => any;
 
         @Event({
             title: '切换分页后',
@@ -741,7 +741,7 @@ namespace nasl.ui {
             oldSize: nasl.core.Integer,
             number: nasl.core.Integer,
             oldNumber: nasl.core.Integer,
-        }) => void;
+        }) => any;
 
         @Event({
             title: '排序前',
@@ -751,7 +751,7 @@ namespace nasl.ui {
             field: nasl.core.String,
             order: nasl.core.String, 
             compare?: Function
-        }) => void;
+        }) => any;
 
         @Event({
             title: '排序后',
@@ -761,19 +761,19 @@ namespace nasl.ui {
             field: nasl.core.String,
             order: nasl.core.String, 
             compare?: Function
-        }) => void;
+        }) => any;
 
         @Event({
             title: '筛选前',
             description: '筛选前触发',
         })
-        private onBeforeFilter: (event: object) => void;
+        private onBeforeFilter: (event: object) => any;
 
         @Event({
             title: '筛选后',
             description: '筛选后触发',
         })
-        onFilter: (event: object) => void;
+        onFilter: (event: object) => any;
 
         @Event({
             title: '点击行',
@@ -783,7 +783,7 @@ namespace nasl.ui {
             item: T, 
             index: nasl.core.Integer,
             rowIndex: nasl.core.Integer,
-        }) => void;
+        }) => any;
 
         @Event({
             title: '双击行',
@@ -793,7 +793,7 @@ namespace nasl.ui {
             item: T, 
             index: nasl.core.Integer,
             rowIndex: nasl.core.Integer,
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择前',
@@ -804,13 +804,13 @@ namespace nasl.ui {
             oldValue: V;
             item: T;
             oldItem: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择触发',
             description: '选择某一项后触发',
         })
-        onInput: (event: V) => void;
+        onInput: (event: V) => any;
 
         @Event({
             title: '选择后',
@@ -822,7 +822,7 @@ namespace nasl.ui {
             oldValue: V;
             item: T;
             oldItem: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '多选后',
@@ -834,7 +834,7 @@ namespace nasl.ui {
             values: nasl.collection.List<V>;
             oldValues: nasl.collection.List<V>;
             item: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -848,13 +848,13 @@ namespace nasl.ui {
             values: nasl.collection.List<V>;
             oldValues: nasl.collection.List<V>; 
             items: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '调整列宽后',
             description: '调整列宽后触发',
         })
-        onResize: () => void;
+        onResize: () => any;
 
         @Event({
             title: '展开行前',
@@ -864,7 +864,7 @@ namespace nasl.ui {
             item: T;
             expanded: nasl.core.Boolean;
             oldExpanded: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '展开行后',
@@ -873,7 +873,7 @@ namespace nasl.ui {
         onToggleExpanded: (event: {
             item: T;
             expanded: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '拖拽开始时',
@@ -903,7 +903,7 @@ namespace nasl.ui {
                 sourceList: nasl.collection.List<T>;
                 targetList: nasl.collection.List<T>;
             };
-        }) => void;
+        }) => any;
 
         @Event({
             title: '拖拽经过时',
@@ -933,7 +933,7 @@ namespace nasl.ui {
                 sourceList: nasl.collection.List<T>;
                 targetList: nasl.collection.List<T>;
             };
-        }) => void;
+        }) => any;
 
         @Event({
             title: '拖拽放置时',
@@ -963,7 +963,7 @@ namespace nasl.ui {
                 sourceList: nasl.collection.List<T>;
                 targetList: nasl.collection.List<T>;
             };
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',
@@ -1309,7 +1309,7 @@ namespace nasl.ui {
             oldValue: V;
             item: T;
             oldItem: T;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '配置列展示title',

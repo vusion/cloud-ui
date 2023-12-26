@@ -577,13 +577,13 @@ namespace nasl.ui {
             oldValue: V;
             items: nasl.collection.List<T>;
             oldItems: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择时',
             description: '选择某一项时触发',
         })
-        onInput: (event: V) => void;
+        onInput: (event: V) => any;
 
         @Event({
             title: '选择后',
@@ -597,7 +597,7 @@ namespace nasl.ui {
             oldValue: V;
             items: nasl.collection.List<T>;
             oldItems: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -612,43 +612,43 @@ namespace nasl.ui {
             values: nasl.collection.List<V>;
             items: nasl.collection.List<T>;
             oldItems: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '弹出前',
             description: '弹出前触发。',
         })
-        private onBeforeOpen: () => void;
+        private onBeforeOpen: () => any;
 
         @Event({
             title: '弹出后',
             description: '弹出后触发。',
         })
-        onOpen: () => void;
+        onOpen: () => any;
 
         @Event({
             title: '关闭前',
             description: '关闭前触发。',
         })
-        private onBeforeClose: () => void;
+        private onBeforeClose: () => any;
 
         @Event({
             title: '关闭后',
             description: '关闭时触发。',
         })
-        onClose: () => void;
+        onClose: () => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => void;
+        private onBeforeLoad: () => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => void;
+        onLoad: () => any;
 
         @Event({
             title: '点击前缀图标',
@@ -670,7 +670,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '点击后缀图标',
@@ -692,7 +692,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '失去焦点',
@@ -706,7 +706,7 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '搜索前',
@@ -714,7 +714,7 @@ namespace nasl.ui {
         })
         onBeforeFilter: (event: {
             filterText: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',
@@ -800,7 +800,7 @@ namespace nasl.ui {
             oldValue: V;
             items: nasl.collection.List<T>;
             oldItems: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',

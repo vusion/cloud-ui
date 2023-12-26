@@ -171,25 +171,25 @@ namespace nasl.ui {
             title: '弹出前',
             description: '弹出前触发。',
         })
-        private onBeforeOpen: () => void;
+        private onBeforeOpen: () => any;
 
         @Event({
             title: '弹出时',
             description: '弹出时触发。',
         })
-        onOpen: () => void;
+        onOpen: () => any;
 
         @Event({
             title: '隐藏前',
             description: '隐藏前触发。',
         })
-        private onBeforeClose: () => void;
+        private onBeforeClose: () => any;
 
         @Event({
             title: '隐藏后',
             description: '隐藏时触发。',
         })
-        onClose: () => void;
+        onClose: () => any;
 
         @Event({
             title: '展开折叠前',
@@ -197,7 +197,7 @@ namespace nasl.ui {
         })
         private onBeforeToggle: (event: {
             opened: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '展开折叠后',
@@ -205,7 +205,7 @@ namespace nasl.ui {
         })
         private onToggle: (event: {
             opened: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

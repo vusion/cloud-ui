@@ -213,13 +213,13 @@ namespace nasl.ui {
         private onBeforeInput: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '输入时',
             description: '输入时触发。',
         })
-        onInput: (event: nasl.core.String) => void;
+        onInput: (event: nasl.core.String) => any;
 
         @Event({
             title: '改变后',
@@ -228,7 +228,7 @@ namespace nasl.ui {
         onChange: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '获得焦点',
@@ -242,7 +242,7 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '失去焦点',
@@ -256,7 +256,7 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '清空前',
@@ -265,7 +265,7 @@ namespace nasl.ui {
         private onBeforeClear: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '清空后',
@@ -274,7 +274,7 @@ namespace nasl.ui {
         onClear: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '点击前缀图标',
@@ -296,7 +296,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '点击后缀图标',
@@ -318,7 +318,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '键盘按下',
@@ -333,7 +333,7 @@ namespace nasl.ui {
             metaKey: nasl.core.Boolean;
             repeat: nasl.core.Boolean;
             shiftKey: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '键盘松开',
@@ -348,7 +348,7 @@ namespace nasl.ui {
             metaKey: nasl.core.Boolean;
             repeat: nasl.core.Boolean;
             shiftKey: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',

@@ -98,7 +98,7 @@ namespace nasl.ui {
             title: '打开时',
             description: '打开抽屉时触发',
         })
-        onOpen: () => void;
+        onOpen: () => any;
 
         @Event({
             title: '关闭前',
@@ -106,7 +106,7 @@ namespace nasl.ui {
         })
         onBeforeClose: (event: {
             ok: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '关闭时',
@@ -114,7 +114,7 @@ namespace nasl.ui {
         })
         onClose: (event: {
             ok: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '头部',

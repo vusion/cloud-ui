@@ -73,42 +73,42 @@ namespace nasl.ui {
             title: '点击',
             description: '在元素上按下并释放任意鼠标按钮时触发。',
         })
-        onClick: () => void;
+        onClick: () => any;
 
         @Event({
             title: '双击',
             description: '在元素上双击鼠标按钮时触发。',
         })
-        onDblclick: () => void;
+        onDblclick: () => any;
 
         @Event({
             title: '右键点击',
             description: '在右键菜单显示前触发。',
         })
-        onContextmenu: () => void;
+        onContextmenu: () => any;
 
         @Event({
             title: '鼠标按下',
             description: '在元素上按下任意鼠标按钮时触发。',
         })
-        onMousedown: () => void;
+        onMousedown: () => any;
 
         @Event({
             title: '鼠标释放',
             description: '在元素上释放任意鼠标按钮时触发。',
         })
-        onMouseup: () => void;
+        onMouseup: () => any;
 
         @Event({
             title: '鼠标移入',
             description: '鼠标移入元素时触发。',
         })
-        onMouseenter: () => void;
+        onMouseenter: () => any;
 
         @Event({
             title: '鼠标移出',
             description: '鼠标移出元素时触发。',
         })
-        onMouseleave: () => void;
+        onMouseleave: () => any;
     }
 }

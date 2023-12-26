@@ -203,13 +203,13 @@ namespace nasl.ui {
         private onBeforeInput: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '输入时',
             description: '输入时触发。',
         })
-        onInput: (event: nasl.core.String) => void;
+        onInput: (event: nasl.core.String) => any;
 
         @Event({
             title: '改变后',
@@ -218,7 +218,7 @@ namespace nasl.ui {
         onChange: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '聚焦后',
@@ -232,7 +232,7 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '失焦后',
@@ -246,7 +246,7 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '清空前',
@@ -255,7 +255,7 @@ namespace nasl.ui {
         private onBeforeClear: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '清空后',
@@ -264,7 +264,7 @@ namespace nasl.ui {
         onClear: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',

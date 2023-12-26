@@ -144,7 +144,7 @@ namespace nasl.ui {
         private onBeforeSelect: (event: {
             page: nasl.core.Integer;
             oldPage: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择后',
@@ -153,7 +153,7 @@ namespace nasl.ui {
         onSelect: (event:  {
             page: nasl.core.Integer;
             oldPage: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -162,7 +162,7 @@ namespace nasl.ui {
         onChange: (event:  {
             page: nasl.core.Integer;
             oldPage: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '条数改变后',
@@ -172,6 +172,6 @@ namespace nasl.ui {
             page: nasl.core.Integer;
             oldPage: nasl.core.Integer;
             pageSizeOptions: Array<nasl.core.Integer>;
-        }) => void;
+        }) => any;
     }
 }

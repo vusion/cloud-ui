@@ -183,7 +183,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择前',
@@ -197,7 +197,7 @@ namespace nasl.ui {
             oldValue: V;
             items: nasl.collection.List<T>;
             oldItems: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择后',
@@ -211,7 +211,7 @@ namespace nasl.ui {
             oldValue: V;
             items: nasl.collection.List<T>;
             oldItems: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '关闭前',
@@ -220,7 +220,7 @@ namespace nasl.ui {
         private onBeforeClose: (event: {
             value: V;
             oldValue: V;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '关闭后',
@@ -229,19 +229,19 @@ namespace nasl.ui {
         onClose: (event: {
             value: V;
             oldValue: V;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => void;
+        private onBeforeLoad: () => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => void;
+        onLoad: () => any;
 
         @Slot({
             title: '默认',

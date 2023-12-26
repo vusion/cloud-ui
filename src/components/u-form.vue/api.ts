@@ -224,7 +224,7 @@ namespace nasl.ui {
             dirty: nasl.core.Boolean;
             firstError: nasl.core.String;
             triggerValid: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',
@@ -469,7 +469,7 @@ namespace nasl.ui {
             dirty: nasl.core.Boolean;
             firstError: nasl.core.String;
             triggerValid: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',
@@ -586,7 +586,7 @@ namespace nasl.ui {
         })
         private onBeforeToggle: (event: {
             expanded: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '展开折叠后',
@@ -594,7 +594,7 @@ namespace nasl.ui {
         })
         onToggle: (event: {
             expanded: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

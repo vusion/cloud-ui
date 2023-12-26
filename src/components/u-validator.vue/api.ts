@@ -162,7 +162,7 @@ namespace nasl.ui {
             firstError: nasl.core.String;
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '失焦验证通过后',
@@ -177,7 +177,7 @@ namespace nasl.ui {
             firstError: nasl.core.String;
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '失焦验证不通过后',
@@ -192,7 +192,7 @@ namespace nasl.ui {
             firstError: nasl.core.String;
             value: nasl.core.String;
             oldValue: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

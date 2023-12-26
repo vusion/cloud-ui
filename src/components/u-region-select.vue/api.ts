@@ -164,7 +164,7 @@ namespace nasl.ui {
             title: '输入时',
             description: '选择某一项时触发',
         })
-        onInput: (event: nasl.core.String) => void;
+        onInput: (event: nasl.core.String) => any;
 
         @Event({
             title: '选择后',
@@ -174,7 +174,7 @@ namespace nasl.ui {
             value: V;
             values: nasl.collection.List<V>;
             items: nasl.collection.List<T>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '获得焦点',
@@ -188,7 +188,7 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '失去焦点',
@@ -202,12 +202,12 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '清空后',
             description: '清空后触发。',
         })
-        onClear: () => void;
+        onClear: () => any;
     }
 }

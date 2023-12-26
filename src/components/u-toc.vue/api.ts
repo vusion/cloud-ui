@@ -31,7 +31,7 @@ namespace nasl.ui {
             oldValue: nasl.core.String;
             node: nasl.core.String;
             oldNode: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择后',
@@ -42,7 +42,7 @@ namespace nasl.ui {
             oldValue: nasl.core.String;
             node: nasl.core.String;
             oldNode: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',
@@ -150,7 +150,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

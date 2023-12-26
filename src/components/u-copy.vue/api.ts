@@ -78,7 +78,7 @@ namespace nasl.ui {
         })
         onCopy: (event: {
             value: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

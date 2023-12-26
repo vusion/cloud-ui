@@ -65,25 +65,25 @@ namespace nasl.ui {
         private onBeforeToggle: (event: {
             value: nasl.core.Boolean;
             oldValue: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '输入时',
             description: '切换开关状态时触发',
         })
-        onInput: (event: nasl.core.Boolean) => void;
+        onInput: (event: nasl.core.Boolean) => any;
 
         @Event({
             title: '打开时',
             description: '开关打开时触发',
         })
-        onOn: () => void;
+        onOn: () => any;
 
         @Event({
             title: '关闭时',
             description: '开关关闭时触发',
         })
-        onOff: () => void;
+        onOff: () => any;
 
         @Event({
             title: '切换状态后',
@@ -92,7 +92,7 @@ namespace nasl.ui {
         onToggle: (event: {
             value: nasl.core.Boolean;
             oldValue: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -101,7 +101,7 @@ namespace nasl.ui {
         onChange: (event: {
             value: nasl.core.Boolean;
             oldValue: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',

@@ -210,7 +210,7 @@ namespace nasl.ui {
             target: nasl.collection.List<T>;
             transfer: nasl.collection.List<T>;
             transferValues: nasl.collection.List<V>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -221,7 +221,7 @@ namespace nasl.ui {
             target: nasl.collection.List<T>;
             transfer: nasl.collection.List<T>;
             transferValues: nasl.collection.List<V>;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

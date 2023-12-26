@@ -166,7 +166,7 @@ namespace nasl.ui {
             title: '值改变时',
             description: '滑块的值改变时触发',
         })
-        onInput: (event: nasl.core.Decimal) => void;
+        onInput: (event: nasl.core.Decimal) => any;
 
         @Event({
             title: '拖动滑块时',
@@ -177,7 +177,7 @@ namespace nasl.ui {
             oldValue: nasl.core.Decimal;
             percent: nasl.core.Decimal;
             index: nasl.core.Decimal;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '值改变后',
@@ -186,19 +186,19 @@ namespace nasl.ui {
         onChange: (event: {
             value: nasl.core.Decimal;
             oldValue: nasl.core.Decimal;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变数字输入框的值后',
             description: '改变数字输入框的值后触发',
         })
-        onNumberInput: (event: nasl.core.Decimal) => void;
+        onNumberInput: (event: nasl.core.Decimal) => any;
 
         @Event({
             title: '拖动滑块结束后',
             description: '拖动滑块结束后触发',
         })
-        private onSlideEnd: (event: nasl.core.Decimal) => void;
+        private onSlideEnd: (event: nasl.core.Decimal) => any;
 
         @Slot({
             title: '提示',

@@ -70,37 +70,37 @@ namespace nasl.ui {
             title: '点击后',
             description: '点击此项时触发',
         })
-        onClick: () => void;
+        onClick: () => any;
 
         @Event({
             title: '双击',
             description: '双击此项时触发',
         })
-        onDblclick: () => void;
+        onDblclick: () => any;
 
         @Event({
             title: '右键点击',
             description: '右键点击此项时触发',
         })
-        onRightclick: () => void;
+        onRightclick: () => any;
 
         @Event({
             title: '鼠标移入',
             description: '鼠标移入此项时触发',
         })
-        onOver: () => void;
+        onOver: () => any;
 
         @Event({
             title: '鼠标移出',
             description: '鼠标移出此项时触发',
         })
-        onOut: () => void;
+        onOut: () => any;
 
         @Event({
             title: '鼠标按下',
             description: '鼠标按下此项时触发',
         })
-        onDown: () => void;
+        onDown: () => any;
 
         @Slot({
             title: '默认',

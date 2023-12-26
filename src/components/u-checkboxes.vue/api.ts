@@ -167,7 +167,7 @@ namespace nasl.ui {
             title: '输入时',
             description: '切换选项时触发',
         })
-        onInput: (event: nasl.collection.List<V>) => void;
+        onInput: (event: nasl.collection.List<V>) => any;
 
         @Event({
             title: '选中后',
@@ -176,7 +176,7 @@ namespace nasl.ui {
         onCheck: (event: {
             value: nasl.collection.List<V> | nasl.core.String;
             oldValue: nasl.collection.List<V> | nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -185,19 +185,19 @@ namespace nasl.ui {
         onChange: (event: {
             value: nasl.collection.List<V> | nasl.core.String;
             oldValue: nasl.collection.List<V> | nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => void;
+        private onBeforeLoad: (event: EventTarget) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => void;
+        onLoad: () => any;
 
         @Slot({
             title: 'undefined',
@@ -312,13 +312,13 @@ namespace nasl.ui {
         private onBeforeCheck: (event: {
             value: nasl.core.Boolean;
             oldValue: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '输入时',
             description: '切换选中状态时触发',
         })
-        onInput: (event: V) => void;
+        onInput: (event: V) => any;
 
         @Event({
             title: '选中后',
@@ -326,7 +326,7 @@ namespace nasl.ui {
         })
         onCheck: (event: {
             value: V;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -335,7 +335,7 @@ namespace nasl.ui {
         onChange: (event: {
             value: V;
             oldValue: V;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: '默认',

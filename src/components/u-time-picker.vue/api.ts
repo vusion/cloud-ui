@@ -273,7 +273,7 @@ namespace nasl.ui {
         onChange: (event: {
             date: nasl.core.String;
             time: nasl.core.String;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '失去焦点',
@@ -287,6 +287,6 @@ namespace nasl.ui {
             pageX: nasl.core.Integer;
             pageY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
     }
 }

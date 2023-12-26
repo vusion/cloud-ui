@@ -89,13 +89,13 @@ namespace nasl.ui {
             oldValue: nasl.core.String;
             items: nasl.collection.List<nasl.core.String>;
             oldItems: nasl.collection.List<nasl.core.String>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '输入时',
             description: '选择某一项时触发，仅在单选模式中生效',
         })
-        onInput: (event: nasl.core.String) => void;
+        onInput: (event: nasl.core.String) => any;
 
         @Event({
             title: '选择后',
@@ -109,7 +109,7 @@ namespace nasl.ui {
             oldValue: nasl.core.String;
             items: nasl.collection.List<nasl.core.String>;
             oldItems: nasl.collection.List<nasl.core.String>;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -123,7 +123,7 @@ namespace nasl.ui {
             oldValue: nasl.core.String;
             items: nasl.collection.List<nasl.core.String>;
             oldItems: nasl.collection.List<nasl.core.String>;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',
@@ -224,7 +224,7 @@ namespace nasl.ui {
             screenX: nasl.core.Integer;
             screenY: nasl.core.Integer;
             which: nasl.core.Integer;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选择前',
@@ -238,7 +238,7 @@ namespace nasl.ui {
             oldValue: nasl.core.String;
             items: nasl.collection.List<nasl.core.String>;
             oldItems: nasl.collection.List<nasl.core.String>;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

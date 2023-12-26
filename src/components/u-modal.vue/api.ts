@@ -131,19 +131,19 @@ namespace nasl.ui {
             title: '打开前',
             description: '打开弹窗前触发',
         })
-        private onBeforeOpen: () => void;
+        private onBeforeOpen: () => any;
 
         @Event({
             title: '打开后',
             description: '打开弹窗后触发',
         })
-        onOpen: () => void;
+        onOpen: () => any;
 
         @Event({
             title: '关闭前',
             description: '关闭弹窗前触发',
         })
-        private onBeforeClose: () => void;
+        private onBeforeClose: () => any;
 
         @Event({
             title: '关闭后',
@@ -151,7 +151,7 @@ namespace nasl.ui {
         })
         onClose: (event: {
             ok: nasl.core.Boolean;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',

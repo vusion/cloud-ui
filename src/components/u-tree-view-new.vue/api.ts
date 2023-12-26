@@ -206,13 +206,13 @@ namespace nasl.ui {
             oldValue: V;
             node: T;
             oldNode: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '输入时',
             description: '选择某一项时触发',
         })
-        onInput: (event: V | nasl.collection.List<V>) => void;
+        onInput: (event: V | nasl.collection.List<V>) => any;
 
         @Event({
             title: '选择后',
@@ -223,7 +223,7 @@ namespace nasl.ui {
             oldValue: V;
             node: T;
             oldNode: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -234,7 +234,7 @@ namespace nasl.ui {
             oldValue: V;
             node: T;
             oldNode: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '展开折叠后',
@@ -243,7 +243,7 @@ namespace nasl.ui {
         onToggle: (event: {
             expanded: nasl.core.Boolean;
             node: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选中取消后',
@@ -254,19 +254,19 @@ namespace nasl.ui {
             oldChecked: nasl.core.Boolean;
             node: T;
             values: nasl.collection.List<V>; 
-        }) => void;
+        }) => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => void;
+        private onBeforeLoad: () => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => void;
+        onLoad: () => any;
 
         @Slot({
             title: 'undefined',
@@ -351,7 +351,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: () => void;
+        private onBeforeSelect: () => any;
 
         @Event({
             title: '展开折叠前',
@@ -360,7 +360,7 @@ namespace nasl.ui {
         private onBeforeToggle: (event: {
             expanded: nasl.core.Boolean;
             node: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '展开折叠后',
@@ -369,7 +369,7 @@ namespace nasl.ui {
         onToggle: (event: {
             expanded: nasl.core.Boolean;
             node: T;
-        }) => void;
+        }) => any;
 
         @Event({
             title: '选中后',
@@ -379,7 +379,7 @@ namespace nasl.ui {
             checked: nasl.core.Boolean;
             oldChecked: nasl.core.Boolean;
             node: T;
-        }) => void;
+        }) => any;
 
         @Slot({
             title: 'undefined',
