@@ -459,12 +459,12 @@ export default {
             }
         },
         uploadCropperImg(obj) {
-            this.currentValue.push({
-                name: obj.name,
-                url: obj.data,
-                status: 'uploading',
-                progress: 100,
-            });
+            // this.currentValue.push({
+            //     name: obj.name,
+            //     url: obj.data,
+            //     status: 'uploading',
+            //     progress: 100,
+            // });
             const file = new window.File([obj.blob], obj.name, { type: 'image/jpeg' });
             this.uploadFiles([file]);
         },
