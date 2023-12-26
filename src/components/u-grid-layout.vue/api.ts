@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UGridLayoutOptions>) { super(); }
     }
 
-    export class UGridLayoutOptions {
+    export class UGridLayoutOptions  extends ViewComponentOptions {
         @Prop({
             group: '样式属性',
             title: '行间隔',
@@ -60,7 +60,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UGridLayoutRowOptions>) { super(); }
     }
 
-    export class UGridLayoutRowOptions {
+    export class UGridLayoutRowOptions  extends ViewComponentOptions {
         @Prop<UGridLayoutRowOptions, 'justify'>({
             group: '主要属性',
             title: '横轴对齐',
@@ -132,7 +132,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UGridLayoutColumnOptions>) { super(); }
     }
 
-    export class UGridLayoutColumnOptions {
+    export class UGridLayoutColumnOptions  extends ViewComponentOptions {
         @Prop({
             title: '响应很大屏',
             description: '响应式布局`<=1440px`的列跨越栅格数',

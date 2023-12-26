@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UAnchorOptions>) { super(); }
     }
 
-    export class UAnchorOptions {
+    export class UAnchorOptions extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '标识',

@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UInfoListOptions>) { super(); }
     }
 
-    export class UInfoListOptions {
+    export class UInfoListOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '列数',
@@ -73,7 +73,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UInfoListItemOptions>) { super(); }
     }
 
-    export class UInfoListItemOptions {
+    export class UInfoListItemOptions  extends ViewComponentOptions {
         @Prop({
             title: '标签名',
         })
@@ -134,7 +134,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UInfoListGroupOptions>) { super(); }
     }
 
-    export class UInfoListGroupOptions {
+    export class UInfoListGroupOptions  extends ViewComponentOptions {
         @Prop({
             title: '标签',
         })

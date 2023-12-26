@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<ULinearProgressOptions>) { super(); }
     }
 
-    export class ULinearProgressOptions {
+    export class ULinearProgressOptions  extends ViewComponentOptions {
         @Prop({
             title: '百分比范围',
             description: '百分比范围限制',

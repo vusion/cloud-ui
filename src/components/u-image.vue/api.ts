@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UImageOptions>) { super(); }
     }
 
-    export class UImageOptions {
+    export class UImageOptions  extends ViewComponentOptions {
         @Prop({
             title: '图片地址转换器',
             description: '将传入的src转换为符合要求的字符串',

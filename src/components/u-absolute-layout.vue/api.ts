@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UAbsoluteLayoutOptions>) { super(); }
     }
 
-    export class UAbsoluteLayoutOptions {
+    export class UAbsoluteLayoutOptions extends ViewComponentOptions {
 
 
         @Event({

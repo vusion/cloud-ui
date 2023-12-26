@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<IIcoOptions>) { super(); }
     }
 
-    export class IIcoOptions {
+    export class IIcoOptions extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '图标',

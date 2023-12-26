@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNumberInputOptions>) { super(); }
     }
 
-    export class UNumberInputOptions {
+    export class UNumberInputOptions  extends ViewComponentOptions {
         @Prop({
             title: '格式化',
             description: '格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。',

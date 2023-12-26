@@ -30,7 +30,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UInputOptions>) { super(); }
     }
 
-    export class UInputOptions {
+    export class UInputOptions  extends ViewComponentOptions {
         @Prop({
             title: '最小长度',
             setter: {

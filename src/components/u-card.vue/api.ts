@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCardOptions>) { super(); }
     }
 
-    export class UCardOptions {
+    export class UCardOptions extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '标题',
@@ -127,7 +127,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCardGroupOptions>) { super(); }
     }
 
-    class UCardGroupOptions {
+    class UCardGroupOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '标题',

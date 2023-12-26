@@ -18,7 +18,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTabsOptions<T, V>>) { super(); }
     }
 
-    export class UTabsOptions<T, V> {
+    export class UTabsOptions<T, V> extends ViewComponentOptions {
         @Prop({
             title: '显示滚动按钮',
             description: '是否显示标签滚动左右箭头按钮',
@@ -282,7 +282,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTabOptions<V>>) { super(); }
     }
 
-    export class UTabOptions<V> {
+    export class UTabOptions<V> extends ViewComponentOptions {
         @Prop({
             title: '标题',
             description: '标签页标题。',

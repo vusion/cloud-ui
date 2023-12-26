@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCollapseOptions>) { super(); }
     }
 
-    export class UCollapseOptions {
+    export class UCollapseOptions extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '显示效果',
@@ -105,7 +105,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCollapseItemOptions>) { super(); }
     }
 
-    export class UCollapseItemOptions {
+    export class UCollapseItemOptions extends ViewComponentOptions {
         @Prop({
             title: '标题',
             description: '显示的标题',

@@ -24,7 +24,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UDrawerOptions>) { super(); }
     }
 
-    export class UDrawerOptions {
+    export class UDrawerOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '抽屉位置',

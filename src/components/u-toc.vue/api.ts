@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTocOptions>) { super(); }
     }
 
-    export class UTocOptions {
+    export class UTocOptions  extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '选中值',
@@ -65,7 +65,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTocItemOptions>) { super(); }
     }
 
-    export class UTocItemOptions {
+    export class UTocItemOptions  extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '文本',

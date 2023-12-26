@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UPanelOptions>) { super(); }
     }
 
-    export class UPanelOptions {
+    export class UPanelOptions  extends ViewComponentOptions {
         @Prop({
             title: '内容',
             description: '面板内容',
@@ -85,7 +85,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UPanelGroupOptions>) { super(); }
     }
 
-    class UPanelGroupOptions {
+    class UPanelGroupOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '标题',

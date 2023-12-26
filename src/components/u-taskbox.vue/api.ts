@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTaskboxOptions>) { super(); }
     }
 
-    export class UTaskboxOptions {
+    export class UTaskboxOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '图标',

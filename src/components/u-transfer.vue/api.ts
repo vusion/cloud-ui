@@ -53,7 +53,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTransferOptions<T, V>>) { super(); }
     }
 
-    export class UTransferOptions<T, V> {
+    export class UTransferOptions<T, V> extends ViewComponentOptions {
         @Prop({
             title: '过滤匹配方法',
             description: '过滤时的匹配方法',

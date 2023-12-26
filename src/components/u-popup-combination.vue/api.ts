@@ -48,7 +48,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UPopupCombinationOptions>) { super(); }
     }
 
-    export class UPopupCombinationOptions {
+    export class UPopupCombinationOptions  extends ViewComponentOptions {
         @Prop({
             title: '弹出层偏移',
             description: `弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是'px'`,

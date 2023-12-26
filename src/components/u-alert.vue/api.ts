@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UAlertOptions>) { super(); }
     }
 
-    export class UAlertOptions {
+    export class UAlertOptions extends ViewComponentOptions {
         @Prop({
             title: '标题',
             description: '公告标题',

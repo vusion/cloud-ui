@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USwitchOptions>) { super(); }
     }
 
-    export class USwitchOptions {
+    export class USwitchOptions  extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '值',

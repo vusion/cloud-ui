@@ -24,7 +24,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UToastSingleOptions>) { super(); }
     }
 
-    export class UToastSingleOptions {
+    export class UToastSingleOptions  extends ViewComponentOptions {
         @Prop({
             title: '提示内容',
             description: '默认提示内容',

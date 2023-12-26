@@ -18,7 +18,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USelectableStepsOptions<T>>) { super(); }
     }
 
-    export class USelectableStepsOptions<T> {
+    export class USelectableStepsOptions<T> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
@@ -172,7 +172,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USelectableStepOptions>) { super(); }
     }
 
-    export class USelectableStepOptions {
+    export class USelectableStepOptions  extends ViewComponentOptions {
         @Prop({
             title: '标题',
             description: '步骤标题文本',

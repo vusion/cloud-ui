@@ -31,7 +31,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UGridViewOptions<T, V, P, M, C>>) { super(); }
     }
 
-    export class UGridViewOptions<T, V, P extends boolean, M extends boolean, C extends string> {
+    export class UGridViewOptions<T, V, P extends boolean, M extends boolean, C extends string> extends ViewComponentOptions {
         @Prop({
             title: '值',
             description: '当前选择的值',

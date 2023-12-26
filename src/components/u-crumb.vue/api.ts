@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCrumbOptions>) { super(); }
     }
 
-    export class UCrumbOptions {
+    export class UCrumbOptions extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '自动生成',
@@ -68,7 +68,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCrumbItemOptions>) { super(); }
     }
 
-    export class UCrumbItemOptions {
+    export class UCrumbItemOptions extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '文本内容',

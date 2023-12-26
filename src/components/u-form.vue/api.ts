@@ -51,7 +51,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UFormOptions>) { super(); }
     }
 
-    export class UFormOptions {
+    export class UFormOptions  extends ViewComponentOptions {
         @Prop({
             title: '数据模型',
             description: '表单数据模型',
@@ -270,7 +270,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UFormItemOptions>) { super(); }
     }
 
-    export class UFormItemOptions {
+    export class UFormItemOptions  extends ViewComponentOptions {
         @Prop({
             title: '字段名称',
             description: '表单项名称。已废弃',
@@ -505,7 +505,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UFormGroupOptions>) { super(); }
     }
 
-    export class UFormGroupOptions {
+    export class UFormGroupOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '标题',

@@ -36,7 +36,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UListViewOptions<T, V, P, M, C>>) { super(); }
     }
 
-    export class UListViewOptions<T, V, P extends boolean, M extends boolean, C extends string> {
+    export class UListViewOptions<T, V, P extends boolean, M extends boolean, C extends string> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',

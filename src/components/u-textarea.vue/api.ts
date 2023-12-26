@@ -30,7 +30,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTextareaOptions>) { super(); }
     }
 
-    export class UTextareaOptions {
+    export class UTextareaOptions  extends ViewComponentOptions {
         @Prop({
             title: '最小长度',
             setter: {

@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarOptions>) { super(); }
     }
 
-    export class UNavbarOptions {
+    export class UNavbarOptions  extends ViewComponentOptions {
         @Prop({
             title: '使用路由',
             description: '是否根据 vue-router 来控制选择项',
@@ -155,7 +155,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarItemOptions>) { super(); }
     }
 
-    export class UNavbarItemOptions {
+    export class UNavbarItemOptions  extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '文本内容',
@@ -291,7 +291,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarDividerOptions>) { super(); }
     }
 
-    export class UNavbarDividerOptions {
+    export class UNavbarDividerOptions  extends ViewComponentOptions {
 
     }
 
@@ -304,7 +304,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarDropdownOptions>) { super(); }
     }
 
-    export class UNavbarDropdownOptions {
+    export class UNavbarDropdownOptions  extends ViewComponentOptions {
         @Prop({
             title: '触发方式',
             description: '触发方式',
@@ -344,7 +344,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarMenuOptions>) { super(); }
     }
 
-    export class UNavbarMenuOptions {
+    export class UNavbarMenuOptions  extends ViewComponentOptions {
 
     }
 
@@ -357,7 +357,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarMenuGroupOptions>) { super(); }
     }
 
-    export class UNavbarMenuGroupOptions {
+    export class UNavbarMenuGroupOptions  extends ViewComponentOptions {
 
     }
 
@@ -370,7 +370,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarMenuItemOptions>) { super(); }
     }
 
-    export class UNavbarMenuItemOptions {
+    export class UNavbarMenuItemOptions  extends ViewComponentOptions {
 
     }
 
@@ -383,7 +383,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarMenuDividerOptions>) { super(); }
     }
 
-    export class UNavbarMenuDividerOptions {
+    export class UNavbarMenuDividerOptions  extends ViewComponentOptions {
 
     }
 
@@ -396,7 +396,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarSelectOptions>) { super(); }
     }
 
-    export class UNavbarSelectOptions {
+    export class UNavbarSelectOptions  extends ViewComponentOptions {
 
     }
 
@@ -409,7 +409,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarSelectGroupOptions>) { super(); }
     }
 
-    export class UNavbarSelectGroupOptions {
+    export class UNavbarSelectGroupOptions  extends ViewComponentOptions {
 
     }
 
@@ -422,7 +422,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarSelectItemOptions>) { super(); }
     }
 
-    export class UNavbarSelectItemOptions {
+    export class UNavbarSelectItemOptions  extends ViewComponentOptions {
 
     }
 
@@ -435,7 +435,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarSelectDividerOptions>) { super(); }
     }
 
-    export class UNavbarSelectDividerOptions {
+    export class UNavbarSelectDividerOptions  extends ViewComponentOptions {
 
     }
 }

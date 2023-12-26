@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCopyOptions>) { super(); }
     }
 
-    export class UCopyOptions {
+    export class UCopyOptions extends ViewComponentOptions {
         @Prop({
             title: '默认显示文本',
             description: '默认显示的文本',

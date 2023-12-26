@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UDateTimePickerOptions>) { super(); }
     }
 
-    export class UDateTimePickerOptions {
+    export class UDateTimePickerOptions  extends ViewComponentOptions {
         @Prop<UDateTimePickerOptions, 'minUnit'>({
             group: '主要属性',
             title: '最小单位',

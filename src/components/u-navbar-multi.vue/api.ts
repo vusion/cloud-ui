@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarMultiOptions<T, V>>) { super(); }
     }
 
-    export class UNavbarMultiOptions<T, V> {
+    export class UNavbarMultiOptions<T, V> extends ViewComponentOptions {
         @Prop<UNavbarMultiOptions<T, V>, 'hasDataSource'>({
             group: '数据属性',
             title: '数据源配置',
@@ -212,7 +212,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarItemMultiOptions>) { super(); }
     }
 
-    export class UNavbarItemMultiOptions {
+    export class UNavbarItemMultiOptions  extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '文本内容',
@@ -389,7 +389,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarDividerMultiOptions>) { super(); }
     }
 
-    export class UNavbarDividerMultiOptions {
+    export class UNavbarDividerMultiOptions  extends ViewComponentOptions {
 
     }
 
@@ -402,7 +402,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarDropdownMultiOptions>) { super(); }
     }
 
-    export class UNavbarDropdownMultiOptions {
+    export class UNavbarDropdownMultiOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '弹出方向',
@@ -444,7 +444,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarMenuMultiOptions>) { super(); }
     }
 
-    export class UNavbarMenuMultiOptions {
+    export class UNavbarMenuMultiOptions  extends ViewComponentOptions {
 
     }
 
@@ -457,7 +457,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarMenuGroupMultiOptions>) { super(); }
     }
 
-    export class UNavbarMenuGroupMultiOptions {
+    export class UNavbarMenuGroupMultiOptions  extends ViewComponentOptions {
 
     }
 
@@ -470,7 +470,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarMenuItemMultiOptions>) { super(); }
     }
 
-    export class UNavbarMenuItemMultiOptions {
+    export class UNavbarMenuItemMultiOptions  extends ViewComponentOptions {
 
     }
 
@@ -483,7 +483,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarMenuDividerMultiOptions>) { super(); }
     }
 
-    export class UNavbarMenuDividerMultiOptions {
+    export class UNavbarMenuDividerMultiOptions  extends ViewComponentOptions {
 
     }
 
@@ -496,7 +496,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarSelectMultiOptions>) { super(); }
     }
 
-    export class UNavbarSelectMultiOptions {
+    export class UNavbarSelectMultiOptions  extends ViewComponentOptions {
 
     }
 
@@ -509,7 +509,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarSelectGroupMultiOptions>) { super(); }
     }
 
-    export class UNavbarSelectGroupMultiOptions {
+    export class UNavbarSelectGroupMultiOptions  extends ViewComponentOptions {
 
     }
 
@@ -522,7 +522,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarSelectItemMultiOptions>) { super(); }
     }
 
-    export class UNavbarSelectItemMultiOptions {
+    export class UNavbarSelectItemMultiOptions  extends ViewComponentOptions {
 
     }
 
@@ -535,7 +535,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarSelectDividerMultiOptions>) { super(); }
     }
 
-    export class UNavbarSelectDividerMultiOptions {
+    export class UNavbarSelectDividerMultiOptions  extends ViewComponentOptions {
 
     }
 
@@ -548,7 +548,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UNavbarGroupMultiOptions>) { super(); }
     }
 
-    export class UNavbarGroupMultiOptions {
+    export class UNavbarGroupMultiOptions  extends ViewComponentOptions {
         @Prop({
             title: '标题',
             description: '显示的标题',

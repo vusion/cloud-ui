@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UCircularProgressOptions>) { super(); }
     }
 
-    export class UCircularProgressOptions {
+    export class UCircularProgressOptions extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '当前进度(%)',

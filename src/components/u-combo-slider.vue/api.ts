@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UComboSliderOptions>) { super(); }
     }
 
-    export class UComboSliderOptions {
+    export class UComboSliderOptions extends ViewComponentOptions {
         @Prop({
             title: '提示',
         })

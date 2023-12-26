@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UDropdownOptions<T, V>>) { super(); }
     }
 
-    export class UDropdownOptions<T, V> {
+    export class UDropdownOptions<T, V> extends ViewComponentOptions {
         @Prop<UDropdownOptions<T, V>, 'hasDataSource'>({
             group: '数据属性',
             title: '数据源配置',
@@ -223,7 +223,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UDropdownItemOptions>) { super(); }
     }
 
-    export class UDropdownItemOptions {
+    export class UDropdownItemOptions  extends ViewComponentOptions {
         @Prop({
             title: '文本',
             description: '显示文本内容',
@@ -307,7 +307,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UDropdownGroupOptions>) { super(); }
     }
 
-    export class UDropdownGroupOptions {
+    export class UDropdownGroupOptions  extends ViewComponentOptions {
         @Prop({
             title: '标题',
             description: '显示的标题',

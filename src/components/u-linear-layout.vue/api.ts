@@ -24,7 +24,7 @@ namespace nasl.ui {
         constructor(options?: Partial<ULinearLayoutOptions>) { super(); }
     }
 
-    export class ULinearLayoutOptions {
+    export class ULinearLayoutOptions  extends ViewComponentOptions {
         @Prop({
             title: '展示方式',
             description: '行内展示，或块级换行展示',

@@ -87,7 +87,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USelectOptions<T, V, P, M, C>>) { super(); }
     }
 
-    export class USelectOptions<T, V, P extends boolean, M extends boolean, C extends string> {
+    export class USelectOptions<T, V, P extends boolean, M extends boolean, C extends string> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
@@ -746,7 +746,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USelectItemOptions<T, V>>) { super(); }
     }
 
-    export class USelectItemOptions<T, V> {
+    export class USelectItemOptions<T, V> extends ViewComponentOptions {
         @Prop({
             title: '选项文本',
             description: '此项的显示值',
@@ -818,7 +818,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USelectGroupOptions<T, V>>) { super(); }
     }
 
-    export class USelectGroupOptions<T, V> {
+    export class USelectGroupOptions<T, V> extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '标题',
@@ -860,7 +860,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USelectDividerOptions>) { super(); }
     }
 
-    export class USelectDividerOptions {
+    export class USelectDividerOptions  extends ViewComponentOptions {
 
     }
 }

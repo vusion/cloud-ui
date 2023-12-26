@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UButtonOptions>) { super(); }
     }
 
-    export class UButtonOptions {
+    export class UButtonOptions extends ViewComponentOptions {
         @Prop({
             title: '路由链接',
             description: '需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。',

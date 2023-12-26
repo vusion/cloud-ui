@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UMultiLayoutOptions>) { super(); }
     }
 
-    export class UMultiLayoutOptions {
+    export class UMultiLayoutOptions  extends ViewComponentOptions {
         @Prop<UMultiLayoutOptions, 'direction'>({
             group: '主要属性',
             title: '主轴方向',
@@ -167,7 +167,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UMultiLayoutItemOptions>) { super(); }
     }
 
-    export class UMultiLayoutItemOptions {
+    export class UMultiLayoutItemOptions  extends ViewComponentOptions {
         @Prop({
             title: '固定展示',
             description: '开启后滚动时该项固定显示',

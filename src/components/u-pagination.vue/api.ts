@@ -12,7 +12,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UPaginationOptions>) { super(); }
     }
 
-    export class UPaginationOptions {
+    export class UPaginationOptions  extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '当前页数',
