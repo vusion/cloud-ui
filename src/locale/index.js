@@ -1,8 +1,8 @@
 import Vue from 'vue';
 
-import enUS from './lang/en-US';
-import zhCN from './lang/zh-CN';
-import ja from './lang/ja';
+import enUS from './lang/en-US.json';
+import zhCN from './lang/zh-CN.json';
+import ja from './lang/ja.json';
 
 const defaultMessages = {
     'zh-CN': zhCN,
