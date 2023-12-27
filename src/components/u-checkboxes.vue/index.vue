@@ -46,7 +46,7 @@ import MConverter from "../m-converter.vue";
 import SupportDataSource from "../../mixins/support.datasource";
 import UCheckbox from "../u-checkbox.vue";
 import MPreview from '../u-text.vue/preview';
-import UPreview from '../u-text.vue';
+import UPreview from '../u-text.vue/preview.vue';
 
 export default {
   name: "u-checkboxes",
