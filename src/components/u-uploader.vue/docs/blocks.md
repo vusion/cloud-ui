@@ -4,9 +4,9 @@
 
 ``` html
 <u-uploader display="inline"
-    url="/upload" url-field="filePath"
+    url="/upload" urlField="filePath"
     :limit="999"
-    max-size="50MB"
+    maxSize="50MB"
     converter="json">
     <u-button color="primary" icon="upload">上传</u-button>
     <template #file-list>
@@ -25,9 +25,9 @@
 ``` html
 <u-uploader list-type="card"
     accept=".png,.jpg,.jpeg,.gif,.bmp"
-    url="/upload" url-field="filePath"
+    url="/upload" urlField="filePath"
     :limit="999"
-    max-size="50MB"
+    maxSize="50MB"
     converter="json">
     <template #file-list>
         <i-ico style="margin: 0px 8px 0px 0px;" flag="file-icon" name="file-default" icotype="only"></i-ico>
@@ -43,9 +43,9 @@
 ``` html
 <u-uploader multiple list-type="image"
     accept=".png,.jpg,.jpeg,.gif,.bmp"
-    url="/upload" url-field="filePath"
+    url="/upload" urlField="filePath"
     :limit="999"
-    max-size="50MB"
+    maxSize="50MB"
     converter="json">
     <u-button color="primary" icon="upload">上传</u-button>
     <template #file-list>
