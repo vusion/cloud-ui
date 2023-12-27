@@ -146,7 +146,11 @@ export default {
         // 字符串类型的 reference 只有首次获取是有效的，因为之后节点会被插到别的地方
         this.referenceEl = this.getReferenceEl();
         const triggerEl = this.getTriggerEl(this.referenceEl);
-        this.addTrigger(triggerEl, this.trigger);
+        if (this.$env.VUE_APP_DESIGNER) {
+            this.addTrigger(triggerEl, 'click');
+        } else {
+            this.addTrigger(triggerEl, this.trigger);
+        }
         this.currentOpened && this.createPopper();
     },
     beforeDestroy() {

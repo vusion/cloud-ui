@@ -18,6 +18,7 @@
                 </slot>
             </template>
         </u-radio>
+        <u-preview v-if="isPreview" :text="currentText"></u-preview>
     </template>
     <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
         <span :class="$style.loadContent">{{ treeSelectTip }}</span>
@@ -31,14 +32,17 @@ import { MParent } from '../m-parent.vue';
 import MField from '../m-field.vue';
 import URadio from './radio.vue';
 import SupportDataSource from '../../mixins/support.datasource.js';
+import MPreview from '../u-text.vue/preview';
+import UPreview from '../u-text.vue/preview.vue';
 
 export default {
     name: 'u-radios',
     childName: 'u-radio',
     components: {
         URadio,
+        UPreview
     },
-    mixins: [MParent, MField, SupportDataSource],
+    mixins: [MParent, MField, SupportDataSource, MPreview],
     props: {
         value: null,
         readonly: { type: Boolean, default: false },

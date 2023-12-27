@@ -27,6 +27,8 @@
       default: false
       description: 是否支持进行日期时间区间选择，关闭则为日期时间点选择
       group: 数据属性
+      toggleclear:
+        - placeholderRight
     - name: value
       title: 值
       type: string | number | nasl.core.Date
@@ -154,6 +156,16 @@
       group: 主要属性
       docDescription: 未选择状态下的提示文案
       tooltipLink: ""
+    - name: placeholderRight
+      title: 右侧占位符
+      type: string
+      description: 为空时显示的占位符文本（右侧）
+      group: 主要属性
+      brifeDoc: ""
+      docDescription: 日期选择框无内容时的提示信息，支持自定义编辑, 在没有设置的时候使用placeholder作为右侧占位符内容
+      tooltipLink: ""
+      dependency:
+        - range: true
     - name: autofocus
       title: 自动获取焦点
       type: boolean
