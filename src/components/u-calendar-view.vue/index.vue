@@ -242,7 +242,7 @@ export default {
             if (this.selectedDatesSnapshot === snapshot) {
                 return;
             }
-            this.selectedDates = Array.from(new Set(value.sort())).map((v) => getDay(v).hour(0).minute(0).second(0).millisecond(0));
+            this.selectedDates = value > 0 ? Array.from(new Set(value.sort())).map((v) => getDay(v).hour(0).minute(0).second(0).millisecond(0)) : [];
             this.selectedDatesSnapshot = snapshot;
             this.getConfigs();
         },
@@ -368,6 +368,13 @@ export default {
          * Basic
          */
         onPrevMonth() {
+            if (!this.selectedDate) {
+                let currentFirstDay = this.getCurrentFirstDay();
+                currentFirstDay = currentFirstDay.subtract(1, 'month');
+                this.year = currentFirstDay.year();
+                this.month = currentFirstDay.month();
+                return;
+            }
             const oldValue = this.selectedDate.format(DefaultFormatType);
             const newSelectedDate = this.selectedDate.subtract(1, 'month');
             const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.subtract(1, 'month')), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
@@ -385,6 +392,13 @@ export default {
             this.$emit('select', cell, this);
         },
         onNextMonth() {
+            if (!this.selectedDate) {
+                let currentFirstDay = this.getCurrentFirstDay();
+                currentFirstDay = currentFirstDay.add(1, 'month');
+                this.year = currentFirstDay.year();
+                this.month = currentFirstDay.month();
+                return;
+            }
             const oldValue = this.selectedDate.format(DefaultFormatType);
             const newSelectedDate = this.selectedDate.add(1, 'month');
             const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.add(1, 'month')), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
@@ -402,10 +416,14 @@ export default {
             this.$emit('select', cell, this);
         },
         onToday() {
-            if (this.selectedDate.isSame(this.date))
+            let selectedDate = this.selectedDate;
+            if (!selectedDate) {
+                selectedDate = this.getCurrentFirstDay();
+            }
+            if (selectedDate.isSame(this.date))
                 return;
-            const oldValue = this.selectedDate.format(DefaultFormatType);
-            const __type__ = this.date.isBefore(this.selectedDate) ? 'prev' : 'next';
+            const oldValue = selectedDate && selectedDate.format(DefaultFormatType);
+            const __type__ = this.date.isBefore(selectedDate) ? 'prev' : 'next';
             const newSelectedDate = this.date.clone();
             const dates = [newSelectedDate];
             this.year = newSelectedDate.year();
@@ -428,8 +446,15 @@ export default {
             if (this.year === value) {
                 return;
             }
-            const oldValue = this.selectedDate.format(DefaultFormatType);
-            const { minMonth, maxMonth, selectedDate, minDay, maxDay } = this;
+            // fix：2770426704748544，日期多选，清空value值时展示NaN
+            let selectedDate = this.selectedDate;
+            if (!selectedDate) {
+                selectedDate = this.getCurrentFirstDay({ year: this.year });
+            }
+
+            const oldValue = selectedDate.format(DefaultFormatType);
+            const { minMonth, maxMonth, minDay, maxDay } = this;
+
             let newSelectedDate = selectedDate.clone().year(value);
             const __type__ = newSelectedDate.isBefore(this.selectedDate) ? 'prev' : 'next';
             if (newSelectedDate.isBefore(minDay)) {
@@ -442,6 +467,8 @@ export default {
             this.year = value;
             const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.year(value)), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
             const date = dates[0];
+            if (!date)
+                return;
             const cell = this.getCommonAttrs(date, {
                 __type__,
                 value: newSelectedDate.format(DefaultFormatType),
@@ -456,8 +483,14 @@ export default {
             if (this.month === value) {
                 return;
             }
-            const oldValue = this.selectedDate.format(DefaultFormatType);
-            const { selectedDate, minDay, maxDay } = this;
+
+            let selectedDate = this.selectedDate;
+            if (!selectedDate) {
+                selectedDate = this.getCurrentFirstDay({ month: this.year });
+            }
+
+            const oldValue = selectedDate.format(DefaultFormatType);
+            const { minDay, maxDay } = this;
             let newSelectedDate = selectedDate.clone().month(value);
             const __type__ = newSelectedDate.isBefore(this.selectedDate) ? 'prev' : 'next';
             if (newSelectedDate.isBefore(minDay)) {
@@ -469,6 +502,8 @@ export default {
             this.month = value;
             const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.month(value)), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
             const date = dates[0];
+            if (!date)
+                return;
             const cell = this.getCommonAttrs(date, {
                 __type__,
                 value: newSelectedDate.format(DefaultFormatType),
@@ -575,6 +610,9 @@ export default {
             if (!validData.length)
                 return {};
             return { ...validData[0], list: validData };
+        },
+        getCurrentFirstDay(data = {}) {
+            return dayjs().year(data.year || this.year).month(data.month || this.month).date(1);
         },
     },
 };
