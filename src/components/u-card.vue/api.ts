@@ -116,6 +116,12 @@ namespace nasl.ui {
             description: '插入图片',
         })
         slotCover: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '标题',
+            description: '插入文本或 HTML。',
+        })
+        slotTitle: () => Array<ViewComponent>;
     }
 
     @Component({
