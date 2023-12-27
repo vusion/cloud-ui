@@ -21,6 +21,7 @@
       default: a
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 实线、虚线
       tooltipLink: ""
     - name: content-position
@@ -36,6 +37,7 @@
       default: center
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 居中、左、右
       tooltipLink: ""
     - name: direction
@@ -49,6 +51,7 @@
       default: horizontal
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: 横向、竖向
       tooltipLink: ""
   slots:

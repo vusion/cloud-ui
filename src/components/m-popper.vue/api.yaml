@@ -72,7 +72,7 @@
     - name: append-to
       type: string
       default: body
-      description: 设置添加到哪个元素。可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中
+      description: 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中
     - name: boundaries-element
       type: Element | string
       default: window

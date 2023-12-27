@@ -3,7 +3,6 @@
   icon: dropdown-new
   labels:
     - Navigation
-  tsTypeParams: T, V
   attrs:
     - name: has-data-source
       title: 数据源配置
@@ -27,7 +26,7 @@
         - target-field
     - name: data-source
       title: 数据源
-      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
+      type: Array<Item> | Function | object | DataSource
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
@@ -38,7 +37,7 @@
         - "has-data-source": true
     - name: data-schema
       title: 数据类型
-      type: T
+      type: schema
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
@@ -49,16 +48,15 @@
         - "has-data-source": true
     - name: text-field
       title: 文本字段
-      type: "(item: T) => nasl.core.String"
+      type: string
       default: text
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
       dependency:
         - "has-data-source": true
-      display: property-select
     - name: value-field
       title: 值字段
-      type: "(item: T) => V"
+      type: string
       default: value
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
@@ -67,28 +65,26 @@
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更
       tooltipLink: ""
-      display: property-select
     - name: icon-field
       title: 图标属性字段
-      type: "(item: T) => nasl.core.String"
+      type: string
       default: icon
       description: 集合的元素类型中，用于图标的属性名称
       group: 数据属性
       dependency:
         - "has-data-source": true
-      display: property-select
     - name: to-field
       title: 跳转链接字段
-      type: "(item: T) => nasl.core.String"
+      type: string
       default: to
       description: 集合的元素类型中，用于跳转链接的属性名称
       group: 数据属性
       dependency:
         - "has-data-source": true
-      display: property-select
     - name: parent-field
       title: 父级值字段
-      type: "(item: T) => nasl.core.String"
+      type: string
+      default: ""
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
       dependency:
@@ -96,7 +92,6 @@
       brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识父级字段的属性，支持自定义变更
       tooltipLink: ""
-      display: property-select
     - name: trigger
       title: 触发方式
       type: string
@@ -131,6 +126,7 @@
       default: text
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: 支持基础按钮样式、主要按钮样式、次要按钮样式、普通按钮样式共4种样式
       tooltipLink: ""
     - name: placement
@@ -164,19 +160,21 @@
       default: bottom
       description: 弹出层的弹出方向
       group: 主要属性
+      brifeDoc: ""
       docDescription: 设置下拉菜单的弹出位置，支持上、下、左、右、上左、上右、下左、下右、左上、左下、右上、右下共12个方向
       tooltipLink: ""
     - name: append-to
       title: 弹出层位置依据
       type: string
       default: reference
-      description: 设置弹出层依据哪个元素定位位置，可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。
+      description: 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。
       options:
         - value: reference
           title: 引用元素下
         - value: body
           title: 全局body
       group: 主要属性
+      brifeDoc: ""
       docDescription: 设置弹出层在html里的位置，支持引用元素下、全局body设置。当把下拉菜单放入某个组件，而组件overflow是hidden的时候，需要设置为全局body
       tooltipLink: ""
     - name: router
@@ -190,7 +188,7 @@
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: V
+      type: any
       sync: true
       model: true
       description: 当前选中的值
@@ -206,6 +204,7 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
+      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
     - name: opened
@@ -244,15 +243,16 @@
       advanced: true
     - name: to
       title: 路由链接
-      type: string | Location
+      type: string, Location
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
       advanced: true
     - name: icon
       title: 图标
-      type: string
+      type: icon
       default: ""
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 菜单项前增加自定义图标显示
       tooltipLink: ""
     - name: linkType
@@ -268,6 +268,7 @@
       compType: linkTypeSelect
       bindHide: true
       group: 交互属性
+      brifeDoc: ""
       docDescription: 支持页面跳转、下载链接
       tooltipLink: ""
     - name: hrefAndTo
@@ -276,6 +277,7 @@
       description: ""
       compType: linkHrefInput
       group: 交互属性
+      brifeDoc: ""
       docDescription: 链接地址配置
       tooltipLink: ""
     - name: target
@@ -295,6 +297,7 @@
       default: _self
       description: 链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。
       group: 交互属性
+      brifeDoc: ""
       docDescription: 支持新窗口、当前窗口、父级窗口、顶级窗口四种方式，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口
       tooltipLink: ""
     - name: disabled
@@ -303,6 +306,7 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
+      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
   events:

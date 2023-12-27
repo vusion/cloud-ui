@@ -4,34 +4,40 @@
   icon: tree-view
   labels:
     - Selector
-  tsTypeParams: T, V, M extends boolean
   attrs:
     - name: data-source
       title: 数据源
-      type: nasl.collection.List<T>
+      type: Array<Item> | Function | object | DataSource
       designer-value: "[{}, {}, {}]"
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       group: 数据属性
+      brifeDoc: ""
       docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: T
+      type: schema
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
       docDescription: 该属性为只读状态，当数据源动态绑定集合List<T>后，会自动识别T的类型并进行展示
       tooltipLink: ""
     - name: text-field
       title: 文本字段
-      type: "(item: T) => nasl.core.String"
+      display: property-select
+      type: string
+      default: text
       group: 数据属性
       description: 集合的元素类型中，用于显示文本的属性名称
     - name: value-field
       title: 值字段
-      type: "(item: T) => V"
+      display: property-select
+      type: string
+      default: value
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
+      brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识选中值的属性
       tooltipLink: ""
     - name: parent-field
@@ -41,6 +47,7 @@
       default: ""
       description: 集合的元素类型中，用于标识父节点的属性
       group: 数据属性
+      brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识父节点的属性
       tooltipLink: ""
     - name: children-field
@@ -50,6 +57,7 @@
       default: children
       description: 集合的元素类型中，用于标识子节点的属性，默认为children
       group: 数据属性
+      brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识子节点的属性
       tooltipLink: ""
     - name: expanded-field
@@ -64,11 +72,12 @@
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: V
+      type: any
       sync: true
       model: true
       description: 选择后，所选中的值
       group: 数据属性
+      brifeDoc: ""
       docDescription: 通过组件进行选择后，最终选中的值，支持双向绑定到变量
       tooltipLink: ""
     - name: checkable
@@ -117,7 +126,7 @@
       title: 弹出层位置依据
       type: string
       default: reference
-      description: 设置弹出层依据哪个元素定位位置，可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。
+      description: 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。
       options:
         - value: reference
           title: 引用元素下
@@ -188,8 +197,7 @@
       name: default
       description: 插入`<u-tree-view-node-new>`子组件
       support:
-        - name: u-tree-view-node-new
-          tsTypeArguments: V
+        - name: u-tree-view-node
           title: 子节点
           snippet: "<u-tree-view-node-new><template
             #item>选项</template></u-tree-view-node-new>"

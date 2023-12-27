@@ -51,6 +51,7 @@
         - wrap
         - layout
       group: 主要属性
+      brifeDoc: ""
       docDescription: >-
         内联布局：将当前元素修改为内联布局模式，各个内联布局模式的元素将默认排布在同一行中，若空间不足以排布下一个内联布局元素，则该元素将会换行。
 
@@ -77,6 +78,7 @@
         - alignment
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: |-
         横向：内部子元素进行横向排布，建议内部子元素使用行内布局。
         纵向：内部子元素进行纵向排布，建议内部子元素使用块级布局。
@@ -116,7 +118,11 @@
       dependency:
         - direction: horizontal
         - mode: inline
+          direction: horizontal
+        - mode: inline
           direction: vertical
+        - mode: block
+          direction: horizontal
         - mode: block
           direction: vertical
       toggleupdate:
@@ -128,6 +134,7 @@
             gap: normal
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: |-
         主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布，其中平均分布仅在弹性布局模式下展示。
         主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度，其中占满容器宽度仅在弹性布局模式下展示。
@@ -164,11 +171,12 @@
           direction: horizontal
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: |-
         主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
         主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: _alignment
+    - name: alignment
       title: 纵轴对齐
       type: string
       display: capsules
@@ -196,11 +204,12 @@
           direction: vertical
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: |-
         主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
         主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: _justify
+    - name: justify
       title: 横轴对齐
       type: string
       display: capsules
@@ -239,6 +248,7 @@
             gap: normal
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: |-
         主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布，其中平均分布仅在弹性布局模式下展示。
         主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度，其中占满容器宽度仅在弹性布局模式下展示。
@@ -259,6 +269,7 @@
         - mode: inline
         - mode: block
       group: 主要属性
+      brifeDoc: ""
       docDescription: 布局内各个组件的布局方式，支持默认、行内和块级三种布局方式。
       tooltipLink: ""
     - name: wrap
@@ -269,23 +280,25 @@
       dependency:
         - mode: flex
       group: 主要属性
+      brifeDoc: ""
       docDescription: 支持控制弹性布局模式下，子元素总宽度超过父级时是否换行展示，默认开启。
       tooltipLink: ""
     - name: loadingIcon
       title: 加载中图标
-      type: string
+      type: icon
       default: loading
       description: 加载中状态显示的图标
       group: 状态属性
+      brifeDoc: ""
       docDescription: 支持从图标库选择图标或上传自定义图标。
       tooltipLink: ""
-      setter: IconSetter
     - name: loadingIconRotate
       title: 加载中图标旋转
       type: boolean
       default: true
       description: 设置加载中图标是否旋转，默认开启。
       group: 状态属性
+      brifeDoc: ""
       docDescription: 支持控制加载中图标是否旋转，默认开启。
       tooltipLink: ""
     - name: loadingText
@@ -294,6 +307,7 @@
       default: ""
       description: 加载中状态显示的提示文案
       group: 状态属性
+      brifeDoc: ""
       docDescription: 支持编辑组件加载中情况显示文案。
       tooltipLink: ""
     - name: gap
@@ -318,6 +332,7 @@
             - space-between
             - space-around
       group: 样式属性
+      brifeDoc: ""
       docDescription: 布局内各个组件之间的间隔，通常有收缩、无、小、正常、大，默认为正常。
       tooltipLink: ""
   slots:

@@ -2,13 +2,12 @@
   title: 数据网格
   icon: grid-view
   description: 用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。
-  tsTypeParams: T, V, P extends boolean, M extends boolean, C extends string
   labels:
     - Table
   attrs:
     - name: value
       title: 值
-      type: "M extends true ? (C extends '' ? nasl.collection.List<V> : nasl.core.String) : V"
+      type: any
       sync: true
       model: true
       default: null
@@ -16,7 +15,8 @@
       advanced: true
     - name: field
       title: 文本字段名
-      type: "(item: T) => nasl.core.String"
+      type: string
+      default: text
       description: 选项文本的字段名
       deprecated: true
       advanced: true
@@ -28,7 +28,7 @@
       advanced: true
     - name: multiple
       title: 可多选
-      type: M
+      type: boolean
       default: false
       description: ""
       advanced: true
@@ -40,30 +40,32 @@
       advanced: true
     - name: data-source
       title: 数据源
-      type: "P extends true ? { list: nasl.collection.List<T>; total: nasl.core.Integer } : nasl.collection.List<T>"
+      type: Array<Item> | Function | object | DataSource
       designer-value: "[{}, {}, {}, {}, {}, {}, {}, {}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
+      brifeDoc: ""
       docDescription: 组件的数据源，配置内容为数据集对象或者返回数据集的逻辑。
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: T
+      type: schema
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
       docDescription: IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。
       tooltipLink: ""
     - name: text-field
       title: 文本字段名
-      type: "(item: T) => nasl.core.String"
+      type: string
       default: text
       group: 数据属性
       description: 选项文本的字段名
       display: property-select
     - name: value-field
       title: 值字段名
-      type: "(item: T) => V"
+      type: string
       default: value
       group: 数据属性
       description: 选项值的字段名
@@ -74,6 +76,7 @@
       default: false
       description: 设置是否分页展示数据
       group: 数据属性
+      brifeDoc: ""
       docDescription: |-
         可分页：是否需要数据分页展示，默认关闭。
         - 开启：展示分页内容，调用数据源逻辑时会将分页信息作为入参传入。
@@ -83,20 +86,20 @@
       title: 默认每页条数
       type: number
       default: 50
-      precision: 0
       description: ""
       group: 数据属性
+      brifeDoc: ""
       docDescription: 每页的数据条数，默认 50。
       tooltipLink: ""
     - name: page-number
       title: 当前页数
       type: number
       default: 1
-      precision: 0
       description: 当前默认展示在第几页
       group: 数据属性
       schema:
         $ref: "#/basicTypes/Integer"
+      brifeDoc: ""
       docDescription: 可设置加载出的网格处于第几页的位置。
       tooltipLink: ""
     - name: page-size-options
@@ -108,6 +111,7 @@
         - 50
       description: 每页条数切换器的选项
       group: 数据属性
+      brifeDoc: ""
       docDescription: 每页显示数据条数的选择列表，需设置数组，如 [10,20,50]。
       tooltipLink: ""
     - name: show-total
@@ -116,6 +120,7 @@
       default: false
       description: ""
       group: 数据属性
+      brifeDoc: ""
       docDescription: |-
         开启时显示列表所有行数，默认关闭。
         - 开启：展示分页内容，调用数据源时会将数据源作为入参传入。
@@ -127,6 +132,7 @@
       default: false
       description: 显示每页条数切换器
       group: 数据属性
+      brifeDoc: ""
       docDescription: 开启时显示分页大小选项，可选择每页显示条数，默认关闭。
       tooltipLink: ""
     - name: show-jumper
@@ -135,6 +141,7 @@
       default: false
       description: 显示页面跳转输入框
       group: 数据属性
+      brifeDoc: ""
       docDescription: 开启时可直接输入要跳转的页数，默认关闭
       tooltipLink: ""
     - name: remote-paging
@@ -143,6 +150,7 @@
       default: false
       description: ""
       group: 数据属性
+      brifeDoc: ""
       docDescription: 数据网格内容展示，完全由数据源返回值控制，比如总条目数、数据展示条数等。默认开启。
       tooltipLink: ""
     - name: remote-filtering
@@ -152,18 +160,19 @@
       description: ""
       advanced: true
       group: 数据属性
+      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: match-method
       title: 匹配方法
-      type: string
+      type: string, Function
       default: includes
       description: 过滤时的匹配方法
       advanced: true
       group: 数据属性
     - name: case-sensitive
       title: 大小写敏感
-      type: string
+      type: string, Function
       default: includes
       description: 过滤时是否区分大小写
       advanced: true
@@ -175,6 +184,7 @@
       description: 开启筛选后，搜索框为空时的占位符提示文本
       advanced: true
       group: 数据属性
+      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: repeat
@@ -183,6 +193,7 @@
       default: 5
       description: 每行排列几项
       group: 主要属性
+      brifeDoc: ""
       docDescription: 每行排列多少个网格。
       tooltipLink: ""
     - name: show-head
@@ -191,6 +202,7 @@
       default: false
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 显示数据网格列表标题，默认关闭。
       tooltipLink: ""
     - name: title
@@ -199,6 +211,7 @@
       default: 列表
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 数据网格列表标题，在开始显示头部功能后显示
       tooltipLink: ""
     - name: show-foot
@@ -207,6 +220,7 @@
       default: true
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 显示数据网格底部选项，如分页大小，跳转输入等，默认开启。
       tooltipLink: ""
     - name: initial-load
@@ -215,6 +229,7 @@
       default: true
       description: 设置初始时是否立即加载
       group: 状态属性
+      brifeDoc: ""
       docDescription: 是否在初始时立即加载，当数据源配置为逻辑时，组件首次渲染自动调用逻辑。
       tooltipLink: ""
     - name: designer-mode
@@ -241,6 +256,7 @@
       group: 状态属性
       dependency:
         - designer-mode: loading
+      brifeDoc: ""
       docDescription: 加载中显示的文字，仅在使用分页加载时出现，默认正在加载中。
       tooltipLink: ""
     - name: loading
@@ -259,6 +275,7 @@
       group: 状态属性
       dependency:
         - designer-mode: error
+      brifeDoc: ""
       docDescription: 数据网格加载失败时展示的文字，加载失败，请重试。
       tooltipLink: ""
     - name: error
@@ -269,6 +286,7 @@
       group: 状态属性
       dependency:
         - designer-mode: error
+      brifeDoc: ""
       docDescription: 开启后所有数据均不展示，仅展示加载失败文字，常用在数据源不是逻辑的时候，由外部触发组件的加载失败状态，默认关闭
       tooltipLink: ""
     - name: empty-text
@@ -279,6 +297,7 @@
       group: 状态属性
       dependency:
         - designer-mode: empty
+      brifeDoc: ""
       docDescription: 数据网格数据源返回值为空时展示的文字，默认暂无数据。
       tooltipLink: ""
     - name: readonly
@@ -287,6 +306,7 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
+      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入。
       tooltipLink: ""
     - name: disabled
@@ -295,6 +315,7 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
+      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
       tooltipLink: ""
     - name: width

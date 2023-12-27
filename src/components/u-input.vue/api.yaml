@@ -8,7 +8,6 @@
     - name: minlength
       title: 最小长度
       type: number
-      precision: 0
       description: ""
       advanced: true
     - name: spellcheck
@@ -32,6 +31,7 @@
       default: text
       description: 文本框或者密码框
       group: 数据属性
+      brifeDoc: ""
       docDescription: 文本框或者密码框。文本：文本类型。密码：密码类型。
       tooltipLink: ""
     - name: value
@@ -41,6 +41,7 @@
       model: true
       description: 输入的值
       group: 数据属性
+      brifeDoc: ""
       docDescription: 输入框的值。
       tooltipLink: ""
     - name: placeholder
@@ -48,14 +49,15 @@
       type: string
       description: 为空时显示的占位符文本
       group: 主要属性
+      brifeDoc: ""
       docDescription: 内容为空时的提示文本。
       tooltipLink: ""
     - name: maxlength
       title: 最大字符数
       type: number
-      precision: 0
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 限定输入文本最大长度。
       tooltipLink: ""
     - name: autofocus
@@ -65,26 +67,27 @@
       description: 设置是否自动获取焦点
       designer-value: false
       group: 主要属性
+      brifeDoc: ""
       docDescription: 是否自动获取输入框焦点。
       tooltipLink: ""
     - name: prefix
       title: 前缀图标
-      type: string
-      setter: IconSetter
+      type: icon
       description: ""
       default: ""
       clearable: true
       group: 主要属性
+      brifeDoc: ""
       docDescription: 设置输入框的前缀图标。
       tooltipLink: ""
     - name: suffix
       title: 后缀图标
-      type: string
-      setter: IconSetter
+      type: icon
       description: ""
       default: ""
       clearable: true
       group: 主要属性
+      brifeDoc: ""
       docDescription: 设置输入框的后缀图标。
       tooltipLink: ""
     - name: clearable
@@ -92,6 +95,7 @@
       type: boolean
       description: 可点击清除按钮一键清除内容
       group: 交互属性
+      brifeDoc: ""
       docDescription: 是否在输入框有内容时会显示清除内容的按钮。
       tooltipLink: ""
     - name: password
@@ -100,6 +104,7 @@
       default: false
       description: 显示状态分为“True(显示)/False(隐藏)”，默认为“显示”
       group: 状态属性
+      brifeDoc: ""
       docDescription: 切换密码的显示/隐藏。
       tooltipLink: ""
     - name: readonly
@@ -108,6 +113,7 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
+      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入。
       tooltipLink: ""
     - name: preview
@@ -122,6 +128,7 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
+      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
       tooltipLink: ""
     - name: width
@@ -145,6 +152,7 @@
       default: normal
       description: 设置单行输入框宽度大小
       group: 样式属性
+      brifeDoc: ""
       docDescription: 设置单行输入框宽度大小，可选占满、巨大、大、中型、正常、小、迷你
       tooltipLink: ""
     - name: height
@@ -168,6 +176,7 @@
       default: normal
       description: 设置单行输入框高度大小
       group: 样式属性
+      brifeDoc: ""
       docDescription: 设置单行输入框高度大小，可选占满、巨大、大、中型、正常、小、迷你。
       tooltipLink: ""
   slots:

@@ -22,6 +22,7 @@
       default: horizontal
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: 横向：内部子元素进行横向排布。纵向：内部子元素进行纵向排布。
       tooltipLink: ""
     - name: justify
@@ -55,6 +56,7 @@
         - direction: horizontal
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: 支持左对齐、居中对齐、右对齐、占满容器宽度。
       tooltipLink: ""
     - name: alignment
@@ -88,9 +90,10 @@
         - direction: horizontal
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: _alignment
+    - name: alignment
       title: 纵轴对齐
       type: string
       display: capsules
@@ -117,9 +120,10 @@
         - direction: vertical
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: 支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: _justify
+    - name: justify
       title: 横轴对齐
       type: string
       display: capsules
@@ -150,6 +154,7 @@
         - direction: vertical
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: 支持左对齐、居中对齐、右对齐、占满容器宽度。
       tooltipLink: ""
     - name: gap
@@ -169,6 +174,7 @@
       default: none
       description: 布局中各分栏间的空隙大小
       group: 样式属性
+      brifeDoc: ""
       docDescription: 分栏布局中各分栏间的空隙大小，缺省为无，支持收缩、无、小、正常、大共5个级别。
       tooltipLink: ""
   slots:
@@ -207,27 +213,10 @@
         - name: $event.clientWidth
           type: any
           description: 可视区域宽度
-    - name: click
-      title: 点击
-      description: 在元素上按下并释放任意鼠标按钮时触发。
-    - name: dblclick
-      title: 双击
-      description: 在元素上双击鼠标按钮时触发。
-    - name: contextmenu
-      title: 右键点击
-      description: 在右键菜单显示前触发。
-    - name: mousedown
-      title: 鼠标按下
-      description: 在元素上按下任意鼠标按钮时触发。
-    - name: mouseup
-      title: 鼠标释放
-      description: 在元素上释放任意鼠标按钮时触发。
-    - name: mouseenter
-      title: 鼠标移入
-      description: 鼠标移入元素时触发。
-    - name: mouseleave
-      title: 鼠标移出
-      description: 鼠标移出元素时触发。
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []
 - name: u-multi-layout-item
   title: 布局栏
   description: 一定的规则布局
@@ -285,8 +274,8 @@
         - alignment
         - wrap
       group: 主要属性
-      docDescription: 内联布局：将当前元素修改为内联布局模式，各个内联布局模式的元素将默认排布在同一行中，若空间不足以排布下一个内联布局元素，则该元素将会换行。-
-        弹性布局：在弹性布局模式中，子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免溢出父元素。
+      brifeDoc: ""
+      docDescription: 内联布局：将当前元素修改为内联布局模式，各个内联布局模式的元素将默认排布在同一行中，若空间不足以排布下一个内联布局元素，则该元素将会换行。- 弹性布局：在弹性布局模式中，子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免溢出父元素。
     - name: direction
       title: 主轴方向
       type: string
@@ -309,6 +298,7 @@
       dependency:
         - mode: flex
       group: 主要属性
+      brifeDoc: ""
       docDescription: 横向：内部子元素进行横向排布，建议内部子元素使用行内布局。 纵向：内部子元素进行纵向排布，建议内部子元素使用块级布局。
       tooltipLink: ""
     - name: justify
@@ -350,6 +340,7 @@
             gap: normal
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: 主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度。
       tooltipLink: ""
     - name: alignment
@@ -384,10 +375,10 @@
           direction: horizontal
       group: 主要属性
       description: ""
-      docDescription: 主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。
-        主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
+      brifeDoc: ""
+      docDescription: 主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。 主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: _alignment
+    - name: alignment
       title: 纵轴对齐
       type: string
       display: capsules
@@ -415,9 +406,10 @@
           direction: vertical
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: 主轴方向为横向时：支持顶对齐、垂直居中、底对齐、行内文字基线对齐、占满容器高度。主轴方向为纵向时：支持顶对齐、垂直居中、底对齐、平均分布（两端不留空）、平均分布。
       tooltipLink: ""
-    - name: _justify
+    - name: justify
       title: 横轴对齐
       type: string
       display: capsules
@@ -456,6 +448,7 @@
             gap: normal
       group: 主要属性
       description: ""
+      brifeDoc: ""
       docDescription: 主轴方向为横向时：支持左对齐、居中对齐、右对齐、平均分布（两端不留空）、平均分布。主轴方向为纵向时：支持左对齐、居中对齐、右对齐、占满容器宽度。
       tooltipLink: ""
     - name: gap
@@ -480,6 +473,7 @@
             - space-between
             - space-around
       group: 样式属性
+      brifeDoc: ""
       docDescription: 布局内各个组件之间的间隔，通常有收缩、无、小、正常、大，默认为无。
       tooltipLink: ""
   slots:
@@ -487,24 +481,7 @@
       name: default
       description: 内容
   events:
-    - name: click
-      title: 点击
-      description: 在元素上按下并释放任意鼠标按钮时触发。
-    - name: dblclick
-      title: 双击
-      description: 在元素上双击鼠标按钮时触发。
-    - name: contextmenu
-      title: 右键点击
-      description: 在右键菜单显示前触发。
-    - name: mousedown
-      title: 鼠标按下
-      description: 在元素上按下任意鼠标按钮时触发。
-    - name: mouseup
-      title: 鼠标释放
-      description: 在元素上释放任意鼠标按钮时触发。
-    - name: mouseenter
-      title: 鼠标移入
-      description: 鼠标移入元素时触发。
-    - name: mouseleave
-      title: 鼠标移出
-      description: 鼠标移出元素时触发。
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []

@@ -46,6 +46,7 @@
       default: true
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: show-foot
@@ -54,6 +55,7 @@
       default: true
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: icon
@@ -71,6 +73,7 @@
       default: ""
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 可设置成功、警告、错误，弹窗中会自动添加图标
       tooltipLink: ""
     - name: mask-close
@@ -79,6 +82,7 @@
       default: false
       description: 点击遮罩关闭弹窗
       group: 交互属性
+      brifeDoc: ""
       docDescription: 开启时，点击遮罩则自动关闭弹窗，若关闭，需要手动设置关闭事件，默认关闭
       tooltipLink: ""
     - name: visible
@@ -88,6 +92,7 @@
       default: false
       description: 显示状态分为“True(打开)/False(关闭)”，默认为“打开”
       group: 状态属性
+      brifeDoc: ""
       docDescription: 开启时进入页面即显示弹窗，默认关闭
       tooltipLink: ""
     - name: size
@@ -107,6 +112,7 @@
       default: normal
       description: 弹窗的尺寸
       group: 样式属性
+      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
   slots:

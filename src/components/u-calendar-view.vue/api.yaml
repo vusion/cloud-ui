@@ -4,64 +4,70 @@
   labels:
     - Table
   description: 用于展示大量结构化数据。支持日历结构展示。
-  tsTypeParams: T
   attrs:
     - name: data-source
       title: 数据源
-      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
+      type: Array<Item> | Function | object
       designer-value: "[{}]"
       description: 展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑
       group: 数据属性
+      brifeDoc: ""
       docDescription: 组件的数据源，配置内容为数据集对象或者返回数据集的逻辑。
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: T
+      type: schema
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
       docDescription: IDE 根据配置的数据源动态计算返回内容的数据结构，用于动态配置项 current.item 的类型说明。
       tooltipLink: ""
     - name: start-key
-      type: "(item: T) => nasl.core.Date"
+      type: string
       title: 开始时间字段
       default: startTime
       description: 数据内表示开始时间的字段
       group: 数据属性
       display: property-select
+      brifeDoc: ""
       docDescription: 数据内表示开始时间的字段，要求对应数据必须包含日期（日期/日期时间格式），**单独使用表示当天**；跟结束时间字段配合使用表示日期区间，组件根据日期区间判断展示在哪些日期内。
       tooltipLink: ""
     - name: end-key
-      type: "(item: T) => nasl.core.Date"
+      type: string
       title: 结束时间字段
       default: endTime
       description: 数据内表示结束时间的字段
       group: 数据属性
       display: property-select
+      brifeDoc: ""
       docDescription: 数据内表示结束时间的字段，要求对应数据必须包含日期（日期/日期时间格式），跟开始时间字段配合使用表示日期区间，组件根据时间区间判断展示在哪些日期内。
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: nasl.core.Date
+      type: Date | string ｜ number
       sync: true
       model: true
       default: TODAY
       description: 当前选中的日期
       group: 数据属性
+      brifeDoc: ""
       docDescription: 当前选择的日期。
       tooltipLink: ""
     - name: min-date
       title: 最小日期值
-      type: nasl.core.Date
+      type: Date | string ｜ number
       description: 最小可选的日期值，默认为10年前，日期填写格式为“yyyy-mm-dd”
       group: 数据属性
+      brifeDoc: ""
       docDescription: 控制日历展示的日期范围，默认 10 年前。
       tooltipLink: ""
     - name: max-date
       title: 最大日期值
-      type: nasl.core.Date
+      type: Date | string ｜ number
       description: 最大可选的日期值，默认为9年后，日期填写格式为“yyyy-mm-dd”
       group: 数据属性
+      brifeDoc: ""
       docDescription: 控制日历展示的日期范围，默认 9 年后。
       tooltipLink: ""
     - name: show-week-days
@@ -70,6 +76,7 @@
       default: true
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 控制头部示例星期几信息展示，默认开启
       tooltipLink: ""
     - name: show-weeks
@@ -78,6 +85,7 @@
       default: false
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 控制当前周为第几周信息展示，默认关闭。
       tooltipLink: ""
     - name: show-basic
@@ -86,6 +94,7 @@
       default: true
       description: 是否展示顶部左侧的 "<" "今天" ">" 等基础配置功能
       group: 主要属性
+      brifeDoc: ""
       docDescription: 控制顶部左侧 上个月、当天、下个月 的快捷操作入口展示，默认开启。
       tooltipLink: ""
     - name: show-advance
@@ -94,15 +103,16 @@
       default: true
       description: 是否展示顶部右侧的年份、月份选项高级配置
       group: 主要属性
+      brifeDoc: ""
       docDescription: 控制顶部右侧 年份、月份 快捷切换操作入口展示，默认开启。
       tooltipLink: ""
     - name: first-day-of-week
       title: 首列星期
       type: number
       default: 1
-      precision: 0
       description: 填写数字1~7，分别表示周一~周日
       group: 主要属性
+      brifeDoc: ""
       docDescription: 0～7 (周一～周日) 数字配置，自定义每行从周几开始展示，默认 1，**当开启展示周数时固定周一开始**。
       tooltipLink: ""
     - name: multiple

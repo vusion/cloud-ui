@@ -7,11 +7,12 @@
   attrs:
     - name: value
       title: 选中值
-      type: string
+      type: any
       sync: true
       model: true
       description: 当前选中的值
       group: 数据属性
+      brifeDoc: ""
       docDescription: 当前选择的值
       tooltipLink: ""
   slots:
@@ -89,21 +90,24 @@
       hidden: true
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
+      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: value
       title: 值
-      type: string
+      type: any
       description: 集合的元素类型中，用于标识选中值的属性
       group: 数据属性
+      brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识选中值的属性
       tooltipLink: ""
     - name: item
       title: 相关对象
-      type: any
+      type: object
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
       hidden: true
       group: 主要属性
+      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: linkType
@@ -119,6 +123,7 @@
       compType: linkTypeSelect
       bindHide: true
       group: 交互属性
+      brifeDoc: ""
       docDescription: 支持页面跳转、普通链接、下载链接
       tooltipLink: ""
     - name: hrefAndTo
@@ -127,6 +132,7 @@
       description: ""
       compType: linkHrefInput
       group: 交互属性
+      brifeDoc: ""
       docDescription: 链接的详细地址
       tooltipLink: ""
     - name: target
@@ -146,6 +152,7 @@
       default: _self
       description: 链接跳转的打开方式，父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则其打开方式同当前窗口。
       group: 交互属性
+      brifeDoc: ""
       docDescription: 可选新窗口、父级窗口、当前窗口和顶级窗口，其中父级窗口和顶级窗口仅适用于iframe组件嵌套的情况，若不存在嵌套，则打开方式同当前窗口
       tooltipLink: ""
     - name: disabled
@@ -154,6 +161,7 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
+      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
   slots:

@@ -35,18 +35,19 @@
         - placeholderRight
     - name: value
       title: 值
-      type: string | number | nasl.core.Date
+      type: string,number,Date
       sync: true
       model: true
       description: 默认显示的日期值，格式如2018-08-08
       group: 数据属性
+      brifeDoc: ""
       docDescription: 当前选择的值
       tooltipLink: ""
       dependency:
         - '!range': true
     - name: startDate
       title: 起始值
-      type: string | number | nasl.core.Date
+      type: string,number,Date
       sync: true
       description: 默认显示的起始日期值，格式如2018-08-08
       group: 数据属性
@@ -54,7 +55,7 @@
         - range: true
     - name: endDate
       title: 结束值
-      type: string | number | nasl.core.Date
+      type: string,number,Date
       sync: true
       description: 默认显示的结束日期值，格式如2018-08-08
       group: 数据属性
@@ -62,21 +63,23 @@
         - range: true
     - name: minDate
       title: 最小日期值
-      type: string | number | nasl.core.Date
+      type: string,number,Date
       description: 最小可选的日期值，默认为10年前，日期填写格式为“yyyy-mm-dd”
       group: 数据属性
+      brifeDoc: ""
       docDescription: 设置日期范围，支持输入的最小日期
       tooltipLink: ""
     - name: maxDate
       title: 最大日期值
-      type: string | number | nasl.core.Date
+      type: string,number,Date
       description: 最大可选的日期值，默认为9年后，日期填写格式为“yyyy-mm-dd”
       group: 数据属性
+      brifeDoc: ""
       docDescription: 设置日期范围，支持输入的最大日期
       tooltipLink: ""
     - name: time
       title: 时间格式
-      type: string | number
+      type: string, number
       default: 00:00:00
       description: 输入对应格式的字符串（8:00:00）即可
       group: 数据属性
@@ -90,6 +93,7 @@
       default: 20
       description: 最小可选年份值与当前年份值的差值
       group: 数据属性
+      brifeDoc: ""
       docDescription: 设置日期范围，最小可选择的年份
       tooltipLink: ""
       dependency:
@@ -100,6 +104,7 @@
       default: 20
       description: 最大可选年份值与当前年份值的差值
       group: 数据属性
+      brifeDoc: ""
       docDescription: 设置日期范围，最大可选择的年份
       tooltipLink: ""
       dependency:
@@ -192,6 +197,7 @@
       description: 设置是否自动获取焦点
       designer-value: false
       group: 主要属性
+      brifeDoc: ""
       docDescription: 控制是否在进入页面时聚焦到该组件
       tooltipLink: ""
     - name: placeholder
@@ -200,6 +206,7 @@
       default: 请选择日期
       description: 为空时显示的占位符文本
       group: 主要属性
+      brifeDoc: ""
       docDescription: 日期选择框无内容时的提示信息，支持自定义编辑，默认为请输入
       tooltipLink: ""
     - name: placeholderRight
@@ -223,6 +230,7 @@
       default: left
       description: 日历弹窗对齐方式
       group: 主要属性
+      brifeDoc: ""
       docDescription: 日期选择弹出层与输入框的对齐方式，支持左对齐、右对齐2种模式。默认为左对齐
       tooltipLink: ""
     - name: converter
@@ -241,6 +249,7 @@
       description: 转换器，用于转换时间结果
       clearable: true
       group: 主要属性
+      brifeDoc: ""
       docDescription: 用于转换选中的日期格式，支持JSON、Unix 时间戳、Date对象、YYYY-MM-DD共4种模式。默认YYYY-MM-DD
       tooltipLink: ""
     - name: preIcon
@@ -253,6 +262,7 @@
       description: ""
       clearable: true
       group: 主要属性
+      brifeDoc: ""
       docDescription: 支持添加前缀图标，如搜索图标
       tooltipLink: ""
     - name: suffixIcon
@@ -264,19 +274,21 @@
       description: ""
       clearable: true
       group: 主要属性
+      brifeDoc: ""
       docDescription: 支持添加后缀图标，如搜索图标
       tooltipLink: ""
     - name: append-to
       title: 弹出层位置依据
       type: string
       default: body
-      description: 设置弹出层依据哪个元素定位位置，可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。
+      description: 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。
       options:
         - value: reference
           title: 引用元素下
         - value: body
           title: 全局body
       group: 主要属性
+      brifeDoc: ""
       docDescription: 设置弹出层添加到哪个元素
       tooltipLink: ""
     - name: clearable
@@ -284,6 +296,7 @@
       type: boolean
       description: 可点击清除按钮一键清除内容
       group: 交互属性
+      brifeDoc: ""
       docDescription: 控制是否显示清除按钮，支持一键清除所选内容
       tooltipLink: ""
     - name: readonly
@@ -292,6 +305,7 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
+      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
       tooltipLink: ""
     - name: disabled
@@ -300,6 +314,7 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
+      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
     - name: preview
@@ -314,6 +329,7 @@
       default: false
       description: 弹出状态分为“True(弹出)/False(关闭)”，默认为“关闭”
       group: 状态属性
+      brifeDoc: ""
       docDescription: 开启时加载日期组件时，下拉框自动弹出，默认关闭
       tooltipLink: ""
     - name: width
@@ -337,6 +353,7 @@
       default: normal
       description: 设置日期选择输入框宽度大小
       group: 样式属性
+      brifeDoc: ""
       docDescription: 设置日期选择框宽度大小，支持占满、巨大、大、中型、正常、小共6种模式
       tooltipLink: ""
     - name: height
@@ -360,6 +377,7 @@
       default: normal
       description: 设置日期选择输入框高度大小
       group: 样式属性
+      brifeDoc: ""
       docDescription: 设置日期选择框高度大小，支持占满、巨大、大、中型、正常、小共6种模式
       tooltipLink: ""
   events:

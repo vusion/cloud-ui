@@ -39,6 +39,7 @@
   slots:
     - concept: Slot
       name: default
+      common-empty-background: true
       description: 添加文本或 HTML
       support:
          - name: u-form-table-view-column

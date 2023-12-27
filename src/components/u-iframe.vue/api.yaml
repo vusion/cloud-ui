@@ -10,6 +10,7 @@
       type: string
       description: 需要嵌入的网页地址
       group: 主要属性
+      brifeDoc: ""
       docDescription: 需要嵌入的网页地址
       tooltipLink: ""
   slots: false

@@ -20,6 +20,7 @@
           title: 下
       description: 抽屉弹出的位置
       group: 主要属性
+      brifeDoc: ""
       docDescription: 支持选择抽屉的显示位置，支持左、右两个位置
       tooltipLink: ""
     - name: show-head
@@ -28,6 +29,7 @@
       default: true
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 控制抽屉顶部栏的开启和关闭
       tooltipLink: ""
     - name: show-foot
@@ -36,6 +38,7 @@
       default: true
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 控制抽屉底部栏的开启和关闭
       tooltipLink: ""
     - name: maskClosable
@@ -44,6 +47,7 @@
       default: true
       description: 点击遮罩关闭抽屉
       group: 交互属性
+      brifeDoc: ""
       docDescription: |-
         控制抽屉打开时，点击遮罩区域的作用，默认开启。
         - 开启：点击遮罩区域则自动关闭抽屉。
@@ -56,6 +60,7 @@
       default: false
       description: 显示状态分为“True(打开)/False(关闭)”，默认为“打开”
       group: 状态属性
+      brifeDoc: ""
       docDescription: 控制抽屉是否进入页面时自动显示。开启表示自动显示，关闭表示不自动显示
       tooltipLink: ""
     - name: size

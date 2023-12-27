@@ -4,46 +4,50 @@
     - Form
   icon: radios
   description: 多项中选择一个时使用
-  tsTypeParams: T, V
   attrs:
     - name: data-source
       title: 数据源
-      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
+      type: Array<Item> | Function
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
+      brifeDoc: ""
       docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: T
+      type: schema
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
       docDescription: 该属性为只读状态，当数据源动态绑定集合List\<T>后，会自动识别T的类型并进行展示
       tooltipLink: ""
     - name: text-field
       title: 选项文本
-      type: "(item: T) => nasl.core.String"
+      type: string
+      default: text
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
       advanced: true
-      display: property-select
     - name: value-field
       title: 选项值字段
-      type: "(item: T) => V"
+      type: string
+      default: value
       description: 集合的元素类型中，用于标识选中值的字段
       display: property-select
       group: 数据属性
+      brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: V
+      type: any
       sync: true
       model: true
       description: 当前选中的值
       group: 数据属性
+      brifeDoc: ""
       docDescription: 当前选择的值
       tooltipLink: ""
     - name: readonly
@@ -52,6 +56,7 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
+      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
       tooltipLink: ""
     - name: disabled
@@ -60,6 +65,7 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
+      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
     - name: preview
@@ -75,7 +81,6 @@
       empty-background: add-sub
       support:
         - name: u-radio
-          tsTypeArguments: V
           title: 单选项
           snippet: <u-radio><template slot="item">节点</template></u-radio>
     - concept: Slot
@@ -203,7 +208,6 @@
       params: []
 - name: u-radio
   title: 单选项
-  tsTypeParams: V
   attrs:
     - name: text
       title: 文本
@@ -212,9 +216,10 @@
       advanced: true
     - name: label
       title: 选项值
-      type: V
+      type: any
       description: 用于标识选项的值
       group: 数据属性
+      brifeDoc: ""
       docDescription: 单选框返还的选项值
       tooltipLink: ""
     - name: autofocus
@@ -223,6 +228,7 @@
       default: false
       description: 设置是否自动获取焦点
       group: 主要属性
+      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: readonly
@@ -231,6 +237,7 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
+      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入。
       tooltipLink: ""
     - name: disabled
@@ -239,6 +246,7 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
+      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
   events:

@@ -4,45 +4,51 @@
     - Form
   icon: checkboxes
   description: 多项中选择多个时使用
-  tsTypeParams: T, V, C extends string
   attrs:
     - name: data-source
       title: 数据源
-      type: "nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer }"
+      type: Array<Item> | Function
       description: 展示数据的输入源，可设置为集合类型变量（List<T>）或输出参数为集合类型的逻辑。
       designer-value: "[{}, {}, {}]"
       group: 数据属性
+      brifeDoc: ""
       docDescription: 支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑
       tooltipLink: ""
     - name: data-schema
       title: 数据类型
-      type: T
+      type: schema
       description: 数据源返回的数据结构的类型，自动识别类型进行展示说明
       group: 数据属性
       compType: dataTypeSelect
+      brifeDoc: ""
       docDescription: 该属性为只读状态，当数据源动态绑定集合List\<T>后，会自动识别T的类型并进行展示。
       tooltipLink: ""
     - name: text-field
       title: 选项文本
-      type: "(item: T) => nasl.core.String"
+      type: string
+      default: text
       description: 集合的元素类型中，用于显示文本的属性名称
       group: 数据属性
       advanced: true
     - name: value-field
       title: 值字段
-      type: "(item: T) => V"
+      type: string
+      default: value
       description: 用于标识选中值的字段
       display: property-select
       group: 数据属性
+      brifeDoc: ""
       docDescription: 集合的元素类型中，用于标识选中值的属性，支持自定义变更。
       tooltipLink: ""
     - name: value
       title: 选中值
-      type: "C extends '' ? nasl.collection.List<V> : nasl.core.String"
+      type: Array
       sync: true
       model: true
+      default: []
       description: 当前选中的值
       group: 数据属性
+      brifeDoc: ""
       docDescription: 多选组的选中项，返还结构为List\<T>。
       tooltipLink: ""
     - name: check-all
@@ -65,7 +71,7 @@
     - name: check-all-display
       title: 展示方式
       type: string
-      default: inline
+      default: false
       description: 选择展开方式
       group: 主要属性
       options:
@@ -81,6 +87,7 @@
       default: 0
       description: 可以勾选多选框的最小数量
       group: 主要属性
+      brifeDoc: ""
       docDescription: 多选组可以勾选多选框的最小数量。
       tooltipLink: ""
       dependency:
@@ -92,6 +99,7 @@
       type: number
       description: 可以勾选多选框的最大数量
       group: 主要属性
+      brifeDoc: ""
       docDescription: 多选组可以勾选多选框的最大数量。
       tooltipLink: ""
       dependency:
@@ -102,8 +110,6 @@
       title: 转换器
       type: string
       options:
-        - value: ""
-          title: 无
         - value: join
           title: 以','连接
         - value: join:|
@@ -112,10 +118,13 @@
           title: 以';'连接
         - value: json
           title: json
+        - value: ""
+          title: 无
       default: ""
       description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
       bindHide: true
       group: 主要属性
+      brifeDoc: ""
       docDescription: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
       tooltipLink: ""
     - name: readonly
@@ -124,6 +133,7 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
+      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
       tooltipLink: ""
     - name: preview
@@ -138,6 +148,7 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
+      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       tooltipLink: ""
   events:
@@ -146,7 +157,7 @@
       description: 切换选项时触发
       params:
         - name: $event
-          type: nasl.collection.List<V>
+          type: Array<string>
           description: 切换后的选中值
         - name: senderVM
           type: UCheckbox
@@ -202,7 +213,7 @@
       description: 加载后触发
       params:
         - name: $event
-          type: BaseEvent
+          type: "null"
           description: 无
         - name: senderVM
           type: UTableView
@@ -219,7 +230,6 @@
       support:
         - name: u-checkbox
           title: 多选项
-          tsTypeArguments: T, V
           snippet: <u-checkbox><template slot="item">节点</template></u-checkbox>
     - concept: Slot
       name: check-all
@@ -245,7 +255,6 @@
               typeName: T
 - name: u-checkbox
   title: 多选项
-  tsTypeParams: T, V
   attrs:
     - name: text
       title: 文本
@@ -254,19 +263,21 @@
       advanced: true
     - name: value
       title: 值
-      type: boolean | null
+      type: boolean, null
       sync: true
       model: true
       default: false
       description: 标志选中状态的值，`null`表示不确定状态
       group: 数据属性
+      brifeDoc: ""
       docDescription: 选项返还的选项值。
       tooltipLink: ""
     - name: label
       title: 选项值
-      type: V
+      type: any
       description: 用于标识选项的值
       group: 数据属性
+      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: autofocus
@@ -275,6 +286,7 @@
       default: false
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
     - name: readonly
@@ -283,6 +295,7 @@
       default: false
       description: 正常显示，但禁止选择/输入
       group: 状态属性
+      brifeDoc: ""
       docDescription: 正常显示，但禁止选择或输入
       tooltipLink: ""
     - name: disabled
@@ -291,6 +304,7 @@
       default: false
       description: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）
       group: 状态属性
+      brifeDoc: ""
       docDescription: 置灰显示，且禁止任何交互（焦点、点击、选择、输入等）。
       tooltipLink: ""
   events:

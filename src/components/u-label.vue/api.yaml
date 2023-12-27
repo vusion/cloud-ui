@@ -10,6 +10,7 @@
       type: string
       description: ""
       group: 主要属性
+      brifeDoc: ""
       docDescription: 标签显示的文本内容
       tooltipLink: ""
     - name: type
@@ -23,6 +24,7 @@
       default: filled
       description: 设置标签样式，主要标签有背景，次要标签没有背景
       group: 主要属性
+      brifeDoc: ""
       docDescription: 支持选择标签样式，包括主要标签和普通标签
       tooltipLink: ""
     - name: color
@@ -42,6 +44,7 @@
       default: default
       description: 设置主题颜色样式
       group: 主要属性
+      brifeDoc: ""
       docDescription: 支持定义标签颜色，包括默认、主题色、成功色、警告色和错误色
       tooltipLink: ""
     - name: display
@@ -55,6 +58,7 @@
       default: inline
       description: 行内展示，或块级换行展示
       group: 主要属性
+      brifeDoc: ""
       docDescription: 文本展示方式，支持行内展示或块级换行展示
       tooltipLink: ""
     - name: removable
@@ -63,6 +67,7 @@
       default: false
       description: 设置标签是否可点击删除图标进行关闭
       group: 交互属性
+      brifeDoc: ""
       docDescription: 支持控制删除图标的显隐，开启时显示删除图标
       tooltipLink: ""
     - name: size
@@ -80,30 +85,17 @@
       default: normal
       description: 设置标签大小
       group: 样式属性
+      brifeDoc: ""
       docDescription: 标签尺寸，支持小、正常、大、巨大
       tooltipLink: ""
   events:
-    - name: click
-      title: 点击
-      description: 在元素上按下并释放任意鼠标按钮时触发。
-    - name: dblclick
-      title: 双击
-      description: 在元素上双击鼠标按钮时触发。
-    - name: contextmenu
-      title: 右键点击
-      description: 在右键菜单显示前触发。
-    - name: mousedown
-      title: 鼠标按下
-      description: 在元素上按下任意鼠标按钮时触发。
-    - name: mouseup
-      title: 鼠标释放
-      description: 在元素上释放任意鼠标按钮时触发。
-    - name: mouseenter
-      title: 鼠标移入
-      description: 鼠标移入元素时触发。
-    - name: mouseleave
-      title: 鼠标移出
-      description: 鼠标移出元素时触发。
+    - name: $listeners
+      kind: trigger
+      description: 监听所有`<span>`元素的事件。
+      params:
+        - name: $event
+          type: trigger
+          description: 自定义事件对象
     - name: before-remove
       description: 删除前触发
       title: 删除前触发
