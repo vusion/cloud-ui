@@ -793,7 +793,8 @@
       "append-to",
       "router",
       "value",
-      "disabled"
+      "disabled",
+      "opened"
     ],
     "description": "下拉菜单",
     "subtags": [
@@ -817,6 +818,7 @@
     "attributes": [
       "title",
       "collapsible",
+      "trigger",
       "expanded",
       "disabled"
     ],
@@ -1461,6 +1463,7 @@
     "attributes": [
       "title",
       "collapsible",
+      "trigger",
       "expanded",
       "disabled"
     ],
@@ -2069,7 +2072,8 @@
   },
   "u-table-view-column-group": {
     "attributes": [
-      "title"
+      "title",
+      "fixed"
     ]
   },
   "u-table-view-expander": {
@@ -2110,6 +2114,7 @@
       "title-field",
       "value-field",
       "url-field",
+      "content-field",
       "value",
       "router",
       "closable-field",
@@ -2306,7 +2311,10 @@
       "check-controlled",
       "disabled-field",
       "clearable",
-      "append-to"
+      "append-to",
+      "disabled",
+      "width",
+      "height"
     ],
     "description": "树选择"
   },

@@ -3149,6 +3149,7 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  |  |
+| fixed | boolean |  | `false` | 该分组列是否固定。该分组列固定后，分组下的所有列都会固定 |
 
 ### Slots
 
