@@ -2912,6 +2912,14 @@
       {
         "value": "right",
         "title": "右"
+      },
+      {
+        "value": "top",
+        "title": "上"
+      },
+      {
+        "value": "bottom",
+        "title": "下"
       }
     ],
     "description": "抽屉弹出的位置"
@@ -3113,6 +3121,10 @@
     "type": "boolean",
     "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）"
   },
+  "u-dropdown/opened": {
+    "type": "boolean",
+    "description": ""
+  },
   "u-dropdown-item/text": {
     "type": "string",
     "description": "显示文本内容"
@@ -3178,6 +3190,33 @@
   "u-dropdown-group/collapsible": {
     "type": "boolean",
     "description": "设置是否可以展开/折叠"
+  },
+  "u-dropdown-group/trigger": {
+    "type": "string",
+    "options": [
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      },
+      {
+        "value": "right-click",
+        "title": "右击"
+      },
+      {
+        "value": "double-click",
+        "title": "双击"
+      },
+      {
+        "value": "none",
+        "title": "与父级同步",
+        "disabled": true
+      }
+    ],
+    "description": "触发方式"
   },
   "u-dropdown-group/expanded": {
     "type": "boolean",
@@ -6115,6 +6154,28 @@
     "type": "boolean",
     "description": "设置是否可以展开/折叠"
   },
+  "u-navbar-group-multi/trigger": {
+    "type": "string",
+    "options": [
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      },
+      {
+        "value": "right-click",
+        "title": "右击"
+      },
+      {
+        "value": "double-click",
+        "title": "双击"
+      }
+    ],
+    "description": ""
+  },
   "u-navbar-group-multi/expanded": {
     "type": "boolean",
     "description": "展开状态分为“True(展开)/False(折叠)”，默认为“展开”"
@@ -8194,6 +8255,10 @@
     "type": "string",
     "description": ""
   },
+  "u-table-view-column-group/fixed": {
+    "type": "boolean",
+    "description": "该分组列是否固定。该分组列固定后，分组下的所有列都会固定"
+  },
   "u-table-view-expander/expand-icon": {
     "type": "icon",
     "description": "展开时图标"
@@ -8277,6 +8342,10 @@
     "description": "数据源集合的元素，用于标识标签值的属性"
   },
   "u-tabs/url-field": {
+    "type": "string",
+    "description": "数据源集合的元素，用于标识当前打开的标签项"
+  },
+  "u-tabs/content-field": {
     "type": "string",
     "description": "数据源集合的元素，用于标识当前打开的标签项"
   },
@@ -9310,6 +9379,78 @@
       }
     ],
     "description": "设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。"
+  },
+  "u-tree-select-new/disabled": {
+    "type": "boolean",
+    "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）"
+  },
+  "u-tree-select-new/width": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置选择框宽度大小"
+  },
+  "u-tree-select-new/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置选择框高度大小"
   },
   "u-tree-select/data": {
     "type": "Array<{ text, value }>",

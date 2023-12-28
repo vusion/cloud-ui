@@ -276,6 +276,7 @@ export default {
 | title-field | string |  | `'title'` | 数据源集合的元素，用于显示标签标题的属性 |
 | value-field | string |  | `'value'` | 数据源集合的元素，用于标识标签值的属性 |
 | url-field | string |  | `'url'` | 数据源集合的元素，用于标识当前打开的标签项 |
+| content-field | string |  | `''` | 数据源集合的元素，用于标识当前打开的标签项 |
 | value.sync, v-model | any |  |  | 指当前打开标签的标签项 |
 | router | boolean |  | `false` | 开启后，选项卡可设置跳转页面 |
 | closable-field | string |  | `'closable'` | 设置标签项是否可关闭 |
