@@ -1,7 +1,14 @@
 <template>
 <span v-if="!isPreview" :class="$style.root" :width="width" :height="height">
-    <u-input :class="$style.input" width="full" height="full" :value="genDisplayFormatText(inputTime)" :autofocus="autofocus" :disabled="!!readonly || disabled"
+    <u-input
+        :class="$style.input"
+        width="full"
+        height="full"
         ref="input"
+        :value="genDisplayFormatText(inputTime)"
+        :autofocus="autofocus"
+        :readonly="readonly"
+        :disabled="disabled"
         :clearable="clearable" :placeholder="placeholder"
         @update:value="onInputChange($event)"
         @click="onInputClick"
