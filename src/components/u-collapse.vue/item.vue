@@ -119,6 +119,7 @@ export default {
     padding: var(--collapse-item-head-padding);
     background: var(--background-color-default);
     overflow: hidden;
+    min-height: var(--collapse-item-head-min-height);
 }
 
 .head[expand-trigger="click"] {

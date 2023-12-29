@@ -155,6 +155,10 @@ export default {
     border-color: var(--checkbox-border-color);
 }
 
+.root[readonly] {
+    cursor: default;
+}
+
 .box {
     position: relative;
     top: var(--checkbox-icon-top);
