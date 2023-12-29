@@ -75,7 +75,7 @@ namespace nasl.ui {
                 concept: 'NumberInputSetter',
             },
         })
-        private pageSize: nasl.core.Decimal = 50;
+        private pageSize: nasl.core.Integer = 50;
 
         @Prop({
             group: '数据属性',
