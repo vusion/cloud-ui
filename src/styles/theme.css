@@ -275,6 +275,7 @@
     --collapse-border-radius: var(--border-radius-base); /* @desc 面板边框圆角,如：1px */
     --collapse-item-head-color-disabled: var(--brand-disabled-dark); /* @type color */ /* @desc 面板禁用项折叠表头文字颜色,如：#223325 */
     --collapse-item-head-padding: 10px 20px 10px 40px; /* @desc 面板项折叠表头内边距,如：1px */
+    --collapse-item-head-min-height: 42px; /* @desc 面板项折叠表头最小高度,如：1px */
     --collapse-item-expander-size: 42px; /* @desc 面板项展开箭头容器元素大小,如：1px */
     --collapse-item-expander-color: var(--color-light); /* @type color */ /* @desc 面板项展开箭头颜色,如：#223325 */
     --collapse-item-expander-color-disabled: var(--brand-disabled-dark); /* @type color */ /* @desc 面板项展开箭头颜色（禁用状态）,如：#223325 */
