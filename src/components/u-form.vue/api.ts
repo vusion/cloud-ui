@@ -487,13 +487,13 @@ namespace nasl.ui {
             title: '描述自定义',
             description: '插入自定义描述内容，代替`description`属性。',
         })
-        private slotDescription: () => Array<ViewComponent>;
+        slotDescription: () => Array<ViewComponent>;
 
         @Slot({
             title: '附加内容',
             description: '自定义标签右侧额外内容。',
         })
-        private slotExtra: () => Array<ViewComponent>;
+        slotExtra: () => Array<ViewComponent>;
     }
 
     @Component({

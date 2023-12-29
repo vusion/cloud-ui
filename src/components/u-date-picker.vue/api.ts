@@ -301,7 +301,7 @@ namespace nasl.ui {
             title: '值输入时',
             description: '值变化时触发 (表单验证可以检测到其值得变化)',
         })
-        onInput: (event: Date) => any;
+        onInput: (event: nasl.core.Date) => any;
 
         @Event({
             title: '值变化时',

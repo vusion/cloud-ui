@@ -77,13 +77,13 @@ namespace nasl.ui {
             title: '打开时',
             description: '开关打开时触发',
         })
-        onOn: () => any;
+        onOn: (event: any) => any;
 
         @Event({
             title: '关闭时',
             description: '开关关闭时触发',
         })
-        onOff: () => any;
+        onOff: (event: any) => any;
 
         @Event({
             title: '切换状态后',

@@ -54,7 +54,7 @@ namespace nasl.ui {
         size: 'small' | 'normal' | 'large' | 'huge' = 'normal';
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入文本或HTML。',
         })
         slotDefault: () => Array<ViewComponent>;

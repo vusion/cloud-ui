@@ -343,7 +343,7 @@ namespace nasl.ui {
             title: '响应窗口变化时',
             description: '响应式布局引发栅格变化时触发',
         })
-        private onResponsive: () => any;
+        private onResponsive: (event: any) => any;
 
         @Slot({
             title: 'undefined',

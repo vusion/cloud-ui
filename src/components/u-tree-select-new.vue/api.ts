@@ -229,13 +229,13 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => any;
+        private onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => any;
+        onLoad: (event: any) => any;
 
         @Event({
             title: '清空前',
@@ -260,7 +260,7 @@ namespace nasl.ui {
         }) => any;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入`<u-tree-view-node-new>`子组件',
             snippets: [
                 {
@@ -272,7 +272,7 @@ namespace nasl.ui {
         slotDefault: () => Array<UTreeViewNodeNew<T, V>>;
 
         @Slot({
-            title: 'undefined',
+            title: '项',
             description: '自定义选项的结构和样式',
         })
         slotItem: (current: Current<T>) => Array<ViewComponent>;

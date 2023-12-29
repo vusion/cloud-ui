@@ -108,5 +108,11 @@ namespace nasl.ui {
             duration: nasl.core.Integer;
             timestamp: nasl.core.Integer;
         }) => any;
+
+        @Slot({
+            title: '项',
+            description: '项自定义',
+        })
+        slotItem: () => Array<ViewComponent>;
     }
 }

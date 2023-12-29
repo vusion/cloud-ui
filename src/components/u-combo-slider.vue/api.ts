@@ -201,6 +201,12 @@ namespace nasl.ui {
         private onSlideEnd: (event: nasl.core.Decimal) => any;
 
         @Slot({
+            title: '默认',
+            description: '插入文本或 HTML',
+        })
+        slotDefault: () => Array<ViewComponent>;
+
+        @Slot({
             title: '提示',
             description: '插入文本或 HTML。',
         })

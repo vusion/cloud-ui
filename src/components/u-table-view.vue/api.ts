@@ -713,13 +713,13 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: null) => any;
+        private onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: null) => any;
+        onLoad: (event: any) => any;
 
         @Event({
             title: '切换分页前',
@@ -767,13 +767,13 @@ namespace nasl.ui {
             title: '筛选前',
             description: '筛选前触发',
         })
-        private onBeforeFilter: (event: object) => any;
+        private onBeforeFilter: (event: any) => any;
 
         @Event({
             title: '筛选后',
             description: '筛选后触发',
         })
-        onFilter: (event: object) => any;
+        onFilter: (event: any) => any;
 
         @Event({
             title: '点击行',
@@ -854,7 +854,7 @@ namespace nasl.ui {
             title: '调整列宽后',
             description: '调整列宽后触发',
         })
-        onResize: () => any;
+        onResize: (event: any) => any;
 
         @Event({
             title: '展开行前',

@@ -307,18 +307,18 @@ namespace nasl.ui {
             title: '清空后',
             description: '清空后触发。',
         })
-        onClear: () => any;
+        onClear: (event: any) => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => any;
+        private onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: (event: null) => any;
+        onLoad: (event: any) => any;
     }
 }

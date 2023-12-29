@@ -173,5 +173,29 @@ namespace nasl.ui {
             oldPage: nasl.core.Integer;
             pageSizeOptions: Array<nasl.core.Integer>;
         }) => any;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML',
+        })
+        slotDefault: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '总数',
+            description: '总数自定义',
+        })
+        slotTotal: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '上一页',
+            description: '上一页自定义',
+        })
+        slotPrev: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '下一页',
+            description: '下一页自定义',
+        })
+        slotNext: () => Array<ViewComponent>;
     }
 }

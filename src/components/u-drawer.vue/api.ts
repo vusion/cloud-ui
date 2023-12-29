@@ -98,7 +98,7 @@ namespace nasl.ui {
             title: '打开时',
             description: '打开抽屉时触发',
         })
-        onOpen: () => any;
+        onOpen: (event: any) => any;
 
         @Event({
             title: '关闭前',

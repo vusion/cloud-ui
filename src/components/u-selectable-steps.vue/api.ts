@@ -141,7 +141,7 @@ namespace nasl.ui {
         }) => any;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入`<u-selectable-step>`子组件。',
             snippets: [
                 {
@@ -230,13 +230,13 @@ namespace nasl.ui {
         disabled: nasl.core.Boolean = false;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入文本或 HTML',
         })
         slotDefault: () => Array<ViewComponent>;
 
         @Slot({
-            title: 'undefined',
+            title: '标题',
             description: '自定义标题文本',
         })
         slotTitle: () => Array<ViewComponent>;
