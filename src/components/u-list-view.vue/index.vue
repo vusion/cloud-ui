@@ -22,7 +22,7 @@
 
             <component :is="ChildComponent"
                 v-for="(item, index) in virtualList"
-                v-if="item"
+                v-if="item !== undefined || item !== null"
                 :key="$at(item, valueField) || item"
                 :value="$at(item, valueField) || item"
                 :disabled="item.disabled || disabled"
