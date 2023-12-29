@@ -42,6 +42,9 @@ namespace nasl.ui {
         @Prop({
             title: '文本字段名',
             description: '选项文本的字段名',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
         })
         private field: (item: T) => nasl.core.String;
 
@@ -431,13 +434,13 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        onBeforeLoad: () => any;
+        onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载时触发',
         })
-        onLoad: () => any;
+        onLoad: (event: any) => any;
 
         @Slot({
             title: 'undefined',

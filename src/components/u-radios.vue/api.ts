@@ -120,13 +120,16 @@ namespace nasl.ui {
             title: '输入时',
             description: '选择某一项时触发',
         })
-        onInput: (event: String) => any;
+        onInput: (event: nasl.core.String) => any;
 
         @Event({
             title: '选择后',
             description: '选择某一项时触发',
         })
-        onSelect: () => any;
+        onSelect: (event: {
+            value: V;
+            oldValue: V;
+        }) => any;
 
         @Event({
             title: '改变后',
@@ -141,16 +144,16 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => any;
+        private onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => any;
+        onLoad: (event: any) => any;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入`<u-radio>`子组件。',
             emptyBackground: 'add-sub',
             snippets: [

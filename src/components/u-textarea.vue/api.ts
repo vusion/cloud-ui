@@ -270,6 +270,6 @@ namespace nasl.ui {
             title: '默认',
             description: '插入 HTML 或 `Component`, 可展示额外内容。',
         })
-        private slotDefault: () => Array<ViewComponent>;
+        slotDefault: () => Array<ViewComponent>;
     }
 }

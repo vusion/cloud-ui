@@ -58,7 +58,7 @@ namespace nasl.ui {
         shadow: 'always' | 'hover' | 'never' = 'always';
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入`<u-panel-group>`子组件。',
             snippets: [
                 {

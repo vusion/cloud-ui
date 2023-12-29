@@ -48,6 +48,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选项文本',
             description: '集合的元素类型中，用于显示文本的属性名称',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
         })
         private textField: (item: T) => nasl.core.String;
 
@@ -203,13 +206,13 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: EventTarget) => any;
+        private onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => any;
+        onLoad: (event: any) => any;
 
         @Slot({
             title: 'undefined',

@@ -224,15 +224,15 @@ namespace nasl.ui {
         }) => any;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入文本或 HTML',
         })
-        private slotDefault: () => Array<ViewComponent>;
+        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
-            title: 'undefined',
+            title: '项',
             description: '自定义选项的结构和样式',
         })
-        private slotItem: (current: Current<T>) => Array<ViewComponent>;
+        slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 }

@@ -465,7 +465,13 @@ namespace nasl.ui {
             description: '上传前触发',
         })
         onBeforeUpload: (event: {
-            file: File;
+            file: {
+                status: nasl.core.String;
+                url: nasl.core.String;
+                name: nasl.core.String;
+                size: nasl.core.Decimal;
+                type: nasl.core.String;
+            };
         }) => any;
 
         @Event({
@@ -478,7 +484,13 @@ namespace nasl.ui {
                 status: nasl.core.String;
                 url: nasl.core.String;
             };
-            file: File;
+            file: {
+                status: nasl.core.String;
+                url: nasl.core.String;
+                name: nasl.core.String;
+                size: nasl.core.Decimal;
+                type: nasl.core.String;
+            };
         }) => any;
 
         @Event({
@@ -557,5 +569,11 @@ namespace nasl.ui {
             description: '文件列表。',
         })
         slotFileList: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '拖拽文字',
+            description: '拖拽文字自定义',
+        })
+        slotDragDescription: () => Array<ViewComponent>;
     }
 }

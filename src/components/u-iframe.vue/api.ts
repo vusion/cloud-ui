@@ -25,6 +25,6 @@ namespace nasl.ui {
             title: '加载完成',
             description: '网页加载完成时触发。',
         })
-        onLoad: () => any;
+        onLoad: (event: any) => any;
     }
 }

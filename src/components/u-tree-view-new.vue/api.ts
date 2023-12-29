@@ -110,6 +110,9 @@ namespace nasl.ui {
             title: '子级值字段',
             description: '集合的元素类型中，用于标识子节点的属性，默认为children',
             docDescription: '集合的元素类型中，用于标识子级字段的的属性，支持自定义变更',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
         })
         childrenField: nasl.core.String = 'children';
 
@@ -118,6 +121,9 @@ namespace nasl.ui {
             title: '父级值字段',
             description: '集合的元素类型中，用于标识父节点的属性',
             docDescription: '集合的元素类型中，用于标识父级字段的属性，支持自定义变更',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
         })
         parentField: nasl.core.String = '';
 
@@ -260,13 +266,13 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => any;
+        private onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => any;
+        onLoad: (event: any) => any;
 
         @Slot({
             title: 'undefined',
@@ -351,7 +357,12 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: () => any;
+        private onBeforeSelect: (event: {
+            value: V,
+            oldValue: V,
+            node: T,
+            oldNode: T,
+        }) => any;
 
         @Event({
             title: '展开折叠前',
@@ -382,7 +393,7 @@ namespace nasl.ui {
         }) => any;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入子节点',
             snippets: [
                 {
