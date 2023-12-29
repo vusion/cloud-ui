@@ -6169,19 +6169,6 @@
                             ]
                         }
                     },
-                    "--drawer-max-height": {
-                        "type": "input",
-                        "desc": "large抽屉最大高度,如 1px",
-                        "depAttrs": {
-                            "size": [
-                                "auto"
-                            ],
-                            "placement": [
-                                "top",
-                                "bottom"
-                            ]
-                        }
-                    },
                     "--drawer-background": {
                         "type": "color",
                         "desc": "抽屉背景色"
@@ -6536,16 +6523,6 @@
                         "type": "color",
                         "group": "分组",
                         "desc": "侧边栏分组头部背景色（hover状态）,如：#223325",
-                        "prefix": "sidebar-group",
-                        "excludeTags": [
-                            "u-sidebar-item",
-                            "u-sidebar-divider"
-                        ]
-                    },
-                    "--sidebar-group-head-color-selected": {
-                        "type": "color",
-                        "group": "分组",
-                        "desc": "侧边栏分组头部选中背景色,如：#223325",
                         "prefix": "sidebar-group",
                         "excludeTags": [
                             "u-sidebar-item",
