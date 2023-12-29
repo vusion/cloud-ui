@@ -58,7 +58,7 @@ namespace nasl.ui {
         equalWidth: nasl.core.Boolean = true;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '内容自定义',
         })
         slotDefault: (current: Current<T>) => Array<ViewComponent>;

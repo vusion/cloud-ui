@@ -53,7 +53,6 @@ namespace nasl.ui {
         direction: 'horizontal' | 'column' = 'horizontal';
 
 
-
         @Slot({
             title: '默认',
             description: '显示的文本',

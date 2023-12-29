@@ -70,37 +70,133 @@ namespace nasl.ui {
             title: '点击后',
             description: '点击此项时触发',
         })
-        onClick: () => any;
+        onClick: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => any;
 
         @Event({
             title: '双击',
             description: '双击此项时触发',
         })
-        onDblclick: () => any;
+        onDblclick: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => any;
 
         @Event({
             title: '右键点击',
             description: '右键点击此项时触发',
         })
-        onRightclick: () => any;
+        onRightclick: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => any;
 
         @Event({
             title: '鼠标移入',
             description: '鼠标移入此项时触发',
         })
-        onOver: () => any;
+        onOver: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => any;
 
         @Event({
             title: '鼠标移出',
             description: '鼠标移出此项时触发',
         })
-        onOut: () => any;
+        onOut: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => any;
 
         @Event({
             title: '鼠标按下',
             description: '鼠标按下此项时触发',
         })
-        onDown: () => any;
+        onDown: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => any;
 
         @Slot({
             title: '默认',

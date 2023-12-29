@@ -260,13 +260,13 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => any;
+        private onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => any;
+        onLoad: (event: any) => any;
 
         @Slot({
             title: 'undefined',
@@ -351,7 +351,12 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: () => any;
+        private onBeforeSelect: (event: {
+            value: V,
+            oldValue: V,
+            node: T,
+            oldNode: T,
+        }) => any;
 
         @Event({
             title: '展开折叠前',
@@ -382,7 +387,7 @@ namespace nasl.ui {
         }) => any;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入子节点',
             snippets: [
                 {

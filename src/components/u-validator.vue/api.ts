@@ -195,7 +195,7 @@ namespace nasl.ui {
         }) => any;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入继承了 MField 的组件，或子 UValidator，或其他 HTML 和文本。',
         })
         slotDefault: () => Array<ViewComponent>;

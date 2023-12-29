@@ -171,25 +171,25 @@ namespace nasl.ui {
             title: '弹出前',
             description: '弹出前触发。',
         })
-        private onBeforeOpen: () => any;
+        private onBeforeOpen: (event: any) => any;
 
         @Event({
             title: '弹出时',
             description: '弹出时触发。',
         })
-        onOpen: () => any;
+        onOpen: (event: any) => any;
 
         @Event({
             title: '隐藏前',
             description: '隐藏前触发。',
         })
-        private onBeforeClose: () => any;
+        private onBeforeClose: (event: any) => any;
 
         @Event({
             title: '隐藏后',
             description: '隐藏时触发。',
         })
-        onClose: () => any;
+        onClose: (event: any) => any;
 
         @Event({
             title: '展开折叠前',
