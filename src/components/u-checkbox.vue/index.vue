@@ -1,7 +1,8 @@
 <template>
 <label v-show="!isPreview" :class="$style.root" :disabled="currentDisabled" @click="check()"
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
-    @focus="onFocus" @blur="onBlur" v-on="listeners">
+    @focus="onFocus" @blur="onBlur" v-on="listeners"
+    :readonly="readonly">
     <span :class="$style.box" :status="status" :disabled="currentDisabled"></span>
     <slot></slot>
     <span vusion-slot-name="item">
