@@ -334,13 +334,29 @@ namespace nasl.ui {
             title: '获得焦点',
             description: '获得焦点时触发。',
         })
-        onFocus: () => any;
+        onFocus: (event: {
+            cancelBubble: nasl.core.Boolean;
+            detail: nasl.core.String;
+            layerX: nasl.core.Integer;
+            layerY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => any;
 
         @Event({
             title: '失去焦点',
             description: '失去焦点时触发。',
         })
-        onBlur: () => any;
+        onBlur: (event: {
+            cancelBubble: nasl.core.Boolean;
+            detail: nasl.core.String;
+            layerX: nasl.core.Integer;
+            layerY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => any;
 
         @Event({
             title: '切换路由前',
@@ -361,5 +377,12 @@ namespace nasl.ui {
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
         }) => any;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML',
+        })
+        slotDefault: () => Array<ViewComponent>;
+
     }
 }

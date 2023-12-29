@@ -81,10 +81,10 @@ namespace nasl.ui {
             title: '关闭时',
             description: '关闭时触发',
         })
-        onClose: () => any;
+        onClose: (event: any) => any;
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '辅助文本',
         })
         slotDefault: () => Array<ViewComponent>;

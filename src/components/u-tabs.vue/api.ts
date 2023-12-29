@@ -235,13 +235,13 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => any;
+        private onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => any;
+        onLoad: (event: any) => any;
 
         @Slot({
             title: '默认',
@@ -260,7 +260,7 @@ namespace nasl.ui {
             title: '右侧附加',
             description: '在标签右侧可以附加的组件。',
         })
-        private slotExtra: () => Array<ViewComponent>;
+        slotExtra: () => Array<ViewComponent>;
 
         @Slot({
             title: '头部标题',

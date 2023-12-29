@@ -618,37 +618,37 @@ namespace nasl.ui {
             title: '弹出前',
             description: '弹出前触发。',
         })
-        private onBeforeOpen: () => any;
+        private onBeforeOpen: (event: any) => any;
 
         @Event({
             title: '弹出后',
             description: '弹出后触发。',
         })
-        onOpen: () => any;
+        onOpen: (event: any) => any;
 
         @Event({
             title: '关闭前',
             description: '关闭前触发。',
         })
-        private onBeforeClose: () => any;
+        private onBeforeClose: (event: any) => any;
 
         @Event({
             title: '关闭后',
             description: '关闭时触发。',
         })
-        onClose: () => any;
+        onClose: (event: any) => any;
 
         @Event({
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: () => any;
+        private onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载后触发',
         })
-        onLoad: () => any;
+        onLoad: (event: any) => any;
 
         @Event({
             title: '点击前缀图标',
@@ -848,7 +848,7 @@ namespace nasl.ui {
             title: '附加内容',
             description: '在右侧可以附加内容。',
         })
-        private slotExtra: () => Array<ViewComponent>;
+        slotExtra: () => Array<ViewComponent>;
     }
 
     @Component({

@@ -208,6 +208,6 @@ namespace nasl.ui {
             title: '清空后',
             description: '清空后触发。',
         })
-        onClear: () => any;
+        onClear: (event: any) => any;
     }
 }

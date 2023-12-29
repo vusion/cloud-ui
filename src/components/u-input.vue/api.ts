@@ -354,6 +354,18 @@ namespace nasl.ui {
             title: '默认',
             description: '插入 HTML 或 `Component`, 可展示额外内容。',
         })
-        private slotDefault: () => Array<ViewComponent>;
+        slotDefault: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '前缀图标',
+            description: '前缀图标自定义',
+        })
+        slotPrefix: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '后缀图标',
+            description: '后缀图标自定义',
+        })
+        slotSuffix: () => Array<ViewComponent>;
     }
 }

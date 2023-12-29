@@ -431,13 +431,13 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        onBeforeLoad: () => any;
+        onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
             description: '加载时触发',
         })
-        onLoad: () => any;
+        onLoad: (event: any) => any;
 
         @Slot({
             title: 'undefined',
