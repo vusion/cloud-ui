@@ -48,6 +48,9 @@ namespace nasl.ui {
             group: '数据属性',
             title: '选项文本',
             description: '集合的元素类型中，用于显示文本的属性名称',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
         })
         private textField: (item: T) => nasl.core.String;
 

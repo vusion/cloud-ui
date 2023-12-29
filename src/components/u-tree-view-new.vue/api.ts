@@ -110,6 +110,9 @@ namespace nasl.ui {
             title: '子级值字段',
             description: '集合的元素类型中，用于标识子节点的属性，默认为children',
             docDescription: '集合的元素类型中，用于标识子级字段的的属性，支持自定义变更',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
         })
         childrenField: nasl.core.String = 'children';
 
@@ -118,6 +121,9 @@ namespace nasl.ui {
             title: '父级值字段',
             description: '集合的元素类型中，用于标识父节点的属性',
             docDescription: '集合的元素类型中，用于标识父级字段的属性，支持自定义变更',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
         })
         parentField: nasl.core.String = '';
 
