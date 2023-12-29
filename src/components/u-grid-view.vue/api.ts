@@ -42,6 +42,9 @@ namespace nasl.ui {
         @Prop({
             title: '文本字段名',
             description: '选项文本的字段名',
+            setter: {
+                concept: 'PropertySelectSetter',
+            },
         })
         private field: (item: T) => nasl.core.String;
 
