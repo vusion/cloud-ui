@@ -12,7 +12,7 @@ exports[`u-checkbox.vue Demo-Basic 1`] = `
 exports[`u-checkbox.vue Demo-Disabled 1`] = `
 <div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
-    <label class="root" tabindex="0">
+    <label class="root" readonly="readonly" tabindex="0">
       <span class="box" status="true"></span>
       <span vusion-slot-name="item">Readonly </span>
     </label>

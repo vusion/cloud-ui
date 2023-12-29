@@ -6471,7 +6471,7 @@ exports[`u-grid-view.vue Demo-自定义内容 3`] = `
   <div class="root" vusion-slot-name="default">
     <div border="true" class="root" readonly="readonly" reaonly-mode="initial" tabindex>
       <div>
-        <label class="root" tabindex="0">
+        <label class="root" readonly="readonly" tabindex="0">
           <span class="box" status="false"></span>
           <span vusion-slot-name="item"> </span>
         </label>
