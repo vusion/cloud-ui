@@ -94,7 +94,7 @@ namespace nasl.ui {
             description: '每页条数切换器的选项',
             docDescription: '每页显示数据条数的选择列表，需设置数组，如[10,20,30,40,50]。在"可分页"属性开启时有效',
         })
-        pageSizeOptions: Array<nasl.core.Decimal> = [10,20,50];
+        pageSizeOptions: Array<nasl.core.Integer> = [10,20,50];
 
         @Prop({
             group: '数据属性',

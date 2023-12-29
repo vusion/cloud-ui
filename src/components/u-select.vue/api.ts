@@ -176,7 +176,7 @@ namespace nasl.ui {
             },
             if: _ => _.pagination === true,
         })
-        pageSize: nasl.core.Decimal = 50;
+        pageSize: nasl.core.Integer = 50;
 
         @Prop({
             group: '数据属性',

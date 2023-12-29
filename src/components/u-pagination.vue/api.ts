@@ -23,7 +23,7 @@ namespace nasl.ui {
                 concept: 'NumberInputSetter',
             },
         })
-        page: nasl.core.Decimal = 1;
+        page: nasl.core.Integer = 1;
 
         @Prop({
             group: '主要属性',
@@ -33,7 +33,7 @@ namespace nasl.ui {
                 concept: 'NumberInputSetter',
             },
         })
-        total: nasl.core.Decimal = 11;
+        total: nasl.core.Integer = 11;
 
         @Prop({
             group: '主要属性',
@@ -44,7 +44,7 @@ namespace nasl.ui {
                 concept: 'NumberInputSetter',
             },
         })
-        side: nasl.core.Decimal = 2;
+        side: nasl.core.Integer = 2;
 
         @Prop({
             group: '主要属性',
@@ -55,7 +55,7 @@ namespace nasl.ui {
                 concept: 'NumberInputSetter',
             },
         })
-        around: nasl.core.Decimal = 5;
+        around: nasl.core.Integer = 5;
 
         @Prop({
             group: '主要属性',
@@ -65,7 +65,7 @@ namespace nasl.ui {
                 concept: 'NumberInputSetter',
             },
         })
-        totalItems: nasl.core.Decimal;
+        totalItems: nasl.core.Integer;
 
         @Prop({
             group: '主要属性',
@@ -76,7 +76,7 @@ namespace nasl.ui {
                 concept: 'NumberInputSetter',
             },
         })
-        pageSize: nasl.core.Decimal = 20;
+        pageSize: nasl.core.Integer = 20;
 
         @Prop({
             group: '主要属性',
@@ -84,7 +84,7 @@ namespace nasl.ui {
             description: '每页条数切换器的选项',
             docDescription: '每页条数选项列表',
         })
-        pageSizeOptions: Array<nasl.core.Decimal> = [10,20,50];
+        pageSizeOptions: Array<nasl.core.Integer> = [10,20,50];
 
         @Prop({
             group: '主要属性',
