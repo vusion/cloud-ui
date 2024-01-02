@@ -85,7 +85,7 @@
                 <template v-else>
                         <component :is="ChildComponent"
                             v-for="(item, index) in currentData"
-                            v-if="item"
+                            v-if="item !== undefined || item !== null"
                             :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
                             :text="$at2(item, field || textField)"
                             :value="$at2(item, valueField)"
@@ -833,7 +833,7 @@ export default {
         },
         onDelete(event) {
             // 当footer里的输入框按delete的时候，阻止行为，不然弹层会关闭
-            if (this.$refs.footer.contains(event.target))
+            if (this.$refs.footer && this.$refs.footer.contains(event.target))
                 return;
             if (this.clearable) {
                 this.clear();

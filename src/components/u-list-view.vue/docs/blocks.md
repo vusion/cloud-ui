@@ -1,5 +1,5 @@
 ### 基本用法
 
 ```html
-<u-list-view :page-number="1" :page-size="50"></u-list-view>
+<u-list-view :pageNumber="1" :pageSize="50"></u-list-view>
 ```

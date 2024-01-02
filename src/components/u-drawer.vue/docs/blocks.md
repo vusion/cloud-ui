@@ -9,7 +9,7 @@
         <u-text>内容</u-text>
     </template>
     <template #foot>
-        <u-linear-layout vusion-disabled-cut justify="start">
+        <u-linear-layout justify="start">
             <u-button color="primary">确 定</u-button>
             <u-button>取 消</u-button>
         </u-linear-layout>

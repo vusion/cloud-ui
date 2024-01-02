@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+const vusion = require('vusion-api');
+const fs = require('fs');
+const argv = require('minimist')(process.argv.slice(2));
+const pkg = require('../package.json');
+
+const tgz = `cloud-ui.vusion-${pkg.version}.tgz`;
+
+// tgz 是否存在
+if (!fs.existsSync(tgz)) {
+    vusion.cli.error(`${tgz} not found`);
+    process.exit(1);
+}
+
+// zip.tgz 是否存在
+if (fs.existsSync('zip.tgz')) {
+    fs.unlinkSync('zip.tgz');
+}
+
+// 复制tgz到zip.tgz
+fs.copyFileSync(tgz, 'zip.tgz');
+
+const command = `lcap deploy zip.tgz --platform ${argv.platform}`;
+console.log(command);
+vusion.cli.execSync(command);
+vusion.cli.done(`${tgz}`);
+// 删除zip.tgz
+fs.unlinkSync('zip.tgz');
