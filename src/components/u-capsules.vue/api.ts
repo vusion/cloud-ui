@@ -81,7 +81,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一项前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             selected: nasl.core.Boolean;
             item: nasl.core.String;
             oldItem: nasl.core.String;
@@ -230,7 +230,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             selected: nasl.core.Boolean;
             item: nasl.core.String;
             oldItem: nasl.core.String;

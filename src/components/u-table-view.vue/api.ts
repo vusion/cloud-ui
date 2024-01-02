@@ -713,7 +713,7 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: any) => any;
+        onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
@@ -725,7 +725,7 @@ namespace nasl.ui {
             title: '切换分页前',
             description: '切换分页前触发',
         })
-        private onBeforePage: (event: {
+        onBeforePage: (event: {
             size: nasl.core.Integer,
             oldSize: nasl.core.Integer,
             number: nasl.core.Integer,
@@ -747,7 +747,7 @@ namespace nasl.ui {
             title: '排序前',
             description: '排序前触发',
         })
-        private onBeforeSort: (event: {
+        onBeforeSort: (event: {
             field: nasl.core.String,
             order: nasl.core.String, 
             compare?: Function
@@ -767,7 +767,7 @@ namespace nasl.ui {
             title: '筛选前',
             description: '筛选前触发',
         })
-        private onBeforeFilter: (event: any) => any;
+        onBeforeFilter: (event: any) => any;
 
         @Event({
             title: '筛选后',
@@ -799,7 +799,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一项前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             value: V;
             oldValue: V;
             item: T;

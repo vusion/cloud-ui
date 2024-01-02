@@ -198,7 +198,7 @@ namespace nasl.ui {
             title: '拖动滑块结束后',
             description: '拖动滑块结束后触发',
         })
-        private onSlideEnd: (event: nasl.core.Decimal) => any;
+        onSlideEnd: (event: nasl.core.Decimal) => any;
 
         @Slot({
             title: '默认',

@@ -74,7 +74,7 @@ namespace nasl.ui {
             docDescription: '支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的逻辑',
             designerValue: [{}, {}, {}],
         })
-        dataSource: nasl.collection.List<T>;
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',
@@ -114,7 +114,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        childrenField: nasl.core.String = 'children';
+        childrenField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.children) as any;
 
         @Prop({
             group: '数据属性',
@@ -125,7 +125,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        parentField: nasl.core.String = '';
+        parentField: (item: T) => V;
 
         @Prop({
             group: '数据属性',
@@ -207,7 +207,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一项前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             value: V;
             oldValue: V;
             node: T;
@@ -266,7 +266,7 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: any) => any;
+        onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
@@ -287,7 +287,7 @@ namespace nasl.ui {
         slotDefault: () => Array<UTreeViewNodeNew<T, V>>;
 
         @Slot({
-            title: 'undefined',
+            title: '项',
             description: '自定义选项的结构和样式',
         })
         slotItem: (current: Current<T>) => Array<ViewComponent>;
@@ -357,7 +357,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             value: V,
             oldValue: V,
             node: T,
@@ -368,7 +368,7 @@ namespace nasl.ui {
             title: '展开折叠前',
             description: '展开/折叠此节点前触发',
         })
-        private onBeforeToggle: (event: {
+        onBeforeToggle: (event: {
             expanded: nasl.core.Boolean;
             node: T;
         }) => any;
@@ -403,5 +403,11 @@ namespace nasl.ui {
             ],
         })
         slotDefault: () => Array<UTreeViewNodeNew<T, V>>;
+
+        @Slot({
+            title: '项',
+            description: '自定义选项的结构和样式',
+        })
+        slotItem: (current: Current<T>) => Array<ViewComponent>;
     }
 }

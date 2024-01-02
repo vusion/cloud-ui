@@ -37,9 +37,15 @@ namespace nasl.ui {
         size: 'small' | 'normal' | 'large' | 'huge' = 'normal';
 
         @Slot({
-            title: 'undefined',
+            title: '默认',
             description: '插入文本或 HTML。',
         })
         slotDefault: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '分数展示',
+            description: '分数展示自定义',
+        })
+        slotPercent: () => Array<ViewComponent>;
     }
 }

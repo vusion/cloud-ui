@@ -584,7 +584,7 @@ namespace nasl.ui {
             title: '展开折叠前',
             description: '展开/折叠此分组前触发',
         })
-        private onBeforeToggle: (event: {
+        onBeforeToggle: (event: {
             expanded: nasl.core.Boolean;
         }) => any;
 

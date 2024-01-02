@@ -23,7 +23,7 @@ namespace nasl.ui {
             description: '展示数据的输入源，可设置为数据集对象或者返回数据集的逻辑',
             docDescription: '组件的数据源，配置内容为数据集对象或者返回数据集的逻辑。',
         })
-        dataSource: nasl.collection.List<T>;
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',

@@ -62,7 +62,7 @@ namespace nasl.ui {
             title: '切换状态前',
             description: '切换开关状态前触发',
         })
-        private onBeforeToggle: (event: {
+        onBeforeToggle: (event: {
             value: nasl.core.Boolean;
             oldValue: nasl.core.Boolean;
         }) => any;

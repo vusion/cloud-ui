@@ -362,7 +362,7 @@ namespace nasl.ui {
             title: '切换路由前',
             description: '使用 router 相关属性切换路由前触发',
         })
-        private onBeforeNavigate: (event: {
+        onBeforeNavigate: (event: {
             to: nasl.core.String;
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
@@ -372,7 +372,7 @@ namespace nasl.ui {
             title: '切换路由后',
             description: '使用 router 相关属性切换路由后触发',
         })
-        private onNavigate: (event: {
+        onNavigate: (event: {
             to: nasl.core.String;
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;

@@ -569,7 +569,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一项前触发。',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             selected: nasl.core.Boolean;
             item: T;
             oldItem: T;
@@ -618,7 +618,7 @@ namespace nasl.ui {
             title: '弹出前',
             description: '弹出前触发。',
         })
-        private onBeforeOpen: (event: any) => any;
+        onBeforeOpen: (event: any) => any;
 
         @Event({
             title: '弹出后',
@@ -630,7 +630,7 @@ namespace nasl.ui {
             title: '关闭前',
             description: '关闭前触发。',
         })
-        private onBeforeClose: (event: any) => any;
+        onBeforeClose: (event: any) => any;
 
         @Event({
             title: '关闭后',
@@ -642,7 +642,7 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: any) => any;
+        onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
@@ -735,6 +735,11 @@ namespace nasl.ui {
             ],
         })
         slotDefault: () => Array<USelectItem<T, V> | USelectGroup<T, V> | USelectDivider>;
+
+        @Slot({
+            title: '底部',
+        })
+        slotRenderFooter: () => Array<ViewComponent>;
     }
 
     @Component({
@@ -792,7 +797,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             selected: nasl.core.Boolean;
             item: T;
             oldItem: T;

@@ -113,7 +113,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一步骤前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             value: nasl.core.Integer;
             oldValue: nasl.core.Integer;
             item: T;
@@ -240,5 +240,10 @@ namespace nasl.ui {
             description: '自定义标题文本',
         })
         slotTitle: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '描述',
+        })
+        slotDesc: () => Array<ViewComponent>;
     }
 }

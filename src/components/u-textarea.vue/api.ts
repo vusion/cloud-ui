@@ -200,7 +200,7 @@ namespace nasl.ui {
             title: '输入前',
             description: '输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value',
         })
-        private onBeforeInput: (event: {
+        onBeforeInput: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
         }) => any;
@@ -224,7 +224,7 @@ namespace nasl.ui {
             title: '聚焦后',
             description: '获得焦点时触发。',
         })
-        private onFocus: (event: {
+        onFocus: (event: {
             cancelBubble: nasl.core.Boolean;
             detail: nasl.core.String;
             layerX: nasl.core.Integer;
@@ -238,7 +238,7 @@ namespace nasl.ui {
             title: '失焦后',
             description: '失去焦点时触发。',
         })
-        private onBlur: (event: {
+        onBlur: (event: {
             cancelBubble: nasl.core.Boolean;
             detail: nasl.core.String;
             layerX: nasl.core.Integer;
@@ -252,7 +252,7 @@ namespace nasl.ui {
             title: '清空前',
             description: '清空前触发。',
         })
-        private onBeforeClear: (event: {
+        onBeforeClear: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
         }) => any;

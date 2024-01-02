@@ -108,7 +108,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        parentField: (item: T) => nasl.core.String;
+        parentField: (item: T) => V;
 
         @Prop({
             group: '数据属性',
@@ -313,7 +313,7 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: any) => any;
+        onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',

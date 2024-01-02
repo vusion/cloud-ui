@@ -34,7 +34,7 @@ namespace nasl.ui {
             docDescription: '支持动态绑定集合类型变量（List\<T>）或输出参数为集合类型的',
             designerValue: [{}, {}, {}],
         })
-        dataSource: nasl.collection.List<T>;
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',
@@ -74,7 +74,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             }
         })
-        parentField: (item: T) => nasl.core.String;
+        parentField: (item: T) => V;
 
         @Prop({
             group: '数据属性',
@@ -85,7 +85,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             }
         })
-        childrenField: (item: T) => nasl.core.String = ((item: any)  => item.children) as any;
+        childrenField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.children) as any;
 
         @Prop({
             group: '数据属性',
@@ -229,7 +229,7 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: any) => any;
+        onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
