@@ -237,7 +237,7 @@ namespace nasl.ui {
             title: '删除前触发',
             description: '删除前触发',
         })
-        private onBeforeRemove: (event: any) => any;
+        onBeforeRemove: (event: any) => any;
 
         @Event({
             title: '删除时触发',

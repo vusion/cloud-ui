@@ -210,7 +210,7 @@ namespace nasl.ui {
             title: '输入前',
             description: '输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value',
         })
-        private onBeforeInput: (event: {
+        onBeforeInput: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
         }) => any;
@@ -262,7 +262,7 @@ namespace nasl.ui {
             title: '清空前',
             description: '清空前触发。',
         })
-        private onBeforeClear: (event: {
+        onBeforeClear: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
         }) => any;

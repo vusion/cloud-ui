@@ -141,7 +141,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择分页前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             page: nasl.core.Integer;
             oldPage: nasl.core.Integer;
         }) => any;

@@ -131,7 +131,7 @@ namespace nasl.ui {
             title: '打开前',
             description: '打开弹窗前触发',
         })
-        private onBeforeOpen: (event: any) => any;
+        onBeforeOpen: (event: any) => any;
 
         @Event({
             title: '打开后',
@@ -143,7 +143,7 @@ namespace nasl.ui {
             title: '关闭前',
             description: '关闭弹窗前触发',
         })
-        private onBeforeClose: (event: any) => any;
+        onBeforeClose: (event: any) => any;
 
         @Event({
             title: '关闭后',

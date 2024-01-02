@@ -57,7 +57,7 @@ namespace nasl.ui {
             title: '点击',
             description: '点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。',
         })
-        private onClick: (event: {
+        onClick: (event: {
             altKey: nasl.core.Boolean;
             button: nasl.core.Integer;
             clientX: nasl.core.Integer;
@@ -79,7 +79,7 @@ namespace nasl.ui {
             title: '输入前',
             description: '选择某一项前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
             selectedItem: nasl.core.Any;
@@ -91,7 +91,7 @@ namespace nasl.ui {
             title: '输入时',
             description: '选择某一项时触发',
         })
-        private onInput: (event: nasl.core.String) => any;
+        onInput: (event: nasl.core.String) => any;
 
         @Event({
             title: '选择后',
@@ -109,7 +109,7 @@ namespace nasl.ui {
             title: '改变后',
             description: '选择值改变时触发',
         })
-        private onChange: (event: {
+        onChange: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
             selectedItem: nasl.core.Any;
@@ -247,7 +247,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择此项前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             value: nasl.core.String;
             oldValue: nasl.core.String;
             selectedItem: nasl.core.Any;
@@ -259,7 +259,7 @@ namespace nasl.ui {
             title: '导航前',
             description: '使用 router 相关属性切换路由前触发',
         })
-        private onBeforeNavigate: (event: {
+        onBeforeNavigate: (event: {
             to: nasl.core.String;
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
@@ -269,7 +269,7 @@ namespace nasl.ui {
             title: '导航',
             description: '使用router相关属性切换路由时触发',
         })
-        private onNavigate: (event: {
+        onNavigate: (event: {
             to: nasl.core.String;
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;

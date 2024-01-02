@@ -580,8 +580,6 @@ exports[`u-date-time-picker.vue date time picker 1`] = `
                               </div>
                               <div>
                                 <div class="root yearitem" vusion-slot-name="item">
-                                  2003</div>
-                                <div class="root yearitem" vusion-slot-name="item">
                                   2004</div>
                                 <div class="root yearitem" vusion-slot-name="item">
                                   2005</div>
@@ -661,6 +659,8 @@ exports[`u-date-time-picker.vue date time picker 1`] = `
                                   2042</div>
                                 <div class="root yearitem" vusion-slot-name="item">
                                   2043</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  2044</div>
                               </div>
                               <div style="display: none;">
                               </div>
@@ -1507,8 +1507,6 @@ exports[`u-date-time-picker.vue date time range picker 1`] = `
                               </div>
                               <div>
                                 <div class="root yearitem" vusion-slot-name="item">
-                                  2003</div>
-                                <div class="root yearitem" vusion-slot-name="item">
                                   2004</div>
                                 <div class="root yearitem" vusion-slot-name="item">
                                   2005</div>
@@ -1588,6 +1586,8 @@ exports[`u-date-time-picker.vue date time range picker 1`] = `
                                   2042</div>
                                 <div class="root yearitem" disabled="disabled" vusion-slot-name="item">
                                   2043</div>
+                                <div class="root yearitem" disabled="disabled" vusion-slot-name="item">
+                                  2044</div>
                               </div>
                               <div style="display: none;">
                               </div>
@@ -2434,8 +2434,6 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                               </div>
                               <div>
                                 <div class="root yearitem" disabled="disabled" vusion-slot-name="item">
-                                  2003</div>
-                                <div class="root yearitem" disabled="disabled" vusion-slot-name="item">
                                   2004</div>
                                 <div class="root yearitem" disabled="disabled" vusion-slot-name="item">
                                   2005</div>
@@ -2515,6 +2513,8 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                                   2042</div>
                                 <div class="root yearitem" vusion-slot-name="item">
                                   2043</div>
+                                <div class="root yearitem" vusion-slot-name="item">
+                                  2044</div>
                               </div>
                               <div style="display: none;">
                               </div>
@@ -2547,9 +2547,9 @@ exports[`u-date-time-picker.vue date time range picker 2`] = `
                                 </div>
                               </div>
                               <div>
-                                <div class="root yearitem" disabled="disabled" vusion-slot-name="item">
+                                <div class="root yearitem" vusion-slot-name="item">
                                   1 月</div>
-                                <div class="root yearitem" disabled="disabled" vusion-slot-name="item">
+                                <div class="root yearitem" vusion-slot-name="item">
                                   2 月</div>
                                 <div class="root yearitem" role="true" vusion-slot-name="item">
                                   3 月</div>

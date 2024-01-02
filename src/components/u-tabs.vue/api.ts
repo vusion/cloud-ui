@@ -36,7 +36,7 @@ namespace nasl.ui {
             docDescription: '集合类型变量或者输出参数为集合类型的逻辑',
             designerValue: [{}, {}, {}],
         })
-        dataSource: nasl.collection.List<T>;
+        dataSource: nasl.collection.List<T> | { list: nasl.collection.List<T>; total: nasl.core.Integer };
 
         @Prop({
             group: '数据属性',
@@ -189,7 +189,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一页前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             selected: nasl.core.Boolean;
             item: T;
             oldItem: T;
@@ -217,7 +217,7 @@ namespace nasl.ui {
             title: '关闭前',
             description: '关闭某一页前触发',
         })
-        private onBeforeClose: (event: {
+        onBeforeClose: (event: {
             value: V;
             oldValue: V;
         }) => any;
@@ -235,7 +235,7 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: any) => any;
+        onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',

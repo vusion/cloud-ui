@@ -112,7 +112,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        parentField: nasl.core.String = '';
+        parentField: (item: T) => V;
 
         @Prop<USidebarOptions<T, V>, 'router'>({
             group: '数据属性',
@@ -567,7 +567,7 @@ namespace nasl.ui {
             title: '切换路由后',
             description: '使用 router 相关属性切换路由后触发',
         })
-        private onNavigate: (event: {
+        onNavigate: (event: {
             to: nasl.core.String;
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;

@@ -206,7 +206,7 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: any) => any;
+        onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',
@@ -313,7 +313,7 @@ namespace nasl.ui {
             title: '选中前',
             description: '切换选中状态前触发',
         })
-        private onBeforeCheck: (event: {
+        onBeforeCheck: (event: {
             value: nasl.core.Boolean;
             oldValue: nasl.core.Boolean;
         }) => any;

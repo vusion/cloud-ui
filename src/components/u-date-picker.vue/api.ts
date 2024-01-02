@@ -325,7 +325,7 @@ namespace nasl.ui {
             title: '弹出/隐藏时',
             description: '弹出/隐藏时触发',
         })
-        private onToggle: (event: {
+        onToggle: (event: {
             opened: nasl.core.Boolean;
         }) => any;
 

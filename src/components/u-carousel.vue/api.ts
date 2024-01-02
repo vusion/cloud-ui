@@ -90,7 +90,7 @@ namespace nasl.ui {
             title: '选择前',
             description: '选择某一页前触发',
         })
-        private onBeforeSelect: (event: {
+        onBeforeSelect: (event: {
             selected: nasl.core.Boolean;
             item: T;
             oldItem: T;
@@ -102,7 +102,7 @@ namespace nasl.ui {
             title: '选择后',
             description: '选择某一页时触发',
         })
-        private onSelect: (event: {
+        onSelect: (event: {
             selected: nasl.core.Boolean;
             item: T;
             oldItem: T;
@@ -114,7 +114,7 @@ namespace nasl.ui {
             title: '加载前',
             description: '加载前触发',
         })
-        private onBeforeLoad: (event: any) => any;
+        onBeforeLoad: (event: any) => any;
 
         @Event({
             title: '加载后',

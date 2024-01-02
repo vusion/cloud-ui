@@ -67,13 +67,19 @@ namespace nasl.ui {
                 },
             ],
         })
-        slotDefault: () => Array<UPanelGroup>;
+        slotDefault: () => Array<UPanelGroup | ViewComponent>;
 
         @Slot({
             title: '标题',
             description: '标题自定义',
         })
         slotTitle: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '额外信息',
+            description: '额外信息自定义',
+        })
+        slotExtra: () => Array<ViewComponent>;
     }
 
     @Component({
@@ -99,5 +105,11 @@ namespace nasl.ui {
             description: '插入默认的元素',
         })
         slotDefault: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '标题',
+            description: '标题自定义',
+        })
+        slotTitle: () => Array<ViewComponent>;
     }
 }

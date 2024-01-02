@@ -100,7 +100,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        parentField: (item: T) => nasl.core.String;
+        parentField: (item: T) => V;
 
         @Prop({
             group: '交互属性',
@@ -374,5 +374,11 @@ namespace nasl.ui {
             ],
         })
         slotDefault: () => Array<UDropdownGroup | UDropdownItem>;
+
+        @Slot({
+            title: '标题',
+            description: '内容自定义',
+        })
+        slotTitle: () => Array<ViewComponent>;
     }
 }

@@ -100,7 +100,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        parentField: (item: T) => nasl.core.String;
+        parentField: (item: T) => V;
 
         @Prop<UNavbarMultiOptions<T, V>, 'router'>({
             group: '数据属性',
@@ -495,7 +495,7 @@ namespace nasl.ui {
             title: '切换路由后',
             description: '使用 router 相关属性切换路由后触发',
         })
-        private onNavigate: (event: {
+        onNavigate: (event: {
             to: nasl.core.String;
             replace: nasl.core.Boolean;
             append: nasl.core.Boolean;
@@ -742,5 +742,11 @@ namespace nasl.ui {
             ],
         })
         slotDefault: () => Array<UNavbarGroupMulti | UNavbarItemMulti>;
+
+        @Slot({
+            title: '标题',
+            description: '标题自定义',
+        })
+        slotTitle: () => Array<ViewComponent>;
     }
 }
