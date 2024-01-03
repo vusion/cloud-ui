@@ -7,7 +7,7 @@ namespace nasl.ui {
         description: '下拉选择器，支持单选、多选、搜索等功能',
         group: 'Selector'
     })
-    export class USelect<T, V, P extends boolean, M extends boolean, C extends string> extends ViewComponent {
+    export class USelect<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean, C extends string> extends ViewComponent {
         @Prop({
             title: '数据',
         })
@@ -87,7 +87,7 @@ namespace nasl.ui {
         constructor(options?: Partial<USelectOptions<T, V, P, M, C>>) { super(); }
     }
 
-    export class USelectOptions<T, V, P extends boolean, M extends boolean, C extends string> extends ViewComponentOptions {
+    export class USelectOptions<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean, C extends string> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
