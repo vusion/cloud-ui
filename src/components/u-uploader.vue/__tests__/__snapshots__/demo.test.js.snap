@@ -533,7 +533,7 @@ exports[`u-uploader.vue Demo-开启图片编辑(只支持单文件上传) 1`] = 
 
 exports[`u-uploader.vue Demo-拖拽和粘贴上传 1`] = `
 <div class="root">
-  <div class="draggable" tabindex="0" wdragover.prevent="dragover = true">
+  <div class="draggable" tabindex="0">
     <input class="file" name="file" type="file">
     <div>
       <div class="dragDescription" vusion-slot-name="dragDescription">点击/拖动/粘贴文件到这里</div>
