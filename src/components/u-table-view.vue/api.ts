@@ -7,7 +7,7 @@ namespace nasl.ui {
         description: '用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。',
         group: 'Table'
     })
-    export class UTableView<T, V, P extends boolean, M extends boolean> extends ViewComponent {
+    export class UTableView<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean> extends ViewComponent {
         @Prop({
             title: '数据',
         })
@@ -106,7 +106,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTableViewOptions<T, V, P, M>>) { super(); }
     }
 
-    export class UTableViewOptions<T, V, P extends boolean, M extends boolean> extends ViewComponentOptions {
+    export class UTableViewOptions<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
@@ -1022,12 +1022,12 @@ namespace nasl.ui {
         title: '表格列',
         description: '表格列',
     })
-    export class UTableViewColumn<T, V, P extends boolean, M extends boolean> extends ViewComponent {
+    export class UTableViewColumn<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean> extends ViewComponent {
 
         constructor(options?: Partial<UTableViewColumnOptions<T, V, P, M>>) { super(); }
     }
 
-    export class UTableViewColumnOptions<T, V, P extends boolean, M extends boolean> extends ViewComponentOptions {
+    export class UTableViewColumnOptions<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean> extends ViewComponentOptions {
         @Prop({
             title: '格式器',
             description: '格式器',
@@ -1333,7 +1333,7 @@ namespace nasl.ui {
     @Component({
         title: '表格动态列',
     })
-    export class UTableViewColumnDynamic<T, V, P extends boolean, M extends boolean, T1> extends ViewComponent {
+    export class UTableViewColumnDynamic<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean, T1> extends ViewComponent {
         @Prop({
             title: '数据',
         })
@@ -1341,7 +1341,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTableViewColumnDynamicOptions<T, V, P, M, T1>>) { super(); }
     }
 
-    export class UTableViewColumnDynamicOptions<T, V, P extends boolean, M extends boolean, T1> extends ViewComponentOptions {
+    export class UTableViewColumnDynamicOptions<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean, T1> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
@@ -1452,12 +1452,12 @@ namespace nasl.ui {
     @Component({
         title: '表格列分组',
     })
-    export class UTableViewColumnGroup<T, V, P extends boolean, M extends boolean> extends ViewComponent {
+    export class UTableViewColumnGroup<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean> extends ViewComponent {
 
         constructor(options?: Partial<UTableViewColumnGroupOptions<T, V, P, M>>) { super(); }
     }
 
-    export class UTableViewColumnGroupOptions<T, V, P extends boolean, M extends boolean> extends ViewComponentOptions {
+    export class UTableViewColumnGroupOptions<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean> extends ViewComponentOptions {
         @Prop({
             group: '主要属性',
             title: '表格标题',
