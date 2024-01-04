@@ -122,7 +122,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        textField: (item: T) => nasl.core.String;
+        textField: (item: T) => any;
 
         @Prop<USelectOptions<T, V, P, M, C>, 'valueField'>({
             group: '数据属性',
@@ -217,7 +217,7 @@ namespace nasl.ui {
             },
             if: _ => _.description === true,
         })
-        descriptionField: (item: T) => nasl.core.String;
+        descriptionField: (item: T) => any;
 
         @Prop<USelectOptions<T, V, P, M, C>, 'iconField'>({
             group: '数据属性',
@@ -227,7 +227,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        iconField: (item: T) => nasl.core.String;
+        iconField: (item: T) => any;
 
         @Prop({
             group: '数据属性',

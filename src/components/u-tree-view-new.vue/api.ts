@@ -92,7 +92,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             }
         })
-        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
+        textField: (item: T) => any = ((item: any)  => item.text) as any;
 
         @Prop({
             group: '数据属性',
@@ -114,7 +114,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        childrenField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.children) as any;
+        childrenField: (item: T) => nasl.collection.List<any> = ((item: any)  => item.children) as any;
 
         @Prop({
             group: '数据属性',
@@ -125,7 +125,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        parentField: (item: T) => V;
+        parentField: (item: T) => any;
 
         @Prop({
             group: '数据属性',

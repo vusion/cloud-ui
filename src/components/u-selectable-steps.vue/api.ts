@@ -42,7 +42,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        private titleField: (item: T) => nasl.core.String;
+        private titleField: (item: T) => any;
 
         @Prop<USelectableStepsOptions<T>, any>({
             group: '数据属性',
@@ -52,7 +52,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        private descField: (item: T) => nasl.core.String;
+        private descField: (item: T) => any;
 
         @Prop({
             group: '数据属性',
