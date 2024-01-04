@@ -52,7 +52,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        private textField: (item: T) => nasl.core.String;
+        private textField: (item: T) => any;
 
         @Prop<UCheckboxesOptions<T, V, C>, 'valueField'>({
             group: '数据属性',

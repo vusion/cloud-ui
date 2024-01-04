@@ -324,7 +324,7 @@ namespace nasl.ui {
             },
             if: _ => _.treeDisplay === true,
         })
-        parentField: (item: T) => V;
+        parentField: (item: T) => any;
 
         @Prop<UTableViewOptions<T, V, P, M>, 'childrenField'>({
             group: '数据属性',
@@ -336,7 +336,7 @@ namespace nasl.ui {
             },
             if: _ => _.treeDisplay === true,
         })
-        childrenField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.children) as any;
+        childrenField: (item: T) => nasl.collection.List<any> = ((item: any)  => item.children) as any;
 
         @Prop<UTableViewOptions<T, V, P, M>, 'hasChildrenField'>({
             group: '数据属性',
@@ -1046,7 +1046,7 @@ namespace nasl.ui {
             description: 'data 项中的字段',
             docDescription: '数据项中对应的字段名，如createdTime',
         })
-        field: (item: T) => V;
+        field: (item: T) => any;
 
         @Prop({
             group: '数据属性',
@@ -1255,7 +1255,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        private textField: (item: T) => nasl.core.String;
+        private textField: (item: T) => any;
 
         @Prop({
             group: '数据属性',

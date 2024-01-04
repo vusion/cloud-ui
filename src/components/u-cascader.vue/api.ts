@@ -75,7 +75,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        field: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
+        field: (item: T) => any = ((item: any)  => item.text) as any;
 
         @Prop<UCascaderOptions<T, V>, 'valueField'>({
             group: '数据属性',
@@ -97,7 +97,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        childrenField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.children) as any;
+        childrenField: (item: T) => nasl.collection.List<any> = ((item: any)  => item.children) as any;
 
         @Prop<UCascaderOptions<T, V>, 'parentField'>({
             group: '数据属性',
@@ -108,7 +108,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        parentField: (item: T) => V;
+        parentField: (item: T) => any;
 
         @Prop({
             group: '数据属性',
