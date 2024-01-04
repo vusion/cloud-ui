@@ -1,7 +1,7 @@
 ### 普通用法
 
 ``` html
-<u-timeline :data-source="[{}, {}, {}]">
+<u-timeline :dataSource="[{}, {}, {}]">
     <template #item="current">
         <u-timeline-item insource>
             <template #label>

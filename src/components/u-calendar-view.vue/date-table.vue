@@ -74,6 +74,8 @@ export default {
         endKey: String,
         getCommonAttrs: Function,
         multiple: { type: Boolean, default: false },
+        year: Number,
+        month: Number,
     },
     data() {
         return {
@@ -112,7 +114,12 @@ export default {
             const datesLength = 42;
             const { firstDayOfWeek, selectedDates } = this;
             // #date 日期，#day 星期几，参考 day.js API
-            const firstDateOfMonth = selectedDates[0].clone().date(1).startOf('day');
+            // fix：2770426704748544，日期多选，清空value值时展示NaN
+            let currentDate = selectedDates[0];
+            if (!currentDate) {
+                currentDate = dayjs().year(this.year).month(this.month).date(1);
+            }
+            const firstDateOfMonth = currentDate.clone().date(1).startOf('day');
             const firstDayOfMonth = firstDateOfMonth.day();
             const prevMonthDateLength = firstDayOfMonth >= firstDayOfWeek ? firstDayOfMonth - firstDayOfWeek : firstDayOfMonth + 7 - firstDayOfWeek;
             const dates = [];

@@ -202,38 +202,53 @@ export default {
 
 /* gap转换成gap-height, gap-width, 保留gap为了历史遗留组件的样式兼容问题 */
 .root[gap-height="large"][layout="block"] .item:not(:last-child),
+.root[gapheight="large"][layout="block"] .item:not(:last-child),
 .root[gap-height="large"][layout="vertical"] .item:not(:last-child),
-.root[gap-height="large"][layout="inline"] .item {
+.root[gapheight="large"][layout="vertical"] .item:not(:last-child),
+.root[gap-height="large"][layout="inline"] .item,
+.root[gapheight="large"][layout="inline"] .item {
   margin-bottom: var(--form-item-margin-bottom-large);
 }
 
 .root[gap-height="normal"][layout="block"] .item:not(:last-child),
+.root[gapheight="normal"][layout="block"] .item:not(:last-child),
 .root[gap-height="normal"][layout="vertical"] .item:not(:last-child),
-.root[gap-height="normal"][layout="inline"] .item {
+.root[gapheight="normal"][layout="vertical"] .item:not(:last-child),
+.root[gap-height="normal"][layout="inline"] .item,
+.root[gapheight="normal"][layout="inline"] .item {
     margin-bottom: var(--form-item-margin-bottom);
 }
 
-.root[gap-width="large"][layout="inline"]:not([repeat]) .item:not(:last-child) {
+.root[gap-width="large"][layout="inline"]:not([repeat]) .item:not(:last-child),
+.root[gapwidth="large"][layout="inline"]:not([repeat]) .item:not(:last-child) {
   margin-right: var(--space-large);
 }
 
-.root[gap-width="none"][layout="inline"]:not([repeat]) .item:not(:last-child) {
+.root[gap-width="none"][layout="inline"]:not([repeat]) .item:not(:last-child),
+.root[gapwidth="none"][layout="inline"]:not([repeat]) .item:not(:last-child) {
   margin-right: var(--form-item-margin-bottom-none);
 }
 
 .root[gap-height="small"][layout="block"] .item:not(:last-child),
+.root[gapheight="small"][layout="block"] .item:not(:last-child),
 .root[gap-height="small"][layout="vertical"] .item:not(:last-child),
-.root[gap-height="small"][layout="inline"] .item {
+.root[gapheight="small"][layout="vertical"] .item:not(:last-child),
+.root[gap-height="small"][layout="inline"] .item,
+.root[gapheight="small"][layout="inline"] .item {
   margin-bottom: var(--form-item-margin-bottom-small);
 }
 
 .root[gap-height="none"][layout="block"] .item:not(:last-child),
+.root[gapheight="none"][layout="block"] .item:not(:last-child),
 .root[gap-height="none"][layout="vertical"] .item:not(:last-child),
-.root[gap-height="none"][layout="inline"] .item {
+.root[gapheight="none"][layout="vertical"] .item:not(:last-child),
+.root[gap-height="none"][layout="inline"] .item,
+.root[gapheight="none"][layout="inline"] .item {
   margin-bottom: var(--form-item-margin-bottom-none);
 }
 
-.root[gap-width="small"][layout="inline"]:not([repeat]) .item:not(:last-child) {
+.root[gap-width="small"][layout="inline"]:not([repeat]) .item:not(:last-child),
+.root[gapwidth="small"][layout="inline"]:not([repeat]) .item:not(:last-child) {
   margin-right: var(--space-small);
 }
 
@@ -242,7 +257,8 @@ export default {
   padding-right: var(--space-small);
 } */
 
-.root[gap-width="normal"][layout="inline"]:not([repeat]) .item:not(:last-child) {
+.root[gap-width="normal"][layout="inline"]:not([repeat]) .item:not(:last-child),
+.root[gapwidth="normal"][layout="inline"]:not([repeat]) .item:not(:last-child) {
   margin-right: var(--space-medium);
 }
 

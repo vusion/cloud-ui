@@ -14,7 +14,7 @@ export default {
 .root {
     width: 100%;
     table-layout: fixed;
-    background: var(--table-view-background);
+    /* background: var(--table-view-background); */
 }
 
 .root th {

@@ -17,7 +17,7 @@
             <span v-if="showSuffix">{{ unit && unit.value }}</span>
         </template>
     </u-input>
-    <u-preview v-else :text="value"></u-preview>
+    <u-preview v-else :text="currentValue"></u-preview>
 </template>
 
 <script>

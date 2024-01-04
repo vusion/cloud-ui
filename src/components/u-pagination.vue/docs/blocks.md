@@ -9,12 +9,12 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-pagination
-        :total-items="75"
-        show-total
-        show-sizer
-        show-jumper
-        :page-size="10"
-        :page-size-options="[40,50,100]">
+        :totalItems="75"
+        showTotal
+        showSizer
+        showJumper
+        :pageSize="10"
+        :pageSizeOptions="[40,50,100]">
     </u-pagination>
 </u-linear-layout>
 ```

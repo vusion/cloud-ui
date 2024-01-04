@@ -4,3 +4,4 @@ dist-raw/
 dist-doc-entry/
 public/
 src/**/*.d.ts
+src/**/api.ts

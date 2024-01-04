@@ -36,7 +36,7 @@
         </f-dragger>
         <span v-if="showWordLimit && maxlength" :class="limitPosition === 'inside' ? $style.limit : $style.limitOut">{{ limit }}/{{ maxlength }}</span>
     </div>
-    <u-preview v-else :text="value"></u-preview>
+    <u-preview v-else :text="currentValue"></u-preview>
 </template>
 
 <script>
