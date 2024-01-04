@@ -72,7 +72,7 @@ namespace nasl.ui {
             title: '文本字段',
             docDescription: '集合的元素类型中，用于显示文本的属性名称，支持自定义变更',
         })
-        field: nasl.core.String = 'text';
+        field: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
 
         @Prop({
             group: '数据属性',
