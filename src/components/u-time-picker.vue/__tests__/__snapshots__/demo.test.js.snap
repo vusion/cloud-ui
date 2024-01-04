@@ -4,7 +4,7 @@ exports[`u-time-picker.vue Demo-只读和禁用 1`] = `
 <div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
     <span class="root">
-      <div class="input" clearable="15:46:33" disabled="disabled" height="full" prefix="time" width="full">
+      <div class="input" clearable="15:46:33" height="full" prefix="time" readonly="readonly" width="full">
         <span>b</span>
         <span></span>
         <span name="time">
@@ -18,7 +18,7 @@ exports[`u-time-picker.vue Demo-只读和禁用 1`] = `
             </div>
           </span>
         </span>
-        <input disabled="disabled" height="full" type="text" width="full">
+        <input height="full" readonly="readonly" type="text" width="full">
         <span> </span>
       </div>
       <transition-stub class="popper" name="fade" style="width: 0px;">

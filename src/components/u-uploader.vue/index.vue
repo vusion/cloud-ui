@@ -4,7 +4,7 @@
         :tabindex="readonly || disabled ? '' : 0"
         @drop.prevent="onDrop"
         @paste="onPaste"
-        wdragover.prevent="dragover = true"
+        @dragover.prevent="dragover = true"
         @dragleave.prevent="dragover = false">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <div>
