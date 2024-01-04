@@ -191,8 +191,7 @@ export default {
                 this.currentValue = $event.value;
                 this.$emit('input', $event.value, this);
                 this.$emit('update:value', $event.value, this);
-            }
-            else {
+            } else {
                 this.currentValue = e.target.value;
             }
         },
@@ -222,6 +221,8 @@ export default {
             this.currentValue = $event.value;
             this.$emit('input', $event.value, this);
             this.$emit('update:value', $event.value, this);
+            // 由于 先出onInput currentValue 已经更新过了，这时候再赋值不会触发 watch ，导致change 事件无法触发，所以这里加上触发 change 逻辑
+            this.$emit('change', $event, this);
             this.$emit('compositionend', e);
         },
         focus() {
