@@ -7,7 +7,7 @@ namespace nasl.ui {
         description: '树形视图',
         group: 'Selector'
     })
-    export class UTreeViewNew<T, V, M extends boolean> extends ViewComponent {
+    export class UTreeViewNew<T, V, M extends nasl.core.Boolean> extends ViewComponent {
 
 
         @Method({
@@ -66,7 +66,7 @@ namespace nasl.ui {
         constructor(options?: Partial<UTreeViewNewOptions<T, V, M>>) { super(); }
     }
 
-    export class UTreeViewNewOptions<T, V, M extends boolean> extends ViewComponentOptions {
+    export class UTreeViewNewOptions<T, V, M extends nasl.core.Boolean> extends ViewComponentOptions {
         @Prop({
             group: '数据属性',
             title: '数据源',
