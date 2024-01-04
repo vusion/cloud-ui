@@ -101,7 +101,7 @@ namespace nasl.ui {
             description: '选项文本的字段名',
             docDescription: '集合的元素类型中，用于显示文本的属性名称，支持自定义变更。',
         })
-        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
+        textField: (item: T) => any = ((item: any)  => item.text) as any;
 
         @Prop({
             group: '数据属性',

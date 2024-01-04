@@ -45,7 +45,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        startKey: (item: T) => nasl.core.Date = ((item: any)  => item.startTime) as any;
+        startKey: (item: T) => any = ((item: any)  => item.startTime) as any;
 
         @Prop<UCalendarViewOptions<T>, 'endKey'>({
             group: '数据属性',
@@ -56,7 +56,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        endKey: (item: T) => nasl.core.Date = ((item: any)  => item.endTime) as any;
+        endKey: (item: T) => any = ((item: any)  => item.endTime) as any;
 
         @Prop({
             group: '数据属性',

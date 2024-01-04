@@ -54,7 +54,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
+        textField: (item: T) => any = ((item: any)  => item.text) as any;
 
         @Prop<UDropdownOptions<T, V>, 'valueField'>({
             group: '数据属性',
@@ -77,7 +77,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        iconField: (item: T) => nasl.core.String = ((item: any)  => item.icon) as any;
+        iconField: (item: T) => any = ((item: any)  => item.icon) as any;
 
         @Prop<UDropdownOptions<T, V>, 'toField'>({
             group: '数据属性',
@@ -88,7 +88,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        toField: (item: T) => nasl.core.String = ((item: any)  => item.to) as any;
+        toField: (item: T) => any = ((item: any)  => item.to) as any;
 
         @Prop<UDropdownOptions<T, V>, 'parentField'>({
             group: '数据属性',
@@ -100,7 +100,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        parentField: (item: T) => V;
+        parentField: (item: T) => any;
 
         @Prop({
             group: '交互属性',

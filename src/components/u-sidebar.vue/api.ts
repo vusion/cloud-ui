@@ -66,7 +66,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
+        textField: (item: T) => any = ((item: any)  => item.text) as any;
 
         @Prop<USidebarOptions<T, V>, 'valueField'>({
             group: '数据属性',
@@ -78,7 +78,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        valueField: (item: T) => nasl.core.String = ((item: any)  => item.value) as any;
+        valueField: (item: T) => any = ((item: any)  => item.value) as any;
 
         @Prop<USidebarOptions<T, V>, 'iconField'>({
             group: '数据属性',
@@ -89,7 +89,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        iconField: (item: T) => nasl.core.String = ((item: any)  => item.icon) as any;
+        iconField: (item: T) => any = ((item: any)  => item.icon) as any;
 
         @Prop<USidebarOptions<T, V>, 'toField'>({
             group: '数据属性',
@@ -100,7 +100,7 @@ namespace nasl.ui {
             },
             if: _ => _.hasDataSource === true,
         })
-        toField: (item: T) => nasl.core.String = ((item: any)  => item.to) as any;
+        toField: (item: T) => any = ((item: any)  => item.to) as any;
 
         @Prop<USidebarOptions<T, V>, 'parentField'>({
             group: '数据属性',

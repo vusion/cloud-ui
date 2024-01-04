@@ -46,7 +46,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        private field: (item: T) => nasl.core.String;
+        private field: (item: T) => any;
 
         @Prop({
             title: '可取消',
@@ -95,7 +95,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
+        textField: (item: T) => any = ((item: any)  => item.text) as any;
 
         @Prop<UGridViewOptions<T, V, P, M, C>, 'valueField'>({
             group: '数据属性',
