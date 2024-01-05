@@ -265,11 +265,5 @@ namespace nasl.ui {
             value: nasl.core.String;
             oldValue: nasl.core.String;
         }) => any;
-
-        @Slot({
-            title: '默认',
-            description: '插入 HTML 或 `Component`, 可展示额外内容。',
-        })
-        slotDefault: () => Array<ViewComponent>;
     }
 }
