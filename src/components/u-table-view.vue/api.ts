@@ -1440,7 +1440,10 @@ namespace nasl.ui {
         @Slot({
             title: '配置列展示title',
         })
-        slotTitle: (current: Current<T1>) => Array<ViewComponent>;
+        slotTitle: (current: {
+            columnIndex: nasl.core.Integer, 
+            columnItem: T1
+        }) => Array<ViewComponent>;
 
         @Slot({
             title: '配置列展示item',

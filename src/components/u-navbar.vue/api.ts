@@ -333,6 +333,18 @@ namespace nasl.ui {
             },
         })
         disabled: nasl.core.Boolean = false;
+
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML',
+        })
+        slotDefault: () => Array<ViewComponent>;
+
+        @Slot({
+            title: '标题',
+            description: '插入文本或 HTML',
+        })
+        slotTitle: () => Array<ViewComponent>;
     }
 
     @Component({
@@ -345,7 +357,11 @@ namespace nasl.ui {
     }
 
     export class UNavbarMenuOptions  extends ViewComponentOptions {
-
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 
     @Component({
@@ -371,7 +387,33 @@ namespace nasl.ui {
     }
 
     export class UNavbarMenuItemOptions  extends ViewComponentOptions {
+        @Event({
+            title: '点击',
+            description: '在元素上按下并释放任意鼠标按钮时触发。',
+        })
+        onClick: (event: {
+            altKey: nasl.core.Boolean;
+            button: nasl.core.Integer;
+            clientX: nasl.core.Integer;
+            clientY: nasl.core.Integer;
+            ctrlKey: nasl.core.Boolean;
+            metaKey: nasl.core.Boolean;
+            movementX: nasl.core.Integer;
+            movementY: nasl.core.Integer;
+            offsetX: nasl.core.Integer;
+            offsetY: nasl.core.Integer;
+            pageX: nasl.core.Integer;
+            pageY: nasl.core.Integer;
+            screenX: nasl.core.Integer;
+            screenY: nasl.core.Integer;
+            which: nasl.core.Integer;
+        }) => any;
 
+        @Slot({
+            title: '默认',
+            description: '插入文本或 HTML',
+        })
+        slotDefault: () => Array<ViewComponent>;
     }
 
     @Component({
