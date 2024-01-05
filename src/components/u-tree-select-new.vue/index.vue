@@ -217,8 +217,9 @@ export default {
                 return false;
         },
         selectedItem() {
-            if (!this.actualValue)
+            if (this.actualValue === undefined || this.actualValue === null) {
                 return;
+            }
             if (this.$at(this.dataSourceObj, this.actualValue)) {
                 return this.$at(this.dataSourceObj, this.actualValue);
             } else {
@@ -226,7 +227,7 @@ export default {
             }
         },
         checkableValue() {
-            if (!this.checkable) {
+            if (this.actualValue === undefined || this.actualValue === null || this.actualValue === '') {
                 return '';
             } else if (Array.isArray(this.actualValue)) {
                 const textNode = [];
@@ -352,7 +353,7 @@ export default {
                     const { childrenField, moreChildrenFields } = item;
                     // 静态节点数据写死字段，防止value和text取值相同时，导致value错误
                     if (type === 'virtual') {
-                        if (item.value) {
+                        if (item.value !== undefined || item.value !== null) {
                             obj[item.value] = {
                                 parent,
                                 node: item,
@@ -390,7 +391,7 @@ export default {
             this.$emit('update:value', $event, this);
             this.$emit('input', $event, this);
             this.$nextTick(() => {
-                if (!!$event && !this.checkable) {
+                if ($event !== null && $event !== undefined && !this.checkable) {
                     this.close();
                 }
             });
@@ -408,7 +409,7 @@ export default {
         loadUntilSelectedItem() {
             const { load, data } = this.currentDataSource || {};
             // 如果有选中值，且没有被查到，且数据可以加载
-            if (this.actualValue && !this.selectedItem && load) {
+            if (this.actualValue !== undefined && this.actualValue !== null && !this.selectedItem && load) {
                 if (Array.isArray(data) && data.length) {
                     const item = this.loadChildren(data);
                     if (item) {
