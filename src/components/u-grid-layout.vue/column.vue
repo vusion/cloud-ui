@@ -137,15 +137,23 @@ export default {
 .root[mode="flex"][nowrap] {flex-wrap: nowrap;}
 /* 与主轴同向用 flex，否则用 align-self */
 .root[mode="flex"][direction="horizontal"] > [width-stretch="true"],
+.root[mode="flex"][direction="horizontal"] > [widthstretch="true"],
 .root[mode="flex"]:not([direction]) > [width-stretch="true"],
-.root[mode="flex"][direction="vertical"] > [height-stretch="true"] { flex: 1 0 0; }
+.root[mode="flex"]:not([direction]) > [widthstretch="true"],
+.root[mode="flex"][direction="vertical"] > [height-stretch="true"],
+.root[mode="flex"][direction="vertical"] > [heightstretch="true"] { flex: 1 0 0; }
 .root[mode="flex"][direction="vertical"] > [width-stretch="true"],
+.root[mode="flex"][direction="vertical"] > [widthstretch="true"],
 .root[mode="flex"]:not([direction]) > [height-stretch="true"],
-.root[mode="flex"][direction="horizontal"] > [height-stretch="true"] { align-self: stretch; }
+.root[mode="flex"]:not([direction]) > [heightstretch="true"],
+.root[mode="flex"][direction="horizontal"] > [height-stretch="true"],
+.root[mode="flex"][direction="horizontal"] > [heightstretch="true"] { align-self: stretch; }
 /* width-stretch 强制 width 为 unset */
-.root[mode="flex"] > [width-stretch="true"] { width: unset !important; }
+.root[mode="flex"] > [width-stretch="true"],
+.root[mode="flex"] > [widthstretch="true"] { width: unset !important; }
 /* height-stretch 强制 height 为 unset */
-.root[mode="flex"] > [height-stretch="true"] { height: unset !important; }
+.root[mode="flex"] > [height-stretch="true"],
+.root[mode="flex"] > [heightstretch="true"] { height: unset !important; }
 
 .root[mode="flex"][direction="vertical"] { flex-direction: column; }
 
