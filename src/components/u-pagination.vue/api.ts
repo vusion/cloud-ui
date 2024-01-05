@@ -175,12 +175,6 @@ namespace nasl.ui {
         }) => any;
 
         @Slot({
-            title: '默认',
-            description: '插入文本或 HTML',
-        })
-        slotDefault: () => Array<ViewComponent>;
-
-        @Slot({
             title: '总数',
             description: '总数自定义',
         })
