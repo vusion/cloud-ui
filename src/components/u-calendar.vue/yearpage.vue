@@ -273,7 +273,7 @@ export default {
 }
 
 .boxItem[sindex="0"] {
-    justify-content: start;
+    justify-content: flex-start;
 }
 .boxItem[sindex="0"][disabled] .yearItem {
     border-top-left-radius: var(--calendar-border-radius);
