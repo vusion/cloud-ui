@@ -57,10 +57,7 @@ export default {
             handler(value) {
                 this.currentValue = value;
             },
-            immediate: true
-        },
-        currentValue(value, oldValue) {
-            this.$emit('change', { value, oldValue });
+            immediate: true,
         },
     },
     mounted() {
@@ -101,6 +98,7 @@ export default {
             this.$emit('input', value);
             this.$emit('update:value', value);
             this.$emit('check', { value, oldValue });
+            this.$emit('change', { value, oldValue });
             this.parentVM
                 && this.parentVM.onCheck({
                     value,
