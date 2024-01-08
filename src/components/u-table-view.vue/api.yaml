@@ -1767,6 +1767,11 @@
           snippet: '<u-table-view-column><template #cell="current"></template><template
             #title><u-text
             text="表格列"></u-text></template></u-table-view-column>'
+        - name: u-table-view-column-dynamic
+          title: 表格动态列
+          snippet: '<u-table-view-column-dynamic><template #cell="current"></template><template
+            #title="current"><u-text
+            text="表格动态列"></u-text></template></u-table-view-column-dynamic>'
       supportGenericComponents:
         - u-table-view-column
     - concept: Slot

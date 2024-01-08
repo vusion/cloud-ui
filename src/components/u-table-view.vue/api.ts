@@ -1476,6 +1476,10 @@ namespace nasl.ui {
                     title: '表格列',
                     code: '<u-table-view-column><template #cell="current"></template><template #title><u-text text="表格列"></u-text></template></u-table-view-column>',
                 },
+                {
+                    title: '表格动态列',
+                    code: '<u-table-view-column-dynamic><template #cell="current"></template><template #title="current"><u-text text="表格动态列"></u-text></template></u-table-view-column-dynamic>',
+                },
             ],
         })
         slotDefault: SlotType<() => Array<UTableViewColumn<T, V, P, M>>>;
