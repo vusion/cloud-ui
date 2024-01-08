@@ -19,11 +19,13 @@ graph LR
 |-- Button
 |---- __test__
 |------- features                   -- 新功能测试代码
-|---------- click.spec.js             -- 测试点击功能
-|---------- render.spec.js            -- 测试渲染功能
+|---------- click.test.js             -- 测试点击功能
+|---------- render.test.js            -- 测试渲染功能
 |------- fixes                      -- 修复 bug
-|---------- router-link.spec.js       -- 修复 路由环境下点击bug
+|---------- router-link.test.js       -- 修复 路由环境下点击bug
 ```
+
+ps: 没有测试代码不做code review 一律不通过；
 
 ## 代码提交规范
 
