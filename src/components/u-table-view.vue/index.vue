@@ -1995,6 +1995,9 @@ export default {
         processTreeData(data, level = 0, parent, ancestors = []) {
             let newData = [];
             for (const item of data) {
+                // 数据异常处理
+                if (parent === item)
+                    break;
                 item.tableTreeItemLevel = level;
                 item.parentPointer = parent;
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
