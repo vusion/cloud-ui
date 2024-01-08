@@ -497,7 +497,11 @@ const VueDataSource = Vue.extend({
                         this.$setAt(parent, childrenField, []);
                     }
 
-                    this.$at(parent, childrenField).push(item);
+                    // fix：2777648120272384 listToTree方法可能多次调用，如果已经存在，不再添加
+                    const children = this.$at(parent, childrenField);
+                    const hasInChldren = children.some((child) => child === item);
+
+                    !hasInChldren && this.$at(parent, childrenField).push(item);
                 }
             });
 
