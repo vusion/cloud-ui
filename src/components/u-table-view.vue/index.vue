@@ -2765,7 +2765,7 @@ export default {
                     for (let i = currentData.length - 1; i >= 0; i--) {
                         const item = currentData[i];
                         const itemValue = this.$at(item, columnVM.field);
-                        if (itemValue === this.$at(currentData[i - 1], columnVM.field)) {
+                        if (itemValue !== undefined && itemValue === this.$at(currentData[i - 1], columnVM.field)) {
                             if (!this.autoRowSpan[i]) {
                                 this.autoRowSpan[i] = [];
                             }
