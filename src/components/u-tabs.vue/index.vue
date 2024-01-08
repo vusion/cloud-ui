@@ -66,8 +66,7 @@
                                             :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
                                             {{ itemVM.title || $at(itemVM, titleField) }}
                                             <s-empty
-                                                v-if="$env.VUE_APP_DESIGNER && !itemVM.$slots.title
-                                                    && !itemVM.title && !!$attrs['vusion-node-path']">
+                                                v-if="$env.VUE_APP_DESIGNER && !itemVM.$slots.title && !itemVM.title && !!$attrs['vusion-node-path']">
                                             </s-empty>
                                         </f-slot>
                                         <span v-if="closable || itemVM.closable" :class="$style.close" @click.stop="close(itemVM)"></span>
@@ -89,7 +88,7 @@
                     <div vusion-slot-name="content" :key="index" v-show="itemVM.active">
                         <slot name="content" :item="itemVM" :index="index"></slot>
                         <s-empty
-                            v-if="$env.VUE_APP_DESIGNER && !$slots.content && !$scopedSlots.content && !$scopedSlots.content(itemVM) && !!$attrs['vusion-node-path']">
+                            v-if="$env.VUE_APP_DESIGNER && !$slots.content && !($scopedSlots.content && $scopedSlots.content(itemVM)) && !!$attrs['vusion-node-path']">
                         </s-empty>
                     </div>
                 </template>
