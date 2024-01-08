@@ -1967,6 +1967,7 @@ export default {
         <u-table-view-column type="checkbox" title="选择" fixed></u-table-view-column>
         <u-table-view-column title="地址" field="address" fixed ></u-table-view-column>
         <u-table-view-column-group title="用户信息2">
+            <u-table-view-column title="序号" fixed type="index"></u-table-view-column>
             <u-table-view-column title="用户名2" field="name" :auto-row-span="true" fixed></u-table-view-column>
             <u-table-view-column title="手机号码2" field="phone" fixed></u-table-view-column>
         </u-table-view-column-group>
