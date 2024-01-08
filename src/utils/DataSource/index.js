@@ -302,6 +302,9 @@ const VueDataSource = Vue.extend({
 
             const extraParams = this._getExtraParams();
 
+            if (!this._load || typeof this._load !== 'function')
+                return;
+            
             return this._load(params, extraParams).then((result) => {
                 this.initialLoaded = true;
                 // 支持 JDL
@@ -368,6 +371,8 @@ const VueDataSource = Vue.extend({
             }
         },
         reload() {
+            if (!this._load || typeof this._load !== 'function')
+                return;
             this.clearLocalData();
             this.load();
         },

@@ -1409,6 +1409,8 @@ export default {
                 });
         },
         reload() {
+            if (!this.currentDataSource._load || typeof this.currentDataSource._load !== 'function')
+                return;
             this.currentDataSource.clearLocalData();
             this.clearDragState();
             this.load();
