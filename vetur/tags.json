@@ -2118,7 +2118,6 @@
   },
   "u-taskbox": {
     "attributes": [
-      "title",
       "icon",
       "size",
       "interval"
@@ -2278,7 +2277,10 @@
       "checkable",
       "check-controlled",
       "disabled-field",
-      "clearable"
+      "clearable",
+      "disabled",
+      "width",
+      "height"
     ],
     "description": "树选择"
   },

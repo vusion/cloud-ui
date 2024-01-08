@@ -6140,19 +6140,6 @@
                             ]
                         }
                     },
-                    "--drawer-max-height": {
-                        "type": "input",
-                        "desc": "large抽屉最大高度,如 1px",
-                        "depAttrs": {
-                            "size": [
-                                "auto"
-                            ],
-                            "placement": [
-                                "top",
-                                "bottom"
-                            ]
-                        }
-                    },
                     "--drawer-background": {
                         "type": "color",
                         "desc": "抽屉背景色"

@@ -2872,6 +2872,14 @@
       {
         "value": "right",
         "title": "右"
+      },
+      {
+        "value": "top",
+        "title": "上"
+      },
+      {
+        "value": "bottom",
+        "title": "下"
       }
     ],
     "description": "抽屉弹出的位置"
@@ -4465,7 +4473,7 @@
     "description": ""
   },
   "u-info-list-item/span": {
-    "type": "string",
+    "type": "number",
     "description": "列跨越的格数"
   },
   "u-info-list-item/ellipsis": {
@@ -8313,10 +8321,6 @@
     "type": "boolean",
     "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）"
   },
-  "u-taskbox/title": {
-    "type": "string",
-    "description": "鼠标 hover 在图标上展示文案"
-  },
   "u-taskbox/icon": {
     "type": "icon",
     "description": ""
@@ -9172,6 +9176,78 @@
   "u-tree-select-new/clearable": {
     "type": "boolean",
     "description": "设置是否开启可清除模式"
+  },
+  "u-tree-select-new/disabled": {
+    "type": "boolean",
+    "description": "置灰显示，且禁止任何交互（焦点、点击、选择、输入等）"
+  },
+  "u-tree-select-new/width": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置选择框宽度大小"
+  },
+  "u-tree-select-new/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置选择框高度大小"
   },
   "u-tree-select/data": {
     "type": "Array<{ text, value }>",
