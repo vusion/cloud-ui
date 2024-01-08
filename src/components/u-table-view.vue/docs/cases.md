@@ -1872,7 +1872,7 @@ export default {
         <u-table-view-column field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
         <u-table-view-column title="地址" field="address"></u-table-view-column>
     </u-table-view>
-    <!-- <u-text>动态列</u-text>
+    <u-text>动态列</u-text>
     <u-table-view striped :data-source="data">
         <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
         <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
@@ -1889,7 +1889,7 @@ export default {
         </u-table-view-column-group>
         <u-table-view-column title="地址" field="address"></u-table-view-column>
         <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
-    </u-table-view> -->
+    </u-table-view>
     <u-text>动态列加载</u-text>
     <u-table-view striped :data-source="load">
         <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
