@@ -1600,7 +1600,7 @@ export default {
                 res = res.concat(res1);
             }
 
-            for (let rowIndex = hasHeader ? 1 : 0; rowIndex < res.length; rowIndex++) {
+            for (let rowIndex = hasHeader ? headerRowCount : 0; rowIndex < res.length; rowIndex++) {
                 const item = res[rowIndex];
                 for (let j = 0; j < item.length; j++) {
                     if (startIndexes[j] !== undefined)
