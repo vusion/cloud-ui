@@ -407,7 +407,7 @@ export default UModal;
 }
 
 .root[static] {
-    position: static;
+    position: static !important;
     padding: var(--space-base);
 }
 

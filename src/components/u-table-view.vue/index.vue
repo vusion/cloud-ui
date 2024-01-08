@@ -43,7 +43,7 @@
                             :rowspan="columnVM.rowSpan">
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
-                                <u-checkbox :value="allChecked" @check="checkAll($event.value)" :disabled="disabled"></u-checkbox>
+                                <u-checkbox :value="allChecked" @check="checkAll($event.value)" :disabled="disabled" :readonly="readonly"></u-checkbox>
                             </span>
                             <!-- Normal title -->
                             <template>
@@ -135,11 +135,11 @@
                                             <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
                                             <!-- type === 'radio' -->
                                             <span v-if="columnVM.type === 'radio'">
-                                                <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)"></u-radio>
+                                                <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)" :readonly="readonly"></u-radio>
                                             </span>
                                             <!-- type === 'checkbox' -->
                                             <span v-if="columnVM.type === 'checkbox'">
-                                                <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled || disabled" @check="check(item, $event.value)"></u-checkbox>
+                                                <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled || disabled" @check="check(item, $event.value)" :readonly="readonly"></u-checkbox>
                                             </span>
 
                                             <!-- type === 'expander' left -->
@@ -228,11 +228,11 @@
                                             </span>
                                             <!-- type === 'radio' -->
                                             <span v-if="columnVM.type === 'radio'">
-                                                <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)"></u-radio>
+                                                <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)" :readonly="readonly"></u-radio>
                                             </span>
                                             <!-- type === 'checkbox' -->
                                             <span v-if="columnVM.type === 'checkbox'">
-                                                <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled || disabled" @check="check(item, $event.value)"></u-checkbox>
+                                                <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled || disabled" @check="check(item, $event.value)" :readonly="readonly"></u-checkbox>
                                             </span>
                                             <!-- type === 'expander' left -->
                                             <f-slot

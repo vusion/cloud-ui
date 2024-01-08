@@ -85,7 +85,7 @@
                 <template v-else>
                     <component :is="ChildComponent"
                         v-for="(item, index) in currentData"
-                        v-if="item"
+                        v-if="item !== undefined || item !== null"
                         :key="filterable ? $at2(item, valueField) + '_' + index : $at2(item, valueField)"
                         :text="$at2(item, field || textField)"
                         :value="$at2(item, valueField)"

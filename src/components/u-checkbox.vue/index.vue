@@ -1,7 +1,8 @@
 <template>
 <label :class="$style.root" :disabled="currentDisabled" @click="check()"
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
-    @focus="onFocus" @blur="onBlur" v-on="listeners">
+    @focus="onFocus" @blur="onBlur" v-on="listeners"
+    :readonly="readonly">
     <span :class="$style.box" :status="String(currentValue)" :disabled="currentDisabled"></span>
     <slot></slot>
     <span vusion-slot-name="item">
@@ -149,6 +150,10 @@ export default {
 .root[disabled]:active .box[status="true"]{
     box-shadow: none;
     border-color: var(--checkbox-border-color);
+}
+
+.root[readonly] {
+    cursor: default;
 }
 
 .box {
