@@ -113,13 +113,15 @@ vusion publish
 
 usage.json 在低代码平台上登记。
 
+
 ## Changelog
 
 See [Releases](https://github.com/vusion/cloud-ui/releases)
 
-## Contributing
+## 贡献指南
 
-See [Contributing Guide](https://github.com/vusion/DOCUMENTATION/issues/8)
+修改代码请阅读我们的 [贡献指南](./.github/CONTRIBUTING.md)。
+
 
 ## License
 
