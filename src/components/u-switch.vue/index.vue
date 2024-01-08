@@ -1,5 +1,5 @@
 <template>
-<label :class="$style.root" :checked="currentValue" :readonly="readonly" :disabled="disabled" @click="toggle()"
+<label :class="$style.root" :with-text="withText" :checked="currentValue" :readonly="readonly" :disabled="disabled" @click="toggle()"
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="toggle()"
     @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.button"></span>
@@ -16,6 +16,7 @@ export default {
     name: 'u-switch',
     mixins: [MField],
     props: {
+        withText: { type: Boolean, default: false },
         value: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
