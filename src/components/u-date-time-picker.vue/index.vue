@@ -25,6 +25,7 @@
                 </u-input>
                 <u-time-picker :class="$style.pickerinput" :readonly="readonly" :time="showTime"
                     width="50" :min-time="minTime" :max-time="maxTime"
+                    :min-unit="minUnit"
                     :simple-foot="true" pre-icon=""
                     :disabled="!showDate"
                     @change="outRangeDateTime(showDate, $event.time)"
@@ -214,7 +215,7 @@ export default {
             }
             const newDateTime = newValue ? this.toValue(new Date(newValue.replace(/-/g, '/'))) : undefined;
             this.showDate = this.format(newDateTime, 'YYYY-MM-DD');
-            this.showTime = this.format(newDateTime, 'HH:mm:ss');
+            this.showTime = this.format(newDateTime, this.minUnit === 'minute' ? 'HH:mm' : 'HH:mm:ss');
 
             // 点击确定后才抛出事件，所以这里注释掉
             // this.$emit('update:date', newDateTime);
@@ -318,18 +319,19 @@ export default {
          * @return {void}
          */
         outRangeDateTime(date, time) {
-            if (!time)
+            if (!time) {
                 time = '00:00:00';
-            if (date)
+            }
+            if (date) {
                 date = new Date(date);
-            else {
+            } else {
                 this.$emit('select', { sender: this, date: '' });
                 return;
             }
             time = time.split(':');
-            date.setHours(time[0]);
-            date.setMinutes(time[1]);
-            date.setSeconds(time[2]);
+            date.setHours(time[0] || 0);
+            date.setMinutes(time[1] || 0);
+            date.setSeconds(time[2] || 0);
             const datetime = this.format(date, 'YYYY-MM-DD');
             const dtime = this.format(date, 'HH:mm:ss');
             if (
