@@ -49,8 +49,16 @@ export default {
             return this.disabled || (this.parentVM && this.parentVM.disabled) || (this.parentVM && this.parentVM.exceedMax() && !this.currentValue);
         },
         status() {
-            return String(this.currentValue);
-        }
+            if (this.currentValue === true) {
+                return 'true';
+            }
+
+            if (this.currentValue === null) {
+                return 'null';
+            }
+
+            return 'false';
+        },
     },
     watch: {
         value: {
