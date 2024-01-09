@@ -3,7 +3,8 @@
 exports[`u-steps.vue Demo-动态数据渲染 1`] = `
 <div>
   <div class="root" counter="true" direction="horizontal" layout="block" readonly="readonly">
-    <nav class="head"></nav>
+    <nav class="head">
+    </nav>
     <div class="body"></div>
   </div>
   <div class="root" counter="true" direction="horizontal" layout="block" readonly="readonly">
