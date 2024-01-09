@@ -76,6 +76,7 @@
                 </f-slot></span>
             </a>
         </template>
+        <s-empty v-if="$env.VUE_APP_DESIGNER && (!stepDataSource || stepDataSource.length === 0) && (!itemVMs || itemVMs.length === 0)"></s-empty>
     </nav>
     <div :class="$style.body">
         <slot></slot>

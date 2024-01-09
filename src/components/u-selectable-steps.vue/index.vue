@@ -35,6 +35,9 @@ export default {
 .root[layout="inline"] .title {
     padding: 0;
     padding-left: var(--steps-seleatable-item-title-padding-left);
+    > span {
+        white-space: nowrap;
+    }
 }
 
 .item {
