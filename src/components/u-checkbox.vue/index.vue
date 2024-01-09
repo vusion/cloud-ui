@@ -3,7 +3,7 @@
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
     @focus="onFocus" @blur="onBlur" v-on="listeners"
     :readonly="readonly">
-    <span :class="$style.box" :status="String(currentValue)" :disabled="currentDisabled"></span>
+    <span :class="$style.box" :status="status" :disabled="currentDisabled"></span>
     <slot></slot>
     <span vusion-slot-name="item">
         <slot name="item" :item="node">{{ text }}</slot>
@@ -46,6 +46,17 @@ export default {
         },
         currentDisabled() {
             return this.disabled || (this.parentVM && this.parentVM.disabled) || (this.parentVM && this.parentVM.exceedMax() && !this.currentValue);
+        },
+        status() {
+            if (this.currentValue === true) {
+                return 'true';
+            }
+
+            if (this.currentValue === null) {
+                return 'null';
+            }
+
+            return 'false';
         },
     },
     watch: {

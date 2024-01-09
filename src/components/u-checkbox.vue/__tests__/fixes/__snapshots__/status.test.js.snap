@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-checkbox.vue value 设置文本值渲染 1`] = `
+<label class="root" tabindex="0">
+  <span class="box" status="false"></span>
+  <span vusion-slot-name="item"> </span>
+</label>
+`;
