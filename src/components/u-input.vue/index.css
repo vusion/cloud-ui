@@ -223,7 +223,7 @@
     width: calc(100% - var(--input-prefix-placeholder-left));
 }
 
-.root[suffix][clearable]:hover .input,git 
+.root[suffix][clearable]:hover .input,
 .root[suffix][clearable]:not([suffix][clearable=""])[focus] .input {
     padding-right: 50px;
 }
