@@ -370,6 +370,10 @@ const VueDataSource = Vue.extend({
 
             const extraParams = this._getExtraParams();
 
+            // fix: 2779855023152128 数据表格数据源为变量时，调用reload会报错
+            if (!this._load || typeof this._load !== 'function')
+                return;
+
             return this._load(params, extraParams).then((result) => {
                 this.initialLoaded = true;
                 const finalResult = {};
@@ -438,6 +442,9 @@ const VueDataSource = Vue.extend({
             }
         },
         reload() {
+            // fix: 2779855023152128 数据表格数据源为变量时，调用reload会报错
+            if (!this._load || typeof this._load !== 'function')
+                return;
             this.clearLocalData();
             this.load();
         },
@@ -497,7 +504,11 @@ const VueDataSource = Vue.extend({
                         this.$setAt(parent, childrenField, []);
                     }
 
-                    this.$at(parent, childrenField).push(item);
+                    // fix：2777648120272384 listToTree方法可能多次调用，如果已经存在，不再添加
+                    const children = this.$at(parent, childrenField);
+                    const hasInChldren = children.some((child) => child === item);
+
+                    !hasInChldren && this.$at(parent, childrenField).push(item);
                 }
             });
 
