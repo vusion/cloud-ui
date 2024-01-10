@@ -25,7 +25,7 @@ namespace nasl.ui {
                 description: '是否验证后无提示',
             })
             muted: nasl.core.Boolean = false,
-        ): void {}
+        ): any {}
         constructor(options?: Partial<UValidatorOptions>) { super(); }
     }
 
