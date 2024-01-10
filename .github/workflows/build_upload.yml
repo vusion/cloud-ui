@@ -3,7 +3,7 @@ name: Build and Upload
 on:
   push:
     branches:
-      - release/*
+      - release/**
 
 jobs:
   build:
@@ -16,7 +16,8 @@ jobs:
         run: echo "BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
 
       - name: Get version from branch name
-        run: echo "VERSION=$(echo ${{ env.BRANCH_NAME }} | cut -d'/' -f2)" >> $GITHUB_ENV
+        # 从分支名中获取版本号release/v1.0.0 => 1.0.0
+        run: echo "VERSION=$(echo $BRANCH_NAME | sed 's/release\/v//g')" >> $GITHUB_ENV
 
       - name: Set node
         uses: actions/setup-node@v3
@@ -27,14 +28,19 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build:theme-local
+        run: LCAP_LIB_VERSION=${{ env.VERSION }} npm run build:theme
 
       # 创建一个临时目录
-      - name: Create temp dir
-        run: mkdir temp && cp -r ./dist-theme ./temp/dist-theme && cp -r ./src ./temp/src
+      - name: Create Assets
+        run: LCAP_LIB_VERSION=${{ env.VERSION }} node bin/asset.js
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: 'cloud-ui.vusion@${{ env.VERSION }}'
-          path: temp
+          name: cloud-ui.vusion@${{ env.VERSION }}
+          path: cloud-ui.vusion@${{ env.VERSION }}
+
+  call-wexler:
+    needs: build
+    uses: vusion/wexler/.github/workflows/release-cloud-ui.yml@master
+    secrets: inherit
