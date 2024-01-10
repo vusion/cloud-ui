@@ -26,9 +26,6 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
             <div class="root" style="display: none;">
               <div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                  2013 年
-                </div>
-                <div class="root" style="direction: ltr;" vusion-slot-name="default">
                   2014 年
                 </div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
@@ -84,6 +81,9 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
                   2032 年
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  2033 年
                 </div>
               </div>
             </div>
@@ -494,9 +494,6 @@ exports[`u-calendar-view.vue Demo-多选数据可清空 1`] = `
             <div class="root" style="display: none;">
               <div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                  2013 年
-                </div>
-                <div class="root" style="direction: ltr;" vusion-slot-name="default">
                   2014 年
                 </div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
@@ -552,6 +549,9 @@ exports[`u-calendar-view.vue Demo-多选数据可清空 1`] = `
                 </div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
                   2032 年
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  2033 年
                 </div>
               </div>
             </div>
@@ -962,9 +962,6 @@ exports[`u-calendar-view.vue Demo-数据日历 1`] = `
           <div class="root" style="display: none;">
             <div>
               <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                2013 年
-              </div>
-              <div class="root" style="direction: ltr;" vusion-slot-name="default">
                 2014 年
               </div>
               <div class="root" style="direction: ltr;" vusion-slot-name="default">
@@ -1020,6 +1017,9 @@ exports[`u-calendar-view.vue Demo-数据日历 1`] = `
               </div>
               <div class="root" style="direction: ltr;" vusion-slot-name="default">
                 2032 年
+              </div>
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                2033 年
               </div>
             </div>
           </div>
@@ -1430,9 +1430,6 @@ exports[`u-calendar-view.vue Demo-数据日历，reload方法 1`] = `
             <div class="root" style="display: none;">
               <div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                  2013 年
-                </div>
-                <div class="root" style="direction: ltr;" vusion-slot-name="default">
                   2014 年
                 </div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
@@ -1488,6 +1485,9 @@ exports[`u-calendar-view.vue Demo-数据日历，reload方法 1`] = `
                 </div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
                   2032 年
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  2033 年
                 </div>
               </div>
             </div>
