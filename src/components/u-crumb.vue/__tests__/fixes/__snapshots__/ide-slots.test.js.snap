@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Crumb IDE slots test IDE 中空值渲染 1`] = `
+<nav class="root">
+  <div class="empty" s-empty="true"></div>
+</nav>
+`;
