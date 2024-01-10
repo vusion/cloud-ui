@@ -1409,6 +1409,8 @@ export default {
                 });
         },
         reload() {
+            if (!this.currentDataSource._load || typeof this.currentDataSource._load !== 'function')
+                return;
             this.currentDataSource.clearLocalData();
             this.clearDragState();
             this.load();
@@ -1600,7 +1602,7 @@ export default {
                 res = res.concat(res1);
             }
 
-            for (let rowIndex = hasHeader ? 1 : 0; rowIndex < res.length; rowIndex++) {
+            for (let rowIndex = hasHeader ? headerRowCount : 0; rowIndex < res.length; rowIndex++) {
                 const item = res[rowIndex];
                 for (let j = 0; j < item.length; j++) {
                     if (startIndexes[j] !== undefined)
@@ -1996,6 +1998,9 @@ export default {
         processTreeData(data, level = 0, parent, ancestors = []) {
             let newData = [];
             for (const item of data) {
+                // 数据异常处理
+                if (parent === item)
+                    break;
                 item.tableTreeItemLevel = level;
                 item.parentPointer = parent;
                 if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
@@ -2765,7 +2770,7 @@ export default {
                     for (let i = currentData.length - 1; i >= 0; i--) {
                         const item = currentData[i];
                         const itemValue = this.$at(item, columnVM.field);
-                        if (itemValue === this.$at(currentData[i - 1], columnVM.field)) {
+                        if (itemValue !== undefined && itemValue === this.$at(currentData[i - 1], columnVM.field)) {
                             if (!this.autoRowSpan[i]) {
                                 this.autoRowSpan[i] = [];
                             }
