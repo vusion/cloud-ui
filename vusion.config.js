@@ -134,6 +134,9 @@ module.exports = {
             { group: '特效', name: 'u-copy', alias: '复制' },
 
             { group: '流程', name: 'u-taskbox', alias: '任务箱' },
+            { group: '流程', name: 'u-process-myprocess', alias: '我的流程' },
+            { group: '流程', name: 'u-process-button', alias: '流程按钮' },
+            { group: '流程', name: 'u-process-info', alias: '流程信息' },
 
             { group: 'Mixins & Functional', name: 'm-dynamic', alias: '动态列表', advanced: true },
             { group: 'Mixins & Functional', name: 'm-emitter', alias: '发送器', advanced: true },

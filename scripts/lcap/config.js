@@ -85,4 +85,7 @@ module.exports = [
     { group: 'Effects', name: 'u-copy', alias: '复制' },
 
     { group: 'Process', name: 'u-taskbox', alias: '任务箱' },
+    { group: 'Process', name: 'u-process-button', alias: '流程按钮' },
+    { group: 'Process', name: 'u-process-info', alias: '流程信息' },
+    { group: 'Process', name: 'u-process-myprocess', alias: '我的流程' },
 ];

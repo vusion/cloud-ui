@@ -2028,7 +2028,8 @@
     --grid-layout-column-content-gap-normal: var(--space-base);
     --grid-layout-column-content-gap-large: var(--space-large);
 
-
+    /* @component u-process-info @hidden*/
+    --process-info-label-color: var(--color-light);
 }
 
 @custom-media --mini-window (max-width: 479px);

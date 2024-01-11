@@ -1,0 +1,6 @@
+- name: u-process-button
+  title: 流程按钮
+  icon: processbutton
+  labels:
+    - Process
+  description: 用于展示流程按钮

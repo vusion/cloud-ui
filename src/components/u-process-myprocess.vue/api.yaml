@@ -1,0 +1,6 @@
+- name: u-process-myprocess
+  title: 我的流程
+  icon: processmyprocess
+  labels:
+    - Process
+  description: 用于展示我的流程

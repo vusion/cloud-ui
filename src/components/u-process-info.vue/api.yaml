@@ -1,0 +1,6 @@
+- name: u-process-info
+  title: 流程信息
+  icon: processinfo
+  labels:
+    - Process
+  description: 用于展示流程信息

@@ -131,3 +131,8 @@ export * from './u-multi-layout.vue';
 export * from './u-dropdown.vue';
 export * from './u-navbar-multi.vue';
 export * from './u-divider.vue';
+
+export * from './u-process-myprocess.vue';
+export * from './u-process-button.vue';
+export * from './u-process-info.vue';
+
