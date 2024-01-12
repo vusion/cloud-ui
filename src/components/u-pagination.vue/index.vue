@@ -145,6 +145,9 @@ export default {
         currentPage(page, oldPage) {
             this.$emit('change', { page, oldPage }, this);
         },
+        pageSize(pageSize) {
+            this.currentPageSize = pageSize;
+        },
     },
     created() {
         // 自动补充 pageSizeOptions

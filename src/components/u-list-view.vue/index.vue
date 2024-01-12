@@ -72,7 +72,7 @@
             :total-items="currentDataSource.total" :page="currentDataSource.paging ? currentDataSource.paging.number : pageNumber"
             :page-size="currentDataSource.paging ? currentDataSource.paging.size : pageSize" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
             :side="1" :around="3"
-            @change="page($event.page)" @change-page-size="page(currentDataSource.paging ? currentDataSource.paging.number : pageNumber, $event.pageSize)">
+            @change="page($event.page)" @change-page-size="onChangePageSize">
         </u-pagination>
     </div>
 </div>
@@ -186,6 +186,7 @@ export default {
             // virtualBottom: 0,
             filterText: '', // 过滤文本，只有 input 时会改变它
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
+            currentPageSize: this.pageSize,
         };
     },
     computed: {
@@ -195,7 +196,7 @@ export default {
         paging() {
             if (this.pageable) {
                 const paging = {};
-                paging.size = this.pageSize === '' ? 50 : this.pageSize;
+                paging.size = this.currentPageSize === '' ? 50 : this.currentPageSize;
                 paging.number = this.pageNumber;
                 return paging;
             } else
@@ -285,6 +286,9 @@ export default {
             },
             immediate: true,
         },
+        pageSize(pageSize) {
+            this.currentPageSize = pageSize;
+        },
     },
     created() {
         // 自动补充 pageSizeOptions
@@ -364,6 +368,7 @@ export default {
             if (dataSource instanceof DataSource)
                 return dataSource;
             else if (dataSource instanceof Array) {
+                console.log('options', options);
                 options.data = Array.from(dataSource);
                 return new DataSource(options);
             } else if (dataSource instanceof Function) {
@@ -613,6 +618,12 @@ export default {
             this.$emit('input', value, this);
             this.$emit('update:value', value, this);
             this.$emit('checkAll', { value, oldValue, checked }, this);
+        },
+        onChangePageSize(event) {
+            this.currentPageSize = event.pageSize;
+            const currentDataSource = this.currentDataSource;
+            this.page(currentDataSource.paging ? currentDataSource.paging.number : this.pageNumber, event.pageSize);
+            this.$emit('change-page-size', event, this);
         },
     },
 };
