@@ -31,10 +31,18 @@ export default {
     watch: {
         value(value, oldValue) {
             let currentValue = value;
-            if (this.converter)
+            if (this.converter) {
                 currentValue = this.currentConverter.set(value);
-            if (!Array.isArray(currentValue))
+            }
+
+            // 防止空数据也 throw error;
+            if (currentValue === undefined || currentValue === null) {
+                return;
+            }
+
+            if (!Array.isArray(currentValue)) {
                 throw new Error('`value` should be an Array!'); // @TODO: 因为是同一个数组。。没有好的剪枝方法
+            }
             // if (value !== oldValue && value.length === oldValue.length
             //     && value.every((val, index) => val === oldValue[index]))
             //     return;

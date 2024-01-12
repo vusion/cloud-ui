@@ -206,6 +206,7 @@ exports[`u-crumb.vue Demo-手动面包屑 1`] = `
 
 exports[`u-crumb.vue Demo-自动面包屑 1`] = `
 <div>
-  <nav class="root"></nav>
+  <nav class="root">
+  </nav>
 </div>
 `;
