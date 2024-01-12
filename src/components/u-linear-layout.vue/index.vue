@@ -90,7 +90,6 @@ export default {
     height: 100%;
     width: 100%;
     min-height: 200px;
-    padding-bottom: 100px;
 }
 
 .root {
