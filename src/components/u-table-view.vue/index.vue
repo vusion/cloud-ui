@@ -2899,18 +2899,8 @@ export default {
             columnVMs = columnVMs.filter((columnVm) => !!columnVm);
 
             // 先替换动态列
-            const dynamicColumnVMs = [];
-            Object.keys(this.dynamicColumnVMsMap).forEach((dkey) => {
-                const dynamicColumnItem = this.dynamicColumnVMsMap[dkey];
-                if (!dynamicColumnItem)
-                    return;
-                const index = columnVMs.findIndex((columnVm) => columnVm === dynamicColumnItem.columnVM);
-                if (index !== -1 && dynamicColumnItem.vms) {
-                    columnVMs.splice(index, 1, ...dynamicColumnItem.vms);
-                }
-                dynamicColumnVMs.push(dynamicColumnItem.columnVM);
-            });
-            this.dynamicColumnVMs = dynamicColumnVMs;
+            this.dynamicColumnVMs = [];
+            this.replaceDynamicColumn(columnVMs);
 
             // 再替换分组
             const finalColumnVms = [...columnVMs];
@@ -2955,6 +2945,7 @@ export default {
                 }
                 tableHeadTrArr = result;
             }
+
             this.tableHeadTrArr = tableHeadTrArr;
         },
         /**
@@ -2962,15 +2953,35 @@ export default {
          */
         setGroupData(groupVM) {
             const columnsInGroup = this.getContainColumns(groupVM);
-            groupVM.colSpan = columnsInGroup.filter((columnVM) => !columnVM.currentHidden).length;
             // 自节点fixed的情况下，group也fixed
             const hasFixed = columnsInGroup.some((columnInGroup) => columnInGroup.fixed);
             groupVM.fixed = hasFixed || groupVM.fixed;
             if (groupVM.fixed) {
                 columnsInGroup.forEach((columnInGroup) => columnInGroup.fixed = groupVM.fixed);
             }
+
+            this.replaceDynamicColumn(columnsInGroup);
+
+            groupVM.colSpan = columnsInGroup.filter((columnVM) => !columnVM.currentHidden).length;
             this.setColumnVMsMap(groupVM._uid, { columnsInGroup });
             return columnsInGroup;
+        },
+
+        replaceDynamicColumn(columns) {
+            Object.keys(this.dynamicColumnVMsMap).forEach((dkey) => {
+                const dynamicColumnItem = this.dynamicColumnVMsMap[dkey];
+                if (!dynamicColumnItem) {
+                    return;
+                }
+                const index = columns.findIndex((columnVm) => columnVm === dynamicColumnItem.columnVM);
+                if (index !== -1 && dynamicColumnItem.vms) {
+                    columns.splice(index, 1, ...dynamicColumnItem.vms);
+                }
+
+                if (!this.dynamicColumnVMs.find((dynamicColVm) => dynamicColVm === dynamicColumnItem.columnVM)) {
+                    this.dynamicColumnVMs.push(dynamicColumnItem.columnVM);
+                }
+            });
         },
         /**
          * 设置colSpan数据
@@ -3026,7 +3037,18 @@ export default {
                     if (columnVM.$vnode && columnVM.$vnode.tag && columnVM.isGroup) {
                         this.setGroupData(columnVM);
                     }
-                    result[level].push(columnVM);
+
+                    // 动态列逐步添加 th
+                    if (
+                        columnVM.$vnode && columnVM.$vnode.tag
+                        && columnVM.$vnode.tag.includes('-column-dynamic')
+                        && this.dynamicColumnVMsMap[columnVM._uid]
+                        && this.dynamicColumnVMsMap[columnVM._uid].vms
+                    ) {
+                        result[level].push(...this.dynamicColumnVMsMap[columnVM._uid].vms);
+                    } else {
+                        result[level].push(columnVM);
+                    }
                     this.getColumnChildren(columnVM, level, result);
                 });
             }

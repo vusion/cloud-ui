@@ -64,7 +64,7 @@ exports[`u-checkboxes.vue Demo-双向绑定 1`] = `
 exports[`u-checkboxes.vue Demo-只读和禁用 1`] = `
 <div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
-    <label class="root" tabindex="0">
+    <label class="root" readonly="readonly" tabindex="0">
       <span class="box" status="true"></span> 只读 <span vusion-slot-name="item"> </span>
     </label>
     <label class="root" disabled="disabled" tabindex="0">

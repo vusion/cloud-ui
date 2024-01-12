@@ -1,7 +1,7 @@
 <template>
 <span :class="$style.root" v-on="$listeners" :type="type" :selected="selected" @click="handleClick()">
     <span vusion-slot-name-edit="text"><slot>{{ text }}</slot></span>
-    <span v-if="removable" :class="$style.remove" @click="remove()"></span>
+    <span v-if="removable" :class="$style.remove" @click.stop="remove()"></span>
 </span>
 </template>
 

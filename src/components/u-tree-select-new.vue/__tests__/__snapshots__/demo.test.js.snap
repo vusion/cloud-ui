@@ -1,21 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`u-tree-select-new.vue Demo- 1`] = `
-<div>
-  <div class="root" tabindex="0">
-    <span class="baseline">b</span>
-    <span class="placeholder">
-      请选择
-    </span>
-    <div class="text">
-    </div>
-    <transition-stub class="popper" name="fade">
-      <div class="root" style="display: none;"></div>
-    </transition-stub>
-  </div>
-</div>
-`;
-
 exports[`u-tree-select-new.vue Demo-Data 方式 1`] = `
 <div>
   <div class="root" tabindex="0">

@@ -885,6 +885,8 @@ export default {
     display: inline-block;
     width: 48px;
     height: 48px;
+    line-height: 48px;
+    text-align: center;
     overflow: hidden;
     margin-right: 4px;
 }
@@ -981,6 +983,14 @@ export default {
     margin: calc(var(--uploader-card-space) / 2);
     vertical-align: top;
     overflow: hidden;
+}
+
+.card .thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .card[role="select"] {
