@@ -71,8 +71,16 @@ export default {
             ctx.translate(width / 2, height / 2);
             ctx.scale(2, 2);
             ctx.rotate(-Math.PI / 6);
-            ctx.fillStyle = 'black';
-            ctx.font = '14px Arial';
+
+            let computedStyle = {};
+
+            try {
+                computedStyle = window.getComputedStyle(this.$el);
+            } catch (e) {
+            }
+
+            ctx.fillStyle = computedStyle.color || 'black';
+            ctx.font = computedStyle.font || '14px Arial';
             ctx.textAlign = 'center';
             ctx.fillText(this.text, 0, 0);
             return markEl;
