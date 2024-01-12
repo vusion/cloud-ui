@@ -410,7 +410,7 @@
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         :size="paginationSize"
-        @change="page($event.page)" @change-page-size="page(1, $event.pageSize)">
+        @change="page($event.page)" @change-page-size="onChangePageSize">
     </u-pagination>
     <div><slot></slot></div>
     <div v-if="draggable || acrossTableDrag" ref="dragGhost" :class="$style.dragGhost" :designer="$env.VUE_APP_DESIGNER">
@@ -599,6 +599,7 @@ export default {
             autoRowSpan: [], // 用于记录自动的的行合并
             columnVMsMap: {},
             tableHeadTrArr: [],
+            currentPageSize: this.pageSize,
         };
     },
     computed: {
@@ -642,7 +643,7 @@ export default {
         paging() {
             if (this.usePagination) {
                 const paging = {};
-                paging.size = this.pageSize === '' ? 20 : this.pageSize;
+                paging.size = this.currentPageSize === '' ? 20 : this.currentPageSize;
                 paging.number = paging.number || 1;
                 return paging;
             } else
@@ -1373,6 +1374,7 @@ export default {
                 && (this.$refs.scrollView[2].$refs.wrap.scrollTop = scrollTop);
         },
         load(more) {
+            console.log('load_____');
             const dataSource = this.currentDataSource;
             if (!dataSource)
                 return;
@@ -3113,6 +3115,12 @@ export default {
          */
         isColumnVM(columnVM) {
             return columnVM && columnVM.$vnode && columnVM.$vnode.tag && columnVM.$vnode.tag.includes('-column');
+        },
+        onChangePageSize(event) {
+            this.currentPageSize = event.pageSize;
+            const currentDataSource = this.currentDataSource;
+            this.page(currentDataSource && currentDataSource.paging ? currentDataSource.paging.number : this.pageNumber, event.pageSize);
+            this.$emit('change-page-size', event, this);
         },
     },
 };

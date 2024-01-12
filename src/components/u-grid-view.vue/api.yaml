@@ -477,6 +477,58 @@
         - name: senderVM
           type: UTableView
           description: 发送事件实例
+    - name: before-page
+      title: 切换分页前
+      description: 切换分页前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/PaginationEvent"
+        - name: $event.size
+          type: number
+          description: 分页大小
+        - name: $event.oldSize
+          type: number
+          description: 旧的分页大小
+        - name: $event.number
+          type: number
+          description: 当前页数
+        - name: $event.oldNumber
+          type: number
+          description: 旧的页数
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止切换分页流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: page
+      title: 切换分页后
+      description: 切换分页或改变分页大小时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/PaginationEvent"
+        - name: $event.size
+          type: number
+          description: 分页大小
+        - name: $event.oldSize
+          type: number
+          description: 分页大小
+        - name: $event.number
+          type: number
+          description: 当前页数
+        - name: $event.oldNumber
+          type: number
+          description: 旧的页数
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
   methods:
     - name: reload
       description: 清除缓存，重新加载
