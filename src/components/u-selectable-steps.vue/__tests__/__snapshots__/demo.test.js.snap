@@ -3,7 +3,8 @@
 exports[`u-selectable-steps.vue Demo-动态数据渲染 1`] = `
 <div>
   <div class="root" direction="horizontal" layout="inline">
-    <nav class="head"></nav>
+    <nav class="head">
+    </nav>
     <div class="body"></div>
   </div>
   <div class="root" direction="horizontal" layout="inline">
