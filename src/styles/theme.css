@@ -1114,7 +1114,6 @@
     --input-prefix-padding-left: 36px; /* @group 前缀/后缀 */ /* @desc 输入框前缀左边距,如 1px */
     --input-prefix-placeholder-left: 27px; /* @group 前缀/后缀 *//* @desc 输入框前缀提示信息左边距,如 1px */
     --input-suffix-padding-right: 30px; /* @group 前缀/后缀 *//* @desc 输入框后缀右边距,如 1px */
-    --input-suffix-placeholder-right: 21px; /* @group 前缀/后缀 *//* @desc 输入框后缀提示信息右边距,如 1px */
     --input-background: var(--background-color-default);  /* @type color */ /* @group 背景色 */ /* @desc 输入框背景色,如 #223325 */ /* @depStaticStyles ["background-color"] */
     --input-background-disabled: var(--background-color-disabled-light); /* @type color */ /* @group 背景色 */ /* @desc 禁用输入框背景色,如 #223325 */
     --input-color: var(--color-base); /* @type color */ /* @group 文字颜色 */ /* @desc 输入框文字颜色,如 #223325 */ /* @depStaticStyles ["color"] */
