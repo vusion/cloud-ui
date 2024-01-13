@@ -841,6 +841,18 @@ export default {
         virtualBottom() {
             this.$refs.virtualPlaceholder[0].style.height = this.virtualTop + this.virtualBottom + 'px';
         },
+        pageSize() {
+            this.currentPageSize = this.pageSize;
+        },
+        paging: {
+            handler(value) {
+                if (this.currentDataSource) {
+                    if (this.currentDataSource.paging.number !== value.number || this.currentDataSource.paging.size !== value.size)
+                        this.page(value.number, value.size);
+                }
+            },
+            deep: true,
+        },
     },
     created() {
         this.$on('handle-columns', this.handleColumns);
@@ -854,10 +866,11 @@ export default {
             }
         }
         // @TODO: this.pageNumber
-        this.$watch('pageNumber', (number) => {
-            if (this.currentDataSource && this.currentDataSource.paging.number !== number)
-                this.page(number);
-        });
+        // this.$watch('pageNumber', (number) => {
+        //     if (this.currentDataSource && this.currentDataSource.paging.number !== number)
+        //         this.page(number);
+        // });
+
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.pageNumber && this.usePagination) {
@@ -1375,7 +1388,6 @@ export default {
                 && (this.$refs.scrollView[2].$refs.wrap.scrollTop = scrollTop);
         },
         load(more) {
-            console.log('load_____');
             const dataSource = this.currentDataSource;
             if (!dataSource)
                 return;
@@ -1411,6 +1423,7 @@ export default {
                 });
         },
         reload() {
+            console.log('reload____');
             if (!this.currentDataSource._load || typeof this.currentDataSource._load !== 'function')
                 return;
             this.currentDataSource.clearLocalData();
@@ -3121,7 +3134,6 @@ export default {
             this.currentPageSize = event.pageSize;
             const currentDataSource = this.currentDataSource;
             this.page(currentDataSource && currentDataSource.paging ? currentDataSource.paging.number : this.pageNumber, event.pageSize);
-            this.$emit('change-page-size', event, this);
         },
     },
 };
