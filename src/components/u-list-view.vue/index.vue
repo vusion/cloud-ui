@@ -285,8 +285,17 @@ export default {
             },
             immediate: true,
         },
-        pageSize(pageSize) {
-            this.currentPageSize = pageSize;
+        pageSize() {
+            this.currentPageSize = this.pageSize;
+        },
+        paging: {
+            handler(value) {
+                if (this.currentDataSource) {
+                    if (this.currentDataSource.paging.number !== value.number || this.currentDataSource.paging.size !== value.size)
+                        this.page(value.number, value.size);
+                }
+            },
+            deep: true,
         },
     },
     created() {
@@ -300,10 +309,10 @@ export default {
             }
         }
 
-        this.$watch('pageNumber', (number) => {
-            if (this.currentDataSource && this.currentDataSource.paging.number !== number)
-                this.page(number);
-        });
+        // this.$watch('pageNumber', (number) => {
+        //     if (this.currentDataSource && this.currentDataSource.paging.number !== number)
+        //         this.page(number);
+        // });
 
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
@@ -559,6 +568,7 @@ export default {
             }
         },
         page(number, size) {
+            console.log('page method');
             if (size === undefined)
                 size = this.currentDataSource && this.currentDataSource.paging && this.currentDataSource.paging.size;
             const paging = {
@@ -619,10 +629,10 @@ export default {
             this.$emit('checkAll', { value, oldValue, checked }, this);
         },
         onChangePageSize(event) {
+            console.log('onChangePageSize');
             this.currentPageSize = event.pageSize;
             const currentDataSource = this.currentDataSource;
             this.page(currentDataSource.paging ? currentDataSource.paging.number : this.pageNumber, event.pageSize);
-            this.$emit('change-page-size', event, this);
         },
     },
 };
