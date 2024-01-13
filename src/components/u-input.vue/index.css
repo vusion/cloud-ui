@@ -216,7 +216,7 @@
     left: var(--input-prefix-placeholder-left);
 }
 .root[suffix] .placeholder {
-    right: var(--input-prefix-placeholder-left);
+    padding-right: var(--input-suffix-padding-right);
 }
 .root[prefix] .placeholder,
 .root[suffix] .placeholder {
