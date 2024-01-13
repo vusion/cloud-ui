@@ -27,9 +27,6 @@
 <script>
 export default {
     name: 'u-process-button',
-    props: {
-        taskId: [String, Number],
-    },
     data() {
         return {
             model: {
@@ -37,10 +34,20 @@ export default {
                 userName: '',
             },
             currentItem: undefined,
+            taskId: undefined,
+            permissionDetails: [],
         };
     },
     created() {
-        this.getOperationPermissionDetail();
+        location.search.replace('?', '').split('&').forEach((item) => {
+            const [key, value] = item.split('=');
+            if (key === 'taskId') {
+                this.taskId = value;
+            }
+        });
+        if (this.taskId) {
+            this.getOperationPermissionDetail();
+        }
     },
     methods: {
         async getOperationPermissionDetail() {
@@ -83,7 +90,7 @@ export default {
                 return;
             }
             const { name } = this.currentItem;
-            const operator = `${name}TaskInstance`;
+            const operate = `${name}TaskInstance`;
             const body = {
                 taskId: this.taskId,
                 formData: this.processDetailFormData,
@@ -95,7 +102,7 @@ export default {
             }
             await this.$processV2.setTaskInstance({
                 path: {
-                    operator,
+                    operate,
                 },
                 body,
             });

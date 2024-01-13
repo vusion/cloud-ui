@@ -13,11 +13,7 @@ namespace nasl.ui {
     }
 
     export class UProcessInfoOptions  extends ViewComponentOptions {
-        @Prop({
-            title: '流程Id',
-            description: '流程Id',
-        })
-        taskId: nasl.core.String;
+       
     }
 }
 

@@ -14,11 +14,11 @@
         </div>
         <div :class="$style.item">
             <div :class="$style.label">当前节点：</div>
-            <div :class="$style.value" v-ellipsis-title> {{ detail.currentNode || '-' }}</div>
+            <div :class="$style.value" v-ellipsis-title> {{ formatArray2String(detail.currentNode) }}</div>
         </div>
         <div :class="$style.item">
             <div :class="$style.label">参与人：</div>
-            <div :class="$style.value" v-ellipsis-title>{{ formatUsers(detail.currentCandidateUsers) }}</div>
+            <div :class="$style.value" v-ellipsis-title>{{ formatArray2String(detail.currentCandidateUsers) }}</div>
         </div>
     </div>
 </template>
@@ -26,9 +26,6 @@
 <script>
 export default {
     name: 'u-process-info',
-    props: {
-        taskId: [String, Number],
-    },
     data() {
         return {
             detail: {
@@ -38,10 +35,19 @@ export default {
                 currentNode: '',
                 currentCandidateUsers: [],
             },
+            taskId: undefined,
         };
     },
     created() {
-        this.getProcessInfo();
+        location.search.replace('?', '').split('&').forEach((item) => {
+            const [key, value] = item.split('=');
+            if (key === 'taskId') {
+                this.taskId = value;
+            }
+        });
+        if (this.taskId) {
+            this.getProcessInfo();
+        }
     },
     methods: {
         async getProcessInfo() {
@@ -70,12 +76,12 @@ export default {
                 return value;
             }
         },
-        formatUsers(value) {
+        formatArray2String(value) {
             if (value === null || value === undefined) {
                 return '-';
             }
             if (Array.isArray(value)) {
-                return value.join('，');
+                return value.join('，') || '-';
             }
             return value;
         },

@@ -49,7 +49,7 @@
                     <u-button color="primary" @click="onSearch">查 询</u-button>
                 </u-linear-layout>
             </u-linear-layout>
-            <u-table-view :data-source="load" ref="tableview">
+            <u-table-view :data-source="load" ref="tableview" :page-size="20" :page-number="1" pagination>
                 <u-table-view-column title="流程标题">
                     <template #cell="current"> {{ current.item.processTitle || '-' }}</template>
                 </u-table-view-column>
@@ -128,7 +128,7 @@ export default {
         },
         async getAllProcessDefList() {
             if (this.$processV2) {
-                const result = await this.$processV2.getAllProcessDefList();
+                const result = await this.$processV2.getProcessDefinitionList();
                 return result.data;
             }
         },
