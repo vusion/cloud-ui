@@ -498,12 +498,14 @@ namespace nasl.ui {
             description: '文件数量超额时触发',
         })
         onCountExceed: (event: {
-            item: {
-                name: nasl.core.String;
-                status: nasl.core.String;
+            files: nasl.collection.List<File>;
+            value: {
                 url: nasl.core.String;
+                name: nasl.core.String;
             };
-            file: File;
+            count: nasl.core.Integer;
+            limit: nasl.core.Integer;
+            message: nasl.core.String; 
         }) => any;
 
         @Event({
@@ -549,7 +551,10 @@ namespace nasl.ui {
             description: '点击删除按钮时触发',
         })
         onRemove: (event: {
-            value: nasl.core.String,
+            value: {
+                url: nasl.core.String;
+                name: nasl.core.String;
+            },
             item: {
                 name: nasl.core.String;
                 status: nasl.core.String;
