@@ -29,9 +29,8 @@
                                 <span :class="$style.title" vusion-slot-name-edit="title" vusion-slot-name="title">
                                     <slot name="title" :item="itemVM" :index="index">{{ $at(itemVM, titleField) }}</slot>
                                     <s-empty
-                                        v-if="!$slots.title
-                                            && !($scopedSlots.title && $scopedSlots.title())
-                                            && $env.VUE_APP_DESIGNER
+                                        v-if="$env.VUE_APP_DESIGNER && !$slots.title
+                                            && !($scopedSlots.title && $scopedSlots.title(itemVM))
                                             && !!$attrs['vusion-node-path']">
                                     </s-empty>
                                     <span v-if="closable || $at(itemVM, closableField)" :class="$style.close" @click.stop="close(itemVM)"></span>
@@ -67,10 +66,7 @@
                                             :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
                                             {{ itemVM.title || $at(itemVM, titleField) }}
                                             <s-empty
-                                                v-if="(!itemVM.$slots.title)
-                                                    && !itemVM.title
-                                                    && $env.VUE_APP_DESIGNER
-                                                    && !!$attrs['vusion-node-path']">
+                                                v-if="$env.VUE_APP_DESIGNER && !itemVM.$slots.title && !itemVM.title && !!$attrs['vusion-node-path']">
                                             </s-empty>
                                         </f-slot>
                                         <span v-if="closable || itemVM.closable" :class="$style.close" @click.stop="close(itemVM)"></span>
@@ -92,10 +88,7 @@
                     <div vusion-slot-name="content" :key="index" v-show="itemVM.active">
                         <slot name="content" :item="itemVM" :index="index"></slot>
                         <s-empty
-                            v-if="!$slots.content
-                                && !($scopedSlots.content && $scopedSlots.content())
-                                && $env.VUE_APP_DESIGNER
-                                && !!$attrs['vusion-node-path']">
+                            v-if="$env.VUE_APP_DESIGNER && !$slots.content && !($scopedSlots.content && $scopedSlots.content(itemVM)) && !!$attrs['vusion-node-path']">
                         </s-empty>
                     </div>
                 </template>

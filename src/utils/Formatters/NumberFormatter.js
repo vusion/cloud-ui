@@ -30,8 +30,13 @@ export class NumberFormatter extends Formatter {
             value = parseFloat(value) + ''; // 转字符串
         }
 
-        if (comma)
-            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        if (comma) {
+            const [interger, decimal] = value.split('.');
+            value = interger.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            if (decimal) {
+                value = [value, decimal].join('.');
+            }
+        }
 
         // 百分号
         if (this.options.percentSign) {

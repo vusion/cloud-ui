@@ -212,7 +212,7 @@ export default {
                 }
                 this.showTime = this.getUnitFormatTime(newValue);
                 // this.showTime默认设置的是'00:00:00'，如果time初始是'00:00:00'，showTime的watch会没有进入，导致validShowTime没有设置
-                if (this.showTime === '00:00:00') {
+                if (this.showTime === '00:00:00' || this.showTime === '00:00') {
                     this.validShowTime = this.showTime;
                     this.lastValidShowTime = this.showTime;
                 }

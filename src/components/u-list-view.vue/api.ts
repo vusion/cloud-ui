@@ -206,7 +206,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
+        textField: (item: T) => any = ((item: any)  => item.text) as any;
 
         @Prop<UListViewOptions<T, V, P, M, C>, 'valueField'>({
             group: '数据属性',

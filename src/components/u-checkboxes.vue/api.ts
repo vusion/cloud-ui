@@ -52,7 +52,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        private textField: (item: T) => nasl.core.String;
+        private textField: (item: T) => any;
 
         @Prop<UCheckboxesOptions<T, V, C>, 'valueField'>({
             group: '数据属性',
@@ -340,12 +340,6 @@ namespace nasl.ui {
             value: V;
             oldValue: V;
         }) => any;
-
-        @Slot({
-            title: '默认',
-            description: '插入文本或 HTML。',
-        })
-        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: '项',

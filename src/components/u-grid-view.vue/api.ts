@@ -23,6 +23,17 @@ namespace nasl.ui {
         })
         page: UGridViewOptions<T, V, P, M, C>['pageNumber'];
 
+        // 由于之前误开放出去了，有历史数据，防止ts报错临时补上
+        @Prop({
+            title: '排序属性'
+        })
+        sort: nasl.core.String;
+
+        @Prop({
+            title: '排序方式'
+        })
+        order: nasl.core.String;
+
         @Method({
             title: 'undefined',
             description: '清除缓存，重新加载',
@@ -46,7 +57,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        private field: (item: T) => nasl.core.String;
+        private field: (item: T) => any;
 
         @Prop({
             title: '可取消',
@@ -95,7 +106,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        textField: (item: T) => nasl.core.String = ((item: any)  => item.text) as any;
+        textField: (item: T) => any = ((item: any)  => item.text) as any;
 
         @Prop<UGridViewOptions<T, V, P, M, C>, 'valueField'>({
             group: '数据属性',

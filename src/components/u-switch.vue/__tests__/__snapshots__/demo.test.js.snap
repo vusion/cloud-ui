@@ -10,7 +10,7 @@ exports[`u-switch.vue Demo-Value 绑定 1`] = `
 exports[`u-switch.vue Demo-基本状态、只读和禁用 1`] = `
 <div>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
-    <label class="root" tabindex="0" with-text>
+    <label class="root" tabindex="0" with-text="true">
       <span class="button"></span>
       <span class="text" vusion-slot-name="default"></span>
     </label>

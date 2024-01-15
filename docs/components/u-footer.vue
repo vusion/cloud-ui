@@ -89,7 +89,7 @@ export default {
 
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
     width: 1200px;
     height: 150px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);

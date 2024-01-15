@@ -740,7 +740,7 @@ date.setDate(0);
 }
 
 .daywrap[sindex="0"] {
-    justify-content: start;
+    justify-content: flex-start;
 }
 .daywrap[sindex="0"][disabled] .item {
     border-top-left-radius: var(--calendar-border-radius);
@@ -952,7 +952,7 @@ date.setDate(0);
 }
 
 .boxItem[sindex="0"] {
-    justify-content: start;
+    justify-content: flex-start;
 }
 .boxItem[sindex="0"][disabled] .sitem {
     border-top-left-radius: var(--calendar-border-radius);

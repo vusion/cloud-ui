@@ -362,7 +362,7 @@ export default {
     padding-right: 0;
     align-items: center;
     margin-bottom: 4px;
-    justify-content: start;
+    justify-content: flex-start;
     text-align: left;
 }
 .root[label-layout="block"]> label[required]::after {

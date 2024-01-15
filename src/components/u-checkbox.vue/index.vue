@@ -49,18 +49,23 @@ export default {
             return this.disabled || (this.parentVM && this.parentVM.disabled) || (this.parentVM && this.parentVM.exceedMax() && !this.currentValue);
         },
         status() {
-            return String(this.currentValue);
-        }
+            if (this.currentValue === true) {
+                return 'true';
+            }
+
+            if (this.currentValue === null) {
+                return 'null';
+            }
+
+            return 'false';
+        },
     },
     watch: {
         value: {
             handler(value) {
                 this.currentValue = value;
             },
-            immediate: true
-        },
-        currentValue(value, oldValue) {
-            this.$emit('change', { value, oldValue });
+            immediate: true,
         },
     },
     mounted() {
@@ -101,6 +106,7 @@ export default {
             this.$emit('input', value);
             this.$emit('update:value', value);
             this.$emit('check', { value, oldValue });
+            this.$emit('change', { value, oldValue });
             this.parentVM
                 && this.parentVM.onCheck({
                     value,

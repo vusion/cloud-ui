@@ -52,7 +52,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        private textField: (item: T) => nasl.core.String;
+        private textField: (item: T) => any;
 
         @Prop<URadiosOptions<T, V>, 'valueField'>({
             group: '数据属性',
@@ -236,12 +236,6 @@ namespace nasl.ui {
             value: V;
             oldValue: V;
         }) => any;
-
-        @Slot({
-            title: '默认',
-            description: '单选项内容自定义',
-        })
-        slotDefault: () => Array<ViewComponent>;
 
         @Slot({
             title: 'undefined',

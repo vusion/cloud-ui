@@ -31,10 +31,17 @@ export default {
 .title {
     cursor: var(--cursor-pointer);
 }
-
+.root[direction="horizontal"] .head {
+    display: inline-flex;
+    justify-content: center;
+    min-width: 100%;
+}
 .root[layout="inline"] .title {
     padding: 0;
     padding-left: var(--steps-seleatable-item-title-padding-left);
+    > span {
+        white-space: nowrap;
+    }
 }
 
 .item {

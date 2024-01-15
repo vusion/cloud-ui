@@ -33,6 +33,10 @@ export default {
             if (Array.isArray(virtualEl)) {
                 virtualEl = virtualEl[0];
             }
+            let tablebodyEl = this.$refs.body;
+            if (Array.isArray(tablebodyEl)) {
+                tablebodyEl = tablebodyEl[0];
+            }
             const list = this[this.listKey];
             const showList = (list || []).filter((item) => item.display !== 'none');
             if (!virtualEl || !list)
@@ -71,9 +75,13 @@ export default {
                     break;
                 accHeight += getHeight(item);
             }
+            let showCount = 0;
+            if (getHeight(list[0])) {
+                showCount = Math.ceil(tablebodyEl.clientHeight / getHeight(list[0]));
+            }
             virtualIndex = Math.max(
                 0,
-                currentIndex - Math.floor(this.virtualCount / 2),
+                currentIndex - Math.ceil((this.virtualCount - showCount) / 2),
             ); // eslint-disable-next-line yoda
             // table 树形展示里不能这么处理，暂时注释掉
             // 该方法容易出现白屏。有截流了问题不大。

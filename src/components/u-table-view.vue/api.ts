@@ -89,7 +89,7 @@ namespace nasl.ui {
                 title: 'undefined',
                 description: '排除字段',
             })
-            excludeColumns: Array<nasl.core.String> = [],
+            excludeColumns: nasl.collection.List<nasl.core.String> = [],
         ): void {}
 
         @Method({
@@ -324,7 +324,7 @@ namespace nasl.ui {
             },
             if: _ => _.treeDisplay === true,
         })
-        parentField: (item: T) => V;
+        parentField: (item: T) => any;
 
         @Prop<UTableViewOptions<T, V, P, M>, 'childrenField'>({
             group: '数据属性',
@@ -336,7 +336,7 @@ namespace nasl.ui {
             },
             if: _ => _.treeDisplay === true,
         })
-        childrenField: (item: T) => nasl.collection.List<T> = ((item: any)  => item.children) as any;
+        childrenField: (item: T) => nasl.collection.List<any> = ((item: any)  => item.children) as any;
 
         @Prop<UTableViewOptions<T, V, P, M>, 'hasChildrenField'>({
             group: '数据属性',
@@ -1046,7 +1046,7 @@ namespace nasl.ui {
             description: 'data 项中的字段',
             docDescription: '数据项中对应的字段名，如createdTime',
         })
-        field: (item: T) => V;
+        field: (item: T) => any;
 
         @Prop({
             group: '数据属性',
@@ -1255,7 +1255,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        private textField: (item: T) => nasl.core.String;
+        private textField: (item: T) => any;
 
         @Prop({
             group: '数据属性',
@@ -1440,7 +1440,10 @@ namespace nasl.ui {
         @Slot({
             title: '配置列展示title',
         })
-        slotTitle: (current: Current<T1>) => Array<ViewComponent>;
+        slotTitle: (current: {
+            columnIndex: nasl.core.Integer, 
+            columnItem: T1
+        }) => Array<ViewComponent>;
 
         @Slot({
             title: '配置列展示item',
@@ -1472,6 +1475,10 @@ namespace nasl.ui {
                 {
                     title: '表格列',
                     code: '<u-table-view-column><template #cell="current"></template><template #title><u-text text="表格列"></u-text></template></u-table-view-column>',
+                },
+                {
+                    title: '表格动态列',
+                    code: '<u-table-view-column-dynamic><template #cell="current"></template><template #title="current"><u-text text="表格动态列"></u-text></template></u-table-view-column-dynamic>',
                 },
             ],
         })

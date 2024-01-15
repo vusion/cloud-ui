@@ -55,12 +55,19 @@ export default {
     },
     destroyed() {
         this.clearTimeout();
+        this.cancelAnimationFrameId();
         removeResizeListener(this.$el, this.redraw);
     },
     methods: {
         clearTimeout() {
             if (this.timer) {
                 clearTimeout(this.timer);
+            }
+        },
+        cancelAnimationFrameId() {
+            if (this.requestAnimationFrameId) {
+                cancelAnimationFrame(this.requestAnimationFrameId);
+                this.requestAnimationFrameId = null;
             }
         },
         drawMark() {
@@ -71,8 +78,16 @@ export default {
             ctx.translate(width / 2, height / 2);
             ctx.scale(2, 2);
             ctx.rotate(-Math.PI / 6);
-            ctx.fillStyle = 'black';
-            ctx.font = '14px Arial';
+
+            let computedStyle = {};
+
+            try {
+                computedStyle = window.getComputedStyle(this.$el);
+            } catch (e) {
+            }
+
+            ctx.fillStyle = computedStyle.color || 'black';
+            ctx.font = computedStyle.font || '14px Arial';
             ctx.textAlign = 'center';
             ctx.fillText(this.text, 0, 0);
             return markEl;
@@ -97,9 +112,37 @@ export default {
             const ctx = canvasEl.getContext('2d');
             const markHeight = this.markHeight;
             const markWidth = this.markWidth;
+            const waitDrawRects = [];
             for (let i = 0; i < width; i += markWidth) {
-                for (let j = 0; j < height; j += markHeight)
-                    ctx.drawImage(image, i, j, markWidth, markHeight);
+                for (let j = 0; j < height; j += markHeight) {
+                    waitDrawRects.push({
+                        x: i,
+                        y: j,
+                        width: markWidth,
+                        height: markHeight,
+                    });
+                }
+            }
+
+            this.cancelAnimationFrameId();
+            this.requestAnimationFrameId = requestAnimationFrame(() => this.drawLoop(ctx, image, waitDrawRects));
+        },
+        drawLoop(ctx, image, drawRects) {
+            if (!drawRects || !ctx) {
+                return;
+            }
+
+            const n = Date.now();
+            while (drawRects.length > 0) {
+                const { x, y, width, height } = drawRects.shift();
+
+                ctx.drawImage(image, x, y, width, height);
+
+                // 渲染操作30ms 就把剩下的交给下一次渲染，避免js执行时间过长
+                if (Date.now() - n >= 12) {
+                    this.requestAnimationFrameId = requestAnimationFrame(() => this.drawLoop(ctx, image, drawRects));
+                    break;
+                }
             }
         },
         redraw() {

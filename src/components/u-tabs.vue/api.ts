@@ -55,7 +55,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        titleField: (item: T) => nasl.core.String = ((item: any)  => item.title) as any;
+        titleField: (item: T) => any = ((item: any)  => item.title) as any;
 
         @Prop<UTabsOptions<T, V>, 'valueField'>({
             group: '数据属性',
@@ -77,7 +77,7 @@ namespace nasl.ui {
                 concept: 'PropertySelectSetter',
             },
         })
-        urlField: (item: T) => nasl.core.String = ((item: any)  => item.url) as any;
+        urlField: (item: T) => any = ((item: any)  => item.url) as any;
 
         @Prop({
             group: '数据属性',
