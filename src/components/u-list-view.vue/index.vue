@@ -68,7 +68,7 @@
     </div>
     <div v-show="showFoot && (pageable === true || pageable === 'pagination')" :class="$style.foot">
         <slot name="foot"></slot>
-        <u-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
+        <u-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'" ref="pagination"
             :total-items="currentDataSource.total" :page="currentDataSource.paging ? currentDataSource.paging.number : pageNumber"
             :page-size="currentDataSource.paging ? currentDataSource.paging.size : pageSize" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
             :side="1" :around="3"
@@ -185,7 +185,7 @@ export default {
             // virtualBottom: 0,
             filterText: '', // 过滤文本，只有 input 时会改变它
             hasScroll: false, // 作为下拉加载是否展示"没有更多"的依据。第一页不满，没有滚动条的情况下，不展示
-            currentPageSize: this.pageSize,
+            currentPageSize: undefined, // 区分是pageSize还是pageSizeOptions改变
         };
     },
     computed: {
@@ -195,7 +195,9 @@ export default {
         paging() {
             if (this.pageable) {
                 const paging = {};
-                paging.size = this.currentPageSize === '' ? 50 : this.currentPageSize;
+                let currentPageSize = this.currentPageSize !== undefined ? this.currentPageSize : this.pageSize;
+                currentPageSize = currentPageSize === '' ? 50 : currentPageSize;
+                paging.size = currentPageSize;
                 paging.number = this.pageNumber;
                 return paging;
             } else
@@ -286,7 +288,7 @@ export default {
             immediate: true,
         },
         pageSize() {
-            this.currentPageSize = this.pageSize;
+            this.currentPageSize = undefined;
         },
         paging: {
             handler(value) {
@@ -376,7 +378,6 @@ export default {
             if (dataSource instanceof DataSource)
                 return dataSource;
             else if (dataSource instanceof Array) {
-                console.log('options', options);
                 options.data = Array.from(dataSource);
                 return new DataSource(options);
             } else if (dataSource instanceof Function) {
@@ -568,7 +569,6 @@ export default {
             }
         },
         page(number, size) {
-            console.log('page method');
             if (size === undefined)
                 size = this.currentDataSource && this.currentDataSource.paging && this.currentDataSource.paging.size;
             const paging = {
@@ -629,7 +629,6 @@ export default {
             this.$emit('checkAll', { value, oldValue, checked }, this);
         },
         onChangePageSize(event) {
-            console.log('onChangePageSize');
             this.currentPageSize = event.pageSize;
             const currentDataSource = this.currentDataSource;
             this.page(currentDataSource.paging ? currentDataSource.paging.number : this.pageNumber, event.pageSize);

@@ -599,7 +599,7 @@ export default {
             autoRowSpan: [], // 用于记录自动的的行合并
             columnVMsMap: {},
             tableHeadTrArr: [],
-            currentPageSize: this.pageSize,
+            currentPageSize: undefined,
         };
     },
     computed: {
@@ -643,8 +643,10 @@ export default {
         paging() {
             if (this.usePagination) {
                 const paging = {};
-                paging.size = this.currentPageSize === '' ? 20 : this.currentPageSize;
-                paging.number = paging.number || 1;
+                let currentPageSize = this.currentPageSize !== undefined ? this.currentPageSize : this.pageSize;
+                currentPageSize = currentPageSize === '' ? 50 : currentPageSize;
+                paging.size = currentPageSize;
+                paging.number = this.pageNumber !== undefined ? this.pageNumber : 1;
                 return paging;
             } else
                 return undefined;
@@ -841,7 +843,7 @@ export default {
             this.$refs.virtualPlaceholder[0].style.height = this.virtualTop + this.virtualBottom + 'px';
         },
         pageSize() {
-            this.currentPageSize = this.pageSize;
+            this.currentPageSize = undefined;
         },
         paging: {
             handler(value) {
@@ -1422,7 +1424,6 @@ export default {
                 });
         },
         reload() {
-            console.log('reload____');
             if (!this.currentDataSource._load || typeof this.currentDataSource._load !== 'function')
                 return;
             this.currentDataSource.clearLocalData();
