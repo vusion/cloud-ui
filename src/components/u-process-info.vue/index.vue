@@ -6,7 +6,7 @@
         </div>
         <div :class="$style.item">
             <div :class="$style.label">发起时间：</div>
-            <div :class="$style.value" v-ellipsis-title>{{ dateFormatter(detail.createTime) }}</div>
+            <div :class="$style.value" v-ellipsis-title>{{ dateFormatter(detail.processStartTime) }}</div>
         </div>
         <div :class="$style.item">
             <div :class="$style.label">当前状态：</div>
@@ -14,7 +14,7 @@
         </div>
         <div :class="$style.item">
             <div :class="$style.label">当前节点：</div>
-            <div :class="$style.value" v-ellipsis-title> {{ formatArray2String(detail.currentNode) }}</div>
+            <div :class="$style.value" v-ellipsis-title> {{ formatArray2String(detail.currentNodes) }}</div>
         </div>
         <div :class="$style.item">
             <div :class="$style.label">参与人：</div>

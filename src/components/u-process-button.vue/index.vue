@@ -3,9 +3,13 @@
         <u-button v-for="item in permissionDetails" :key="item.name" :color="getColor(item)" @click="onClickButton(item)">
             {{ item.showText }}
         </u-button>
-        <u-modal :title="currentItem.showText" v-if="currentItem" :visible="!!currentItem" ref="modal">
+        <u-modal v-if="currentItem"
+            :title="currentItem.showText"
+            :visible="!!currentItem"
+            ref="modal"
+            @close="currentItem = undefined">
             <u-form label-layout="block" ref="form">
-                <u-form-item label="审批意见" required rules="required" v-if="currentItem.name !== 'transfer'">
+                <u-form-item label="审批意见" :required="currentItem.opinionsEnable" :rules="currentItem.opinionsEnable?'required':''" v-if="currentItem.name !== 'transfer'">
                     <u-textarea v-model="model.comment" size="normal full" placeholder="请输入">
                     </u-textarea>
                 </u-form-item>
@@ -93,8 +97,11 @@ export default {
             const operate = `${name}TaskInstance`;
             const body = {
                 taskId: this.taskId,
-                formData: this.processDetailFormData,
             };
+            const dynamicRenderContainer = document.getElementById('dynamicRenderContainer');
+            if (dynamicRenderContainer && dynamicRenderContainer.__vue__) {
+                body.formData = dynamicRenderContainer.__vue__.processDetailFormData;
+            }
             if (name === 'transfer') {
                 body.userName = this.model.userName;
             } else {

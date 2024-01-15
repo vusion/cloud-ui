@@ -63,7 +63,7 @@
                     <template #cell="current"> {{ current.item.startBy || '-' }}</template>
                 </u-table-view-column>
                 <u-table-view-column title="发起时间">
-                    <template #cell="current"> {{ dateFormatter(current.item.createTime) }}</template>
+                    <template #cell="current"> {{ dateFormatter(current.item.taskCreateTime) }}</template>
                 </u-table-view-column>
                 <u-table-view-column title="操作">
                     <template #cell="current">
