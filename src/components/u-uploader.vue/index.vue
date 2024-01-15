@@ -619,7 +619,7 @@ export default {
                     const value = this.toValue(this.currentValue);
                     this.$emit('input', value);
                     this.$emit('update:value', value);
-                    const errorMessage = e.msg ? JSON.parse(e.msg).Message : `文件${item.name}上传接口调用失败`;
+                    const errorMessage = e.msg ? (JSON.parse(e.msg).Message || `文件${item.name}上传接口调用失败`) : `文件${item.name}上传接口调用失败`;
                     this.errorMessage.push(errorMessage);
 
                     this.$emit('error', {
