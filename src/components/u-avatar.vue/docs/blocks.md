@@ -1,31 +1,31 @@
 ### 默认头像
 
 ``` html
-<u-avatar></u-avatar> 默认头像
+<u-avatar></u-avatar>
 ```
 
 ### 头像2
 
 ``` html
-<u-avatar type="2"></u-avatar> 头像2
+<u-avatar type="2"></u-avatar>
 ```
 
 ### 头像3
 
 ``` html
-<u-avatar type="3"></u-avatar> 头像3
+<u-avatar type="3"></u-avatar>
 ```
 
 ### 迷你头像
 
 ``` html
-<u-avatar size="mini"></u-avatar> 迷你头像
+<u-avatar size="mini"></u-avatar>
 ```
 
 ### 大头像
 
 ``` html
-<u-avatar size="large"></u-avatar> 大头像
+<u-avatar size="large"></u-avatar>
 ```
 
 ### 添加徽章
