@@ -2,6 +2,7 @@
 import { result } from 'lodash';
 import UCascader from '../u-cascader.vue';
 import i18n from './i18n';
+import RegionData from './region';
 import i18nMixin from '../../mixins/i18n';
 
 export default {
@@ -46,7 +47,7 @@ export default {
         async 'currentDataSource.data'(value, oldValue) {
             if (this.data.length)
                 return;
-            const currentData = require('./region');
+            const currentData = RegionData;
             await new Promise((resolve) => setTimeout(resolve, 0));
             this.currentData = currentData.default;
             this.allMergeText = this.getMergeText(this.currentData);
@@ -55,7 +56,7 @@ export default {
     },
     async created() {
         if (!this.data.length) {
-            const currentData = require('./region');
+            const currentData = RegionData;
             // 这里加个异步，模拟之前的逻辑
             await new Promise((resolve) => setTimeout(resolve, 0));
             this.currentData = currentData.default;

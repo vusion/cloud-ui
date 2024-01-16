@@ -447,6 +447,7 @@ import FVirtualTable from './f-virtual-table.vue';
 import i18nMixin from '../../mixins/i18n';
 import flatMap from 'lodash/flatMap';
 import { createTableHeaderExportHelper } from './createTableHeadExporter';
+import * as xlsxUtils from '../../utils/xlsx';
 
 export default {
     name: 'u-table-view',
@@ -1490,7 +1491,7 @@ export default {
 
                 // console.time('生成文件');
                 const sheetTitle = this.title || undefined;
-                const { exportExcel } = require('../../utils/xlsx');
+                const { exportExcel } = xlsxUtils;
                 exportExcel(content, 'Sheet1', filename, sheetTitle, (content[0] || []).length, hasHeader, mergesMap);
                 // console.timeEnd('生成文件');
             } catch (err) {

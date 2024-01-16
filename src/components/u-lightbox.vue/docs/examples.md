@@ -13,11 +13,12 @@
 </div>
 </template>
 <script>
+import image2 from '@/components/u-lightbox.vue/assets/2.jpg';
 export default {
     data() {
         return {
             visible: false,
-            src: require('@/components/u-lightbox.vue/assets/2.jpg'),
+            src: image2,
         };
     },
 };
@@ -38,11 +39,13 @@ export default {
 </div>
 </template>
 <script>
+import image1 from '@/components/u-lightbox.vue/assets/1.jpg';
+import image2 from '@/components/u-lightbox.vue/assets/2.jpg';
 export default {
     data() {
         return {
             visible: false,
-            images: [{src:require('@/components/u-lightbox.vue/assets/1.jpg'), title:'图片1'}, {src:require('@/components/u-lightbox.vue/assets/2.jpg'), title: '图片2'}],
+            images: [{src: image1, title:'图片1'}, {src: image2, title: '图片2'}],
             showItem: 0,
         };
     },
