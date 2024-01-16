@@ -18,9 +18,9 @@ export default {
         if (this.$refs.info) {
             this.$refs.info.detail = {
                 startBy: '张三（示例）',
-                createTime: '2020-01-01 12:00:00（示例）',
+                processStartTime: '2020-01-01 12:00:00（示例）',
                 finished: '进行中（示例）',
-                currentNode: '节点1（示例）',
+                currentNodes: '节点1（示例）',
                 currentCandidateUsers: '张三, 李四（示例）',
             };
         }

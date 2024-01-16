@@ -1,5 +1,5 @@
 <template>
-    <u-process-myprocess-real v-if="$env.VUE_APP_DESIGNER" ref="myprocess"></u-process-myprocess-real>
+    <u-process-myprocess-real v-if="$env.VUE_APP_DESIGNER" ref="myprocess" :initial-load="false"></u-process-myprocess-real>
     <component
         v-else
         is="u-process-myprocess-real"
@@ -25,7 +25,7 @@ export default {
                         currentAssignee: '章三',
                         currentCandidateUsers: [],
                         startBy: '张三',
-                        createTime: '2023-12-21T07:40:04.000Z',
+                        taskCreateTime: '2023-12-21 08:10:10',
                     },
                     {
                         taskId: '275c0907-9fd4-11ee-8735-8a36b3181f25',
@@ -39,7 +39,7 @@ export default {
                             'xxx xx',
                         ],
                         startBy: '张三',
-                        createTime: '2023-12-21T07:40:04.000Z',
+                        taskCreateTime: '2023-12-21 08:10:10',
                     },
                     {
                         taskId: '2759bf13-9fd4-11ee-8735-8a36b3181f25',
@@ -48,7 +48,7 @@ export default {
                         currentAssignee: '章三',
                         currentCandidateUsers: [],
                         startBy: '张三',
-                        createTime: '2023-12-21T07:40:04.000Z',
+                        taskCreateTime: '2023-12-21 08:10:10',
                     },
                 ];
                 clearTimeout(this.timer);

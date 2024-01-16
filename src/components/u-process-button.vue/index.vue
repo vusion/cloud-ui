@@ -77,15 +77,7 @@ export default {
         async onSubmit() {
             const validateResult = await this.$refs.form.validate();
             if (validateResult.valid) {
-                const dynamicRenderContainer = document.getElementById('dynamicRenderContainer');
-                if (dynamicRenderContainer && dynamicRenderContainer.__vue__ && dynamicRenderContainer.__vue__.validate) {
-                    const validateResult = await dynamicRenderContainer.__vue__.validate();
-                    if (validateResult.valid) {
-                        this.submit();
-                    }
-                } else {
-                    this.submit();
-                }
+                this.submit();
                 this.$refs.modal.close();
             }
         },
@@ -114,7 +106,27 @@ export default {
                 body,
             });
         },
-        onClickButton(item) {
+        async onClickButton(item) {
+            // 表单验证后打开弹窗
+            const dynamicRenderContainer = document.getElementById('dynamicRenderContainer');
+            if (dynamicRenderContainer && dynamicRenderContainer.__vue__) {
+                const formRefName = dynamicRenderContainer.getAttribute('ref-name');
+                if (formRefName) {
+                    const formRef = dynamicRenderContainer.__vue__.$refs[formRefName];
+                    if (formRef && formRef.validate) {
+                        const validateResult = await formRef.validate();
+                        if (validateResult.valid) {
+                            this.openModal(item);
+                        }
+                    }
+                } else {
+                    this.openModal(item);
+                }
+            } else {
+                this.openModal(item);
+            }
+        },
+        openModal(item) {
             this.currentItem = item;
             Object.assign(this.model, {
                 comment: '',

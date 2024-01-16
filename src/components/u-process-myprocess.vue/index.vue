@@ -49,7 +49,7 @@
                     <u-button color="primary" @click="onSearch">查 询</u-button>
                 </u-linear-layout>
             </u-linear-layout>
-            <u-table-view :data-source="load" ref="tableview" :page-size="20" :page-number="1" pagination>
+            <u-table-view :data-source="load" ref="tableview" :page-size="20" :page-number="1" pagination :initial-load="initialLoad">
                 <u-table-view-column title="流程标题">
                     <template #cell="current"> {{ current.item.processTitle || '-' }}</template>
                 </u-table-view-column>
@@ -80,6 +80,10 @@ export default {
     name: 'u-process-myprocess',
     props: {
         taskId: [String, Number],
+        initialLoad: {
+            type: Boolean,
+            default: true,
+        },
     },
     data() {
         return {
