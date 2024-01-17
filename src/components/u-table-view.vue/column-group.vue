@@ -16,6 +16,7 @@ export default {
     props: {
         title: String,
         fixed: { type: Boolean, default: false },
+        thEllipsis: { type: Boolean, default: undefined }, // 表头是否缩略展示
     },
     data() {
         return {

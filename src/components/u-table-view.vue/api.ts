@@ -402,6 +402,28 @@ namespace nasl.ui {
         stickHeadOffset: nasl.core.Decimal = 0;
 
         @Prop({
+            group: '主要属性',
+            title: '表头文本过长省略',
+            description: '文字过长是否省略显示。默认文字超出时会换行。',
+            docDescription: '开启后，该列表头文本过长会省略显示，否则换行显示，默认关闭',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        thEllipsis: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '主要属性',
+            title: '内容区文本过长省略',
+            description: '文字过长是否省略显示。默认文字超出时会换行。',
+            docDescription: '开启后，该列文本过长会省略显示，否则换行显示，默认关闭',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        ellipsis: nasl.core.Boolean = false;
+
+        @Prop({
             group: '交互属性',
             title: '悬浮高亮行',
             description: '表格行在悬浮时是否高亮显示',
@@ -822,6 +844,7 @@ namespace nasl.ui {
             oldValue: V;
             item: T;
             oldItem: T;
+            index: nasl.core.Integer;
         }) => any;
 
         @Event({
@@ -1148,7 +1171,18 @@ namespace nasl.ui {
 
         @Prop({
             group: '主要属性',
-            title: '文本过长省略',
+            title: '表头文本过长省略',
+            description: '文字过长是否省略显示。默认文字超出时会换行。',
+            docDescription: '开启后，该列表头文本过长会省略显示，否则换行显示，默认关闭',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        thEllipsis: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '主要属性',
+            title: '内容区文本过长省略',
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '开启后，该列文本过长会省略显示，否则换行显示，默认关闭',
             setter: {
@@ -1410,7 +1444,18 @@ namespace nasl.ui {
 
         @Prop({
             group: '主要属性',
-            title: '文本过长省略',
+            title: '表头文本过长省略',
+            description: '文字过长是否省略显示。默认文字超出时会换行。',
+            docDescription: '开启后，该列表头文本过长会省略显示，否则换行显示，默认关闭',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        thEllipsis: nasl.core.Boolean = false;
+
+        @Prop({
+            group: '主要属性',
+            title: '内容区文本过长省略',
             description: '文字过长是否省略显示。默认文字超出时会换行。',
             docDescription: '开启后，该列文本过长会省略显示，否则换行显示，默认关闭',
             setter: {
