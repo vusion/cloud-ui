@@ -604,7 +604,6 @@ namespace nasl.ui {
             description: '选择值改变时触发。单选模式中：',
         })
         onChange: (event: {
-            selected: nasl.core.Boolean;
             item: T;
             oldItem: T;
             value: V;

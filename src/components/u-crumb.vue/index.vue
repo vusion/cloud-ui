@@ -11,6 +11,7 @@
         </template>
     </template>
     <slot v-else></slot>
+    <s-empty v-if="showSEmpty"></s-empty>
 </nav>
 </template>
 
@@ -19,12 +20,14 @@ import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
 import MParent from '../m-parent.vue';
 import { getRouteComponentOptions } from '../../utils/vue';
+import SEmpty from '../s-empty.vue';
 import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-crumb',
     childName: 'u-crumb-item',
     mixins: [MParent, i18nMixin('u-crumb')],
+    components: { SEmpty },
     props: {
         auto: { type: Boolean, default: false },
         separator: { type: String, default: 'arrow' },
@@ -36,10 +39,15 @@ export default {
             items: [],
         };
     },
+    computed: {
+        showSEmpty() {
+            return this.$env.VUE_APP_DESIGNER && !this.$slots.default && !this.auto && (!this.items || this.items.length === 0);
+        },
+    },
     watch: {
         $route: {
             handler(to, from) {
-                if (to.fullPath === (from && from.fullPath))
+                if (!to || to.fullPath === (from && from.fullPath))
                     return;
 
                 const matched = to.matched || [];
