@@ -49,6 +49,8 @@
 import i18n from './i18n';
 import i18nMixin from '../../mixins/i18n';
 
+const DEFAULT_PAGE_SIZE = 20;
+
 export default {
     name: 'u-pagination',
     // i18n,
@@ -78,7 +80,7 @@ export default {
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         totalItems: Number,
-        pageSize: { type: Number, default: 20 },
+        pageSize: { type: Number, default: DEFAULT_PAGE_SIZE },
         pageSizeOptions: {
             type: Array,
             default() {
@@ -92,7 +94,11 @@ export default {
         size: { type: String, default: 'normal' },
     },
     data() {
-        return { currentPage: this.page, currentPageSize: this.pageSize };
+        return {
+            currentPage: this.page,
+            // pageSize = 0, 会报错;
+            currentPageSize: this.pageSize || DEFAULT_PAGE_SIZE,
+        };
     },
     computed: {
         pages() {
@@ -147,11 +153,12 @@ export default {
         },
     },
     created() {
+        const currentPageSize = this.pageSize || DEFAULT_PAGE_SIZE;
         // 自动补充 pageSizeOptions
-        if (this.pageSizeOptions && !this.pageSizeOptions.includes(this.pageSize)) {
+        if (this.pageSizeOptions && !this.pageSizeOptions.includes(currentPageSize)) {
             for (let i = 0; i < this.pageSizeOptions.length; i++) {
-                if (this.pageSizeOptions[i] > this.pageSize) {
-                    this.pageSizeOptions.splice(i, 0, this.pageSize);
+                if (this.pageSizeOptions[i] > currentPageSize) {
+                    this.pageSizeOptions.splice(i, 0, currentPageSize);
                     break;
                 }
             }
