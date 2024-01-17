@@ -85,7 +85,7 @@
       type: number
       display: number
       default: 50
-      min: 10
+      min: 1
       description: ""
       dependency:
         - pagination: true
