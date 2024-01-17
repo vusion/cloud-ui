@@ -68,7 +68,10 @@ export default {
             validator: (value) => Number.isInteger(value) && value >= 0,
         },
         direction: { type: String, default: 'right' },
-        animation: String, // duration: { type: Number, default: 1000, validator: (value) => Number.isInteger(value) && value >= 0 },
+        animation: {
+            type: String,
+            default: 'fade',
+        }, // duration: { type: Number, default: 1000, validator: (value) => Number.isInteger(value) && value >= 0 },
         router: { type: Boolean, default: false },
         hideButtons: { type: Boolean, default: false },
     },
