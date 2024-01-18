@@ -2,9 +2,11 @@
 
 exports[`u-steps.vue IDE 中空值渲染 1`] = `
 <div class="root" counter="true" direction="horizontal" layout="block" readonly="readonly">
-  <nav class="head">
-    <div class="empty" s-empty="true"></div>
-  </nav>
+  <div class="headWrapper">
+    <nav class="head">
+      <div class="empty" s-empty="true"></div>
+    </nav>
+  </div>
   <div class="body"></div>
 </div>
 `;

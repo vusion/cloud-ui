@@ -163,6 +163,10 @@ export default {
     display: flex;
 }
 
+.root[direction="vertical"] .headWrapper {
+    overflow: visible;
+}
+
 .root[direction="vertical"] .head {
     flex-direction: column;
     margin-right: 24px;
