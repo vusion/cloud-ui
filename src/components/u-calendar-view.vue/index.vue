@@ -79,7 +79,7 @@ export default {
         value: {
             type: [Date, String, Number, Array],
             default() {
-                return dayjs();
+                return dayjs().format(DefaultFormatType); // 避免控制台报Error
             },
         },
         minDate: [Date, String, Number],
@@ -108,13 +108,15 @@ export default {
         if (Array.isArray(this.value) && this.value.length > 0) {
             value = [...this.value];
         } else if (Array.isArray(this.value)) {
-            value = [dayjs()];
+            value = [];
+        } else if (this.value === '' || this.value === null) {
+            value = [];
         } else {
             value = [this.value];
         }
-        const selectedDates = Array.from(new Set(value.map((v) => getDay(v).format(DefaultFormatType)))).sort().map((v) => dayjs(v, DefaultFormatType).startOf('day'));
+        const selectedDates = value.length > 0 ? Array.from(new Set(value.map((v) => getDay(v).format(DefaultFormatType)))).sort().map((v) => dayjs(v, DefaultFormatType).startOf('day')) : [];
         const selectedDatesSnapshot = value.join(',');
-        const selectedDate = selectedDates[0];
+        const selectedDate = selectedDates[0] || dayjs();
 
         const fullMonths = [];
         const monthTexts = [
@@ -237,12 +239,21 @@ export default {
             immediate: true,
         },
         value(newValue) {
-            const value = (Array.isArray(newValue) && newValue.length > 0 ? [...newValue] : [newValue]).sort();
+            // Bug-2786226575169792: 选中值反选失败
+            let value = [];
+            if (Array.isArray(newValue)) {
+                if (newValue.length > 0) {
+                    value = [...newValue];
+                }
+            } else if (newValue !== null && newValue !== '') {
+                value = [newValue];
+            }
+            value = value.sort();
             const snapshot = value.join(',');
             if (this.selectedDatesSnapshot === snapshot) {
                 return;
             }
-            this.selectedDates = value > 0 ? Array.from(new Set(value.sort())).map((v) => getDay(v).hour(0).minute(0).second(0).millisecond(0)) : [];
+            this.selectedDates = value.length > 0 ? Array.from(new Set(value.sort())).map((v) => getDay(v).hour(0).minute(0).second(0).millisecond(0)) : [];
             this.selectedDatesSnapshot = snapshot;
             this.getConfigs();
         },
@@ -465,6 +476,9 @@ export default {
                 newSelectedDate = maxDay.clone().startOf('day');
             }
             this.year = value;
+            if (!this.selectedDate) {
+                return;
+            }
             const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.year(value)), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
             const date = dates[0];
             if (!date)
@@ -500,6 +514,9 @@ export default {
             }
 
             this.month = value;
+            if (!this.selectedDate) {
+                return;
+            }
             const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.month(value)), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
             const date = dates[0];
             if (!date)
