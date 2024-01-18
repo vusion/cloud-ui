@@ -4,6 +4,11 @@
     text-align: center;
 }
 
+.headWrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
 .item {
     display: inline-block;
     position: relative;

@@ -22930,41 +22930,43 @@ exports[`u-table-view.vue Demo-横向滚动 1`] = `
 
 exports[`u-table-view.vue Demo-步骤条中使用 1`] = `
 <div class="root" counter="true" direction="horizontal" layout="block" readonly="readonly">
-  <nav class="head">
-    <a class="item" selected="selected">
-      <div class="item-body" title="Step1">
-        <span class="radio"></span>
-        <span class="title" vusion-slot-name="title">
-          Step1
-        </span>
-      </div>
-      <span vusion-slot-name="desc">
+  <div class="headWrapper">
+    <nav class="head">
+      <a class="item" selected="selected">
+        <div class="item-body" title="Step1">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step1
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
 
-      </span>
-    </a>
-    <a class="item">
-      <div class="item-body" title="Step2">
-        <span class="radio"></span>
-        <span class="title" vusion-slot-name="title">
-          Step2
         </span>
-      </div>
-      <span vusion-slot-name="desc">
+      </a>
+      <a class="item">
+        <div class="item-body" title="Step2">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step2
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
 
-      </span>
-    </a>
-    <a class="item">
-      <div class="item-body" title="Step3">
-        <span class="radio"></span>
-        <span class="title" vusion-slot-name="title">
-          Step3
         </span>
-      </div>
-      <span vusion-slot-name="desc">
+      </a>
+      <a class="item">
+        <div class="item-body" title="Step3">
+          <span class="radio"></span>
+          <span class="title" vusion-slot-name="title">
+            Step3
+          </span>
+        </div>
+        <span vusion-slot-name="desc">
 
-      </span>
-    </a>
-  </nav>
+        </span>
+      </a>
+    </nav>
+  </div>
   <div class="body">
     <div style vusion-slot-name="default">
       Content1
