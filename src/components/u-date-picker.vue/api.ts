@@ -113,6 +113,13 @@ namespace nasl.ui {
         })
         yearAdd: nasl.core.Decimal = 20;
 
+        @Prop({
+            group: '主要属性',
+            title: '高级格式化',
+            bindHide: true,
+        })
+        advancedFormat: { enable: nasl.core.Boolean, value: nasl.core.String } = { enable: false, value: '' };
+
         @Prop<UDatePickerOptions, 'showFormatter'>({
             group: '主要属性',
             title: '日期展示格式',
@@ -123,13 +130,6 @@ namespace nasl.ui {
             if: _ => _.advancedFormat.enable === false,
         })
         showFormatter: 'YYYY年M月D日' | 'YYYY-MM-DD' | 'M/D/YYYY' | 'D/M/YYYY' | 'GGGG-W周' | 'GGGG年第W周' | 'GGGG-WWWW' | 'YYYY年M月' | 'YYYY-MM' | 'M/YYYY' | 'YYYY年第Q季度' | 'YYYY年QQ' | 'YYYY-QQ' | 'YYYY年' | 'YYYY';
-
-        @Prop({
-            group: '主要属性',
-            title: '高级格式化',
-            bindHide: true,
-        })
-        advancedFormat: { enable: nasl.core.Boolean, value: nasl.core.String } = { enable: false, value: '' };
 
         @Prop({
             group: '主要属性',

@@ -102,7 +102,7 @@
       title: 显示状态
       type: boolean
       default: false
-      description: 显示状态分为“True(显示)/False(隐藏)”，默认为“显示”
+      description: 显示状态分为“True(显示)/False(隐藏)”，默认为“隐藏”
       group: 状态属性
       brifeDoc: ""
       docDescription: 切换密码的显示/隐藏。

@@ -314,6 +314,11 @@ export default {
             return encodeURI(url);
         },
         fromValue(value) {
+            // Vue app 环境走 [];
+            if (this.$env.VUE_APP_DESIGNER) {
+                return [];
+            }
+
             if (this.converter === 'json')
                 try {
                     const parsedValue = JSON.parse(value || '[]');
