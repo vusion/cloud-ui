@@ -24521,149 +24521,613 @@ exports[`u-table-view.vue Demo-百分比与数字结合，横向滚动 1`] = `
 
 exports[`u-table-view.vue Demo-省略显示 1`] = `
 <div>
-  <div class="root">
-    <div class="table" position="static">
-      <div class="head" style="top: 0px;">
-        <table class="root head-table" line="horizontal" sticky-fixed="true" striped="true">
-          <colgroup>
-            <col width="0">
-            <col width="0">
-            <col>
-            <col width="0">
-          </colgroup>
-          <thead>
-            <tr>
-              <th class="head-title boldHeader">
-                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                  序号
-                </span>
-              </th>
-              <th class="head-title boldHeader">
-                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                  姓名
-                </span>
-              </th>
-              <th class="head-title boldHeader">
-                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                  地址
-                </span>
-              </th>
-              <th class="head-title boldHeader">
-                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
-                  出生日期
-                </span>
-              </th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <div class="body" sticky-fixed="true">
-        <div class="root scrollcview">
-          <div class="wrap">
-            <div>
-              <table class="root" line="horizontal" sticky-fixed="true" striped="true">
-                <colgroup>
-                  <col width="0">
-                  <col width="0">
-                  <col>
-                  <col width="0">
-                </colgroup>
-                <tbody>
-                  <tr class="row">
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">1</span>
-                    </td>
-                    <td class="cell" ellipsis="true">
-                      <span class="column-field" vusion-slot-name="cell">张三张三张三张三张三张三张三张三张三张三</span>
-                    </td>
-                    <td class="cell" ellipsis="true">
-                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">19910528</span>
-                    </td>
-                  </tr>
-                  <tr class="row">
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">2</span>
-                    </td>
-                    <td class="cell" ellipsis="true">
-                      <span class="column-field" vusion-slot-name="cell">小明</span>
-                    </td>
-                    <td class="cell" ellipsis="true">
-                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">19920914</span>
-                    </td>
-                  </tr>
-                  <tr class="row">
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">3</span>
-                    </td>
-                    <td class="cell" ellipsis="true">
-                      <span class="column-field" vusion-slot-name="cell">李四李四李四李四李四李四李四李四李四李四</span>
-                    </td>
-                    <td class="cell" ellipsis="true">
-                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">19900228</span>
-                    </td>
-                  </tr>
-                  <tr class="row">
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">4</span>
-                    </td>
-                    <td class="cell" ellipsis="true">
-                      <span class="column-field" vusion-slot-name="cell">李华</span>
-                    </td>
-                    <td class="cell" ellipsis="true">
-                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">19891210</span>
-                    </td>
-                  </tr>
-                  <tr class="row">
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">5</span>
-                    </td>
-                    <td class="cell" ellipsis="true">
-                      <span class="column-field" vusion-slot-name="cell">王五</span>
-                    </td>
-                    <td class="cell" ellipsis="true">
-                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
-                    </td>
-                    <td class="cell">
-                      <span class="column-field" vusion-slot-name="cell">19930716</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" line="horizontal" sticky-fixed="true" striped="true">
+            <colgroup>
+              <col width="0">
+              <col width="0">
+              <col>
+              <col width="0">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    序号
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    姓名
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    地址
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    出生日期
+                  </span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" line="horizontal" sticky-fixed="true" striped="true">
+                  <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col>
+                    <col width="0">
+                  </colgroup>
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">1</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">张三张三张三张三张三张三张三张三张三张三</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">19910528</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">2</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">小明</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">19920914</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">3</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李四李四李四李四李四李四李四李四李四李四</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">19900228</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">4</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李华</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">19891210</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">5</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">王五</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">19930716</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-          <div class="root" direction="horizontal">
-            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-          </div>
-          <div class="root" direction="vertical">
-            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
+      </div>
+      <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+      </div>
     </div>
-    <div class="root" style="display: none;">
-      <div class="line" style="display: none;"></div>
-      <div class="mask" style="display: none;"></div>
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" line="horizontal" sticky-fixed="true" striped="true">
+            <colgroup>
+              <col width="0">
+              <col width="0">
+              <col>
+              <col width="0">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    序号
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    姓名
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    地址
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    出生日期
+                  </span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" line="horizontal" sticky-fixed="true" striped="true">
+                  <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col>
+                    <col width="0">
+                  </colgroup>
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">1</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">张三张三张三张三张三张三张三张三张三张三</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19910528</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">2</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">小明</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19920914</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">3</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李四李四李四李四李四李四李四李四李四李四</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19900228</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">4</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李华</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19891210</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">5</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">王五</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19930716</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
+      </div>
+      <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+      </div>
     </div>
-    <div>
-      <div style="display: none;">
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" line="horizontal" sticky-fixed="true" striped="true">
+            <colgroup>
+              <col width="0">
+              <col width="0">
+              <col>
+              <col width="0">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    序号
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    姓名
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    地址
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    出生日期
+                  </span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" line="horizontal" sticky-fixed="true" striped="true">
+                  <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col>
+                    <col width="0">
+                  </colgroup>
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">1</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">张三张三张三张三张三张三张三张三张三张三</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19910528</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">2</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">小明</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19920914</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">3</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李四李四李四李四李四李四李四李四李四李四</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19900228</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">4</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李华</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19891210</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">5</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">王五</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19930716</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style="display: none;">
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
       </div>
-      <div style="display: none;">
+      <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
       </div>
-      <div style="display: none;">
+    </div>
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" line="horizontal" sticky-fixed="true" striped="true">
+            <colgroup>
+              <col width="0">
+              <col width="0">
+              <col>
+              <col width="0">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    序号
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    姓名
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    地址
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    出生日期
+                  </span>
+                </th>
+                <th class="head-title boldHeader" colspan="1">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    <span class="root" vusion-slot-name-edit="text">这是个很长很长很长很长很长很长的动态列名称</span>
+                  </span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" line="horizontal" sticky-fixed="true" striped="true">
+                  <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col>
+                    <col width="0">
+                    <col>
+                  </colgroup>
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">1</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">张三张三张三张三张三张三张三张三张三张三</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19910528</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="root" vusion-slot-name-edit="text">张三张三张三张三张三张三张三张三张三张三 这是个很长很长很长很长很长很长的动态列名称</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">2</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">小明</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19920914</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="root" vusion-slot-name-edit="text">小明 这是个很长很长很长很长很长很长的动态列名称</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">3</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李四李四李四李四李四李四李四李四李四李四</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19900228</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="root" vusion-slot-name-edit="text">李四李四李四李四李四李四李四李四李四李四 这是个很长很长很长很长很长很长的动态列名称</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">4</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李华</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19891210</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="root" vusion-slot-name-edit="text">李华 这是个很长很长很长很长很长很长的动态列名称</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">5</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">王五</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19930716</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="root" vusion-slot-name-edit="text">王五 这是个很长很长很长很长很长很长的动态列名称</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
+      </div>
+      <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
       </div>
     </div>
   </div>
@@ -30315,6 +30779,969 @@ exports[`u-table-view.vue Demo-表头固定 1`] = `
                   <tr class="row">
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">李四</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">18897127809</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">李华</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">18749261214</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">王五</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">13579340020</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+          </div>
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" style="display: none;">
+      <div class="line" style="display: none;"></div>
+      <div class="mask" style="display: none;"></div>
+    </div>
+    <div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-table-view.vue Demo-表头文字省略展示 1`] = `
+<div>
+  <div class="root" direction="vertical" type vusion-slot-name="default">
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" line="horizontal" sticky-fixed="true" striped="true">
+            <colgroup>
+              <col width="0">
+              <col width="0">
+              <col>
+              <col width="0">
+              <col>
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader" rowspan="2">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    序号
+                  </span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" rowspan="2">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    这是一个很长很长很长很长很长很长很长很长的名字
+                  </span>
+                </th>
+                <th class="head-title boldHeader" rowspan="2">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    地址
+                  </span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" rowspan="2">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    这是一个很长很长很长很长很长很长很长很长的出生日期
+                  </span>
+                </th>
+                <th class="head-title boldHeader" colspan="2" ellipsis="true">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    用户信息用户信息用户信息用户信息用户信息用户信息用户信息
+                  </span>
+                </th>
+              </tr>
+              <tr>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    用户名
+                  </span>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    手机号码
+                  </span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" line="horizontal" sticky-fixed="true" striped="true">
+                  <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col>
+                    <col width="0">
+                    <col>
+                    <col>
+                  </colgroup>
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">1</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">张三张三张三张三张三张三张三张三张三张三</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19910528</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">张三张三张三张三张三张三张三张三张三张三</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">-</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">2</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">小明</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19920914</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">小明</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">-</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">3</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李四李四李四李四李四李四李四李四李四李四</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19900228</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李四李四李四李四李四李四李四李四李四李四</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">-</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">4</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李华</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19891210</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李华</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">-</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">5</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">王五</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">19930716</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">王五</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">-</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
+      </div>
+      <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+          <div>
+            <div style="display: none;">
+            </div>
+            <div style="display: none;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" line="true" sticky-fixed="true" striped="true">
+            <colgroup>
+              <col width="0">
+              <col width="0">
+              <col>
+              <col width="0">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    这是一个很长很长很长很长很长很长很长很长的名字
+                  </span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    这是一个很长很长很长很长很长很长很长很长的手机号码
+                  </span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    <span class="root" vusion-slot-name-edit="text">这是一个很长很长很长很长很长很长很长很长的更新时间</span>
+                  </span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    最近登录时间
+                  </span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" line="true" sticky-fixed="true" striped="true">
+                  <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col>
+                    <col width="0">
+                  </colgroup>
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">这是一个很长很长很长很长很长很长很长很长的名字</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">18612917895</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">小明</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">13727160283</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">名字就是起得这么这么这么这么这么这么长</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">18897127809</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">李华</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">18749261214</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">王五</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">13579340020</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
+      </div>
+      <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" line="true" sticky-fixed="true" striped="true">
+            <colgroup>
+              <col width="0">
+              <col width="0">
+              <col>
+              <col width="0">
+              <col>
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader" rowspan="2">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    这是一个很长很长很长很长很长很长很长很长的名字
+                  </span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" rowspan="2">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    这是一个很长很长很长很长很长很长很长很长的手机号码
+                  </span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" rowspan="2">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    <span class="root" vusion-slot-name-edit="text">这是一个很长很长很长很长很长很长很长很长的更新时间</span>
+                  </span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" rowspan="2">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    最近登录时间
+                  </span>
+                </th>
+                <th class="head-title boldHeader" colspan="2" ellipsis="true">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    用户信息用户信息用户信息用户信息用户信息用户信息用户信息
+                  </span>
+                </th>
+              </tr>
+              <tr>
+                <th class="head-title boldHeader" ellipsis="true">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    用户名
+                  </span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    手机号码
+                  </span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" line="true" sticky-fixed="true" striped="true">
+                  <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col>
+                    <col width="0">
+                    <col>
+                    <col>
+                  </colgroup>
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">这是一个很长很长很长很长很长很长很长很长的名字</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">18612917895</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">这是一个很长很长很长很长很长很长很长很长的名字</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">18612917895</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">小明</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">13727160283</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">小明</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">13727160283</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">名字就是起得这么这么这么这么这么这么长</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">18897127809</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">2019-05-18 15:45:30</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">名字就是起得这么这么这么这么这么这么长</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">18897127809</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李华</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">18749261214</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">2018-12-10 15:48:01</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">李华</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">18749261214</span>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">王五</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">13579340020</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">2018-07-16 01:32:06</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">王五</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">13579340020</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
+      </div>
+      <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+          <div>
+            <div style="display: none;">
+            </div>
+            <div style="display: none;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" sticky-fixed="true">
+            <colgroup>
+              <col width="0">
+              <col width="0">
+              <col>
+              <col width="0">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader" ellipsis="true" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    用户名
+                  </span>
+                  <span class="sort" order="asc"></span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    这是一个很长很长很长很长很长很长很长很长的手机号码
+                  </span>
+                  <span class="sort" order="asc"></span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" filterable="true">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    这是一个很长很长很长很长很长很长很长很长的地址
+                  </span>
+                  <span active="true" class="filter-wrap"><transition-stub class="root" name="fade">
+                      <div class="root" style="display: none;">
+                        <div class="root scrollview" trigger="hover">
+                          <div class="wrap">
+                            <div>
+                              <div class="wrap">
+                                <div>
+                                  <div class="root" index="0"> 全部</div>
+                                  <div class="root" index="1" selected="selected"> 网易大厦</div>
+                                  <div class="root" index="2"> 网易二期</div>
+                                  <div class="root" index="3"> 英飞特科技园</div>
+                                  <div class="root" index="4"> 西可科技园</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="root" direction="horizontal">
+                            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+                          </div>
+                          <div class="root" direction="vertical">
+                            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </transition-stub></span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    最近登录时间
+                  </span>
+                  <span class="sort" order="asc" sorting="true"></span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" sticky-fixed="true">
+                  <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col>
+                    <col width="0">
+                  </colgroup>
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">这是一个很长很长很长很长很长很长很长很长的名字</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">18612917895</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                      </td>
+                      <td class="cell">
+                        <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
+      </div>
+      <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+      </div>
+    </div>
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" sticky-fixed="true">
+            <colgroup>
+              <col width="0">
+              <col width="0">
+              <col>
+              <col width="0">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader" ellipsis="true" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    用户名
+                  </span>
+                  <span class="sort" order="asc"></span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    这是一个很长很长很长很长很长很长很长很长的手机号码
+                  </span>
+                  <span class="sort" order="asc"></span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" filterable="true" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    这是一个很长很长很长很长很长很长很长很长的地址
+                  </span>
+                  <span class="sort" order="asc"></span>
+                  <span active="true" class="filter-wrap"><transition-stub class="root" name="fade">
+                      <div class="root" style="display: none;">
+                        <div class="root scrollview" trigger="hover">
+                          <div class="wrap">
+                            <div>
+                              <div class="wrap">
+                                <div>
+                                  <div class="root" index="0"> 全部</div>
+                                  <div class="root" index="1" selected="selected"> 网易大厦</div>
+                                  <div class="root" index="2"> 网易二期</div>
+                                  <div class="root" index="3"> 英飞特科技园</div>
+                                  <div class="root" index="4"> 西可科技园</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="root" direction="horizontal">
+                            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+                          </div>
+                          <div class="root" direction="vertical">
+                            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </transition-stub></span>
+                </th>
+                <th class="head-title boldHeader" ellipsis="true" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    最近登录时间
+                  </span>
+                  <span class="sort" order="asc" sorting="true"></span>
+                </th>
+                <th class="head-title boldHeader" colspan="1" ellipsis="true">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    <span class="root" vusion-slot-name-edit="text">这是个很长很长很长很长很长很长的动态列名称</span>
+                  </span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" sticky-fixed="true">
+                  <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col>
+                    <col width="0">
+                    <col>
+                  </colgroup>
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">这是一个很长很长很长很长很长很长很长很长的名字</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">18612917895</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
+                      </td>
+                      <td class="cell" ellipsis="true">
+                        <span class="root" vusion-slot-name-edit="text">这是一个很长很长很长很长很长很长很长很长的名字 这是个很长很长很长很长很长很长的动态列名称</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
+      </div>
+      <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-table-view.vue Demo-表头文字省略显示 1`] = `
+<div>
+  <div class="root">
+    <div class="table" position="static">
+      <div class="head" style="top: 0px;">
+        <table class="root head-table" line="true" sticky-fixed="true" striped="true">
+          <colgroup>
+            <col width="0">
+            <col width="0">
+            <col>
+            <col width="0">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="head-title boldHeader" ellipsis="true">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  这是个很长很长很长很长很长的用户名
+                </span>
+              </th>
+              <th class="head-title boldHeader" ellipsis="true">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  手机号码
+                </span>
+              </th>
+              <th class="head-title boldHeader" ellipsis="true">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  地址
+                </span>
+              </th>
+              <th class="head-title boldHeader" ellipsis="true">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  最近登录时间
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="body" sticky-fixed="true">
+        <div class="root scrollcview">
+          <div class="wrap">
+            <div>
+              <table class="root" line="true" sticky-fixed="true" striped="true">
+                <colgroup>
+                  <col width="0">
+                  <col width="0">
+                  <col>
+                  <col width="0">
+                </colgroup>
+                <tbody>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">这是一个很长很长很长很长很长很长很长很长的名字</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">18612917895</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2018-05-28 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">小明</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">13727160283</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">2019-03-12 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field" vusion-slot-name="cell">名字就是起得这么这么这么这么这么这么长</span>
                     </td>
                     <td class="cell">
                       <span class="column-field" vusion-slot-name="cell">18897127809</span>
