@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-table-view.vue pageSizer选择器变化后，刷新数据 1`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" id="changelistbutton" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      变换list值
+    </a>
+  </div>
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
+      <div>
+      </div>
+    </div>
+    <div>
+      <div style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="root" index="0" vusion-slot-name="item">
+          Batch12
+        </div>
+        <div class="root" index="1" vusion-slot-name="item">
+          C12
+        </div>
+        <div class="root" index="2" vusion-slot-name="item">
+          C#12
+        </div>
+        <div class="root" index="3" vusion-slot-name="item">
+          C++12
+        </div>
+        <div class="root" index="4" vusion-slot-name="item">
+          CSS12
+        </div>
+        <div class="root" index="5" vusion-slot-name="item">
+          Clojure12
+        </div>
+        <div class="root" index="6" vusion-slot-name="item">
+          CoffeeScript12
+        </div>
+        <div class="root" index="7" vusion-slot-name="item">
+          Coq12
+        </div>
+        <div class="root" index="8" vusion-slot-name="item">
+          Diff12
+        </div>
+        <div class="root" index="9" vusion-slot-name="item">
+          Dockerfile12
+        </div>
+        <div class="root" index="10" vusion-slot-name="item">
+          F#12
+        </div>
+        <div class="root" index="11" vusion-slot-name="item">
+          Go12
+        </div>
+        <div class="root" index="12" vusion-slot-name="item">
+          Groovy12
+        </div>
+        <div class="root" index="13" vusion-slot-name="item">
+          HLSL12
+        </div>
+        <div class="root" index="14" vusion-slot-name="item">
+          HTML12
+        </div>
+        <div class="root" index="15" vusion-slot-name="item">
+          Handlebars12
+        </div>
+        <div class="root" index="16" vusion-slot-name="item">
+          Ignore12
+        </div>
+        <div class="root" index="17" vusion-slot-name="item">
+          Ini12
+        </div>
+        <div class="root" index="18" vusion-slot-name="item">
+          JSON12
+        </div>
+        <div class="root" index="19" vusion-slot-name="item">
+          Java12
+        </div>
+        <div class="root" index="20" vusion-slot-name="item">
+          JavaScript12
+        </div>
+        <div class="root" index="21" vusion-slot-name="item">
+          Jinja12
+        </div>
+        <div class="root" index="22" vusion-slot-name="item">
+          Jupyter12
+        </div>
+        <div class="root" index="23" vusion-slot-name="item">
+          Less12
+        </div>
+        <div class="root" index="24" vusion-slot-name="item">
+          Log12
+        </div>
+        <div class="root" index="25" vusion-slot-name="item">
+          Lua12
+        </div>
+        <div class="root" index="26" vusion-slot-name="item">
+          Makefile12
+        </div>
+        <div class="root" index="27" vusion-slot-name="item">
+          Markdown12
+        </div>
+        <div class="root" index="28" vusion-slot-name="item">
+          Objective-C12
+        </div>
+        <div class="root" index="29" vusion-slot-name="item">
+          Objective-C++12
+        </div>
+        <div class="root" index="30" vusion-slot-name="item">
+          PHP12
+        </div>
+        <div class="root" index="31" vusion-slot-name="item">
+          Perl12
+        </div>
+        <div class="root" index="32" vusion-slot-name="item">
+          PowerShell12
+        </div>
+        <div class="root" index="33" vusion-slot-name="item">
+          Properties12
+        </div>
+        <div class="root" index="34" vusion-slot-name="item">
+          Pug12
+        </div>
+        <div class="root" index="35" vusion-slot-name="item">
+          Python12
+        </div>
+        <div class="root" index="36" vusion-slot-name="item">
+          R12
+        </div>
+        <div class="root" index="37" vusion-slot-name="item">
+          Razor12
+        </div>
+        <div class="root" index="38" vusion-slot-name="item">
+          Ruby12
+        </div>
+        <div class="root" index="39" vusion-slot-name="item">
+          Rust12
+        </div>
+        <div class="root" index="40" vusion-slot-name="item">
+          SCSS12
+        </div>
+        <div class="root" index="41" vusion-slot-name="item">
+          SQL12
+        </div>
+        <div class="root" index="42" vusion-slot-name="item">
+          SVG12
+        </div>
+        <div class="root" index="43" vusion-slot-name="item">
+          Shaderlab12
+        </div>
+        <div class="root" index="44" vusion-slot-name="item">
+          Shell Script12
+        </div>
+        <div class="root" index="45" vusion-slot-name="item">
+          Swift12
+        </div>
+        <div class="root" index="46" vusion-slot-name="item">
+          TypeScript12
+        </div>
+        <div class="root" index="47" vusion-slot-name="item">
+          Visual Basic12
+        </div>
+        <div class="root" index="48" vusion-slot-name="item">
+          Vue12
+        </div>
+        <div class="root" index="49" vusion-slot-name="item">
+          XML12
+        </div>
+      </div>
+    </div>
+    <div>
+      <nav class="root" size="normal">
+        <div class="root sizer" tabindex="0">
+          <span>b</span>
+          <span style="display: none;">请选择</span>
+          <div class style="direction: ltr;" tags-overflow="collapse">
+            50条/页
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  10条/页
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  20条/页
+                </div>
+                <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                  50条/页
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+        <a class="item-wrap" disabled="disabled">
+          <i class="item" role="prev"></i>
+        </a>
+        <a class="item" selected="selected">1</a>
+        <a class="item">2</a>
+        <a class="item-wrap">
+          <i class="item" role="next"></i>
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-table-view.vue pageSizer选择器变化后，刷新数据 2`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" id="changelistbutton" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      变换list值
+    </a>
+  </div>
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
+      <div>
+      </div>
+    </div>
+    <div>
+      <div style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="root" index="0" vusion-slot-name="item">
+          Batch12
+        </div>
+        <div class="root" index="1" vusion-slot-name="item">
+          C12
+        </div>
+        <div class="root" index="2" vusion-slot-name="item">
+          C#12
+        </div>
+        <div class="root" index="3" vusion-slot-name="item">
+          C++12
+        </div>
+        <div class="root" index="4" vusion-slot-name="item">
+          CSS12
+        </div>
+        <div class="root" index="5" vusion-slot-name="item">
+          Clojure12
+        </div>
+        <div class="root" index="6" vusion-slot-name="item">
+          CoffeeScript12
+        </div>
+        <div class="root" index="7" vusion-slot-name="item">
+          Coq12
+        </div>
+        <div class="root" index="8" vusion-slot-name="item">
+          Diff12
+        </div>
+        <div class="root" index="9" vusion-slot-name="item">
+          Dockerfile12
+        </div>
+        <div class="root" index="10" vusion-slot-name="item">
+          F#12
+        </div>
+        <div class="root" index="11" vusion-slot-name="item">
+          Go12
+        </div>
+        <div class="root" index="12" vusion-slot-name="item">
+          Groovy12
+        </div>
+        <div class="root" index="13" vusion-slot-name="item">
+          HLSL12
+        </div>
+        <div class="root" index="14" vusion-slot-name="item">
+          HTML12
+        </div>
+        <div class="root" index="15" vusion-slot-name="item">
+          Handlebars12
+        </div>
+        <div class="root" index="16" vusion-slot-name="item">
+          Ignore12
+        </div>
+        <div class="root" index="17" vusion-slot-name="item">
+          Ini12
+        </div>
+        <div class="root" index="18" vusion-slot-name="item">
+          JSON12
+        </div>
+        <div class="root" index="19" vusion-slot-name="item">
+          Java12
+        </div>
+      </div>
+    </div>
+    <div>
+      <nav class="root" size="normal">
+        <div class="root sizer" tabindex="0">
+          <span>b</span>
+          <span style="display: none;">请选择</span>
+          <div class style="direction: ltr;" tags-overflow="collapse">
+            20条/页
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  10条/页
+                </div>
+                <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                  20条/页
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  50条/页
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+        <a class="item-wrap" disabled="disabled">
+          <i class="item" role="prev"></i>
+        </a>
+        <a class="item" selected="selected">1</a>
+        <a class="item">2</a>
+        <a class="item">3</a>
+        <a class="item-wrap">
+          <i class="item" role="next"></i>
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
+`;
