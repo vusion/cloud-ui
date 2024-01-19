@@ -123,11 +123,12 @@ export default {
 }
 .content[horizontal="left"] {
     justify-content: flex-start;
-    text-align: left;
 }
 .content[horizontal="center"] {
     justify-content: center;
-    text-align: center;
+}
+.content[horizontal="right"] {
+    justify-content: right;
 }
 .root[type="info"] {
     background: var(--alert-background-color-info);
