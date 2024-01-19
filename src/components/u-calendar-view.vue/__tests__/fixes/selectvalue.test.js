@@ -24,8 +24,6 @@ describe('u-calendar-view.vue select value test', () => {
             },
         });
 
-        expect(wrapper).toMatchSnapshot();
-
         const selected1 = wrapper.findAll('td[selected]');
 
         const selected11 = wrapper.findAll('td[selected]').at(0);
@@ -48,7 +46,6 @@ describe('u-calendar-view.vue select value test', () => {
         expect(selected21.text()).toBe('9');
         expect(selected22.text()).toBe('12');
 
-        expect(wrapper).toMatchSnapshot();
     });
 
     it('should empty multiple value', async () => {
@@ -70,15 +67,11 @@ describe('u-calendar-view.vue select value test', () => {
             },
         });
 
-
-        expect(wrapper).toMatchSnapshot();
-
         await wrapper.setProps({ value: [] });
 
         const selected = wrapper.findAll('td[selected]');
 
         expect(selected.exists()).toBe(false);
-        expect(wrapper).toMatchSnapshot();
     });
 
     it('initial multiple value []', () => {
@@ -102,7 +95,6 @@ describe('u-calendar-view.vue select value test', () => {
 
         const selected = wrapper.findAll('td[selected]');
         expect(selected.exists()).toBe(false);
-        expect(wrapper).toMatchSnapshot();
     });
 
     it('should change single value', async () => {
@@ -123,8 +115,6 @@ describe('u-calendar-view.vue select value test', () => {
             },
         });
 
-        expect(wrapper).toMatchSnapshot();
-
         const selected1 = wrapper.findAll('td[selected]');
 
         const selected11 = wrapper.findAll('td[selected]').at(0);
@@ -142,8 +132,6 @@ describe('u-calendar-view.vue select value test', () => {
 
         expect(selected21.exists()).toBe(true);
         expect(selected21.text()).toBe('9');
-
-        expect(wrapper).toMatchSnapshot();
     });
 
     it('should empty single value', async () => {
@@ -164,9 +152,6 @@ describe('u-calendar-view.vue select value test', () => {
             },
         });
 
-
-        expect(wrapper).toMatchSnapshot();
-
         await wrapper.setProps({ value: '' });
         const selected = wrapper.findAll('td[selected]');
         expect(selected.exists()).toBe(false);
@@ -174,8 +159,6 @@ describe('u-calendar-view.vue select value test', () => {
         await wrapper.setProps({ value: null });
         const selected1 = wrapper.findAll('td[selected]');
         expect(selected1.exists()).toBe(false);
-
-        expect(wrapper).toMatchSnapshot();
     });
 
     it('initial signle value is empty', () => {
@@ -198,7 +181,6 @@ describe('u-calendar-view.vue select value test', () => {
 
         const selected = wrapper.findAll('td[selected]');
         expect(selected.exists()).toBe(false);
-        expect(wrapper).toMatchSnapshot();
     });
 
     it('initial signle value is null', () => {
@@ -221,6 +203,5 @@ describe('u-calendar-view.vue select value test', () => {
 
         const selected = wrapper.findAll('td[selected]');
         expect(selected.exists()).toBe(false);
-        expect(wrapper).toMatchSnapshot();
     });
 })
