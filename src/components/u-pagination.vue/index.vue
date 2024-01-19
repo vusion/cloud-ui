@@ -151,6 +151,9 @@ export default {
         currentPage(page, oldPage) {
             this.$emit('change', { page, oldPage }, this);
         },
+        pageSize(pageSize) {
+            this.currentPageSize = pageSize;
+        },
     },
     created() {
         const currentPageSize = this.pageSize || DEFAULT_PAGE_SIZE;
