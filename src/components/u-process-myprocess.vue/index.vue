@@ -50,7 +50,7 @@
                 </u-linear-layout>
             </u-linear-layout>
             <u-table-view :data-source="load" ref="tableview" :page-size="20" :page-number="1" pagination :initial-load="initialLoad">
-                <u-table-view-column title="流程标题">
+                <u-table-view-column title="流程类型">
                     <template #cell="current"> {{ current.item.processTitle || '-' }}</template>
                 </u-table-view-column>
                 <u-table-view-column title="当前节点">
@@ -65,7 +65,7 @@
                 <u-table-view-column title="发起时间">
                     <template #cell="current"> {{ dateFormatter(current.item.taskCreateTime) }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="操作">
+                <u-table-view-column title="审批">
                     <template #cell="current">
                         <u-link @click="goToDetail(current.item)">查看</u-link>
                     </template>
