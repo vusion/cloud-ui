@@ -46,11 +46,12 @@ namespace nasl.ui {
         })
         validatingProcess: Function;
 
+        // 产品要求去掉
         @Prop({
             group: '主要属性',
-            title: '表单项名称',
+            title: '表单项名称。已废弃',
         })
-        name: nasl.core.String;
+        private name: nasl.core.String;
 
         @Prop({
             group: '主要属性',
