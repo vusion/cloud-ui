@@ -172,7 +172,7 @@ namespace nasl.ui {
             title: '默认每页条数',
             setter: {
                 concept: 'NumberInputSetter',
-                min: 10,
+                min: 1,
             },
             if: _ => _.pagination === true,
         })
@@ -604,7 +604,6 @@ namespace nasl.ui {
             description: '选择值改变时触发。单选模式中：',
         })
         onChange: (event: {
-            selected: nasl.core.Boolean;
             item: T;
             oldItem: T;
             value: V;

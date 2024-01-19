@@ -31,7 +31,11 @@ export default {
 .title {
     cursor: var(--cursor-pointer);
 }
-
+.root[direction="horizontal"] .head {
+    display: inline-flex;
+    justify-content: center;
+    min-width: 100%;
+}
 .root[layout="inline"] .title {
     padding: 0;
     padding-left: var(--steps-seleatable-item-title-padding-left);
@@ -182,12 +186,15 @@ export default {
 .root[direction="vertical"] .item::after {
     content: "";
     width: 1px;
-    height: 160px;
+    /* height: 160px; */
     display: block;
     pointer-events: none;
     background-color: var(--steps-item-radio-background);
-    margin-left: 11px;
-    margin: 16px 0 0 11px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--steps-item-radio-size) / 2);
+    top: calc(var(--steps-item-radio-size) + 16px); /* 16px 同 item margin bottom */
 }
 
 .root[direction="vertical"] .item[passed]::after {

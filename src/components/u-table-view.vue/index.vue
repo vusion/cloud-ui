@@ -412,7 +412,7 @@
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         :size="paginationSize"
-        @change="page($event.page)" @change-page-size="page(1, $event.pageSize)">
+        @change="page($event.page)" @change-page-size="onChangePageSize">
     </u-pagination>
     <div><slot></slot></div>
     <div v-if="draggable || acrossTableDrag" ref="dragGhost" :class="$style.dragGhost" :designer="$env.VUE_APP_DESIGNER">
@@ -604,6 +604,7 @@ export default {
             autoRowSpan: [], // 用于记录自动的的行合并
             columnVMsMap: {},
             tableHeadTrArr: [],
+            currentPageSize: undefined,
         };
     },
     computed: {
@@ -647,8 +648,10 @@ export default {
         paging() {
             if (this.usePagination) {
                 const paging = {};
-                paging.size = this.pageSize === '' ? 20 : this.pageSize;
-                paging.number = paging.number || 1;
+                let currentPageSize = this.currentPageSize !== undefined ? this.currentPageSize : this.pageSize;
+                currentPageSize = currentPageSize === '' ? 50 : currentPageSize;
+                paging.size = currentPageSize;
+                paging.number = this.pageNumber !== undefined ? this.pageNumber : 1;
                 return paging;
             } else
                 return undefined;
@@ -844,6 +847,18 @@ export default {
         virtualBottom() {
             this.$refs.virtualPlaceholder[0].style.height = this.virtualTop + this.virtualBottom + 'px';
         },
+        pageSize() {
+            this.currentPageSize = undefined;
+        },
+        paging: {
+            handler(value) {
+                if (this.currentDataSource) {
+                    if (this.currentDataSource.paging.number !== value.number || this.currentDataSource.paging.size !== value.size)
+                        this.page(value.number, value.size);
+                }
+            },
+            deep: true,
+        },
     },
     created() {
         this.$on('handle-columns', this.handleColumns);
@@ -857,10 +872,11 @@ export default {
             }
         }
         // @TODO: this.pageNumber
-        this.$watch('pageNumber', (number) => {
-            if (this.currentDataSource && this.currentDataSource.paging.number !== number)
-                this.page(number);
-        });
+        // this.$watch('pageNumber', (number) => {
+        //     if (this.currentDataSource && this.currentDataSource.paging.number !== number)
+        //         this.page(number);
+        // });
+
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.pageNumber && this.usePagination) {
@@ -3135,6 +3151,11 @@ export default {
                 ellipsis = columnVM.ellipsis;
             }
             return ellipsis && columnVM.type !== 'editable';
+        },
+        onChangePageSize(event) {
+            this.currentPageSize = event.pageSize;
+            const currentDataSource = this.currentDataSource;
+            this.page(currentDataSource && currentDataSource.paging ? currentDataSource.paging.number : this.pageNumber, event.pageSize);
         },
     },
 };

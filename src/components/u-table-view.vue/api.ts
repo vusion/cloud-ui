@@ -89,7 +89,7 @@ namespace nasl.ui {
                 title: 'undefined',
                 description: '排除字段',
             })
-            excludeColumns: Array<nasl.core.String> = [],
+            excludeColumns: nasl.collection.List<nasl.core.String> = [],
         ): void {}
 
         @Method({
