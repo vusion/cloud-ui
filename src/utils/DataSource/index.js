@@ -180,7 +180,9 @@ const VueDataSource = Vue.extend({
             }
 
             this.arrangedData = arrangedData;
-            this.originTotal = !this.remoteSorting && arrangedData.length; // 有filtering的时候，total需要重新设值
+            if (this.remoteFiltering) {
+                this.originTotal = arrangedData.length; // 有filtering的时候，total需要重新设值
+            }
         },
         _process(data) {
             return data;
