@@ -8,7 +8,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 describe('u-table-view.vue events test', () => {
     it('should $emit click-row', async () => {
-        const handleClickRow = jest.fn();
+        const handleDblClickRow = jest.fn();
 
         const dataSource = [
             { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
@@ -30,7 +30,7 @@ describe('u-table-view.vue events test', () => {
                 <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>`,
             },
         });
-        wrapper.vm.$on('click-row', handleClickRow);
+        wrapper.vm.$on('dblclick-row', handleDblClickRow);
 
         await sleep(16);
 
@@ -38,11 +38,11 @@ describe('u-table-view.vue events test', () => {
         const row = wrapper.findAll('tr').at(index + 1);
         expect(row.exists()).toBe(true);
 
-        row.trigger('click');
+        row.trigger('dblclick');
 
 
-        expect(handleClickRow).toBeCalled();
-        expect(wrapper.emitted('click-row')[0][0].index).toEqual(index);
-        expect(wrapper.emitted('click-row')[0][0].item).toEqual(dataSource[index]);
+        expect(handleDblClickRow).toBeCalled();
+        expect(wrapper.emitted('dblclick-row')[0][0].index).toEqual(index);
+        expect(wrapper.emitted('dblclick-row')[0][0].item).toEqual(dataSource[index]);
     });
 })
