@@ -141,7 +141,7 @@ namespace nasl.ui {
         @Prop({
             group: '状态属性',
             title: '显示状态',
-            description: '显示状态分为“True(显示)/False(隐藏)”，默认为“显示”',
+            description: '显示状态分为“True(显示)/False(隐藏)”，默认为“隐藏”',
             docDescription: '切换密码的显示/隐藏。',
             setter: {
                 concept: 'SwitchSetter',

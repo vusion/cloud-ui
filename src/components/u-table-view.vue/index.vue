@@ -40,7 +40,9 @@
                             :shadow="(isLastLeftFixed(columnVM, columnIndex, headTr) && (!scrollXStart || $env.VUE_APP_DESIGNER)) || (isFirstRightFixed(columnVM, columnIndex, headTr) && (!scrollXEnd || $env.VUE_APP_DESIGNER))"
                             :disabled="$env.VUE_APP_DESIGNER && columnVM.currentHidden"
                             :colspan="columnVM.colSpan"
-                            :rowspan="columnVM.rowSpan">
+                            :rowspan="columnVM.rowSpan"
+                            :ellipsis="columnVM.thEllipsis !== undefined? columnVM.thEllipsis : thEllipsis"
+                            v-ellipsis-title>
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
                                 <u-checkbox :value="allChecked" @check="checkAll($event.value)" :disabled="disabled" :readonly="readonly"></u-checkbox>
@@ -110,7 +112,7 @@
                             @click="onClickRow($event, item, rowIndex + virtualIndex)"
                             @dblclick="onDblclickRow($event, item, rowIndex + virtualIndex)">
                                 <template v-if="$env.VUE_APP_DESIGNER">
-                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'" v-ellipsis-title
+                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="getTdEllipsis(columnVM)" v-ellipsis-title
                                         vusion-slot-name="cell"
                                         :key="columnIndex"
                                         :vusion-next="true"
@@ -132,10 +134,10 @@
                                         <!--可视化占据的虚拟填充区域-->
                                         <div vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) ? false : columnVM.$attrs['plus-empty']">
                                             <!-- type === 'index' -->
-                                            <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
+                                            <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex + virtualIndex }}</span>
                                             <!-- type === 'radio' -->
                                             <span v-if="columnVM.type === 'radio'">
-                                                <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)" :readonly="readonly"></u-radio>
+                                                <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item, rowIndex + virtualIndex)" :readonly="readonly"></u-radio>
                                             </span>
                                             <!-- type === 'checkbox' -->
                                             <span v-if="columnVM.type === 'checkbox'">
@@ -204,7 +206,7 @@
                                 </template>
                                 <template v-else>
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs"
-                                        :ellipsis="columnVM.ellipsis && columnVM.type !== 'editable'"
+                                        :ellipsis="getTdEllipsis(columnVM)"
                                         v-ellipsis-title
                                         :key="columnIndex"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
@@ -228,7 +230,7 @@
                                             </span>
                                             <!-- type === 'radio' -->
                                             <span v-if="columnVM.type === 'radio'">
-                                                <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)" :readonly="readonly"></u-radio>
+                                                <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item, rowIndex + virtualIndex)" :readonly="readonly"></u-radio>
                                             </span>
                                             <!-- type === 'checkbox' -->
                                             <span v-if="columnVM.type === 'checkbox'">
@@ -266,7 +268,7 @@
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
                                                 <div @dblclick.stop="onSetEditing(item, columnVM)" :class="$style.editablewrap"
-                                                    :ellipsis="columnVM.ellipsis"
+                                                    :ellipsis="columnVM.ellipsis !== undefined? columnVM.ellipsis : ellipsis"
                                                     :style="{width:getEditablewrapWidth(item, columnIndex, treeColumnIndex)}"
                                                     :editing="item.editing === columnVM.field">
                                                     <div>
@@ -410,7 +412,7 @@
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         :size="paginationSize"
-        @change="page($event.page)" @change-page-size="page(1, $event.pageSize)">
+        @change="page($event.page)" @change-page-size="onChangePageSize">
     </u-pagination>
     <div><slot></slot></div>
     <div v-if="draggable || acrossTableDrag" ref="dragGhost" :class="$style.dragGhost" :designer="$env.VUE_APP_DESIGNER">
@@ -557,6 +559,8 @@ export default {
         // @inherit: virtualCount: { type: Number, default: 60 },
         // @inherit: throttle: { type: Number, default: 60 },
         listKey: { type: String, default: 'currentData' },
+        thEllipsis: { type: Boolean, default: false }, // 表头是否缩略展示
+        ellipsis: { type: Boolean, default: false }, // 单元格是否缩略展示
     },
     data() {
         return {
@@ -601,6 +605,7 @@ export default {
             autoRowSpan: [], // 用于记录自动的的行合并
             columnVMsMap: {},
             tableHeadTrArr: [],
+            currentPageSize: undefined,
         };
     },
     computed: {
@@ -644,8 +649,10 @@ export default {
         paging() {
             if (this.usePagination) {
                 const paging = {};
-                paging.size = this.pageSize === '' ? 20 : this.pageSize;
-                paging.number = paging.number || 1;
+                let currentPageSize = this.currentPageSize !== undefined ? this.currentPageSize : this.pageSize;
+                currentPageSize = currentPageSize === '' ? 50 : currentPageSize;
+                paging.size = currentPageSize;
+                paging.number = this.pageNumber !== undefined ? this.pageNumber : 1;
                 return paging;
             } else
                 return undefined;
@@ -841,6 +848,18 @@ export default {
         virtualBottom() {
             this.$refs.virtualPlaceholder[0].style.height = this.virtualTop + this.virtualBottom + 'px';
         },
+        pageSize() {
+            this.currentPageSize = undefined;
+        },
+        paging: {
+            handler(value) {
+                if (this.currentDataSource) {
+                    if (this.currentDataSource.paging.number !== value.number || this.currentDataSource.paging.size !== value.size)
+                        this.page(value.number, value.size);
+                }
+            },
+            deep: true,
+        },
     },
     created() {
         this.$on('handle-columns', this.handleColumns);
@@ -854,10 +873,11 @@ export default {
             }
         }
         // @TODO: this.pageNumber
-        this.$watch('pageNumber', (number) => {
-            if (this.currentDataSource && this.currentDataSource.paging.number !== number)
-                this.page(number);
-        });
+        // this.$watch('pageNumber', (number) => {
+        //     if (this.currentDataSource && this.currentDataSource.paging.number !== number)
+        //         this.page(number);
+        // });
+
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.pageNumber && this.usePagination) {
@@ -1621,10 +1641,10 @@ export default {
             this.exportData = undefined;
             await new Promise((res) => {
                 try {
-                    mergesMap.length > 0 ? this.$once('hook:updated', res): res();
+                    mergesMap.length > 0 ? this.$once('hook:updated', res) : res();
                 } catch (error) {
-                    console.log('mergeMap格式不正确', error)
-                    this.$once('hook:updated', res)
+                    console.log('mergeMap格式不正确', error);
+                    this.$once('hook:updated', res);
                 }
             });
             // console.timeEnd('复原表格');
@@ -1819,10 +1839,10 @@ export default {
             this.$emit('click-row', { item, index: rowIndex });
 
             if (this.selectable) {
-                this.select(item);
+                this.select(item, rowIndex);
             }
         },
-        select(item, cancelable) {
+        select(item, rowIndex, cancelable) {
             // Check if enabled
             if (this.readonly || this.disabled || item.disabled)
                 return; // Prevent replication
@@ -1847,6 +1867,7 @@ export default {
                 selectedItem: this.selectedItem,
                 item,
                 oldItem,
+                index: rowIndex,
             }, this);
         },
         check(item, checked, isContinue) {
@@ -2926,7 +2947,7 @@ export default {
 
             // 计算表头
             let tableHeadTrArr = [[]];
-            //需要处理下列设置了colSpan的情况
+            // 需要处理下列设置了colSpan的情况
             finalColumnVms.forEach((columnVM) => {
                 tableHeadTrArr[0].push(columnVM);
             });
@@ -3116,6 +3137,27 @@ export default {
         isColumnVM(columnVM) {
             return columnVM && columnVM.$vnode && columnVM.$vnode.tag && columnVM.$vnode.tag.includes('-column');
         },
+        getThEllipsis(columnVM) {
+            if (columnVM.thEllipsis === undefined) {
+                return this.thEllipsis;
+            } else {
+                return columnVM.thEllipsis;
+            }
+        },
+        getTdEllipsis(columnVM) {
+            let ellipsis = false;
+            if (columnVM.ellipsis === undefined) {
+                ellipsis = this.ellipsis;
+            } else {
+                ellipsis = columnVM.ellipsis;
+            }
+            return ellipsis && columnVM.type !== 'editable';
+        },
+        onChangePageSize(event) {
+            this.currentPageSize = event.pageSize;
+            const currentDataSource = this.currentDataSource;
+            this.page(currentDataSource && currentDataSource.paging ? currentDataSource.paging.number : this.pageNumber, event.pageSize);
+        },
     },
 };
 </script>
@@ -3260,6 +3302,43 @@ export default {
     background-color: var(--table-view-expander-background-disabled);
 }
 
+.head-title[ellipsis] * {
+    white-space: nowrap;
+}
+.head-title[ellipsis] div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.head-title[ellipsis] .column-title {
+    max-width:100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+}
+.head-title[filterable][ellipsis]:not([sortable]) .column-title,
+.head-title[sortable][ellipsis]:not([filterable]) .column-title {
+    max-width: calc(100% - 20px);
+}
+.head-title[sortable][filterable][ellipsis] .column-title {
+    max-width: calc(100% - 40px);
+}
+.head-title[ellipsis] .column-title + .sort,
+.head-title[ellipsis] .column-title + .filter-wrap
+ {
+    vertical-align: middle;
+}
+/* 为了文字和排序按钮对齐 */
+.head-title[ellipsis]::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+}
+
 .extra {
     float: right;
 }
@@ -3364,6 +3443,9 @@ export default {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cell[ellipsis] > * {
     white-space: nowrap;
 }
 .cell[last-left-fixed]::after,

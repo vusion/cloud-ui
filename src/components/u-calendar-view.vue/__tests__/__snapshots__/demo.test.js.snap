@@ -470,6 +470,9 @@ exports[`u-calendar-view.vue Demo-多选数据可清空 1`] = `
   <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
     清空选中数据
   </a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    改变数据
+  </a>
   <div class="root">
     <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
@@ -1406,6 +1409,12 @@ exports[`u-calendar-view.vue Demo-数据日历 1`] = `
 
 exports[`u-calendar-view.vue Demo-数据日历，reload方法 1`] = `
 <div class="root" direction="horizontal" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    清空选中数据
+  </a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    改变数据
+  </a>
   <div class="root">
     <div class="root" direction="horizontal" justify="space-between" type vusion-slot-name="default">
       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">

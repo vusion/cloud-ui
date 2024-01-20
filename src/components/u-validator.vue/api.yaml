@@ -31,6 +31,8 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+      advanced: true
+      deprecated: true
     - name: label
       title: 标签
       type: string
