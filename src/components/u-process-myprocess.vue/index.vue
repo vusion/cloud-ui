@@ -65,9 +65,9 @@
                 <u-table-view-column title="发起时间">
                     <template #cell="current"> {{ dateFormatter(current.item.taskCreateTime) }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="审批">
+                <u-table-view-column title="操作">
                     <template #cell="current">
-                        <u-link @click="goToDetail(current.item)">查看</u-link>
+                        <u-link @click="goToDetail(current.item)">{{ tabValue === 'pendingTasks'? '审批' : '查看' }}</u-link>
                     </template>
                 </u-table-view-column>
             </u-table-view>

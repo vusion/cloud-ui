@@ -25,12 +25,18 @@
                 </u-linear-layout>
             </template>
         </u-modal>
+        <u-link ref="link" :destination="destination" :target="target" :link="link"></u-link>
     </u-linear-layout>
 </template>
 
 <script>
 export default {
     name: 'u-process-button',
+    props: {
+        target: { type: String, default: '_self' },
+        destination: String,
+        link: [String, Function],
+    },
     data() {
         return {
             model: {
@@ -105,6 +111,11 @@ export default {
                 },
                 body,
             });
+            if (this.destination || this.link) {
+                this.$refs.link.$el.click();
+            } else {
+                window.location.reload();
+            }
         },
         async onClickButton(item) {
             // 表单验证后打开弹窗
