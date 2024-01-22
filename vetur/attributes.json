@@ -2227,6 +2227,10 @@
     "type": "number",
     "description": "最大可选年份值与当前年份值的差值"
   },
+  "u-date-picker/advanced-format": {
+    "type": "{ enable: boolean, value: string }",
+    "description": ""
+  },
   "u-date-picker/show-formatter": {
     "type": "string",
     "options": [
@@ -2366,10 +2370,6 @@
         ]
       }
     ],
-    "description": ""
-  },
-  "u-date-picker/advanced-format": {
-    "type": "{ enable: boolean, value: string }",
     "description": ""
   },
   "u-date-picker/autofocus": {
