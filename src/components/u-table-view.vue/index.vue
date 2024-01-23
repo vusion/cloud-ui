@@ -448,7 +448,7 @@ import throttle from 'lodash/throttle';
 import FVirtualTable from './f-virtual-table.vue';
 import i18nMixin from '../../mixins/i18n';
 import flatMap from 'lodash/flatMap';
-import { createTableHeaderExportHelper } from './createTableHeadExporter';
+import { createTableHeaderExportHelper, getXslxStyle } from './helper';
 
 export default {
     name: 'u-table-view',
@@ -1510,8 +1510,19 @@ export default {
 
                 // console.time('生成文件');
                 const sheetTitle = this.title || undefined;
+                const sheetTitleData = {
+                    title: sheetTitle,
+                };
+                if (sheetTitle) {
+                    const titleNode = this.$el.querySelector('[class^="u-table-view_title__"]');
+                    if (titleNode) {
+                        const style = getXslxStyle(titleNode);
+                        sheetTitleData.s = style.s;
+                        sheetTitleData.rect = style.rect;
+                    }
+                }
                 const { exportExcel } = require('../../utils/xlsx');
-                exportExcel(content, 'Sheet1', filename, sheetTitle, (content[0] || []).length, hasHeader, mergesMap);
+                exportExcel(content, 'Sheet1', filename, sheetTitleData, (content[0] || []).length, hasHeader, mergesMap);
                 // console.timeEnd('生成文件');
             } catch (err) {
                 console.error(err);
@@ -1552,7 +1563,19 @@ export default {
                             title = node.innerText;
                         }
                     }
-                    const cols = helper.setCell(title, colIndex + 1 === currentArr.length, rowspan, colspan);
+                    const style = getXslxStyle(node);
+                    // th上可能加style，而title上有自己的样式，需要合并
+                    const titleNode = node.querySelector('[class^="u-table-view_column-title__"]');
+                    if (titleNode) {
+                        const titleStyle = getXslxStyle(titleNode);
+                        style.s.font = titleStyle.s.font;
+                    }
+                    const data = {
+                        v: title,
+                        s: style.s,
+                        rect: style.rect,
+                    };
+                    const cols = helper.setCell(data, colIndex + 1 === currentArr.length, rowspan, colspan);
                     const realColIndex = cols[0];
                     if (rowspan !== 1 || colspan !== 1) {
                         mergesMap.push({
@@ -1563,7 +1586,7 @@ export default {
                         });
                     }
                     titleColIndexRelations.push([title, cols]);
-                    return title;
+                    return data;
                 } else {
                     return null;
                 }
@@ -1613,7 +1636,12 @@ export default {
                                     colspan,
                                 });
                             }
-                            return title;
+                            const style = getXslxStyle(node);
+                            return {
+                                v: title,
+                                s: style.s,
+                                rect: style.rect,
+                            };
                         } else {
                             return null;
                         }
@@ -1626,15 +1654,43 @@ export default {
                 const item = res[rowIndex];
                 for (let j = 0; j < item.length; j++) {
                     if (startIndexes[j] !== undefined)
-                        item[j] = startIndexes[j] + (hasHeader ? rowIndex - headerRowCount : rowIndex);
+                        item[j] = {
+                            v: startIndexes[j] + (hasHeader ? rowIndex - headerRowCount : rowIndex),
+                            s: item[j].s,
+                        };
                 }
             }
-
             const newResult = this.removeExcludeColumns(res, excludeColumns, mergesMap, titleColIndexRelations);
             res = newResult[0];
             mergesMap = newResult[1];
-
-            // console.timeEnd('渲染数据');
+            // 解决边框不展示问题，被合并的单元格需要补充样式
+            mergesMap.forEach((item) => {
+                const colspan = item.colspan;
+                const rowspan = item.rowspan;
+                const colItem = res[item.row][item.col];
+                if (colItem.rect) {
+                    colItem.rect.width = +colItem.rect.width / colspan;
+                    colItem.rect.height = +colItem.rect.height / rowspan;
+                }
+                for (let i = item.col + 1; i < item.col + colspan; i++) {
+                    if (!res[item.row][i]) {
+                        res[item.row][i] = {
+                            t: 's',
+                            v: '', // 必须设置，单设置s没有效果
+                            s: colItem.s,
+                        };
+                    }
+                }
+                for (let i = item.row + 1; i < item.row + rowspan; i++) {
+                    if (!res[i][item.col]) {
+                        res[i][item.col] = {
+                            t: 's',
+                            v: '',
+                            s: colItem.s,
+                        };
+                    }
+                }
+            });
 
             // console.time('复原表格');
             this.exportData = undefined;
