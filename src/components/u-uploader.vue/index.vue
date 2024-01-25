@@ -32,19 +32,18 @@
                 <div :class="$style.textContainer" v-if="listType === 'text' && $slots['file-list']">
                         <span v-for="flag in fileListFlags" :key="flag" :class="$style[flag]">
                             <component v-if="flag !== 'download-icon' && isShowFileListItem(flag)" :style="fileListStyleInfos[flag]" :is="fileListComponentFlagMap[flag].is" v-bind="fileListComponentFlagMap[flag].getProps(item)" />
-                            <a  v-else-if="downloadIconSwitcher && isShowFileListItem(flag)" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
+                            <a v-else-if="downloadIconSwitcher && isShowFileListItem(flag)" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
                                 <i-ico :name="downloadIcon" icotype="only"></i-ico>
-                            </a> 
+                            </a>
                         </span>
                     <i-ico name="remove" :class="$style.remove" v-if="!readonly && !disabled && !$env.VUE_APP_DESIGNER" @click="remove(index)"></i-ico>
-                    <u-linear-progress v-if="item.showProgress && !$env.VUE_APP_DESIGNER" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                 </div>
                 <div v-else>
                     <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
                     <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name || item.url }}</a>
                     <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
-                    <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                 </div>
+                <u-linear-progress v-if="item.showProgress && !$env.VUE_APP_DESIGNER" :class="$style.progress" :percent="item.percent"></u-linear-progress>
             </div>
         </template>
         <template v-else>
