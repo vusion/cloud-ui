@@ -85,7 +85,7 @@
     "swiper": "^7.4.1",
     "vue-cropper": "^0.5.8",
     "vusion-api": "^0.6.30",
-    "xlsx": "^0.17.3",
+    "xlsx-js-style": "^1.2.0",
     "yargs": "^16.2.0"
   },
   "devDependencies": {

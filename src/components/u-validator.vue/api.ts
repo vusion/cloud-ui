@@ -96,6 +96,7 @@ namespace nasl.ui {
         })
         ignoreValidation: nasl.core.Boolean = false;
 
+        // 过期属性去掉
         @Prop({
             group: '主要属性',
             title: '忽略验证规则',
@@ -103,7 +104,7 @@ namespace nasl.ui {
                 concept: 'SwitchSetter',
             },
         })
-        ignoreRules: nasl.core.Boolean = false;
+        private ignoreRules: nasl.core.Boolean = false;
 
         @Prop({
             group: '主要属性',

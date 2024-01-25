@@ -379,13 +379,12 @@ export default {
             }
         });
         this.$on('select', ($event) => {
-            if (!this.multiple) {
-                this.close();
-            } else {
+            if (this.multiple) {
                 this.preventBlur = true;
                 // 去掉appendTo判断：filterable的多选，会选择后关闭，也需要preventBlur
                 this.preventRootBlur = true;
             }
+
             if (this.filterable) {
                 this.filterText = this.selectedVM ? this.selectedVM.currentText : '';
                 setTimeout(() => {
@@ -398,6 +397,13 @@ export default {
                         );
                     });
                 });
+            }
+        });
+
+        // 修复单选，点击已选中值无法自动关闭
+        this.$on('click', ($event) => {
+            if (!this.multiple) {
+                this.close();
             }
         });
         this.setSelectedDataQueue(this.value);
