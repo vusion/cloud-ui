@@ -125,7 +125,12 @@ export default {
         // @TODO: 为了让两个动画错开的临时解决方案
         currentVisible(currentVisible) {
             if (currentVisible && !this.$env.VUE_APP_DESIGNER) {
-                this.$parent.openEvent();
+                // 通过方法改变visible 不需要重复触发事件
+                if (this._openByMethod) {
+                    this._openByMethod = false;
+                } else {
+                    this.$parent.openEvent();
+                }
             }
             this.$nextTick(() => (this.animationVisible = currentVisible));
         },
