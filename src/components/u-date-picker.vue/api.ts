@@ -125,7 +125,23 @@ namespace nasl.ui {
             title: '日期展示格式',
             setter: {
                 concept: 'EnumSelectSetter',
-                options: [{ title: '中国（2023年7月26日）' }, { title: 'ISO（2023-07-26）' }, { title: 'US（7/26/2023）' }, { title: 'EU（26/7/2023）' }, { title: '2023-28周' }, { title: '2023年第28周' }, { title: '2023-W28' }, { title: '中国（2023年7月）' }, { title: 'ISO（2023-07）' }, { title: 'US/EU（7/2023）' }, { title: '2023年第3季度' }, { title: '2023年Q3' }, { title: '2023-Q3' }, { title: '中国（2023年）' }, { title: 'ISO（2023）' }],
+                options: [
+                    { title: '中国（2023年7月26日）', if: _ => _.picker === 'date' },
+                    { title: 'ISO（2023-07-26）', if: _ => _.picker === 'date' },
+                    { title: 'US（7/26/2023）', if: _ => _.picker === 'date' },
+                    { title: 'EU（26/7/2023）', if: _ => _.picker === 'date' },
+                    { title: '2023-28周', if: _ => _.picker === 'week' },
+                    { title: '2023年第28周', if: _ => _.picker === 'week' },
+                    { title: '2023-W28', if: _ => _.picker === 'week' },
+                    { title: '中国（2023年7月）', if: _ => _.picker === 'month' },
+                    { title: 'ISO（2023-07）', if: _ => _.picker === 'month' },
+                    { title: 'US/EU（7/2023）', if: _ => _.picker === 'month' },
+                    { title: '2023年第3季度', if: _ => _.picker === 'quarter' },
+                    { title: '2023年Q3', if: _ => _.picker === 'quarter' },
+                    { title: '2023-Q3', if: _ => _.picker === 'quarter' },
+                    { title: '中国（2023年）', if: _ => _.picker === 'year' },
+                    { title: 'ISO（2023）', if: _ => _.picker === 'year' }
+                ],
             },
             if: _ => _.advancedFormat.enable === false,
         })
