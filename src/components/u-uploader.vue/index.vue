@@ -77,7 +77,7 @@
         </span>
     </div>
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
-        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="encodeURI(item.url || item)"></u-lightbox-item>
+        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="encodeUrl(item.url || item)"></u-lightbox-item>
     </u-lightbox>
     <cropper
         v-if="openCropper"
@@ -308,8 +308,16 @@ export default {
             const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes((item.name || item.url).split('.').pop()));
             return !!iconInfo ? (iconInfo[1] || 'file-default') : 'file-default'
         },
+        isURLEncoded(url) {
+            const decodedUrl = decodeURI(url); // 对 URL 进行解码
+            if (decodedUrl === url) {
+                return false; // URL 未被编码
+            } else {
+                return true; // URL 已被编码
+            }
+        },
         encodeUrl(url) {
-            return encodeURI(url);
+            return this.isURLEncoded(url) ? url : encodeURI(url);
         },
         fromValue(value) {
             if (this.converter === 'json')
