@@ -123,7 +123,12 @@ namespace nasl.ui {
             title: '时间展示格式',
             setter: {
                 concept: 'EnumSelectSetter',
-                options: [{ title: '12: 09: 09' }, { title: '12时09分09秒' }, { title: '12: 09' }, { title: '12时09分' }],
+                options: [
+                    { title: '12: 09: 09', if: _ => _.minUnit === 'second' },
+                    { title: '12时09分09秒', if: _ => _.minUnit === 'second' },
+                    { title: '12: 09', if: _ => _.minUnit === 'minute' },
+                    { title: '12时09分', if: _ => _.minUnit === 'minute' }
+                ],
             },
             if: _ => _.advancedFormat.enable === false,
         })
