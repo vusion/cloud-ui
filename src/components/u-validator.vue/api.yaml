@@ -85,6 +85,7 @@
       brifeDoc: ""
       docDescription: ""
       tooltipLink: ""
+      deprecated: true
     - name: validating-options
       title: 验证辅助对象
       type: object
