@@ -151,6 +151,8 @@ export const UModal = {
                 container.appendChild(this.$el);
             }
             this.currentVisible = true;
+            // 增加一个通过vm.open 打开弹窗标识符，防止多次触发事件(组件内部使用)
+            this._openByMethod = true;
             this.$emit('open');
         },
         close(ok) {
