@@ -82,7 +82,7 @@ export default {
                     this.selectedVM = undefined;
             } else {
                 this.selectedVM = this.itemVMs.find(
-                    (itemVM) => itemVM.value === value || String(itemVM.value) === String(value),
+                    (itemVM) => itemVM.value === value || (typeof value !== 'object' && String(itemVM.value) === String(value)),
                 );
                 if (!this.selectedVM && this.selectedValuesData && Array.isArray(this.selectedValuesData)) {
                     this.selectedVM = this.selectedValuesData.find(
