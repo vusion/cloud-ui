@@ -171,7 +171,7 @@
                                             </template>
                                             <!-- Normal text -->
                                             <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex, columnItem: columnVM.columnItem }">
-                                                <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field) || item) }}</span>
+                                                <span v-if="columnVM.field && !['radio', 'checkbox'].includes(columnVM.type)" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field) || item) }}</span>
                                             </f-slot>
                                             <!-- type === 'dragHandler' -->
                                             <span v-if="columnVM.type === 'dragHandler'">
@@ -274,12 +274,12 @@
                                                     <div>
                                                         <template v-if="item.editing === columnVM.field">
                                                             <f-slot name="editcell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex }">
-                                                                <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                                <span v-if="columnVM.field && !['radio', 'checkbox'].includes(columnVM.type)" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
                                                         <template v-else>
                                                             <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex, columnItem: columnVM.columnItem }">
-                                                                <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                                <span v-if="columnVM.field && !['radio', 'checkbox'].includes(columnVM.type)" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                             </f-slot>
                                                         </template>
                                                     </div>
@@ -287,7 +287,7 @@
                                             </template>
                                             <template v-else>
                                                 <f-slot name="cell" :vm="columnVM" :props="{ item: getRealItem(item, rowIndex + virtualIndex), value: $at(item, columnVM.field), columnVM, rowIndex: rowIndex + virtualIndex, columnIndex, index: rowIndex + virtualIndex, columnItem: columnVM.columnItem }">
-                                                    <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                    <span v-if="columnVM.field && !['radio', 'checkbox'].includes(columnVM.type)" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                                 </f-slot>
                                             </template>
 
