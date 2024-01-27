@@ -1,30 +1,42 @@
 import XLSX from 'xlsx-js-style';
 
-export function exportExcel(aoa, sheetName, fileName, sheetTitleData, columns, hasHeader, merges) {
-    // 设置列宽和行高
-    const cols = [];
-    const rows = [];
-    aoa.forEach((row, rowIndex) => {
-        const heights = row.map((v) => v && v.rect && +v.rect.height).filter((v) => v !== undefined);
-        const height = Math.max(...heights);
-        rows[rowIndex] = { hpx: height };
-    });
-    if (sheetTitleData.title) {
-        rows.unshift({ hpx: sheetTitleData.rect && sheetTitleData.rect.height });
-    }
-    for (let i = 0; i < aoa[0].length; i++) {
-        let widthResult = 0;
-        for (let j = 0; j < aoa.length; j++) {
-            if (aoa[j][i] && aoa[j][i].rect) {
-                const width = aoa[j][i].rect.width;
-                widthResult = Math.max(widthResult, width);
-            }
-        }
-        cols[i] = { wpx: widthResult };
-    }
+export function exportExcel(aoa, sheetName, fileName, sheetTitleData, columns, hasHeader, merges, includeStyles) {
     // return;
     // 若有标题，添加标题到第一行
     const sheet = XLSX.utils.json_to_sheet([]);
+    aoa.forEach((row) => {
+        // 默认设置为字符串
+        row.forEach((cell) => {
+            cell.t = 's';
+        });
+    });
+    // 设置列宽和行高
+    if (includeStyles) {
+        const cols = [];
+        const rows = [];
+        aoa.forEach((row, rowIndex) => {
+            // 获取行高
+            const heights = row.map((v) => v && v.rect && +v.rect.height).filter((v) => v !== undefined);
+            const height = Math.max(...heights);
+            rows[rowIndex] = { hpx: height };
+        });
+        if (sheetTitleData.title) {
+            rows.unshift({ hpx: sheetTitleData.rect && sheetTitleData.rect.height });
+        }
+        // 获取列宽
+        for (let i = 0; i < aoa[0].length; i++) {
+            let widthResult = 0;
+            for (let j = 0; j < aoa.length; j++) {
+                if (aoa[j][i] && aoa[j][i].rect) {
+                    const width = aoa[j][i].rect.width;
+                    widthResult = Math.max(widthResult, width);
+                }
+            }
+            cols[i] = { wpx: widthResult };
+        }
+        sheet['!cols'] = cols;
+        sheet['!rows'] = rows;
+    }
     if (sheetTitleData.title) {
         const endCell = XLSX.utils.encode_col(columns - 1) + 1;
         XLSX.utils.sheet_add_aoa(sheet, [[sheetTitleData.title]], { origin: { r: 0, c: 0 } });
@@ -89,8 +101,7 @@ export function exportExcel(aoa, sheetName, fileName, sheetTitleData, columns, h
             cell.t = 'd';
         }
     });
-    sheet['!cols'] = cols;
-    sheet['!rows'] = rows;
+   
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, sheet, sheetName);
     const workbookBlob = workbook2blob(wb);
