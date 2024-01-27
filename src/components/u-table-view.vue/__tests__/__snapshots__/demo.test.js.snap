@@ -40393,6 +40393,303 @@ exports[`u-table-view.vue Demo-表头文字省略显示 1`] = `
 </div>
 `;
 
+exports[`u-table-view.vue Demo-表格有border 1`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root" style="border: 2px solid #ddd;">
+    <div class="table" position="static">
+      <div class="head" style="top: 0px;">
+        <table class="root head-table" sticky-fixed="true" striped="true">
+          <colgroup>
+            <col width="0">
+            <col width="0">
+            <col>
+            <col width="0">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  用户名
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  手机号码
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  地址
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  最近登录时间
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="body" sticky-fixed="true">
+        <div class="root scrollcview">
+          <div class="wrap">
+            <div>
+              <table class="root" sticky-fixed="true" striped="true">
+                <colgroup>
+                  <col width="0">
+                  <col width="0">
+                  <col>
+                  <col width="0">
+                </colgroup>
+                <tbody>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917895</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160283</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-12 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127809</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-05-18 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261214</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-10 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340020</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-16 01:32:06</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+          </div>
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" style="display: none;">
+      <div class="line" style="display: none;"></div>
+      <div class="mask" style="display: none;"></div>
+    </div>
+    <div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+    </div>
+  </div>
+  <div class="root" style="border: 2px solid #ddd;">
+    <div class="table" position="static">
+      <div class="head" style="top: 0px;">
+        <table class="root head-table" line="true" sticky-fixed="true" striped="true">
+          <colgroup>
+            <col width="0">
+            <col width="0">
+            <col>
+            <col width="0">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  用户名
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  手机号码
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  地址
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  最近登录时间
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="body" sticky-fixed="true">
+        <div class="root scrollcview">
+          <div class="wrap">
+            <div>
+              <table class="root" line="true" sticky-fixed="true" striped="true">
+                <colgroup>
+                  <col width="0">
+                  <col width="0">
+                  <col>
+                  <col width="0">
+                </colgroup>
+                <tbody>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917895</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160283</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-12 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127809</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-05-18 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261214</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-10 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340020</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-16 01:32:06</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+          </div>
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" style="display: none;">
+      <div class="line" style="display: none;"></div>
+      <div class="mask" style="display: none;"></div>
+    </div>
+    <div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`u-table-view.vue Demo-表格线条 1`] = `
 <div>
   <div class="root">
