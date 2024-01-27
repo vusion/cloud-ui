@@ -18905,15 +18905,20 @@ exports[`u-table-view.vue Demo-导出 Excel 1`] = `
 exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
 <div class="root" direction="vertical" type vusion-slot-name="default">
   <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
-    导出 Excel
+    导出 Excel，不带样式
+  </a>
+  <a class="root" color="primary" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    导出 Excel， 带样式
   </a>
   <div class="root">
     <div class="title" style="text-align: center;" vusion-slot-name="title" vusion-slot-name-edit="title">表格标题</div>
     <div class="table" position="static">
       <div class="head" style="top: 0px;">
-        <table class="root head-table" line="true" sticky-fixed="true" striped="true" style="width: 660px;">
+        <table class="root head-table" line="true" sticky-fixed="true" striped="true" style="width: 860px;">
           <colgroup>
             <col width="60">
+            <col width="100">
+            <col width="100">
             <col width="100">
             <col width="100">
             <col width="100">
@@ -18936,6 +18941,16 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
               <th class="head-title boldHeader" style="color: red;">
                 <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                   name
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  数字
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  百分号
                 </span>
               </th>
               <th class="head-title boldHeader" style="background-color: rgba(232, 194, 81, 0.51);">
@@ -18966,9 +18981,11 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
         <div class="root scrollcview">
           <div class="wrap">
             <div>
-              <table class="root" line="true" sticky-fixed="true" striped="true" style="width: 660px;">
+              <table class="root" line="true" sticky-fixed="true" striped="true" style="width: 860px;">
                 <colgroup>
                   <col width="60">
+                  <col width="100">
+                  <col width="100">
                   <col width="100">
                   <col width="100">
                   <col width="100">
@@ -18987,6 +19004,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">张三</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -18997,25 +19022,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -19418,6 +19425,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_0</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -19428,25 +19443,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -19849,6 +19846,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_1</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -19859,25 +19864,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -20280,6 +20267,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_2</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -20290,25 +20285,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -20711,6 +20688,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_3</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -20721,25 +20706,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -21142,6 +21109,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_4</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -21152,25 +21127,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -21573,6 +21530,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_5</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -21583,25 +21548,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -22004,6 +21951,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_6</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -22014,25 +21969,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -22435,6 +22372,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_7</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -22445,25 +22390,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -22866,6 +22793,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_8</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -22876,25 +22811,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -23297,6 +23214,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_9</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -23307,25 +23232,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -23728,6 +23635,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_10</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -23738,25 +23653,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -24159,6 +24056,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_11</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -24169,25 +24074,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -24590,6 +24477,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_12</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -24600,25 +24495,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -25021,6 +24898,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_13</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -25031,25 +24916,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -25452,6 +25319,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_14</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -25462,25 +25337,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -25883,6 +25740,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_15</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -25893,25 +25758,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -26314,6 +26161,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_16</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -26324,25 +26179,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -26745,6 +26582,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_17</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -26755,25 +26600,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -27176,6 +27003,14 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                     <td class="cell" style="color: red;">
                       <span class="root" vusion-slot-name-edit="text">name_18</span>
                     </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">0.12
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">10%
+                      </div>
+                    </td>
                     <td class="cell" style="background-color: rgba(232, 194, 81, 0.51);">
                       <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
                         <div>
@@ -27186,25 +27021,7 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
                       </div>
                     </td>
                     <td class="cell">
-                      <div class="root" direction="horizontal" gap="small" type vusion-slot-name="default">
-                        <div class="root" tabindex="0">
-                          <span>b</span>
-                          <span>自定义</span>
-                          <div class style="direction: ltr;" tags-overflow="collapse">
-                          </div>
-                          <transition-stub name="fade" style="width: 100%;">
-                            <div class="root" style="display: none;">
-                              <div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  JS
-                                </div>
-                                <div class="root" style="direction: ltr;" vusion-slot-name="default">
-                                  Node.js
-                                </div>
-                              </div>
-                            </div>
-                          </transition-stub>
-                        </div>
+                      <div class="root" direction="horizontal" gap="small" style="background-color: orange;" type vusion-slot-name="default">linearLayout
                       </div>
                     </td>
                     <td class="cell">
@@ -27651,6 +27468,10 @@ exports[`u-table-view.vue Demo-导出 Excel 样式设置 1`] = `
       <div style="display: none; --table-view-td-color: rgb(48 92 131);">
       </div>
       <div style="display: none; color: red;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
       </div>
       <div style="display: none; background-color: rgba(232, 194, 81, 0.51);">
       </div>

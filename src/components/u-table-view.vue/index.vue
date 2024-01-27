@@ -1444,7 +1444,7 @@ export default {
                 .filter((item) => !!item)
                 .join(',');
         },
-        async exportExcel(page = 1, size = 2000, filename, sort, order, excludeColumns = []) {
+        async exportExcel(page = 1, size = 2000, filename, sort, order, excludeColumns = [], includeStyles = false) {
             if (this.currentDataSource.sorting && this.currentDataSource.sorting.field) {
                 const { sorting } = this.currentDataSource;
                 sort = sort || sorting.field;
@@ -1481,7 +1481,7 @@ export default {
                 let content = [];
                 let mergesMap = [];
                 if (!this.currentDataSource._load) {
-                    const result = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader);
+                    const result = await this.getRenderResult(this.currentDataSource.data, excludeColumns, hasHeader, includeStyles);
                     content = result[0];
                     mergesMap = result[1];
                 } else {
@@ -1502,7 +1502,7 @@ export default {
                         return;
                     }
 
-                    const result = await this.getRenderResult(res, excludeColumns, hasHeader);
+                    const result = await this.getRenderResult(res, excludeColumns, hasHeader, includeStyles);
                     content = result[0];
                     mergesMap = result[1];
                 }
@@ -1512,7 +1512,7 @@ export default {
                 const sheetTitleData = {
                     title: sheetTitle,
                 };
-                if (sheetTitle) {
+                if (sheetTitle && includeStyles) {
                     const titleNode = this.$el.querySelector('[class^="u-table-view_title__"]');
                     if (titleNode) {
                         const style = getXslxStyle(titleNode);
@@ -1521,7 +1521,7 @@ export default {
                     }
                 }
                 const { exportExcel } = require('../../utils/xlsx');
-                exportExcel(content, 'Sheet1', filename, sheetTitleData, (content[0] || []).length, hasHeader, mergesMap);
+                exportExcel(content, 'Sheet1', filename, sheetTitleData, (content[0] || []).length, hasHeader, mergesMap, includeStyles);
                 // console.timeEnd('生成文件');
             } catch (err) {
                 console.error(err);
@@ -1533,7 +1533,7 @@ export default {
             document.removeEventListener('click', fn, true);
             document.removeEventListener('keydown', fn, true);
         },
-        async getRenderResult(arr = [], excludeColumns = [], hasHeader = true) {
+        async getRenderResult(arr = [], excludeColumns = [], hasHeader = true, includeStyles = false) {
             let mergesMap = [];
             if (arr.length === 0) {
                 if (!hasHeader)
@@ -1562,18 +1562,16 @@ export default {
                             title = node.innerText;
                         }
                     }
-                    const style = getXslxStyle(node);
-                    // th上可能加style，而title上有自己的样式，需要合并
-                    const titleNode = node.querySelector('[class^="u-table-view_column-title__"]');
-                    if (titleNode) {
-                        const titleStyle = getXslxStyle(titleNode);
-                        style.s.font = titleStyle.s.font;
-                    }
                     const data = {
                         v: title,
-                        s: style.s,
-                        rect: style.rect,
                     };
+                    if (includeStyles) {
+                        const style = getXslxStyle(node);
+                        Object.assign(data, {
+                            s: style.s,
+                            rect: style.rect,
+                        });
+                    }
                     const cols = helper.setCell(data, colIndex + 1 === currentArr.length, rowspan, colspan);
                     const realColIndex = cols[0];
                     if (rowspan !== 1 || colspan !== 1) {
@@ -1635,12 +1633,17 @@ export default {
                                     colspan,
                                 });
                             }
-                            const style = getXslxStyle(node);
-                            return {
+                            const data = {
                                 v: title,
-                                s: style.s,
-                                rect: style.rect,
                             };
+                            if (includeStyles) {
+                                const style = getXslxStyle(node);
+                                Object.assign(data, {
+                                    s: style.s,
+                                    rect: style.rect,
+                                });
+                            }
+                            return data;
                         } else {
                             return null;
                         }

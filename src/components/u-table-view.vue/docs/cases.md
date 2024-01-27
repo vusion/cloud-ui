@@ -2386,7 +2386,8 @@ export default {
 ``` vue
 <template>
     <u-linear-layout direction="vertical">
-        <u-button color="primary" @click="() => $refs.tableView.exportExcel()">导出 Excel</u-button>
+        <u-button color="primary" @click="() => $refs.tableView.exportExcel()">导出 Excel，不带样式</u-button>
+        <u-button color="primary" @click="() => $refs.tableView.exportExcel(undefined, undefined, undefined, undefined, undefined, undefined, true)">导出 Excel， 带样式</u-button>
         <u-table-view ref="tableView" pageable :remote-paging="true" :data-source="load" title="表格标题" striped line>
             <u-table-view-column type="index" width="60" title="序号"></u-table-view-column>
             <u-table-view-column title="创建时间" style="--table-view-td-color: rgb(48 92 131);">
@@ -2399,6 +2400,16 @@ export default {
                         <u-text :text="scope.item.student.name"></u-text>
                 </template>
             </u-table-view-column>
+            <u-table-view-column title="数字">
+                <template #cell="scope">
+                    <u-linear-layout gap="small">0.12</u-linear-layout>
+                </template>
+            </u-table-view-column>
+            <u-table-view-column title="百分号">
+                <template #cell="scope">
+                    <u-linear-layout gap="small">10%</u-linear-layout>
+                </template>
+            </u-table-view-column>
             <u-table-view-column title="输入" :style="{'background-color': variable2}">
                 <template #cell="scope">
                     <u-linear-layout gap="small">
@@ -2408,12 +2419,7 @@ export default {
             </u-table-view-column>
             <u-table-view-column title="选择">
                 <template #cell="scope">
-                    <u-linear-layout gap="small">
-                           <u-select placeholder="自定义">
-                                <u-select-item value="java">JS</u-select-item>
-                                <u-select-item value="nodejs">Node.js</u-select-item>
-                            </u-select>
-                    </u-linear-layout>
+                    <u-linear-layout gap="small" style="background-color: orange">linearLayout</u-linear-layout>
                 </template>
             </u-table-view-column>
             <u-table-view-column title="操作">
