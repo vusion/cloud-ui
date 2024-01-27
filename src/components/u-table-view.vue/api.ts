@@ -90,6 +90,11 @@ namespace nasl.ui {
                 description: '排除字段',
             })
             excludeColumns: nasl.collection.List<nasl.core.String> = [],
+            @Param({
+                title: 'undefined',
+                description: '是否带样式',
+            })
+            includeStyles?: nasl.core.Boolean,
         ): void {}
 
         @Method({

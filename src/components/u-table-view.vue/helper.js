@@ -68,6 +68,33 @@ export const getXslxStyle = (elNode) => {
     bgColor = removeUnit(bgColor.toARGBHEX(), '#');
     let color = Color.str2Color(nodeComputedStyle.color);
     color = removeUnit(color.toARGBHEX(), '#');
+    let fontSize = removeUnit(nodeComputedStyle.fontSize, 'px');
+    if (elNode.nodeName === 'TH') {
+        // th上可能加style，而title上有自己的样式，需要合并
+        const titleNode = elNode.querySelector('[class^="u-table-view_column-title__"]');
+        if (titleNode) {
+            const titleComputedStyle = window.getComputedStyle(titleNode);
+            color = Color.str2Color(titleComputedStyle.color);
+            color = removeUnit(color.toARGBHEX(), '#');
+            fontSize = removeUnit(titleComputedStyle.fontSize, 'px');
+        }
+    } else if (elNode.nodeName === 'TD') {
+        // 背景色在第一层的linear-layout上
+        const childNode = elNode.children[0];
+        if (childNode && childNode.className && childNode.className.startsWith('u-linear-layout__')) {
+            const childComputedStyle = window.getComputedStyle(childNode);
+            let childColor = Color.str2Color(childComputedStyle.color);
+            childColor = removeUnit(childColor.toARGBHEX(), '#');
+            let childBgColor = Color.str2Color(childComputedStyle.backgroundColor);
+            childBgColor = removeUnit(childBgColor.toARGBHEX(), '#');
+            if (childBgColor !== '00000000') {
+                bgColor = childBgColor;
+            }
+            if (childColor !== '00000000') {
+                color = childColor;
+            }
+        }
+    }
     const border = {};
     const borders = ['top', 'right', 'bottom', 'left'];
     borders.forEach((borderName) => {
@@ -97,7 +124,7 @@ export const getXslxStyle = (elNode) => {
     }
     const s = {
         font: {
-            sz: removeUnit(nodeComputedStyle.fontSize, 'px'),
+            sz: fontSize,
             color: {
                 rgb: color === '00000000' ? '' : color,
             },
