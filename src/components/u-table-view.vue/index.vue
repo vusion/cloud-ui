@@ -9,7 +9,7 @@
         <slot name="title">{{ title }}</slot>
     </div>
     <slot name="config-columns"></slot>
-    <div :class="$style.table" v-for="(tableMeta, tableMetaIndex) in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
+    <div :class="$style.table" ref="tablewrap" v-for="(tableMeta, tableMetaIndex) in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
         <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
@@ -1083,7 +1083,12 @@ export default {
             this.timer = setTimeout(() => {
                 this.timer = undefined;
 
+                // 当最外层加了border后，会导致内部的宽度大于tablewrap的宽度，会出滚动条：Bug-2792431057259520
                 let rootWidth = this.$el.offsetWidth;
+                const tablewrapWidth = this.$refs.tablewrap[0] && this.$refs.tablewrap[0].offsetWidth;
+                if (tablewrapWidth) {
+                    rootWidth = tablewrapWidth;
+                }
                 if (!rootWidth) {
                     // 初始表格隐藏时，上面的值为0，需要特殊处理
                     let parentEl = this.$el && this.$el.parentElement;
