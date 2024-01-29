@@ -32,10 +32,10 @@ namespace nasl.ui {
             docDescription: '支持选择抽屉的显示位置，支持左、右两个位置',
             setter: {
                 concept: 'EnumSelectSetter',
-                options: [{ title: '左' }, { title: '右' }],
+                options: [{ title: '左' }, { title: '右' }, { title: '上' }, { title: '下' }],
             },
         })
-        placement: 'left' | 'right' = 'right';
+        placement: 'left' | 'right'| 'top'| 'bottom' = 'right';
 
         @Prop({
             group: '主要属性',
