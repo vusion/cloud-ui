@@ -1126,6 +1126,11 @@
           description: 排除字段
           required: false
           default: []
+        - name: includeStyles
+          type: boolean
+          description: 是否带样式
+          required: false
+          default: false
     - name: resetEdit
       description: 重制编辑列的编辑状态为非编辑态
       params:
