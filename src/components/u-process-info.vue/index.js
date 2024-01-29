@@ -1,5 +1,5 @@
 import UProcessInfoReal from './index.vue';
-import UProcessInfo from './designerIndex.vue';
+import UProcessInfo from './index.designer.vue';
 
 export {
     UProcessInfoReal,

@@ -1,5 +1,5 @@
 import UProcessMyprocessReal from './index.vue';
-import UProcessMyprocess from './designerIndex.vue';
+import UProcessMyprocess from './index.designer.vue';
 
 export {
     UProcessMyprocessReal,

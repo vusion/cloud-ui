@@ -1,31 +1,33 @@
 <template>
     <div :class="$style.root">
         <div :class="$style.item">
-            <div :class="$style.label">发起人：</div>
+            <div :class="$style.label">{{ $tt('startBy') }}：</div>
             <div :class="$style.value" v-ellipsis-title>{{ detail.startBy || '-' }}</div>
         </div>
         <div :class="$style.item">
-            <div :class="$style.label">发起时间：</div>
+            <div :class="$style.label">{{ $tt('processStartTime') }}：</div>
             <div :class="$style.value" v-ellipsis-title>{{ dateFormatter(detail.processStartTime) }}</div>
         </div>
         <div :class="$style.item">
-            <div :class="$style.label">当前状态：</div>
+            <div :class="$style.label">{{ $tt('finished') }}：</div>
             <div :class="$style.value" v-ellipsis-title> {{ formatStatus(detail.finished) }}</div>
         </div>
         <div :class="$style.item">
-            <div :class="$style.label">当前节点：</div>
+            <div :class="$style.label">{{ $tt('currentNodes') }}：</div>
             <div :class="$style.value" v-ellipsis-title> {{ formatArray2String(detail.currentNodes) }}</div>
         </div>
         <div :class="$style.item">
-            <div :class="$style.label">参与人：</div>
+            <div :class="$style.label">{{ $tt('currentCandidateUsers') }}：</div>
             <div :class="$style.value" v-ellipsis-title>{{ formatArray2String(detail.currentCandidateUsers) }}</div>
         </div>
     </div>
 </template>
 
 <script>
+import i18nMixin from '../../mixins/i18n';
 export default {
     name: 'u-process-info',
+    mixins: [i18nMixin('u-process-info')],
     data() {
         return {
             detail: {

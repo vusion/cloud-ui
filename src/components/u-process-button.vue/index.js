@@ -1,5 +1,5 @@
 import UProcessButtonReal from './index.vue';
-import UProcessButton from './designerIndex.vue';
+import UProcessButton from './index.designer.vue';
 
 export {
     UProcessButton,

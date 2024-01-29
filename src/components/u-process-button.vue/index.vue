@@ -9,19 +9,19 @@
             ref="modal"
             @close="currentItem = undefined">
             <u-form label-layout="block" ref="form">
-                <u-form-item label="审批意见" :required="currentItem.opinionsEnable" :rules="currentItem.opinionsEnable?'required':''" v-if="currentItem.name !== 'transfer'">
-                    <u-textarea v-model="model.comment" size="normal full" placeholder="请输入">
+                <u-form-item :label="$tt('approvalComments')" :required="currentItem.opinionsEnable" :rules="currentItem.opinionsEnable?'required':''" v-if="currentItem.name !== 'transfer'">
+                    <u-textarea v-model="model.comment" size="normal full" :placeholder="$tt('placeholder')">
                     </u-textarea>
                 </u-form-item>
-                <u-form-item label="请选择转交人" required rules="required" v-if="currentItem.name === 'transfer'">
-                    <u-input v-model="model.userName" size="normal full" placeholder="请输入">
+                <u-form-item :label="$tt('selectTransfer')" required rules="required" v-if="currentItem.name === 'transfer'">
+                    <u-input v-model="model.userName" size="normal full" :placeholder="$tt('placeholder')">
                     </u-input>
                 </u-form-item>
             </u-form>
             <template #foot>
                 <u-linear-layout justify="end">
-                    <u-button @click="close()">取 消</u-button>
-                    <u-button color="primary" @click="onSubmit()">提 交</u-button>
+                    <u-button @click="close()">{{ $tt('cancel') }}</u-button>
+                    <u-button color="primary" @click="onSubmit()">{{ $tt('submit') }}</u-button>
                 </u-linear-layout>
             </template>
         </u-modal>
@@ -30,8 +30,10 @@
 </template>
 
 <script>
+import i18nMixin from '../../mixins/i18n';
 export default {
     name: 'u-process-button',
+    mixins: [i18nMixin('u-process-button')],
     props: {
         target: { type: String, default: '_self' },
         destination: String,

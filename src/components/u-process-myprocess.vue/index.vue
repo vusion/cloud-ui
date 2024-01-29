@@ -1,15 +1,15 @@
 <template>
     <div>
         <u-tabs appear="line" v-model="tabValue" @select="onSelectTab">
-            <u-tab title="我的待办" value="pendingTasks"></u-tab>
-            <u-tab title="我的已办" value="processedTasks"></u-tab>
-            <u-tab title="我的发起" value="intiationProcess"></u-tab>
+            <u-tab :title="$tt('pendingTasks')" value="pendingTasks"></u-tab>
+            <u-tab :title="$tt('processedTasks')" value="processedTasks"></u-tab>
+            <u-tab :title="$tt('intiationProcess')" value="intiationProcess"></u-tab>
         </u-tabs>
         <u-linear-layout direction="vertical">
             <u-linear-layout mode="flex" justify="space-between">
                 <u-linear-layout :class="$style.left">
                     <u-form layout="inline">
-                        <u-form-item label="流程">
+                        <u-form-item :label="$tt('process')">
                             <u-select
                                 filterable
                                 clearable
@@ -20,19 +20,19 @@
                                 :initial-load="true">
                             </u-select>
                         </u-form-item>
-                        <u-form-item label="发起时间">
+                        <u-form-item :label="$tt('createTime')">
                             <u-date-picker
                                 range
                                 picker="date"
                                 clearable
-                                placeholder="开始日期"
-                                placeholder-right="结束日期"
+                                :placeholder="$tt('createTimeAfter')"
+                                :placeholder-right="$tt('createTimeBefore')"
                                 converter="json"
                                 :start-date.sync="filter.createTimeAfter"
                                 :end-date.sync="filter.createTimeBefore">
                             </u-date-picker>
                         </u-form-item>
-                        <u-form-item label="发起人" v-if="tabValue !== 'intiationProcess'">
+                        <u-form-item :label="$tt('startBy')" v-if="tabValue !== 'intiationProcess'">
                             <u-select
                                 filterable
                                 clearable
@@ -46,28 +46,28 @@
                     </u-form>
                 </u-linear-layout>
                 <u-linear-layout>
-                    <u-button color="primary" @click="onSearch">查 询</u-button>
+                    <u-button color="primary" @click="onSearch">{{ $tt('search') }}</u-button>
                 </u-linear-layout>
             </u-linear-layout>
             <u-table-view :data-source="load" ref="tableview" :page-size="20" :page-number="1" pagination :initial-load="initialLoad">
-                <u-table-view-column title="流程类型">
-                    <template #cell="current"> {{ current.item.processTitle || '-' }}</template>
+                <u-table-view-column :title="$tt('processType')">
+                    <template #cell="current"> {{ current.item.processType || '-' }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="当前节点">
-                    <template #cell="current"> {{ current.item.currentNode || '-' }}</template>
+                <u-table-view-column :title="$tt('currentNodes')">
+                    <template #cell="current"> {{ current.item.currentNodes && current.item.currentNodes.join(',') || '-' }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="当前处理人">
+                <u-table-view-column :title="$tt('currentAssignee')">
                     <template #cell="current"> {{ formatCurrentAssignee(current.item) }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="发起人">
+                <u-table-view-column :title="$tt('startBy')">
                     <template #cell="current"> {{ current.item.startBy || '-' }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="发起时间">
+                <u-table-view-column :title="$tt('createTime')">
                     <template #cell="current"> {{ dateFormatter(current.item.taskCreateTime) }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="操作">
+                <u-table-view-column :title="$tt('operator')">
                     <template #cell="current">
-                        <u-link @click="goToDetail(current.item)">{{ tabValue === 'pendingTasks'? '审批' : '查看' }}</u-link>
+                        <u-link @click="goToDetail(current.item)">{{ tabValue === 'pendingTasks'? $tt('approval') : $tt('check') }}</u-link>
                     </template>
                 </u-table-view-column>
             </u-table-view>
@@ -76,8 +76,10 @@
 </template>
 
 <script>
+import i18nMixin from '../../mixins/i18n';
 export default {
     name: 'u-process-myprocess',
+    mixins: [i18nMixin('u-process-myprocess')],
     props: {
         taskId: [String, Number],
         initialLoad: {

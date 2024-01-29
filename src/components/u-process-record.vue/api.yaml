@@ -1,0 +1,6 @@
+- name: u-process-record
+  title: 流程记录
+  icon: processrecord
+  labels:
+    - Process
+  description: 用于展示流程记录
