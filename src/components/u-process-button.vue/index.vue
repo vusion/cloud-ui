@@ -113,6 +113,9 @@ export default {
                 },
                 body,
             });
+            this.refresh();
+        },
+        refresh() {
             if (this.destination || this.link) {
                 this.$refs.link.$el.click();
             } else {
@@ -120,6 +123,12 @@ export default {
             }
         },
         async onClickButton(item) {
+            if (item.name === 'revert') {
+                return this.revertOperator();
+            }
+            if (item.name === 'withdraw') {
+                return this.withdrawOperator();
+            }
             // 表单验证后打开弹窗
             const dynamicRenderContainer = document.getElementById('dynamicRenderContainer');
             if (dynamicRenderContainer && dynamicRenderContainer.__vue__) {
@@ -144,6 +153,57 @@ export default {
             Object.assign(this.model, {
                 comment: '',
                 userName: '',
+            });
+        },
+        /**
+         * 撤回
+         */
+        revertOperator() {
+            return this.$confirm({
+                title: this.$tt('revertTitle'),
+                content: this.$tt('revertContent'),
+                okButton: this.$tt('revertOK'),
+                cancelButton: this.$tt('revertCancel'),
+            }).then(async () => {
+                if (this.$processV2) {
+                    await this.$processV2.setTaskInstance({
+                        path: {
+                            operate: 'revertTaskInstance',
+                        },
+                        body: {
+                            taskId: this.taskId,
+                        },
+                    });
+                    this.refresh();
+                }
+            }).catch(() => {
+                // do nothing
+                console.log('error');
+            });
+        },
+        /**
+         * 回退
+         */
+        withdrawOperator() {
+            return this.$confirm({
+                title: this.$tt('withdrawTitle'),
+                content: this.$tt('withdrawContent'),
+                okButton: this.$tt('withdrawOK'),
+                cancelButton: this.$tt('withdrawCancel'),
+            }).then(async () => {
+                if (this.$processV2) {
+                    await this.$processV2.setTaskInstance({
+                        path: {
+                            operate: 'withdrawTaskInstance',
+                        },
+                        body: {
+                            taskId: this.taskId,
+                        },
+                    });
+                    this.refresh();
+                }
+            }).catch(() => {
+                // do nothing
             });
         },
     },

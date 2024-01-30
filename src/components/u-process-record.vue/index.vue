@@ -1,35 +1,47 @@
 <template>
-    <div :class="$style.root">
+    <div>
         <template v-if="type === 'timeline'">
             <u-timeline :data-source="list">
                 <template #item="current">
                     <u-timeline-item>
-                        <div>{{ current.item.type }}</div>
-                        <div>处理人：{{ current.item.startBy || '-' }}</div>
-                        <div>处理时间：{{ current.item.startBy || '-' }}</div>
-                        <div>审批结果：{{ current.item.startBy || '-' }}</div>
-                        <div>审批意见：{{ current.item.startBy || '-' }}</div>
+                        <div :class="$style.title">{{ current.item.nodeTitle }}</div>
+                        <div :class="$style.item">
+                            <div :class="$style.left">
+                                <div :class="$style.label">{{ $tt('assignee') }}</div>
+                                <div :class="$style.label">{{ $tt('recordCreateTime') }}</div>
+                                <div :class="$style.label">{{ $tt('nodeOperation') }}</div>
+                                <div :class="$style.label">{{ $tt('comment') }}</div>
+                            </div>
+                            <div :class="$style.content">
+                                <div :class="$style.value">{{ current.item.userName || '-' }}</div>
+                                <div :class="$style.value">{{ dateFormatter(current.item.recordCreateTime) || '-' }}</div>
+                                <div :class="$style.value">{{ current.item.nodeOperation || '-' }}</div>
+                                <div :class="$style.value">{{ current.item.comment || '-' }}</div>
+                            </div>
+                        </div>
                     </u-timeline-item>
                 </template>
             </u-timeline>
-            <u-link v-if="hasMore">加载更多</u-link>
+            <u-text v-if="currentLoading">{{ $tt('loading') }}</u-text>
+            <u-link v-else-if="hasMore" @click="loadMore">{{ $tt('loadMore') }}</u-link>
+            <u-text v-else-if="list.length > 0">{{ $tt('noMore') }}</u-text>
         </template>
         <template v-else>
-            <u-table-view :data-source="load" ref="tableview" :page-size="20" :page-number="1" pagination :initial-load="initialLoad">
-                <u-table-view-column title="流程节点">
-                    <template #cell="current"> {{ current.item.processTitle || '-' }}</template>
+            <u-table-view :data-source="loadTable" ref="tableview" :page-size="20" :page-number="1" pagination :initial-load="initialLoad">
+                <u-table-view-column :title="$tt('currentNode')">
+                    <template #cell="current"> {{ current.item.nodeTitle || '-' }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="处理人">
-                    <template #cell="current"> {{ current.item.currentNode || '-' }}</template>
+                <u-table-view-column :title="$tt('assignee')">
+                    <template #cell="current"> {{ current.item.userName || '-' }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="处理时间">
-                    <template #cell="current"> {{ formatCurrentAssignee(current.item) }}</template>
+                <u-table-view-column :title="$tt('recordCreateTime')">
+                    <template #cell="current"> {{ dateFormatter(current.item.recordCreateTime) }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="审批结果">
-                    <template #cell="current"> {{ current.item.startBy || '-' }}</template>
+                <u-table-view-column :title="$tt('nodeOperation')">
+                    <template #cell="current"> {{ current.item.nodeOperation || '-' }}</template>
                 </u-table-view-column>
-                <u-table-view-column title="审批意见">
-                    <template #cell="current"> {{ dateFormatter(current.item.taskCreateTime) }}</template>
+                <u-table-view-column :title="$tt('comment')">
+                    <template #cell="current"> {{ current.item.comment }}</template>
                 </u-table-view-column>
             </u-table-view>
         </template>
@@ -45,6 +57,10 @@ export default {
         type: {
             type: String,
             default: 'table',
+        },
+        initialLoad: {
+            type: Boolean,
+            default: true,
         },
     },
     data() {
@@ -63,6 +79,7 @@ export default {
                 number: 1,
                 total: 0,
             },
+            currentLoading: false,
         };
     },
     computed: {
@@ -77,21 +94,21 @@ export default {
                 this.taskId = value;
             }
         });
-        if (this.taskId) {
-            this.getProcessInfo();
+        if (this.taskId && this.type === 'timeline' && this.initialLoad) {
+            this.list = [];
+            this.loadList();
         }
     },
-    methods: {
-        async getProcessInfo() {
-            if (this.$processV2) {
-                const result = await this.$processV2.getProcessInstanceInfo({
-                    body: {
-                        taskId: this.taskId,
-                    },
-                });
-                this.detail = result.data || {};
+    watch: {
+        type(value) {
+            if (value === 'timeline') {
+                this.paging.number = 1;
+                this.list = [];
+                this.loadList();
             }
         },
+    },
+    methods: {
         dateFormatter(value) {
             // eslint-disable-next-line new-cap
             return this.$utils ? this.$utils.FormatDateTime(value) : value;
@@ -117,18 +134,39 @@ export default {
             }
             return value;
         },
-        onChangePage() {
-
-        },
-        onChangePageSize() {
-
-        },
-        async load() {
+        async loadList() {
+            this.currentLoading = true;
             if (this.$processV2) {
-                const result = await this.$processV2.getMyTaskList({
+                this.currentLoading = true;
+                try {
+                    const result = await this.$processV2.getProcessInstanceRecord({
+                        body: {
+                            taskId: this.taskId,
+                            size: this.paging.size,
+                            number: this.paging.number,
+                        },
+                    });
+                    const list = result.data.list || [];
+                    this.list = this.list.concat(list);
+                    this.paging.total = result.data.total;
+                } finally {
+                    this.currentLoading = false;
+                }
+            }
+        },
+        loadMore() {
+            this.paging.number += 1;
+            this.loadList();
+        },
+        async loadTable(params) {
+            if (this.$processV2) {
+                const result = await this.$processV2.getProcessInstanceRecord({
+                    body: {
+                        taskId: this.taskId,
+                        size: this.paging.size,
+                        number: this.paging.number,
+                    },
                 });
-                this.list = result.data.list;
-                this.page.total = result.data.total;
                 return result.data;
             }
         },
@@ -137,26 +175,24 @@ export default {
 </script>
 
 <style module>
-.root {
-
-}
-
 .item {
-    width: 20%;
-    display: inline-flex;
+    display: flex;
 }
-
-.item + .item {
-    padding-left: 10px;
+.left {
+    min-width: 9%;
+    margin-right: 10px;
 }
 .label {
-    color: var(--process-info-label-color);
+    color: var(--process-record-label-color);
 }
-
 .value {
     flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.title {
+    font-weight: 500;
+    color: var(--process-record-title-color);
 }
 </style>

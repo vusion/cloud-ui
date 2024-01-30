@@ -121,6 +121,14 @@
   "uProcessButton_approvalComments": "审批意见",
   "uProcessButton_placeholder": "请输入",
   "uProcessButton_selectTransfer": "请选择转交人",
+  "uProcessButton_revertTitle": "撤回",
+  "uProcessButton_revertContent": "请确认是否撤回流程？",
+  "uProcessButton_revertOK": "确 定",
+  "uProcessButton_revertCancel": "取 消",
+  "uProcessButton_withdrawTitle": "回退",
+  "uProcessButton_withdrawContent": "请确认是否回退流程？",
+  "uProcessButton_withdrawOK": "确 定",
+  "uProcessButton_withdrawCancel": "取 消",
   "uProcessInfo_startBy": "发起人",
   "uProcessInfo_processStartTime": "发起时间",
   "uProcessInfo_finished": "当前状态",
@@ -139,5 +147,12 @@
   "uProcessMyprocess_operator": "操作",
   "uProcessMyprocess_approval": "审批",
   "uProcessMyprocess_check": "查看",
-  "uProcessMyprocess_search": "查 询"
+  "uProcessRecord_currentNode": "流程节点",
+  "uProcessRecord_assignee": "处理人",
+  "uProcessRecord_recordCreateTime": "处理时间",
+  "uProcessRecord_nodeOperation": "审批结果",
+  "uProcessRecord_comment": "审批意见",
+  "uProcessRecord_loading": "加载中",
+  "uProcessRecord_loadMore": "查看更多",
+  "uProcessRecord_noMore": "已经到底了"
 }

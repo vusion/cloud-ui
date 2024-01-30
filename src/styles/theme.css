@@ -2030,6 +2030,10 @@
 
     /* @component u-process-info @hidden*/
     --process-info-label-color: var(--color-light);
+
+    /* @component u-process-record @hidden*/
+    --process-record-label-color: var(--color-light);
+    --process-record-title-color: #333;
 }
 
 @custom-media --mini-window (max-width: 479px);

@@ -139,5 +139,13 @@
   "uProcessMyprocess_operator": "Operator",
   "uProcessMyprocess_approval": "approval",
   "uProcessMyprocess_check": "check",
-  "uProcessMyprocess_search": "search"
+  "uProcessMyprocess_search": "search",
+  "uProcessRecord_currentNode": "CurrentNode",
+  "uProcessRecord_assignee": "Assignee",
+  "uProcessRecord_recordCreateTime": "RecordCreateTime",
+  "uProcessRecord_nodeOperation": "Status",
+  "uProcessRecord_comment": "Comment",
+  "uProcessRecord_loading": "Loading",
+  "uProcessRecord_loadMore": "Load more",
+  "uProcessRecord_noMore": "No more items"
 }
