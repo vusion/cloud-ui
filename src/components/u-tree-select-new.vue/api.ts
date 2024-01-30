@@ -89,6 +89,17 @@ namespace nasl.ui {
 
         @Prop({
             group: '数据属性',
+            title: '节点是否展开字段',
+            description: '集合的元素类型中，用于标识节点是否展开的属性，默认为expanded',
+            docDescription: '集合的元素类型中，用于标识子节点的属性',
+            setter: {
+                concept: 'PropertySelectSetter',
+            }
+        })
+        expandedField: (item: T) => nasl.collection.List<any> = ((item: any)  => item.expanded) as any;
+
+        @Prop({
+            group: '数据属性',
             title: '选中值',
             description: '选择后，所选中的值',
             sync: true,

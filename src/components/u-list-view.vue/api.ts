@@ -23,6 +23,17 @@ namespace nasl.ui {
         })
         page: UListViewOptions<T, V, P, M, C>['pageNumber'];
 
+        // 由于之前误开放出去了，有历史数据，防止ts报错临时补上
+        @Prop({
+            title: '排序属性'
+        })
+        sort: nasl.core.String;
+
+        @Prop({
+            title: '排序方式'
+        })
+        order: nasl.core.String;
+
         @Prop({
             title: '过滤文本',
         })
@@ -449,13 +460,13 @@ namespace nasl.ui {
             description: '选择值改变时触发。',
         })
         onChange: (event: {
-            selected: nasl.core.Boolean;
             item: T;
             oldItem: T;
             value: V;
             oldValue: V;
             items: nasl.collection.List<T>;
             oldItems: nasl.collection.List<T>;
+            values: nasl.collection.List<V>;
         }) => any;
 
         @Event({

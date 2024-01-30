@@ -86,15 +86,15 @@ exports[`u-carousel.vue Demo-基本用法 3`] = `
 <div>
   <div class="root">
     <div class="body" name="realpostion">
-      <transition-stub>
-        <div class="root" style>
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style>
           <div class="body">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <span vusion-slot-name="item"> </span>
           </div>
@@ -115,40 +115,40 @@ exports[`u-carousel.vue Demo-基本用法 4`] = `
 <div>
   <div class="root">
     <div class="body" name="realpostion">
-      <transition-stub>
-        <div class="root" style>
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style>
           <div class="body">
             <img src="../../../assets/images/1.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/2.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/3.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/4.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/5.jpg">
             <span vusion-slot-name="item"> </span>
@@ -201,40 +201,40 @@ exports[`u-carousel.vue Demo-自动播放与循环 1`] = `
 <div>
   <div class="root">
     <div class="body" name="realpostion">
-      <transition-stub>
-        <div class="root" style>
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style>
           <div class="body">
             <img src="../../../assets/images/1.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/2.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/3.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/4.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/5.jpg">
             <span vusion-slot-name="item"> </span>
@@ -259,40 +259,40 @@ exports[`u-carousel.vue Demo-自动播放与循环 2`] = `
 <div>
   <div class="root">
     <div class="body" name="realpostion">
-      <transition-stub>
-        <div class="root" style>
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style>
           <div class="body">
             <img src="../../../assets/images/1.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/2.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/3.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/4.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/5.jpg">
             <span vusion-slot-name="item"> </span>
@@ -317,40 +317,40 @@ exports[`u-carousel.vue Demo-自动播放与循环 3`] = `
 <div>
   <div class="root">
     <div class="body" name="realpostion">
-      <transition-stub>
-        <div class="root" style>
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style>
           <div class="body">
             <img src="../../../assets/images/1.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/2.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/3.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/4.jpg">
             <span vusion-slot-name="item"> </span>
           </div>
         </div>
       </transition-stub>
-      <transition-stub>
-        <div class="root" style="display: none;">
+      <transition-stub name="fade">
+        <div animation="fade" class="root" style="display: none;">
           <div class="body">
             <img src="../../../assets/images/5.jpg">
             <span vusion-slot-name="item"> </span>

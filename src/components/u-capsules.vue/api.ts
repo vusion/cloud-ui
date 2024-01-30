@@ -116,13 +116,13 @@ namespace nasl.ui {
             description: '选择值改变时触发。单选模式中：',
         })
         onChange: (event: {
-            selected: nasl.core.Boolean;
             item: nasl.core.String;
             oldItem: nasl.core.String;
             value: nasl.core.String;
             oldValue: nasl.core.String;
             items: nasl.collection.List<nasl.core.String>;
             oldItems: nasl.collection.List<nasl.core.String>;
+            values: nasl.collection.List<nasl.core.String>;
         }) => any;
 
         @Slot({

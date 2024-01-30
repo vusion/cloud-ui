@@ -138,6 +138,11 @@ export default {
   },
   methods: {
     watchValue(value) {
+      // 修复bug ide环境 传进来 {{ variable1 }} 处理成 []
+      if (this.$env.VUE_APP_DESIGNER) {
+        value = [];
+      }
+
       if (value) {
         if (this.converter) value = this.currentConverter.set(value);
         this.currentValue = value;

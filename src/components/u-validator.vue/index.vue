@@ -292,7 +292,7 @@ export default {
 
                 // @TODO: 临时解决一下，用 blur 当 change
                 const INPUT_NAMES = ['u-input', 'u-textarea', 'u-number-input', 'u-time-picker'];
-                if (trigger === 'input' && !INPUT_NAMES.includes(this.fieldVM.$options.name)) {
+                if (trigger === 'input' && this.fieldVM && !INPUT_NAMES.includes(this.fieldVM.$options.name)) {
                     trigger = 'blur';
                 }
 

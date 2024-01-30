@@ -29,23 +29,22 @@
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
-                <template v-if="item.status !== 'error'"> 
+                <template v-if="item.status !== 'error'">
                     <div :class="$style.textContainer" v-if="listType === 'text' && $slots['file-list']">
-                        <span v-for="flag in fileListFlags" :key="flag">
+                        <span v-for="flag in fileListFlags" :key="flag" :class="$style[flag]">
                             <component v-if="flag !== 'download-icon' && isShowFileListItem(flag)" :style="fileListStyleInfos[flag]" :is="fileListComponentFlagMap[flag].is" v-bind="fileListComponentFlagMap[flag].getProps(item)"></component>
                             <a v-else-if="downloadIconSwitcher && isShowFileListItem(flag)" :style="fileListStyleInfos['download-icon']" :href="encodeUrl(item.url)" target="_blank" download role="download">
                                 <i-ico :name="downloadIcon" icotype="only"></i-ico>
                             </a>
                         </span>
                         <i-ico name="remove" :class="$style.remove" v-if="!readonly && !disabled && !$env.VUE_APP_DESIGNER" @click="remove(index)"></i-ico>
-                        <u-linear-progress v-if="item.showProgress && !$env.VUE_APP_DESIGNER" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                     </div>
                      <div v-else>
                         <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
                         <a :class="$style.link" :href="encodeUrl(item.url)" target="_blank" download role="download">{{ item.name || item.url }}</a>
                         <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
-                         <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                     </div>
+                    <u-linear-progress v-if="item.showProgress && !$env.VUE_APP_DESIGNER" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                 </template>
             </div>
         </template>
@@ -79,7 +78,7 @@
         </span>
     </div>
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
-        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="encodeURI(item.url || item)"></u-lightbox-item>
+        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="encodeUrl(item.url || item)"></u-lightbox-item>
     </u-lightbox>
     <cropper
         v-if="openCropper"
@@ -310,10 +309,23 @@ export default {
             const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes((item.name || item.url).split('.').pop()));
             return !!iconInfo ? (iconInfo[1] || 'file-default') : 'file-default'
         },
+        isURLEncoded(url) {
+            const decodedUrl = decodeURI(url); // 对 URL 进行解码
+            if (decodedUrl === url) {
+                return false; // URL 未被编码
+            } else {
+                return true; // URL 已被编码
+            }
+        },
         encodeUrl(url) {
-            return encodeURI(url);
+            return this.isURLEncoded(url) ? url : encodeURI(url);
         },
         fromValue(value) {
+            // Vue app 环境走 [];
+            if (this.$env.VUE_APP_DESIGNER) {
+                return [];
+            }
+
             if (this.converter === 'json')
                 try {
                     const parsedValue = JSON.parse(value || '[]');
@@ -830,7 +842,7 @@ export default {
 }
 
 .list[list-type="text"]  .item{
-    width: fit-content;
+    /* width: fit-content; */
 }
 
 .list[list-type="image"] .item {
@@ -874,12 +886,18 @@ export default {
     vertical-align: middle;
 }
 .textContainer {
-    width: fit-content;
+    /* width: fit-content; */
     display: flex;
     align-items: center;
+    max-width: 100%;
 }
 .textContainer .remove{
     margin-top: 0px;
+}
+
+.file-name {
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .list[list-type="image"] .link {

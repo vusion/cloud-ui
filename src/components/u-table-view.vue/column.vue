@@ -28,7 +28,7 @@ export default {
         sortCompare: { type: Function },
         defaultOrder: String,
         filters: { type: Array },
-        ellipsis: { type: Boolean, default: false },
+        ellipsis: { type: Boolean, default: undefined },
         formatter: { type: [String, Object, Function, Formatter], default: 'placeholder' },
         hidden: { type: Boolean, default: false },
         dblclickHandler: Function,
@@ -37,6 +37,7 @@ export default {
         colSpan: Number,
         autoRowSpan: { type: Boolean, default: false },
         expanderPosition: { type: String, default: 'left' },
+        thEllipsis: { type: Boolean, default: undefined }, // 表头是否缩略展示
     },
     data() {
         const data = {

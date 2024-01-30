@@ -8,7 +8,10 @@
     :hoverType="hoverType"
     @click="onClick" v-on="listeners">
     <i-ico v-if="icon && iconPosition=== 'left'" :name="icon" notext></i-ico>
-    <slot>{{ text }}</slot>
+    <template v-if="icon && $env.VUE_APP_DESIGNER"><span><slot>{{ text }}</slot></span></template>
+    <template v-else>
+        <slot>{{ text }}</slot>
+    </template>
     <i-ico v-if="icon && iconPosition=== 'right'" :name="icon" notext></i-ico>
 </a>
 </template>

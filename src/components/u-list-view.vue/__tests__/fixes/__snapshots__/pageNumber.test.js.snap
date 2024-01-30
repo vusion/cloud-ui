@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-list-view.vue pageNumber 变化 1`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" id="changelistbutton" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      变换list值
+    </a>
+  </div>
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
+      <div>
+      </div>
+    </div>
+    <div>
+      <div style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="root" index="0" vusion-slot-name="item">
+          F#1
+        </div>
+        <div class="root" index="1" vusion-slot-name="item">
+          Go1
+        </div>
+        <div class="root" index="2" vusion-slot-name="item">
+          Groovy1
+        </div>
+        <div class="root" index="3" vusion-slot-name="item">
+          HLSL1
+        </div>
+        <div class="root" index="4" vusion-slot-name="item">
+          HTML1
+        </div>
+        <div class="root" index="5" vusion-slot-name="item">
+          Handlebars1
+        </div>
+        <div class="root" index="6" vusion-slot-name="item">
+          Ignore1
+        </div>
+        <div class="root" index="7" vusion-slot-name="item">
+          Ini1
+        </div>
+        <div class="root" index="8" vusion-slot-name="item">
+          JSON1
+        </div>
+        <div class="root" index="9" vusion-slot-name="item">
+          Java1
+        </div>
+      </div>
+    </div>
+    <div>
+      <nav class="root" size="normal">
+        <div class="root sizer" tabindex="0">
+          <span>b</span>
+          <span style="display: none;">请选择</span>
+          <div class style="direction: ltr;" tags-overflow="collapse">
+            10条/页
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                  10条/页
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  20条/页
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  50条/页
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+        <a class="item-wrap">
+          <i class="item" role="prev"></i>
+        </a>
+        <a class="item">1</a>
+        <a class="item" selected="selected">2</a>
+        <a class="item">3</a>
+        <a class="item" role="blank">...</a>
+        <a class="item">6</a>
+        <a class="item-wrap">
+          <i class="item" role="next"></i>
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-list-view.vue pageNumber 变化 2`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" id="changelistbutton" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      变换list值
+    </a>
+  </div>
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
+      <div>
+      </div>
+    </div>
+    <div>
+      <div style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="root" index="0" vusion-slot-name="item">
+          Batch12
+        </div>
+        <div class="root" index="1" vusion-slot-name="item">
+          C12
+        </div>
+        <div class="root" index="2" vusion-slot-name="item">
+          C#12
+        </div>
+        <div class="root" index="3" selected="selected" vusion-slot-name="item">
+          C++12
+        </div>
+        <div class="root" index="4" vusion-slot-name="item">
+          CSS12
+        </div>
+        <div class="root" index="5" vusion-slot-name="item">
+          Clojure12
+        </div>
+        <div class="root" index="6" vusion-slot-name="item">
+          CoffeeScript12
+        </div>
+        <div class="root" index="7" vusion-slot-name="item">
+          Coq12
+        </div>
+        <div class="root" index="8" vusion-slot-name="item">
+          Diff12
+        </div>
+        <div class="root" index="9" vusion-slot-name="item">
+          Dockerfile12
+        </div>
+      </div>
+    </div>
+    <div>
+      <nav class="root" size="normal">
+        <div class="root sizer" tabindex="0">
+          <span>b</span>
+          <span style="display: none;">请选择</span>
+          <div class style="direction: ltr;" tags-overflow="collapse">
+            10条/页
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                  10条/页
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  20条/页
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  50条/页
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+        <a class="item-wrap" disabled="disabled">
+          <i class="item" role="prev"></i>
+        </a>
+        <a class="item" selected="selected">1</a>
+        <a class="item">2</a>
+        <a class="item">3</a>
+        <a class="item" role="blank">...</a>
+        <a class="item">6</a>
+        <a class="item-wrap">
+          <i class="item" role="next"></i>
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-list-view.vue pageNumber 变化 3`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" id="changelistbutton" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      变换list值
+    </a>
+  </div>
+  <div border="true" class="root" tabindex="0">
+    <div style="display: none;">
+      <span vusion-slot-name="title">列表</span>
+      <div>
+      </div>
+    </div>
+    <div>
+      <div style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="root" index="0" vusion-slot-name="item">
+          JavaScript12
+        </div>
+        <div class="root" index="1" vusion-slot-name="item">
+          Jinja12
+        </div>
+        <div class="root" index="2" vusion-slot-name="item">
+          Jupyter12
+        </div>
+        <div class="root" index="3" vusion-slot-name="item">
+          Less12
+        </div>
+        <div class="root" index="4" vusion-slot-name="item">
+          Log12
+        </div>
+        <div class="root" index="5" vusion-slot-name="item">
+          Lua12
+        </div>
+        <div class="root" index="6" vusion-slot-name="item">
+          Makefile12
+        </div>
+        <div class="root" index="7" vusion-slot-name="item">
+          Markdown12
+        </div>
+        <div class="root" index="8" vusion-slot-name="item">
+          Objective-C12
+        </div>
+        <div class="root" index="9" vusion-slot-name="item">
+          Objective-C++12
+        </div>
+      </div>
+    </div>
+    <div>
+      <nav class="root" size="normal">
+        <div class="root sizer" tabindex="0">
+          <span>b</span>
+          <span style="display: none;">请选择</span>
+          <div class style="direction: ltr;" tags-overflow="collapse">
+            10条/页
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                  10条/页
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  20条/页
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  50条/页
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+        <a class="item-wrap">
+          <i class="item" role="prev"></i>
+        </a>
+        <a class="item">1</a>
+        <a class="item">2</a>
+        <a class="item" selected="selected">3</a>
+        <a class="item">4</a>
+        <a class="item" role="blank">...</a>
+        <a class="item">6</a>
+        <a class="item-wrap">
+          <i class="item" role="next"></i>
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
+`;

@@ -32,6 +32,7 @@ const directive = {
         el.tooltipVM = new UTooltip({
             propsData: Object.assign({
                 reference: el,
+                enableContentScroll: true,
             }, data),
         }).$mount();
     },
