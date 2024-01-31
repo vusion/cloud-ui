@@ -1,0 +1,1219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-table-view.vue pageSizer选择器变化后，刷新数据 1`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" id="changelistbutton" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      变换data值
+    </a>
+  </div>
+  <div class="root">
+    <div class="table" position="static">
+      <div class="head" style="top: 0px;">
+        <table class="root head-table" sticky-fixed="true" striped="true">
+          <colgroup>
+            <col width="0">
+            <col width="0">
+            <col>
+            <col width="0">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  用户名
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  手机号码
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  地址
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  最近登录时间
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="body" sticky-fixed="true">
+        <div class="root scrollcview">
+          <div class="wrap">
+            <div>
+              <table class="root" sticky-fixed="true" striped="true">
+                <colgroup>
+                  <col width="0">
+                  <col width="0">
+                  <col>
+                  <col width="0">
+                </colgroup>
+                <tbody>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-01</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917895</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-11</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160284</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-13 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-21</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127811</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-05-20 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-31</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261217</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-13 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-41</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340024</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-20 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-51</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917900</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-06-02 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-61</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160289</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-18 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-71</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127816</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-05-25 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-81</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261222</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-18 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-91</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340029</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-25 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-101</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917905</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-06-07 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-111</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160294</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-23 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-121</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127821</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-05-30 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-131</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261227</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-23 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-141</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340034</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-30 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-151</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917910</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-06-12 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-161</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160299</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-28 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-171</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127826</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-06-04 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-181</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261232</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-28 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-191</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340039</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-08-04 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-201</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917915</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-06-17 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-211</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160304</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-04-02 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-221</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127831</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-06-09 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-231</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261237</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-01-02 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-241</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340044</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-08-09 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-251</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917920</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-06-22 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-261</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160309</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-04-07 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-271</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127836</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-06-14 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-281</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261242</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-01-07 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-291</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340049</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-08-14 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-301</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917925</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-06-27 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-311</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160314</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-04-12 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-321</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127841</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-06-19 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-331</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261247</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-01-12 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-341</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340054</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-08-19 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-351</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917930</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-02 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-361</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160319</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-04-17 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-371</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127846</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-06-24 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-381</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261252</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-01-17 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-391</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340059</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-08-24 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-401</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917935</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-07 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-411</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160324</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-04-22 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-421</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127851</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-06-29 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-431</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261257</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-01-22 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-441</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340064</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-08-29 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-451</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917940</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-12 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-461</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160329</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-04-27 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-471</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127856</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-07-04 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-481</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261262</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-01-27 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-491</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340069</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-09-03 01:32:06</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+          </div>
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" style="display: none;">
+      <div class="line" style="display: none;"></div>
+      <div class="mask" style="display: none;"></div>
+    </div>
+    <nav class="root pagination" size="normal">
+      <div class="root sizer" tabindex="0">
+        <span>b</span>
+        <span style="display: none;">请选择</span>
+        <div class style="direction: ltr;" tags-overflow="collapse">
+          50条/页
+        </div>
+        <transition-stub name="fade" style="width: 100%;">
+          <div class="root" style="display: none;">
+            <div>
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                10条/页
+              </div>
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                20条/页
+              </div>
+              <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                50条/页
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+      <a class="item-wrap" disabled="disabled">
+        <i class="item" role="prev"></i>
+      </a>
+      <a class="item" selected="selected">1</a>
+      <a class="item">2</a>
+      <a class="item-wrap">
+        <i class="item" role="next"></i>
+      </a>
+    </nav>
+    <div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-table-view.vue pageSizer选择器变化后，刷新数据 2`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <a class="root" hovertype="underline" id="changelistbutton" tabindex="0" target="_self" vusion-slot-name-edit="text">
+      变换data值
+    </a>
+  </div>
+  <div class="root">
+    <div class="table" position="static">
+      <div class="head" style="top: 0px;">
+        <table class="root head-table" sticky-fixed="true" striped="true">
+          <colgroup>
+            <col width="0">
+            <col width="0">
+            <col>
+            <col width="0">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  用户名
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  手机号码
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  地址
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  最近登录时间
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="body" sticky-fixed="true">
+        <div class="root scrollcview">
+          <div class="wrap">
+            <div>
+              <table class="root" sticky-fixed="true" striped="true">
+                <colgroup>
+                  <col width="0">
+                  <col width="0">
+                  <col>
+                  <col width="0">
+                </colgroup>
+                <tbody>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-01</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917895</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-11</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160284</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-13 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-21</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127811</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-05-20 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-31</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261217</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-13 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-41</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340024</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-20 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-51</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917900</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-06-02 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-61</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160289</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-18 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-71</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127816</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-05-25 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-81</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261222</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-18 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-91</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340029</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-25 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-101</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917905</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-06-07 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-111</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160294</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-23 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-121</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127821</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-05-30 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-131</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261227</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-23 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-141</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340034</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-30 01:32:06</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">张三-151</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18612917910</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-06-12 21:52:11</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">小明-161</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13727160299</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区江虹路459号英飞特科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-28 22:24:36</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李四-171</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18897127826</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区秋溢路606号西可科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-06-04 15:45:30</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">李华-181</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">18749261232</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区长河路590号东忠科技园</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-28 15:48:01</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span class="column-field">王五-191</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">13579340039</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦二期</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-08-04 01:32:06</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+          </div>
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" style="display: none;">
+      <div class="line" style="display: none;"></div>
+      <div class="mask" style="display: none;"></div>
+    </div>
+    <nav class="root pagination" size="normal">
+      <div class="root sizer" tabindex="0">
+        <span>b</span>
+        <span style="display: none;">请选择</span>
+        <div class style="direction: ltr;" tags-overflow="collapse">
+          20条/页
+        </div>
+        <transition-stub name="fade" style="width: 100%;">
+          <div class="root" style="display: none;">
+            <div>
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                10条/页
+              </div>
+              <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                20条/页
+              </div>
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                50条/页
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+      <a class="item-wrap" disabled="disabled">
+        <i class="item" role="prev"></i>
+      </a>
+      <a class="item" selected="selected">1</a>
+      <a class="item">2</a>
+      <a class="item">3</a>
+      <a class="item">4</a>
+      <a class="item-wrap">
+        <i class="item" role="next"></i>
+      </a>
+    </nav>
+    <div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+    </div>
+  </div>
+</div>
+`;
