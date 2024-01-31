@@ -200,14 +200,12 @@ export default {
                     }),
                 },
                 'file-name': {
-                    is: 'u-text', 
-                    getProps: (item) => {
-                        return {
-                            text: item.name || item.url,
-                            title: item.name || item.url,
-                        }
-                    }
-                }, 
+                    is: 'u-text',
+                    getProps: (item) => ({
+                        text: item.name || item.url,
+                        title: item.name || item.url,
+                    }),
+                },
                 'file-size': {
                     is: 'u-text',
                     getProps: (item) => ({
@@ -305,7 +303,7 @@ export default {
         },
         fileTypeIcon(item) {
             const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes((item.name || item.url).split('.').pop()));
-            return !!iconInfo ? (iconInfo[1] || 'file-default') : 'file-default'
+            return iconInfo ? (iconInfo[1] || 'file-default') : 'file-default';
         },
         isURLEncoded(url) {
             const decodedUrl = decodeURI(url); // 对 URL 进行解码
