@@ -188,7 +188,7 @@ export const UModal = {
     install(Vue, id) {
         const Ctor = Vue.component(id);
         Vue.prototype.$alert = (content, title, okButton) => new Promise((resolve, reject) => {
-            const propsData = typeof content === 'object' ? content : { content, title: titleTemp, okButton, cancelButton: '' };
+            const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
             const instance = new Ctor({
                 propsData: {
                     functionalModal: true,
