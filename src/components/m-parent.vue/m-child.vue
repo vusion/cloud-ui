@@ -45,11 +45,29 @@ export default {
                     return;
                 }
 
-                const index = parentVM.$slots.default ? parentVM.$slots.default.indexOf(this.$vnode) : -1;
-                if (~index)
-                    parentVM.itemVMs.splice(index, 0, this);
-                else
+                if (!parentVM.$slots.default || !parentVM.$slots.default.length) {
                     parentVM.itemVMs.push(this);
+                    return;
+                }
+
+                const defaultSlots = parentVM.$slots.default;
+                const currentSlotIndex = defaultSlots.indexOf(this.$vnode);
+                if (currentSlotIndex === -1) {
+                    parentVM.itemVMs.push(this);
+                    return;
+                }
+
+                // 根据 slot.default 位置，进行插入
+                const index = parentVM.itemVMs.findIndex((itemVM) => {
+                    const slotIndex = defaultSlots.indexOf(itemVM.$vnode);
+                    return slotIndex > currentSlotIndex;
+                });
+
+                if (index !== -1) {
+                    parentVM.itemVMs.splice(index, 0, this);
+                } else {
+                    parentVM.itemVMs.push(this);
+                }
             });
         !this.groupVM
             && this.$contact(this.$options.groupName, (groupVM) => {
