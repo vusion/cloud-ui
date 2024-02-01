@@ -139,11 +139,11 @@ export default {
             if (this.$processV2) {
                 this.currentLoading = true;
                 try {
-                    const result = await this.$processV2.getProcessInstanceRecord({
+                    const result = await this.$processV2.getProcInstRecords({
                         body: {
                             taskId: this.taskId,
                             size: this.paging.size,
-                            number: this.paging.number,
+                            page: this.paging.number,
                         },
                     });
                     const list = result.data.list || [];
@@ -160,11 +160,11 @@ export default {
         },
         async loadTable(params) {
             if (this.$processV2) {
-                const result = await this.$processV2.getProcessInstanceRecord({
+                const result = await this.$processV2.getProcInstRecords({
                     body: {
                         taskId: this.taskId,
                         size: this.paging.size,
-                        number: this.paging.number,
+                        page: this.paging.number,
                     },
                 });
                 return result.data;

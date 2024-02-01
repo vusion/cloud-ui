@@ -58,13 +58,13 @@ export default {
             }
         });
         if (this.taskId) {
-            this.getOperationPermissionDetail();
+            this.getTaskOptPermission();
         }
     },
     methods: {
-        async getOperationPermissionDetail() {
+        async getTaskOptPermission() {
             if (this.$processV2) {
-                const res = await this.$processV2.operationPermissionDetail({
+                const res = await this.$processV2.taskOptPermission({
                     body: {
                         taskId: this.taskId,
                     },
@@ -73,7 +73,7 @@ export default {
             }
         },
         getColor(item) {
-            if (['consent', 'submit'].includes(item.name)) {
+            if (['approve', 'submit'].includes(item.name)) {
                 return 'primary';
             }
             return undefined;
@@ -94,13 +94,13 @@ export default {
                 return;
             }
             const { name } = this.currentItem;
-            const operate = `${name}TaskInstance`;
+            const operate = `${name}Task`;
             const body = {
                 taskId: this.taskId,
             };
             const dynamicRenderContainer = document.getElementById('dynamicRenderContainer');
             if (dynamicRenderContainer && dynamicRenderContainer.__vue__) {
-                body.formData = dynamicRenderContainer.__vue__.processDetailFormData;
+                body.data = dynamicRenderContainer.__vue__.processDetailFormData;
             }
             if (name === 'transfer') {
                 body.userName = this.model.userName;
@@ -156,7 +156,7 @@ export default {
             });
         },
         /**
-         * 撤回
+         * 回退
          */
         revertOperator() {
             return this.$confirm({
@@ -166,10 +166,7 @@ export default {
                 cancelButton: this.$tt('revertCancel'),
             }).then(async () => {
                 if (this.$processV2) {
-                    await this.$processV2.setTaskInstance({
-                        path: {
-                            operate: 'revertTaskInstance',
-                        },
+                    await this.$processV2.revertTask({
                         body: {
                             taskId: this.taskId,
                         },
@@ -182,7 +179,7 @@ export default {
             });
         },
         /**
-         * 回退
+         * 撤回
          */
         withdrawOperator() {
             return this.$confirm({
@@ -192,10 +189,7 @@ export default {
                 cancelButton: this.$tt('withdrawCancel'),
             }).then(async () => {
                 if (this.$processV2) {
-                    await this.$processV2.setTaskInstance({
-                        path: {
-                            operate: 'withdrawTaskInstance',
-                        },
+                    await this.$processV2.withdrawTask({
                         body: {
                             taskId: this.taskId,
                         },

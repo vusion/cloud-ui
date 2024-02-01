@@ -13,10 +13,10 @@
                             <u-select
                                 filterable
                                 clearable
-                                text-field="title"
-                                value-field="processDefUniqueKey"
+                                text-field="procDefTitle"
+                                value-field="procDefKey"
                                 :data-source="getAllProcessDefList"
-                                :value.sync="filter.processDefUniqueKey"
+                                :value.sync="filter.procDefKey"
                                 :initial-load="true">
                             </u-select>
                         </u-form-item>
@@ -36,10 +36,10 @@
                             <u-select
                                 filterable
                                 clearable
-                                text-field="userName"
-                                value-field="userName"
+                                text-field="procInstStartBy"
+                                value-field="procInstStartBy"
                                 :data-source="getProcessStartByList"
-                                :value.sync="filter.processStartBy"
+                                :value.sync="filter.procInstStartBy"
                                 :initial-load="true">
                             </u-select>
                         </u-form-item>
@@ -50,20 +50,23 @@
                 </u-linear-layout>
             </u-linear-layout>
             <u-table-view :data-source="load" ref="tableview" :page-size="20" :page-number="1" pagination :initial-load="initialLoad">
+                <u-table-view-column :title="$tt('processTitle')">
+                    <template #cell="current"> {{ current.item.procInstTitle || '-' }}</template>
+                </u-table-view-column>
                 <u-table-view-column :title="$tt('processType')">
-                    <template #cell="current"> {{ current.item.processType || '-' }}</template>
+                    <template #cell="current"> {{ current.item.procDefTitle || '-' }}</template>
                 </u-table-view-column>
                 <u-table-view-column :title="$tt('currentNodes')">
-                    <template #cell="current"> {{ current.item.currentNodes && current.item.currentNodes.join(',') || '-' }}</template>
+                    <template #cell="current"> {{ formatCurrentNodes(current.item) }}</template>
                 </u-table-view-column>
                 <u-table-view-column :title="$tt('currentAssignee')">
                     <template #cell="current"> {{ formatCurrentAssignee(current.item) }}</template>
                 </u-table-view-column>
                 <u-table-view-column :title="$tt('startBy')">
-                    <template #cell="current"> {{ current.item.startBy || '-' }}</template>
+                    <template #cell="current"> {{ current.item.procInstStartBy || '-' }}</template>
                 </u-table-view-column>
                 <u-table-view-column :title="$tt('createTime')">
-                    <template #cell="current"> {{ dateFormatter(current.item.taskCreateTime) }}</template>
+                    <template #cell="current"> {{ dateFormatter(current.item.procInstStartTime) }}</template>
                 </u-table-view-column>
                 <u-table-view-column :title="$tt('operator')">
                     <template #cell="current">
@@ -92,19 +95,19 @@ export default {
             list: [],
             tabValue: 'pendingTasks',
             filter: {
-                processDefUniqueKey: '',
+                procDefKey: '',
                 createTimeAfter: '',
                 createTimeBefore: '',
-                startBy: '',
+                procInstStartBy: '',
             },
         };
     },
     methods: {
         async load(params) {
             const typeMap = {
-                pendingTasks: 'myPendingTaskList',
-                processedTasks: 'myCompletedTaskList',
-                intiationProcess: 'myLaunchList',
+                pendingTasks: 'getMyPendingTaskList',
+                processedTasks: 'getMyCompletedTaskList',
+                intiationProcess: 'getMyInitiateTaskList',
             };
             if (this.$processV2) {
                 const body = {
@@ -134,13 +137,13 @@ export default {
         },
         async getAllProcessDefList() {
             if (this.$processV2) {
-                const result = await this.$processV2.getProcessDefinitionList();
+                const result = await this.$processV2.getProcDefList();
                 return result.data;
             }
         },
         async getProcessStartByList() {
             if (this.$processV2) {
-                const result = await this.$processV2.getProcessStartByList();
+                const result = await this.$processV2.getProcInstStartByList();
                 return result.data;
             }
         },
@@ -156,21 +159,21 @@ export default {
             }
         },
         onSearch() {
-            console.log('onSearch', this.filter);
             this.$refs.tableview.reload();
-        },
-        formatCurrentAssignee(item) {
-            if (item.currentAssignee) {
-                return item.currentAssignee;
-            } else if (item.currentCandidateUsers && Array.isArray(item.currentCandidateUsers)) {
-                return item.currentCandidateUsers.join('，');
-            } else {
-                return '-';
-            }
         },
         dateFormatter(value) {
             // eslint-disable-next-line new-cap
             return this.$utils ? this.$utils.FormatDateTime(value) : value;
+        },
+        formatCurrentNodes(item) {
+            const procInstCurrentTask = item.procInstCurrentTask || [];
+            const set = new Set(procInstCurrentTask.map((task) => task.currentTaskTitle));
+            return Array.from(set).join('，') || '-';
+        },
+        formatCurrentAssignee(item) {
+            const procInstCurrentTask = item.procInstCurrentTask || [];
+            const set = new Set(procInstCurrentTask.map((task) => task.currentTaskAssignees));
+            return Array.from(set).join('，') || '-';
         },
     },
 };

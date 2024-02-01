@@ -2,23 +2,23 @@
     <div :class="$style.root">
         <div :class="$style.item">
             <div :class="$style.label">{{ $tt('startBy') }}：</div>
-            <div :class="$style.value" v-ellipsis-title>{{ detail.startBy || '-' }}</div>
+            <div :class="$style.value" v-ellipsis-title>{{ detail.procInstStartBy || '-' }}</div>
         </div>
         <div :class="$style.item">
             <div :class="$style.label">{{ $tt('processStartTime') }}：</div>
-            <div :class="$style.value" v-ellipsis-title>{{ dateFormatter(detail.processStartTime) }}</div>
+            <div :class="$style.value" v-ellipsis-title>{{ dateFormatter(detail.procInstStartTime) }}</div>
         </div>
         <div :class="$style.item">
             <div :class="$style.label">{{ $tt('finished') }}：</div>
-            <div :class="$style.value" v-ellipsis-title> {{ formatStatus(detail.finished) }}</div>
+            <div :class="$style.value" v-ellipsis-title> {{ formatStatus(detail.procInstStatus) }}</div>
         </div>
         <div :class="$style.item">
             <div :class="$style.label">{{ $tt('currentNodes') }}：</div>
-            <div :class="$style.value" v-ellipsis-title> {{ formatArray2String(detail.currentNodes) }}</div>
+            <div :class="$style.value" v-ellipsis-title> {{ formatCurrentNodes(detail.procInstCurrentTask) }}</div>
         </div>
         <div :class="$style.item">
             <div :class="$style.label">{{ $tt('currentCandidateUsers') }}：</div>
-            <div :class="$style.value" v-ellipsis-title>{{ formatArray2String(detail.currentCandidateUsers) }}</div>
+            <div :class="$style.value" v-ellipsis-title>{{ formatCurrentAssignee(detail.procInstCurrentTask) }}</div>
         </div>
     </div>
 </template>
@@ -54,7 +54,7 @@ export default {
     methods: {
         async getProcessInfo() {
             if (this.$processV2) {
-                const result = await this.$processV2.getProcessInstanceInfo({
+                const result = await this.$processV2.getProcInstInfo({
                     body: {
                         taskId: this.taskId,
                     },
@@ -70,22 +70,23 @@ export default {
             if (value === null || value === undefined) {
                 return '-';
             }
-            if (value === true) {
+            if (value === 'APPROVED') {
                 return '已结束';
-            } else if (value === false) {
+            } else if (value === 'PENDING') {
                 return '进行中';
             } else {
                 return value;
             }
         },
-        formatArray2String(value) {
-            if (value === null || value === undefined) {
-                return '-';
-            }
-            if (Array.isArray(value)) {
-                return value.join('，') || '-';
-            }
-            return value;
+        formatCurrentNodes(item) {
+            const procInstCurrentTask = item.procInstCurrentTask || [];
+            const set = new Set(procInstCurrentTask.map((task) => task.currentTaskTitle));
+            return Array.from(set).join('，');
+        },
+        formatCurrentAssignee(item) {
+            const procInstCurrentTask = item.procInstCurrentTask || [];
+            const set = new Set(procInstCurrentTask.map((task) => task.currentTaskAssignees));
+            return Array.from(set).join('，');
         },
     },
 };
