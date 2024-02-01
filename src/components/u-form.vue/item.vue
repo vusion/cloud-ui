@@ -279,10 +279,23 @@ export default {
 .root[layout="block"] > .field {
     vertical-align: top;
 }
-.root[layout="center"]{
+.root[layout="center"] {
     display: flex;
     align-items: center;
 }
+
+.root[layout="center"] .label {
+    flex-shrink: 0;
+}
+
+.root[layout="center"] .field {
+    flex: 1;
+}
+
+.root[layout="center"] .wrap {
+    width: 100%;
+}
+
 .root[layout="end"]{
     display: flex;
     align-items: flex-end;
