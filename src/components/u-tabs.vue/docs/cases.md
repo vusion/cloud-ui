@@ -38,6 +38,18 @@ export default {
             i = Math.floor(Math.random() * n.length);
             this.showArr.push(n[i]);
             n.splice(i, 1);
+
+            i = Math.floor(Math.random() * n.length);
+            this.showArr.push(n[i]);
+            n.splice(i, 1);
+
+            i = Math.floor(Math.random() * n.length);
+            this.showArr.push(n[i]);
+            n.splice(i, 1);
+
+             i = Math.floor(Math.random() * n.length);
+            this.showArr.push(n[i]);
+            n.splice(i, 1);
             setTimeout(() => this.addShow(n), 0);
         },
     },
