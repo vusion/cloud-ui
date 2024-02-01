@@ -312,12 +312,18 @@ export default {
     },
     created() {
         this.$watch('selectedVM', (selectedVM, oldVM) => {
-            if (selectedVM && oldVM && selectedVM.currentText === oldVM.currentText)
+            if (selectedVM && oldVM && selectedVM.currentText === oldVM.currentText) {
                 return;
-            if (this.filterable)
-                this.filterText = this.selectedVM ? this.selectedVM.currentText : '';
-            else
+            }
+            if (this.filterable) {
+                if (this.selectedVM) {
+                    this.filterText = this.selectedVM.currentText;
+                }
+                // blur 事件会处理这个未搜索到置空的问题
+                // this.filterText = ? this.selectedVM.currentText : '';
+            } else {
                 this.currentText = this.selectedVM ? this.selectedVM.currentText : '';
+            }
         });
         this.$watch('selectedVMs', (selectedVMs) => {
             this.currentText = selectedVMs
