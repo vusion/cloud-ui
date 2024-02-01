@@ -1790,7 +1790,7 @@ exports[`u-tabs.vue Demo-随机添加测试 1`] = `
       <span></span>
       <div>
         <div>
-          <a alignment="center" target="_self">
+          <a alignment="center" selected="selected" target="_self">
             <span vusion-slot-name="title" vusion-slot-name-edit="title">
               Tab1
             </span>
@@ -1803,6 +1803,11 @@ exports[`u-tabs.vue Demo-随机添加测试 1`] = `
           <a alignment="center" target="_self">
             <span vusion-slot-name="title" vusion-slot-name-edit="title">
               Tab3
+            </span>
+          </a>
+          <a alignment="center" target="_self">
+            <span vusion-slot-name="title" vusion-slot-name-edit="title">
+              Tab4
             </span>
           </a>
           <a alignment="center" target="_self">
@@ -1825,7 +1830,12 @@ exports[`u-tabs.vue Demo-随机添加测试 1`] = `
               Tab8
             </span>
           </a>
-          <a alignment="center" selected="selected" target="_self">
+          <a alignment="center" target="_self">
+            <span vusion-slot-name="title" vusion-slot-name-edit="title">
+              Tab9
+            </span>
+          </a>
+          <a alignment="center" target="_self">
             <span vusion-slot-name="title" vusion-slot-name-edit="title">
               Tab10
             </span>
@@ -1836,21 +1846,25 @@ exports[`u-tabs.vue Demo-随机添加测试 1`] = `
     </nav>
   </div>
   <div>
+    <div class="root" style vusion-disabled-selected="true" vusion-slot-name="default">模板内容
+    </div>
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">样式内容
+    </div>
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">逻辑内容
+    </div>
     <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">模板内容
     </div>
     <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">样式内容
     </div>
     <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">逻辑内容
     </div>
-    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">样式内容
-    </div>
-    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">逻辑内容
-    </div>
     <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">模板内容
     </div>
     <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">样式内容
     </div>
-    <div class="root" style vusion-disabled-selected="true" vusion-slot-name="default">逻辑内容
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">逻辑内容
+    </div>
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">逻辑内容
     </div>
   </div>
 </div>
