@@ -1782,6 +1782,80 @@ exports[`u-tabs.vue Demo-路由 1`] = `
 </div>
 `;
 
+exports[`u-tabs.vue Demo-随机添加测试 1`] = `
+<div appear="square" class="root" item-width="auto" size="normal">
+  <div>
+    <span vusion-slot-name="extra"> </span>
+    <nav>
+      <span></span>
+      <div>
+        <div>
+          <a alignment="center" target="_self">
+            <span vusion-slot-name="title" vusion-slot-name-edit="title">
+              Tab1
+            </span>
+          </a>
+          <a alignment="center" target="_self">
+            <span vusion-slot-name="title" vusion-slot-name-edit="title">
+              Tab2
+            </span>
+          </a>
+          <a alignment="center" target="_self">
+            <span vusion-slot-name="title" vusion-slot-name-edit="title">
+              Tab3
+            </span>
+          </a>
+          <a alignment="center" target="_self">
+            <span vusion-slot-name="title" vusion-slot-name-edit="title">
+              Tab5
+            </span>
+          </a>
+          <a alignment="center" target="_self">
+            <span vusion-slot-name="title" vusion-slot-name-edit="title">
+              Tab6
+            </span>
+          </a>
+          <a alignment="center" target="_self">
+            <span vusion-slot-name="title" vusion-slot-name-edit="title">
+              Tab7
+            </span>
+          </a>
+          <a alignment="center" target="_self">
+            <span vusion-slot-name="title" vusion-slot-name-edit="title">
+              Tab8
+            </span>
+          </a>
+          <a alignment="center" selected="selected" target="_self">
+            <span vusion-slot-name="title" vusion-slot-name-edit="title">
+              Tab10
+            </span>
+          </a>
+        </div>
+      </div>
+      <span></span>
+    </nav>
+  </div>
+  <div>
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">模板内容
+    </div>
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">样式内容
+    </div>
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">逻辑内容
+    </div>
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">样式内容
+    </div>
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">逻辑内容
+    </div>
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">模板内容
+    </div>
+    <div class="root" style="display: none;" vusion-disabled-selected="true" vusion-slot-name="default">样式内容
+    </div>
+    <div class="root" style vusion-disabled-selected="true" vusion-slot-name="default">逻辑内容
+    </div>
+  </div>
+</div>
+`;
+
 exports[`u-tabs.vue Demo-默认显示和可关闭 1`] = `
 <div>
   <div appear="square" class="root" item-width="auto" size="normal">
