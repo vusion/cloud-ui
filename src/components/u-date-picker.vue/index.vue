@@ -377,6 +377,7 @@ export default {
 .root {
     display: inline-block;
     position: relative;
+    max-width: 100%; /* 防止表格等小的地方超出区域 */
     width: var(--datepicker-input-width);
 }
 
