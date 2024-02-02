@@ -59,7 +59,6 @@
 
 <script>
 import dayjs from 'dayjs';
-import i18n from './i18n';
 import DateTable from './date-table.vue';
 import './initDayjs';
 import { DefaultFormatType, getDay } from './utils';
@@ -70,7 +69,6 @@ import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-calendar-view',
-    // i18n,
     components: {
         DateTable,
         SEmpty,
@@ -385,6 +383,7 @@ export default {
                 currentFirstDay = currentFirstDay.subtract(1, 'month');
                 this.year = currentFirstDay.year();
                 this.month = currentFirstDay.month();
+                this.$emit('select-month', currentFirstDay.format(DefaultFormatType), this);
                 return;
             }
             const oldValue = this.selectedDate.format(DefaultFormatType);
@@ -401,6 +400,7 @@ export default {
                 monthOfEnd: date.endOf('month'),
             });
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select-month', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
             this.$emit('select', cell, this);
         },
         onNextMonth() {
@@ -409,6 +409,7 @@ export default {
                 currentFirstDay = currentFirstDay.add(1, 'month');
                 this.year = currentFirstDay.year();
                 this.month = currentFirstDay.month();
+                this.$emit('select-month', currentFirstDay.format(DefaultFormatType), this);
                 return;
             }
             const oldValue = this.selectedDate.format(DefaultFormatType);
@@ -425,6 +426,7 @@ export default {
                 monthOfEnd: date.endOf('month'),
             });
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select-month', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
             this.$emit('select', cell, this);
         },
         onToday() {
@@ -477,6 +479,7 @@ export default {
                 newSelectedDate = maxDay.clone().startOf('day');
             }
             this.year = value;
+            this.$emit('select-year', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
             if (!this.selectedDate) {
                 return;
             }
@@ -515,6 +518,7 @@ export default {
             }
 
             this.month = value;
+            this.$emit('select-month', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
             if (!this.selectedDate) {
                 return;
             }

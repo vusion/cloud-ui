@@ -20,7 +20,7 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
           <span>b</span>
           <span style="display: none;">请选择</span>
           <div class style="direction: ltr;" tags-overflow="collapse">
-            2022 年
+            2024 年
           </div>
           <transition-stub name="fade" style="width: 100%;">
             <div class="root" style="display: none;">
@@ -49,13 +49,13 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
                   2021 年
                 </div>
-                <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
                   2022 年
                 </div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
                   2023 年
                 </div>
-                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
                   2024 年
                 </div>
                 <div class="root" style="direction: ltr;" vusion-slot-name="default">
@@ -155,19 +155,33 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
           <tr class="tr">
             <td class="td" type="prev">
               <div class="date">
+                29
+                <div class="column" vusion-slot-name="default">
+                </div>
+              </div>
+            </td>
+            <td class="td" type="prev">
+              <div class="date">
+                30
+                <div class="column" vusion-slot-name="default">
+                </div>
+              </div>
+            </td>
+            <td class="td" type="prev">
+              <div class="date">
                 31
                 <div class="column" vusion-slot-name="default">
                 </div>
               </div>
             </td>
-            <td class="td" selected="selected" type="current">
+            <td class="td" type="current">
               <div class="date">
                 1
                 <div class="column" vusion-slot-name="default">
                 </div>
               </div>
             </td>
-            <td class="td" type="current">
+            <td class="td" current="true" type="current">
               <div class="date">
                 2
                 <div class="column" vusion-slot-name="default">
@@ -188,6 +202,8 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
               </div>
             </td>
+          </tr>
+          <tr class="tr">
             <td class="td" type="current">
               <div class="date">
                 5
@@ -202,8 +218,6 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
               </div>
             </td>
-          </tr>
-          <tr class="tr">
             <td class="td" type="current">
               <div class="date">
                 7
@@ -239,6 +253,8 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
               </div>
             </td>
+          </tr>
+          <tr class="tr">
             <td class="td" type="current">
               <div class="date">
                 12
@@ -253,8 +269,6 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
               </div>
             </td>
-          </tr>
-          <tr class="tr">
             <td class="td" type="current">
               <div class="date">
                 14
@@ -290,6 +304,8 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
               </div>
             </td>
+          </tr>
+          <tr class="tr">
             <td class="td" type="current">
               <div class="date">
                 19
@@ -304,8 +320,6 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
               </div>
             </td>
-          </tr>
-          <tr class="tr">
             <td class="td" type="current">
               <div class="date">
                 21
@@ -341,6 +355,8 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
               </div>
             </td>
+          </tr>
+          <tr class="tr">
             <td class="td" type="current">
               <div class="date">
                 26
@@ -355,11 +371,16 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
               </div>
             </td>
-          </tr>
-          <tr class="tr">
             <td class="td" type="current">
               <div class="date">
                 28
+                <div class="column" vusion-slot-name="default">
+                </div>
+              </div>
+            </td>
+            <td class="td" type="current">
+              <div class="date">
+                29
                 <div class="column" vusion-slot-name="default">
                 </div>
               </div>
@@ -385,6 +406,8 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
               </div>
             </td>
+          </tr>
+          <tr class="tr">
             <td class="td" type="next">
               <div class="date">
                 4
@@ -406,8 +429,6 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
                 </div>
               </div>
             </td>
-          </tr>
-          <tr class="tr">
             <td class="td" type="next">
               <div class="date">
                 7
@@ -432,27 +453,6 @@ exports[`u-calendar-view.vue Demo-基本用法 1`] = `
             <td class="td" type="next">
               <div class="date">
                 10
-                <div class="column" vusion-slot-name="default">
-                </div>
-              </div>
-            </td>
-            <td class="td" type="next">
-              <div class="date">
-                11
-                <div class="column" vusion-slot-name="default">
-                </div>
-              </div>
-            </td>
-            <td class="td" type="next">
-              <div class="date">
-                12
-                <div class="column" vusion-slot-name="default">
-                </div>
-              </div>
-            </td>
-            <td class="td" type="next">
-              <div class="date">
-                13
                 <div class="column" vusion-slot-name="default">
                 </div>
               </div>
