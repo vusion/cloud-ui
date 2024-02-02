@@ -339,11 +339,7 @@ export default {
             ) {
                 this.minTime = this.spMinTime;
                 this.maxTime = this.spMaxTime;
-            } else if (datetime === this.minCalendarDate)
-                this.minTime = this.spMinTime;
-            else if (datetime === this.maxCalendarDate)
-                this.maxTime = this.spMaxTime;
-            else if (
+            } else if (
                 datetime === this.minCalendarDate
                 && dtime < this.spMinTime
             ) {
