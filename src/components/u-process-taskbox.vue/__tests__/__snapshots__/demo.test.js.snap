@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-process-taskbox.vue Demo-任务箱 1`] = `
+<div>
+  <u-process-taskbox icon="notice"></u-process-taskbox>
+</div>
+`;
+
+exports[`u-process-taskbox.vue Demo-设置分页 1`] = `
+<div>
+  <div class="root" direction="horizontal" gap="large" type vusion-slot-name="default">
+    <u-process-taskbox icon="notice"></u-process-taskbox>
+    <u-process-taskbox size="5"></u-process-taskbox>
+    <u-process-taskbox size="10"></u-process-taskbox>
+  </div>
+</div>
+`;
+
+exports[`u-taskbox.vue Demo-任务箱 1`] = `
+<div>
+  <span class="root">
+    <div class="root badge" corner>
+      <span class="lcp-iconv taskicon">
+        <span class="iconwrap">
+          <svg aria-hidden="true" class="iconsvg">
+            <use xlink:href="#pc-notice" />
+          </svg>
+        </span>
+        <div class="icontext" vusion-slot-name="default">
+        </div>
+      </span>
+    </div>
+    <transition-stub name="fade">
+      <div class="root" merge-borders="true" style="display: none;">
+        <span class="arrow" data-popper-arrow></span>
+        <div class="body" vusion-slot-name="default">
+          <div class="root content" direction="vertical" type vusion-slot-name="default">
+            <h3 class="h3">待处理任务 (0)</h3>
+            <ul class="root" hover line striped></ul>
+          </div>
+        </div>
+      </div>
+    </transition-stub>
+  </span>
+</div>
+`;
+
+exports[`u-taskbox.vue Demo-设置分页 1`] = `
+<div>
+  <div class="root" direction="horizontal" gap="large" type vusion-slot-name="default">
+    <span class="root">
+      <div class="root badge" corner>
+        <span class="lcp-iconv taskicon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-notice" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </div>
+      <transition-stub name="fade">
+        <div class="root" merge-borders="true" style="display: none;">
+          <span class="arrow" data-popper-arrow></span>
+          <div class="body" vusion-slot-name="default">
+            <div class="root content" direction="vertical" type vusion-slot-name="default">
+              <h3 class="h3">待处理任务 (0)</h3>
+              <ul class="root" hover line striped></ul>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </span>
+    <span class="root">
+      <div class="root badge" corner>
+        <span class="lcp-iconv taskicon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-default" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </div>
+      <transition-stub name="fade">
+        <div class="root" merge-borders="true" style="display: none;">
+          <span class="arrow" data-popper-arrow></span>
+          <div class="body" vusion-slot-name="default">
+            <div class="root content" direction="vertical" type vusion-slot-name="default">
+              <h3 class="h3">待处理任务 (0)</h3>
+              <ul class="root" hover line striped></ul>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </span>
+    <span class="root">
+      <div class="root badge" corner>
+        <span class="lcp-iconv taskicon">
+          <span class="iconwrap">
+            <svg aria-hidden="true" class="iconsvg">
+              <use xlink:href="#pc-default" />
+            </svg>
+          </span>
+          <div class="icontext" vusion-slot-name="default">
+          </div>
+        </span>
+      </div>
+      <transition-stub name="fade">
+        <div class="root" merge-borders="true" style="display: none;">
+          <span class="arrow" data-popper-arrow></span>
+          <div class="body" vusion-slot-name="default">
+            <div class="root content" direction="vertical" type vusion-slot-name="default">
+              <h3 class="h3">待处理任务 (0)</h3>
+              <ul class="root" hover line striped></ul>
+            </div>
+          </div>
+        </div>
+      </transition-stub>
+    </span>
+  </div>
+</div>
+`;
