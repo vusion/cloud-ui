@@ -104,7 +104,7 @@ export default {
         placeholder: {
             type: String,
             default() {
-                return this.$tt('selectTimeText');
+                return this.$t('selectTimeText');
             },
         },
     },

@@ -78,7 +78,6 @@ import i18n from './i18n';
 import MField from '../m-field.vue';
 import UTimePickerPopper from './popper.vue';
 import URangeInput from '../u-date-picker.vue/range-input.vue';
-import i18nMixin from '../../mixins/i18n';
 
 /**
  * @class TimePicker
@@ -96,9 +95,9 @@ import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-time-range-picker',
-    // i18n,
+    i18n,
     components: { URangeInput, UTimePickerPopper },
-    mixins: [MField, DateFormatMixin, i18nMixin('u-time-picker')],
+    mixins: [MField, DateFormatMixin],
     props: {
         minUnit: { type: String, default: 'second' },
         startTime: { type: String, default: '' },
@@ -134,7 +133,7 @@ export default {
         placeholder: {
             type: String,
             default() {
-                return this.$tt('selectTimeText');
+                return this.$t('selectTimeText');
             },
         },
         placeholderRight: {
