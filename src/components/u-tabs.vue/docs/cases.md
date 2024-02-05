@@ -1,3 +1,50 @@
+### 随机添加测试
+```vue
+<template>
+    <u-tabs value="1">
+        <u-tab v-if="showArr.includes(1)" value="1" title="Tab1">模板内容</u-tab>
+        <u-tab v-if="showArr.includes(2)" value="2" title="Tab2">样式内容</u-tab>
+        <u-tab v-if="showArr.includes(3)" value="3" title="Tab3">逻辑内容</u-tab>
+        <u-tab v-if="showArr.includes(4)" value="4" title="Tab4">模板内容</u-tab>
+        <u-tab v-if="showArr.includes(5)" value="5" title="Tab5">样式内容</u-tab>
+        <u-tab v-if="showArr.includes(6)" value="6" title="Tab6">逻辑内容</u-tab>
+        <u-tab v-if="showArr.includes(7)" value="7" title="Tab7">模板内容</u-tab>
+        <u-tab v-if="showArr.includes(8)" value="8" title="Tab8">样式内容</u-tab>
+        <u-tab v-if="showArr.includes(9)" value="9" title="Tab9">逻辑内容</u-tab>
+        <u-tab v-if="showArr.includes(10)" value="10" title="Tab10">逻辑内容</u-tab>
+    </u-tabs>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            showArr: [],
+        };
+    },
+    created() {
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        this.addShow(arr);
+    },
+    methods: {
+        addShow(arr) {
+            if (arr.length === 0) {
+                return;
+            }
+            const n = [...arr];
+            let i = Math.floor(Math.random() * n.length);
+            this.showArr.push(n[i]);
+            n.splice(i, 1);
+
+            i = Math.floor(Math.random() * n.length);
+            this.showArr.push(n[i]);
+            n.splice(i, 1);
+            setTimeout(() => this.addShow(n), 0);
+        },
+    },
+};
+</script>
+```
+
 ### 形态
 
 #### text
