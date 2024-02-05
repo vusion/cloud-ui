@@ -479,8 +479,8 @@ export default {
                 newSelectedDate = maxDay.clone().startOf('day');
             }
             this.year = value;
-            this.$emit('select-year', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
             if (!this.selectedDate) {
+                this.$emit('select-year', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
                 return;
             }
             const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.year(value)), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
@@ -495,6 +495,7 @@ export default {
                 monthOfEnd: date.endOf('month'),
             });
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select-year', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
             this.$emit('select', cell, this);
         },
         onSelectMonth(value) {
@@ -518,8 +519,8 @@ export default {
             }
 
             this.month = value;
-            this.$emit('select-month', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
             if (!this.selectedDate) {
+                this.$emit('select-month', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
                 return;
             }
             const dates = this.getRangeSelectedDates(this.selectedDates.map((v) => v.month(value)), newSelectedDate.startOf('month'), newSelectedDate.endOf('month').startOf('day'));
@@ -534,6 +535,7 @@ export default {
                 monthOfEnd: date.endOf('month'),
             });
             this.updateSelectedDates(dates, cell, true);
+            this.$emit('select-month', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
             this.$emit('select', cell, this);
         },
         /**
