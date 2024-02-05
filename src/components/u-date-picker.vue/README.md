@@ -313,10 +313,10 @@ export default {
 | time | string, number |  | `'00:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
 | yearDiff | number |  | `20` | 最小可选年份值与当前年份值的差值 |
 | yearAdd | number |  | `20` | 最大可选年份值与当前年份值的差值 |
-| show-formatter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  |  |
 | advanced-format | { enable: boolean, value: string } |  | `'{ enable: false, value: '' }'` |  |
+| show-formatter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  |  |
 | autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
-| placeholder | string |  | `'请输入'` | 为空时显示的占位符文本 |
+| placeholder | string |  | `'请选择日期'` | 为空时显示的占位符文本 |
 | alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对齐方式 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器，用于转换时间结果 |
 | preIcon | string | `[object Object]` | `'calendar'` |  |
