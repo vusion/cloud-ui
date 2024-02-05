@@ -147,6 +147,7 @@ export default {
 | show-time-formatter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'HH:mm:ss'` |  |
 | advanced-format | { enable: boolean, value: string } |  | `'{ enable: false, value: '' }'` |  |
 | placeholder | string |  | `'请选择时间'` | 为空时显示的占位符文本 |
+| placeholderRight | string |  |  | 为空时显示的占位符文本（右侧） |
 | autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
 | showRightNowButton | boolean |  | `true` | 点击可快捷选择当前时间 |
 | rightNowTitle | string |  | `''` |  |

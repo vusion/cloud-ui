@@ -317,6 +317,7 @@ export default {
 | show-formatter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  |  |
 | autofocus | boolean |  | `false` | 设置是否自动获取焦点 |
 | placeholder | string |  | `'请选择日期'` | 为空时显示的占位符文本 |
+| placeholderRight | string |  |  | 为空时显示的占位符文本（右侧） |
 | alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对齐方式 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器，用于转换时间结果 |
 | preIcon | string | `[object Object]` | `'calendar'` |  |
