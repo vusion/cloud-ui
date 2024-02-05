@@ -233,8 +233,6 @@ export default {
         currentValue: {
             handler(currentValue, oldValue) {
                 const value = this.toValue(currentValue);
-                this.$emit('input', value);
-                this.$emit('update:value', value);
                 this.$emit('change', {
                     value,
                     oldValue: this.toValue(oldValue),
@@ -575,6 +573,7 @@ export default {
                     const item = this.currentValue[index];
                     item.percent = e.percent;
 
+                    this.emitInputEvent();
                     this.$emit('progress', {
                         e, file, item, xhr,
                     }, this);
@@ -612,9 +611,7 @@ export default {
                         }
                     }
 
-                    const value = this.toValue(this.currentValue);
-                    this.$emit('input', value);
-                    this.$emit('update:value', value);
+                    this.emitInputEvent();
 
                     this.$emit('success', {
                         res,
@@ -628,9 +625,7 @@ export default {
                     const item = this.currentValue[index];
                     item.status = 'error';
 
-                    const value = this.toValue(this.currentValue);
-                    this.$emit('input', value);
-                    this.$emit('update:value', value);
+                    this.emitInputEvent();
                     const errorMessage = e.msg ? (JSON.parse(e.msg).Message || `文件${item.name}上传接口调用失败`) : `文件${item.name}上传接口调用失败`;
                     this.errorMessage.push(errorMessage);
 
@@ -673,7 +668,7 @@ export default {
                 return;
 
             this.currentValue.splice(index, 1);
-
+            this.emitInputEvent();
             this.$emit('remove', {
                 value: this.currentValue,
                 item,
@@ -686,6 +681,7 @@ export default {
 
             this.currentValue.splice(0, this.currentValue.length);
 
+            this.emitInputEvent();
             this.$emit('clear', { value: this.currentValue }, this);
         },
         onDrop(e) {
@@ -776,6 +772,11 @@ export default {
             const match = url.match(/\/([^/]+)$/);
             console.log('match', match);
             return match ? match[1] : null;
+        },
+        emitInputEvent() {
+            const value = this.toValue(this.currentValue);
+            this.$emit('input', value);
+            this.$emit('update:value', value);
         },
     },
 };
