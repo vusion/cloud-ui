@@ -8,6 +8,7 @@
         :disabled="!!readonly || disabled"
         ref="input"
         :clearable="clearable" :placeholder="placeholder"
+        :placeholder-right="placeholderRight"
         @update:value="onInputChange($event)"
         @left-click="onLeftClick"
         @right-click="onRightClick"
@@ -129,13 +130,21 @@ export default {
         rightNowTitle: { type: String, default: '' },
         cancelTitle: { type: String, default: '' },
         okTitle: { type: String, default: '' },
+        placeholder: {
+            type: String,
+            default() {
+                return this.$t('selectTimeText');
+            },
+        },
+        placeholderRight: {
+            type: String,
+        },
     },
     data() {
         return {
             startInputTime: this.startTime,
             endInputTime: this.endTime,
             editTarget: '', // 标明当前编辑的是起始/结束值
-            placeholder: this.$t('selectTimeText'),
         };
     },
     computed: {
