@@ -339,15 +339,12 @@ export default {
             ) {
                 this.minTime = this.spMinTime;
                 this.maxTime = this.spMaxTime;
-            } else if (datetime === this.minCalendarDate)
-                this.minTime = this.spMinTime;
-            else if (datetime === this.maxCalendarDate)
-                this.maxTime = this.spMaxTime;
-            else if (
+            } else if (
                 datetime === this.minCalendarDate
                 && dtime < this.spMinTime
             ) {
                 const spMinTime = this.spMinTime.split(':');
+                this.minTime = this.spMinTime;
                 date.setHours(spMinTime[0]);
                 date.setMinutes(spMinTime[1]);
                 date.setSeconds(spMinTime[2]);
@@ -356,9 +353,16 @@ export default {
                 && dtime > this.spMaxTime
             ) {
                 const spMaxTime = this.spMaxTime.split(':');
+                this.maxTime = this.spMaxTime;
                 date.setHours(spMaxTime[0]);
                 date.setMinutes(spMaxTime[1]);
                 date.setSeconds(spMaxTime[2]);
+            } else if (datetime === this.minCalendarDate) {
+                this.minTime = this.spMinTime;
+                this.maxTime = undefined;
+            } else if (datetime === this.maxCalendarDate) {
+                this.minTime = undefined;
+                this.maxTime = this.spMaxTime;
             } else {
                 this.minTime = undefined;
                 this.maxTime = undefined;
