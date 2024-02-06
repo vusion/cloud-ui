@@ -182,16 +182,16 @@ namespace nasl.ui {
         onLoad: (event: any) => any;
 
         @Event({
-            title: '年选择',
+            title: '年改变后',
             description: '年份选择时触发',
         })
-        onSelectYear: (event: nasl.core.String) => any;
+        onChangeYear: (event: nasl.core.String) => any;
 
         @Event({
-            title: '月选择',
+            title: '月改变后',
             description: '月份选择时触发',
         })
-        onSelectMonth: (event: nasl.core.String) => any;
+        onChangeMonth: (event: nasl.core.String) => any;
 
         @Slot({
             title: 'undefined',
