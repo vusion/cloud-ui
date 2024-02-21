@@ -3,7 +3,7 @@
 namespace nasl.ui {
     @Component({
         title: '流程记录',
-        icon: 'processrecord',
+        icon: 'table-view',
         description: '',
         group: 'Process'
     })
