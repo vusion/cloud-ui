@@ -14,13 +14,11 @@
                     </u-textarea>
                 </u-form-item>
                 <u-form-item :label="$tt('selectTransfer')" required rules="required" v-if="currentItem.name === 'transfer'">
-                    <u-input v-model="model.userName" size="normal full" :placeholder="$tt('placeholder')">
-                    </u-input>
                     <u-select
                         text-field="userId"
                         value-field="userName"
                         :data-source="getTransferTargetUserList"
-                        :value.sync="model.userName"
+                        :value.sync="model.userId"
                         :initial-load="true">
                     </u-select>
                 </u-form-item>
@@ -50,7 +48,7 @@ export default {
         return {
             model: {
                 comment: '',
-                userName: '',
+                userId: '',
             },
             currentItem: undefined,
             taskId: undefined,
@@ -110,7 +108,7 @@ export default {
                 body.data = dynamicRenderContainer.__vue__.processDetailFormData;
             }
             if (name === 'transfer') {
-                body.userName = this.model.userName;
+                body.transferTargetUser = this.model.userId;
             } else {
                 body.comment = this.model.comment;
             }
