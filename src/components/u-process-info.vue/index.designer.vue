@@ -17,11 +17,26 @@ export default {
     mounted() {
         if (this.$refs.info) {
             this.$refs.info.detail = {
-                startBy: '张三（示例）',
-                processStartTime: '2020-01-01 12:00:00（示例）',
-                finished: '进行中（示例）',
-                currentNodes: '节点1（示例）',
-                currentCandidateUsers: '张三, 李四（示例）',
+                procInstStartBy: '张三（示例）',
+                procInstStartTime: '2024-01-24 08:00:00',
+                procInstEndTime: '2024-01-24 10:00:00',
+                procInstStatus: 'approving',
+                procInstCurNodes: [
+                    {
+                        curNodeTitle: '多人审批任务',
+                        curNodeParticipants: [
+                            'xb1',
+                            'xb2',
+                        ],
+                    },
+                    {
+                        curNodeTitle: '审批任务1',
+                        curNodeParticipants: [
+                            'xb1',
+                            'xb2',
+                        ],
+                    },
+                ],
             };
         }
     },

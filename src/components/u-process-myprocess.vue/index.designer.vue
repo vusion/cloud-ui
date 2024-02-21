@@ -19,36 +19,76 @@ export default {
             this.timer = setTimeout(() => {
                 this.$refs.myprocess.$refs.tableview.currentDataSource.arrangedData = [
                     {
-                        taskId: '2759bf13-9fd4-11ee-8735-8a36b3181f25',
-                        currentNode: '审批任务',
-                        processTitle: '流程1',
-                        currentAssignee: '章三',
-                        currentCandidateUsers: [],
-                        startBy: '张三',
-                        taskCreateTime: '2023-12-21 08:10:10',
-                    },
-                    {
-                        taskId: '275c0907-9fd4-11ee-8735-8a36b3181f25',
-                        currentNode: '审批任务',
-                        processTitle: '流程1',
-                        currentAssignee: '章三',
-                        currentCandidateUsers: [
-                            'xb1',
-                            'zzz zz',
-                            'yyy yy',
-                            'xxx xx',
+                        taskId: '3df4ffc2-ba8f-11ee-94b2-aa63f0d148e3',
+                        taskBoxTitle: 'x',
+                        procInstTitle: '张三申请事件1天',
+                        procDefTitle: '会签流程1',
+                        procInstStartBy: null,
+                        procInstStartTime: '2024-01-24 10:00:00',
+                        procInstCurNodes: [
+                            {
+                                curNodeTitle: '多人审批任务',
+                                curNodeParticipants: [
+                                    'xb1',
+                                    'xb2',
+                                ],
+                            },
+                            {
+                                curNodeTitle: '审批任务1',
+                                curNodeParticipants: [
+                                    'xb3',
+                                    'xb4',
+                                ],
+                            },
                         ],
-                        startBy: '张三',
-                        taskCreateTime: '2023-12-21 08:10:10',
                     },
                     {
-                        taskId: '2759bf13-9fd4-11ee-8735-8a36b3181f25',
-                        currentNode: '审批任务',
-                        processTitle: '流程1',
-                        currentAssignee: '章三',
-                        currentCandidateUsers: [],
-                        startBy: '张三',
-                        taskCreateTime: '2023-12-21 08:10:10',
+                        taskId: '219ea9dd-ba8f-11ee-a35a-a2041721ddc7',
+                        taskBoxTitle: 'x',
+                        procInstTitle: '李四申请事件1天',
+                        procDefTitle: '会签流程1',
+                        procInstStartBy: null,
+                        procInstStartTime: '2024-01-24 10:00:00',
+                        procInstCurNodes: [
+                            {
+                                curNodeTitle: '多人审批任务',
+                                curNodeParticipants: [
+                                    'xb1',
+                                    'xb2',
+                                ],
+                            },
+                            {
+                                curNodeTitle: '审批任务1',
+                                curNodeParticipants: [
+                                    'xb3',
+                                    'xb4',
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        taskId: '219ea9dd-ba8f-11ee-a35a-a2041721ddc7',
+                        taskBoxTitle: 'x',
+                        procInstTitle: '张三申请事件1天',
+                        procDefTitle: '会签流程1',
+                        procInstStartBy: null,
+                        procInstStartTime: '2024-01-24 10:00:00',
+                        procInstCurNodes: [
+                            {
+                                curNodeTitle: '多人审批任务',
+                                curNodeParticipants: [
+                                    'xb1',
+                                    'xb2',
+                                ],
+                            },
+                            {
+                                curNodeTitle: '审批任务1',
+                                curNodeParticipants: [
+                                    'xb3',
+                                    'xb4',
+                                ],
+                            },
+                        ],
                     },
                 ];
                 clearTimeout(this.timer);

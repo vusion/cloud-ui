@@ -136,4 +136,5 @@ export * from './u-process-myprocess.vue';
 export * from './u-process-button.vue';
 export * from './u-process-info.vue';
 export * from './u-process-record.vue';
+export * from './u-process-taskbox.vue';
 

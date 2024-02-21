@@ -16,6 +16,13 @@
                 <u-form-item :label="$tt('selectTransfer')" required rules="required" v-if="currentItem.name === 'transfer'">
                     <u-input v-model="model.userName" size="normal full" :placeholder="$tt('placeholder')">
                     </u-input>
+                    <u-select
+                        text-field="userId"
+                        value-field="userName"
+                        :data-source="getTransferTargetUserList"
+                        :value.sync="model.userName"
+                        :initial-load="true">
+                    </u-select>
                 </u-form-item>
             </u-form>
             <template #foot>
@@ -199,6 +206,12 @@ export default {
             }).catch(() => {
                 // do nothing
             });
+        },
+        async getTransferTargetUserList() {
+            if (this.$processV2) {
+                const result = await this.$processV2.getTransferTargetUserList();
+                return result.data;
+            }
         },
     },
 };

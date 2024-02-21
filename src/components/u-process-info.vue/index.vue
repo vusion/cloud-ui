@@ -14,11 +14,11 @@
         </div>
         <div :class="$style.item">
             <div :class="$style.label">{{ $tt('currentNodes') }}：</div>
-            <div :class="$style.value" v-ellipsis-title> {{ formatCurrentNodes(detail.procInstCurrentTask) }}</div>
+            <div :class="$style.value" v-ellipsis-title> {{ formatCurrentNodes(detail) }}</div>
         </div>
         <div :class="$style.item">
             <div :class="$style.label">{{ $tt('currentCandidateUsers') }}：</div>
-            <div :class="$style.value" v-ellipsis-title>{{ formatCurrentAssignee(detail.procInstCurrentTask) }}</div>
+            <div :class="$style.value" v-ellipsis-title>{{ formatCurrentAssignee(detail) }}</div>
         </div>
     </div>
 </template>
@@ -31,11 +31,10 @@ export default {
     data() {
         return {
             detail: {
-                startBy: '',
-                createTime: '',
-                finished: false,
-                currentNode: '',
-                currentCandidateUsers: [],
+                procInstStartBy: '',
+                procInstStartTime: '',
+                procInstStatus: false,
+                procInstCurNodes: [],
             },
             taskId: undefined,
         };
@@ -70,22 +69,27 @@ export default {
             if (value === null || value === undefined) {
                 return '-';
             }
-            if (value === 'APPROVED') {
-                return '已结束';
-            } else if (value === 'PENDING') {
-                return '进行中';
+            if (value === 'approved') {
+                return '审批通过';
+            } else if (value === 'approving') {
+                return '审批中';
             } else {
                 return value;
             }
         },
         formatCurrentNodes(item) {
-            const procInstCurrentTask = item.procInstCurrentTask || [];
-            const set = new Set(procInstCurrentTask.map((task) => task.currentTaskTitle));
+            console.log('dddd');
+            const procInstCurNodes = item.procInstCurNodes || [];
+            const set = new Set(procInstCurNodes.map((task) => task.curNodeTitle));
             return Array.from(set).join('，');
         },
         formatCurrentAssignee(item) {
-            const procInstCurrentTask = item.procInstCurrentTask || [];
-            const set = new Set(procInstCurrentTask.map((task) => task.currentTaskAssignees));
+            const procInstCurNodes = item.procInstCurNodes || [];
+            let curNodeParticipants = [];
+            procInstCurNodes.forEach((task) => {
+                curNodeParticipants = curNodeParticipants.concat(task.curNodeParticipants);
+            });
+            const set = new Set(curNodeParticipants);
             return Array.from(set).join('，');
         },
     },

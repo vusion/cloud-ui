@@ -133,6 +133,7 @@
   "uProcessInfo_processStartTime": "ProcessStartTime",
   "uProcessInfo_finished": "Finished status",
   "uProcessInfo_currentNodes": "CurrentNodes",
+  "uProcessInfo_currentCandidateUsers": "CurrentAssignee",
   "uProcessMyprocess_pendingTasks": "My PendingTasks",
   "uProcessMyprocess_processedTasks": "My ProcessedTasks",
   "uProcessMyprocess_intiationProcess": "My Processe",

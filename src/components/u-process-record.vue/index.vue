@@ -15,8 +15,8 @@
                             <div :class="$style.content">
                                 <div :class="$style.value">{{ current.item.userName || '-' }}</div>
                                 <div :class="$style.value">{{ dateFormatter(current.item.recordCreateTime) || '-' }}</div>
-                                <div :class="$style.value">{{ current.item.nodeOperation || '-' }}</div>
-                                <div :class="$style.value">{{ current.item.comment || '-' }}</div>
+                                <div :class="$style.value">{{ current.item.nodeOperationText || '-' }}</div>
+                                <div :class="$style.value">{{ current.item.nodeComment || '-' }}</div>
                             </div>
                         </div>
                     </u-timeline-item>
@@ -38,10 +38,10 @@
                     <template #cell="current"> {{ dateFormatter(current.item.recordCreateTime) }}</template>
                 </u-table-view-column>
                 <u-table-view-column :title="$tt('nodeOperation')">
-                    <template #cell="current"> {{ current.item.nodeOperation || '-' }}</template>
+                    <template #cell="current"> {{ current.item.nodeOperationText || '-' }}</template>
                 </u-table-view-column>
                 <u-table-view-column :title="$tt('comment')">
-                    <template #cell="current"> {{ current.item.comment }}</template>
+                    <template #cell="current"> {{ current.item.nodeComment }}</template>
                 </u-table-view-column>
             </u-table-view>
         </template>
@@ -87,6 +87,15 @@ export default {
             return this.list.length < this.paging.total;
         },
     },
+    watch: {
+        type(value) {
+            if (value === 'timeline') {
+                this.paging.number = 1;
+                this.list = [];
+                this.loadList();
+            }
+        },
+    },
     created() {
         location.search.replace('?', '').split('&').forEach((item) => {
             const [key, value] = item.split('=');
@@ -98,15 +107,6 @@ export default {
             this.list = [];
             this.loadList();
         }
-    },
-    watch: {
-        type(value) {
-            if (value === 'timeline') {
-                this.paging.number = 1;
-                this.list = [];
-                this.loadList();
-            }
-        },
     },
     methods: {
         dateFormatter(value) {

@@ -133,6 +133,7 @@
   "uProcessInfo_processStartTime": "发起时间",
   "uProcessInfo_finished": "当前状态",
   "uProcessInfo_currentNodes": "当前节点",
+  "uProcessInfo_currentCandidateUsers": "参与人",
   "uProcessMyprocess_pendingTasks": "我的待办",
   "uProcessMyprocess_processedTasks": "我的已办",
   "uProcessMyprocess_intiationProcess": "我的发起",

@@ -106,9 +106,6 @@ export default {
         },
         async clickTask(task) {
             const { id } = task;
-            await this.$processV2.claimTask({
-                path: { id },
-            });
             const result = await this.$processV2.getTaskDestinationUrl({
                 body: {
                     taskId: id,
