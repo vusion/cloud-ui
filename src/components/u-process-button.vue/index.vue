@@ -76,7 +76,7 @@ export default {
                         taskId: this.taskId,
                     },
                 });
-                this.permissionDetails = res.data;
+                this.permissionDetails = (res.data || []).filter((item) => item.operateEnable);
             }
         },
         getColor(item) {
