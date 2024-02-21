@@ -94,7 +94,7 @@
         <div v-if="stickingHead" :class="$style.headPlaceholder" ref="headPlaceholder" :style="{ height: number2Pixel(stickingHeadHeight) }"></div>
         <div :class="$style.body" ref="body" :style="{ height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll"
             :sticky-fixed="useStickyFixed">
-            <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
+            <f-scroll-view :class="$style.scrollview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped" :sticky-fixed="useStickyFixed" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth">
@@ -3680,15 +3680,20 @@ export default {
     margin-right: 4px;
 }
 
-.scrollcview {
+.scrollview {
     width: 100%;
     height: 100%;
 }
-.scrollcview[native="true"][hide-scroll] [class^="f-scroll-view_wrap__"]{
+.scrollview[native="true"][hide-scroll] [class^="f-scroll-view_wrap__"]{
     overflow-x: hidden;
 }
-.scrollcview[native="true"][hide-scroll] [class^="f-scroll-view_wrap__"]::-webkit-scrollbar {
+.scrollview[native="true"][hide-scroll] [class^="f-scroll-view_wrap__"]::-webkit-scrollbar {
     width: 0;
+}
+/** fix 固定列滚动条看不见 */
+.scrollview [class^="f-scroll-view_wrap__"] {
+    position: relative;
+    z-index: 0;
 }
 
 .dropghost {
