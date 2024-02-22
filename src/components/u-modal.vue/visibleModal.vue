@@ -72,12 +72,14 @@ export default {
         return h('div', {
             style: {
                 background: '#FAFAFA',
-                border: '1px dashed #C3C3C3',
-                height: '40px',
+                // border: '1px dashed #C3C3C3',
+                height: '0',
+                width: '0',
                 alignItems: 'center',
                 justifyContent: 'center',
                 display: 'flex',
                 cursor: 'pointer',
+                minHeight: '0',
             },
         }, [
             h('u-modal-real', {
@@ -89,7 +91,7 @@ export default {
                 scopedSlots: this.$scopedSlots,
                 ref: 'modal',
             }, slots),
-            h('div', {}, [this.placeholderInDesigner]),
+            // h('div', {}, [this.placeholderInDesigner]),
         ]);
     },
 };
