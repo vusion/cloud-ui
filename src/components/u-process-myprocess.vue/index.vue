@@ -36,10 +36,10 @@
                             <u-select
                                 filterable
                                 clearable
-                                text-field="procInstStartBy"
-                                value-field="procInstStartBy"
+                                text-field="userName"
+                                value-field="userName"
                                 :data-source="getProcessStartByList"
-                                :value.sync="filter.procInstStartBy"
+                                :value.sync="filter.procInstInitiator"
                                 :initial-load="true">
                             </u-select>
                         </u-form-item>
@@ -63,7 +63,7 @@
                     <template #cell="current"> {{ formatCurrentAssignee(current.item) }}</template>
                 </u-table-view-column>
                 <u-table-view-column :title="$tt('startBy')">
-                    <template #cell="current"> {{ current.item.procInstStartBy || '-' }}</template>
+                    <template #cell="current"> {{ current.item.procInstInitiator || '-' }}</template>
                 </u-table-view-column>
                 <u-table-view-column :title="$tt('createTime')">
                     <template #cell="current"> {{ dateFormatter(current.item.procInstStartTime) }}</template>
@@ -105,9 +105,9 @@ export default {
     methods: {
         async load(params) {
             const typeMap = {
-                pendingTasks: 'getMyPendingTaskList',
-                processedTasks: 'getMyCompletedTaskList',
-                intiationProcess: 'getMyInitiateTaskList',
+                pendingTasks: 'getMyPendingTasks',
+                processedTasks: 'getMyCompletedTasks',
+                intiationProcess: 'getMyInitiateTasks',
             };
             if (this.$processV2) {
                 const body = {
@@ -137,13 +137,13 @@ export default {
         },
         async getAllProcessDefList() {
             if (this.$processV2) {
-                const result = await this.$processV2.getProcDefList();
+                const result = await this.$processV2.getProcDefInfos();
                 return result.data;
             }
         },
         async getProcessStartByList() {
             if (this.$processV2) {
-                const result = await this.$processV2.getProcInstStartByList();
+                const result = await this.$processV2.getProcInstInitiators();
                 return result.data;
             }
         },
@@ -167,16 +167,16 @@ export default {
         },
         formatCurrentNodes(item) {
             const procInstCurNodes = item.procInstCurNodes || [];
-            const set = new Set(procInstCurNodes.map((task) => task.curNodeTitle));
+            const set = new Set(procInstCurNodes.map((task) => task.currNodeTitle));
             return Array.from(set).join('，') || '-';
         },
         formatCurrentAssignee(item) {
             const procInstCurNodes = item.procInstCurNodes || [];
-            let curNodeParticipants = [];
+            let currNodeParticipants = [];
             procInstCurNodes.forEach((task) => {
-                curNodeParticipants = curNodeParticipants.concat(task.curNodeParticipants);
+                currNodeParticipants = currNodeParticipants.concat(task.currNodeParticipants);
             });
-            const set = new Set(curNodeParticipants);
+            const set = new Set(currNodeParticipants);
             return Array.from(set).join('，');
         },
     },

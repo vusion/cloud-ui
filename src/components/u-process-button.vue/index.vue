@@ -9,16 +9,16 @@
             ref="modal"
             @close="currentItem = undefined">
             <u-form label-layout="block" ref="form">
-                <u-form-item :label="$tt('approvalComments')" :required="currentItem.opinionsEnable" :rules="currentItem.opinionsEnable?'required':''" v-if="currentItem.name !== 'transfer'">
+                <u-form-item :label="$tt('approvalComments')" :required="currentItem.opinionsEnable" :rules="currentItem.opinionsEnable?'required':''" v-if="currentItem.name !== 'reassign'">
                     <u-textarea v-model="model.comment" size="normal full" :placeholder="$tt('placeholder')">
                     </u-textarea>
                 </u-form-item>
-                <u-form-item :label="$tt('selectTransfer')" required rules="required" v-if="currentItem.name === 'transfer'">
+                <u-form-item :label="$tt('selectTransfer')" required rules="required" v-if="currentItem.name === 'reassign'">
                     <u-select
-                        text-field="userId"
+                        text-field="userName"
                         value-field="userName"
-                        :data-source="getTransferTargetUserList"
-                        :value.sync="model.userId"
+                        :data-source="getUsersForReassign"
+                        :value.sync="model.userName"
                         :initial-load="true">
                     </u-select>
                 </u-form-item>
@@ -48,7 +48,7 @@ export default {
         return {
             model: {
                 comment: '',
-                userId: '',
+                userName: '',
             },
             currentItem: undefined,
             taskId: undefined,
@@ -63,13 +63,13 @@ export default {
             }
         });
         if (this.taskId) {
-            this.getTaskOptPermission();
+            this.getTaskOperationPermissions();
         }
     },
     methods: {
-        async getTaskOptPermission() {
+        async getTaskOperationPermissions() {
             if (this.$processV2) {
-                const res = await this.$processV2.taskOptPermission({
+                const res = await this.$processV2.getTaskOperationPermissions({
                     body: {
                         taskId: this.taskId,
                     },
@@ -107,8 +107,8 @@ export default {
             if (dynamicRenderContainer && dynamicRenderContainer.__vue__) {
                 body.data = dynamicRenderContainer.__vue__.processDetailFormData;
             }
-            if (name === 'transfer') {
-                body.transferTargetUser = this.model.userId;
+            if (name === 'reassign') {
+                body.userForReassign = this.model.userName;
             } else {
                 body.comment = this.model.comment;
             }
@@ -205,9 +205,13 @@ export default {
                 // do nothing
             });
         },
-        async getTransferTargetUserList() {
+        async getUsersForReassign() {
             if (this.$processV2) {
-                const result = await this.$processV2.getTransferTargetUserList();
+                const result = await this.$processV2.getUsersForReassign({
+                    body: {
+                        taskId: this.taskId,
+                    },
+                });
                 return result.data;
             }
         },

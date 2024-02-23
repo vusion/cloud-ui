@@ -80,16 +80,16 @@ export default {
         formatCurrentNodes(item) {
             console.log('dddd');
             const procInstCurNodes = item.procInstCurNodes || [];
-            const set = new Set(procInstCurNodes.map((task) => task.curNodeTitle));
+            const set = new Set(procInstCurNodes.map((task) => task.currNodeTitle));
             return Array.from(set).join('，');
         },
         formatCurrentAssignee(item) {
             const procInstCurNodes = item.procInstCurNodes || [];
-            let curNodeParticipants = [];
+            let currNodeParticipants = [];
             procInstCurNodes.forEach((task) => {
-                curNodeParticipants = curNodeParticipants.concat(task.curNodeParticipants);
+                currNodeParticipants = currNodeParticipants.concat(task.currNodeParticipants);
             });
-            const set = new Set(curNodeParticipants);
+            const set = new Set(currNodeParticipants);
             return Array.from(set).join('，');
         },
     },

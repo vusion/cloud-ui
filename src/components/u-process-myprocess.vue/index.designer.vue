@@ -27,15 +27,15 @@ export default {
                         procInstStartTime: '2024-01-24 10:00:00',
                         procInstCurNodes: [
                             {
-                                curNodeTitle: '多人审批任务',
-                                curNodeParticipants: [
+                                currNodeTitle: '多人审批任务',
+                                currNodeParticipants: [
                                     'xb1',
                                     'xb2',
                                 ],
                             },
                             {
-                                curNodeTitle: '审批任务1',
-                                curNodeParticipants: [
+                                currNodeTitle: '审批任务1',
+                                currNodeParticipants: [
                                     'xb3',
                                     'xb4',
                                 ],
@@ -51,15 +51,15 @@ export default {
                         procInstStartTime: '2024-01-24 10:00:00',
                         procInstCurNodes: [
                             {
-                                curNodeTitle: '多人审批任务',
-                                curNodeParticipants: [
+                                currNodeTitle: '多人审批任务',
+                                currNodeParticipants: [
                                     'xb1',
                                     'xb2',
                                 ],
                             },
                             {
-                                curNodeTitle: '审批任务1',
-                                curNodeParticipants: [
+                                currNodeTitle: '审批任务1',
+                                currNodeParticipants: [
                                     'xb3',
                                     'xb4',
                                 ],
@@ -75,15 +75,15 @@ export default {
                         procInstStartTime: '2024-01-24 10:00:00',
                         procInstCurNodes: [
                             {
-                                curNodeTitle: '多人审批任务',
-                                curNodeParticipants: [
+                                currNodeTitle: '多人审批任务',
+                                currNodeParticipants: [
                                     'xb1',
                                     'xb2',
                                 ],
                             },
                             {
-                                curNodeTitle: '审批任务1',
-                                curNodeParticipants: [
+                                currNodeTitle: '审批任务1',
+                                currNodeParticipants: [
                                     'xb3',
                                     'xb4',
                                 ],

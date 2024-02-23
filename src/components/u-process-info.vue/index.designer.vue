@@ -37,9 +37,6 @@ export default {
     component: {
         UProcessInfoReal,
     },
-    created() {
-        this.$env.VUE_APP_DESIGNER = true;
-    },
 };
 </script>
 
