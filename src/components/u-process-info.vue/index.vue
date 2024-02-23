@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.root">
+    <div>
         <div :class="$style.item">
             <div :class="$style.label">{{ $tt('startBy') }}：</div>
             <div :class="$style.value" v-ellipsis-title>{{ detail.procInstStartBy || '-' }}</div>
@@ -96,27 +96,4 @@ export default {
 };
 </script>
 
-<style module>
-.root {
-
-}
-
-.item {
-    width: 20%;
-    display: inline-flex;
-}
-
-.item + .item {
-    padding-left: 10px;
-}
-.label {
-    color: var(--process-info-label-color);
-}
-
-.value {
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-</style>
+<style module src="./index.css"></style>

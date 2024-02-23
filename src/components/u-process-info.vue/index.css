@@ -1,0 +1,19 @@
+
+.item {
+    width: 20%;
+    display: inline-flex;
+}
+
+.item + .item {
+    padding-left: 10px;
+}
+.label {
+    color: var(--process-info-label-color);
+}
+
+.value {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
