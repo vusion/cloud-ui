@@ -42,7 +42,7 @@
                 icotype="only"
             >
             </i-ico>
-            <u-tooltip :hide-delay="500" placement="right">
+            <u-tooltip v-if="!$env.VUE_APP_DESIGNER" :hide-delay="500" placement="right">
               {{ currentCollapse ? '展开' : '收起' }}
             </u-tooltip>
           </div>
@@ -119,9 +119,9 @@ export default {
             this.handleData();
         },
         currentWidth(v) {
-            if (v && this.$el) {
+            if (this.$el) {
                 this.$nextTick(() => {
-                    this.$el.style.width = `${v}px`;
+                    this.$el.style.width = v ? `${v}px` : '';
                 });
             }
         },
