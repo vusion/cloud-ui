@@ -325,6 +325,8 @@ export default {
             if (this.filterable) {
                 if (this.selectedVM) {
                     this.filterText = this.selectedVM.currentText;
+                } else if (!this.value) { // 响应this.value 的变化 = '' 时处理 清空
+                    this.filterText = '';
                 }
                 // blur 事件会处理这个未搜索到置空的问题
                 // this.filterText = ? this.selectedVM.currentText : '';
