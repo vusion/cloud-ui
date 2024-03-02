@@ -1,8 +1,7 @@
 <template>
-<div :class="$style.root">
-    <canvas :class="$style.canvas" ref="canvas" :style="{ opacity }"></canvas>
-    <canvas :class="$style.mark" ref="mark"
-        :width="markWidth" :height="markHeight"></canvas>
+<div :class="$style.root" :style="{ opacity }">
+    <canvas :class="$style.canvas" ref="canvas"></canvas>
+    <canvas :class="$style.mark" ref="mark" :width="markWidth" :height="markHeight"></canvas>
 </div>
 </template>
 
@@ -97,7 +96,17 @@ export default {
             const ctx = markEl.getContext('2d');
             const width = markEl.width;
             const height = markEl.height;
+            let computedStyle = {};
+
+            try {
+                computedStyle = window.getComputedStyle(this.$el);
+            } catch (e) {
+            }
+
             ctx.clearRect(-width, -height, width * 2, height * 2);
+            ctx.fillStyle = computedStyle.color || 'black';
+            ctx.font = computedStyle.font || '14px Arial';
+            ctx.textAlign = 'center';
             ctx.fillText(this.text, 0, 0);
         },
         draw(image) {
@@ -147,7 +156,14 @@ export default {
         },
         redraw() {
             const image = this.image || this.$refs.mark;
-            this.draw(image);
+            if (image && typeof image.toDataURL === 'function') {
+                const imageData = image.toDataURL();
+                this.$el.style['background-image'] = `url(${imageData})`;
+                this.$el.style['background-size'] = `${this.markWidth / 2}px ${this.markHeight / 2}px`;
+            } else {
+                // image 目前不支持 api 参数有问题，后续有需要可以通过其他方案获取data url 支持；
+                this.draw(image);
+            }
         },
     },
 };
@@ -162,6 +178,7 @@ export default {
     width: 100%!important;
     height: 100%!important;
     pointer-events: none;
+    background-repeat: repeat;
 }
 [vusion-node-tag="u-absolute-layout"] > .root{
     position: fixed!important;
