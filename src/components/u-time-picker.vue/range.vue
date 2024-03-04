@@ -30,7 +30,7 @@
         :max-time="maxStartTime"
         :append-to="appendTo"
         :simple-foot="simpleFoot"
-        :popper-width="popperWidth"
+        :popper-width="currentPopperWidth"
         :show-right-now-button="showRightNowButton"
         :show-footer-button="showFooterButton"
         :right-now-title="rightNowTitle"
@@ -53,7 +53,7 @@
         :max-time="maxTime"
         :append-to="appendTo"
         :simple-foot="simpleFoot"
-        :popper-width="popperWidth"
+        :popper-width="currentPopperWidth"
         :show-right-now-button="showRightNowButton"
         :show-footer-button="showFooterButton"
         :right-now-title="rightNowTitle"
@@ -135,6 +135,7 @@ export default {
         return {
             startInputTime: this.startTime,
             endInputTime: this.endTime,
+            currentPopperWidth: this.popperWidth,
             editTarget: '', // 标明当前编辑的是起始/结束值
             placeholder: this.$tt('selectTimeText'),
         };
@@ -207,6 +208,8 @@ export default {
             if (this.$refs[refName] && this.$refs[refName][methodName]) {
                 this.$refs[refName][methodName](...args);
             }
+
+            this.setPopperWidth();
         },
         onLeftClick() {
             this.editTarget = 'start';
@@ -268,6 +271,18 @@ export default {
         clearValue() {
             this.$refs.startPopper && this.$refs.startPopper.clearValue();
             this.$refs.endPopper && this.$refs.endPopper.clearValue();
+        },
+        setPopperWidth() {
+            if (this.appendTo !== 'body') {
+                this.currentPopperWidth = this.popperWidth || '100%';
+                return;
+            }
+            if (this.popperWidth) {
+                this.currentPopperWidth = this.popperWidth;
+                return;
+            }
+            const rect = this.$el.getBoundingClientRect();
+            this.currentPopperWidth = rect.width;
         },
     },
 };
