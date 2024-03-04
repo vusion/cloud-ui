@@ -185,6 +185,10 @@ export default {
     margin-bottom: var(--transfer-button-space);
 }
 
+/* 修复穿梭框ide 样式问题 */
+.button span:empty::after {
+  content: none !important;
+}
 .root[size^="normal"] .listView {
     height: var(--transfer-height);
 }
