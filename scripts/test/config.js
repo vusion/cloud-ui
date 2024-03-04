@@ -5,6 +5,7 @@ module.exports.ignoredFiles = [
     'src/components/u-for.vue/docs/blocks.md',
     // WebWorker 不支持
     'src/components/u-count-down.vue',
+    'src/components/e-watermark.vue',
     // Swiper 生成的 swiper-wrapper ID 一直在变化
     'src/components/u-gallery.vue',
     // 日历默认是当前，每天渲染的结果都不一样
