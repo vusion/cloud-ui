@@ -12,7 +12,7 @@
     <div :class="$style.table" ref="tablewrap" v-for="(tableMeta, tableMetaIndex) in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
-        <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
+        <div v-if="showHead" :class="$style.head" ref="head">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :sticky-fixed="useStickyFixed" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth">
@@ -91,7 +91,7 @@
                 </thead>
             </u-table>
         </div>
-        <div v-if="stickingHead" :class="$style.headPlaceholder" ref="headPlaceholder" :style="{ height: number2Pixel(stickingHeadHeight) }"></div>
+        <div :class="$style.headPlaceholder" ref="headPlaceholder"></div>
         <div :class="$style.body" ref="body" :style="{ height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll"
             :sticky-fixed="useStickyFixed">
             <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
@@ -435,7 +435,7 @@
 <script>
 import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
-import { addResizeListener, removeResizeListener, findScrollParent, getRect } from '../../utils/dom';
+import { addResizeListener, removeResizeListener, findScrollParent, getRect, findXScrollParent } from '../../utils/dom';
 import { format } from '../../utils/date';
 import KeyMap from '../../utils/keyMap';
 import MEmitter from '../m-emitter.vue';
@@ -560,6 +560,7 @@ export default {
         listKey: { type: String, default: 'currentData' },
         thEllipsis: { type: Boolean, default: false }, // 表头是否缩略展示
         ellipsis: { type: Boolean, default: false }, // 单元格是否缩略展示
+        syncStickHeadXScroll: { type: Boolean, default: false }, // 同步固定头部的横向滚动
     },
     data() {
         return {
@@ -888,6 +889,15 @@ export default {
             leading: false,
             trailing: true,
         });
+
+        this.throttleScrollParentScroll = throttle(this.onScrollParentScroll, 50, {
+            leading: false,
+            trailing: true,
+        });
+        this.throttleXScrollParentScroll = throttle(this.onXScrollParentScroll, 50, {
+            leading: false,
+            trailing: true,
+        });
     },
     updated() {
         if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
@@ -907,13 +917,17 @@ export default {
 
         if (this.stickHead) {
             this.scrollParentEl = findScrollParent(this.$el);
-            this.scrollParentEl && this.scrollParentEl.addEventListener('scroll', this.onScrollParentScroll);
+            this.scrollParentEl && this.scrollParentEl.addEventListener('scroll', this.throttleScrollParentScroll);
+            if (this.syncStickHeadXScroll) {
+                this.xScrollParentEl = findXScrollParent(this.$el);
+                this.xScrollParentEl && this.xScrollParentEl.addEventListener('scroll', this.throttleXScrollParentScroll); 
+            }
         }
     },
     destroyed() {
         removeResizeListener(this.$el, this.handleResizeListener);
         if (this.stickHead) {
-            this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.onScrollParentScroll);
+            this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.throttleScrollParentScroll);
         }
         this.clearTimeout();
         this.enterTarget = null;
@@ -1327,7 +1341,6 @@ export default {
         onTableScroll(e) {
             this.scrollXStart = e.target.scrollLeft === 0;
             this.scrollXEnd = e.target.scrollLeft >= e.target.scrollWidth - e.target.clientWidth;
-            this.stickingHead && this.syncHeadScroll();
         },
         syncBodyScroll(scrollTop, target) {
             if (!this.useStickyFixed) {
@@ -1343,7 +1356,12 @@ export default {
             }
         },
         syncHeadScroll() {
-            // this.$refs.head[0].scrollLeft = this.$refs.head[0].parentElement.scrollLeft;
+            const headEl = this.$refs.head[0];
+            if (this.xScrollParentEl && this.stickingHead && headEl && headEl.childNodes[0]) {
+                const xScrollParentEl = this.xScrollParentEl;
+                headEl.childNodes[0].style.marginLeft = '-' + xScrollParentEl.scrollLeft + 'px';
+                headEl.style.width = xScrollParentEl.offsetWidth + 'px';
+            }
         },
         onBodyScroll(e) {
             this.syncBodyScroll(e.target.scrollTop, e.target); // this.throttledVirtualScroll(e);
@@ -1366,9 +1384,32 @@ export default {
             bodyRect.bottom -= headHeight;
 
             this.stickingHead = rect.top < parentRect.top && bodyRect.bottom > parentRect.top;
-            this.stickingHeadTop = parentRect.top;
-            this.stickingHeadHeight = headHeight;
-            this.syncHeadScroll();
+            // this.stickingHeadTop = parentRect.top;
+            // this.stickingHeadHeight = headHeight;
+
+            const stickingHead = rect.top < parentRect.top && bodyRect.bottom > parentRect.top;
+            const stickingHeadTop = parentRect.top;
+            const stickingHeadHeight = headHeight;
+            const stickheadEl = this.$refs.head[0];
+            const headPlaceholderEl = this.$refs.headPlaceholder[0];
+            if (stickheadEl) {
+                if (stickingHead) {
+                    stickheadEl.setAttribute('stickingHead', true);
+                    stickheadEl.style.width = this.$el.offsetWidth + 'px';
+                    headPlaceholderEl.style.height = stickingHeadHeight + 'px';
+                } else {
+                    stickheadEl.removeAttribute('stickingHead');
+                    stickheadEl.style.width = '';
+                    if (stickheadEl.childNodes[0]) {
+                        stickheadEl.childNodes[0].style.marginLeft = '';
+                    }
+                    headPlaceholderEl.style.height = '';
+                }
+                stickheadEl.style.top = stickingHeadTop + 'px';
+                if (this.syncStickHeadXScroll) {
+                    this.syncHeadScroll();
+                }
+            }
         },
         onScrollView(data) {
             this.hasScroll = true;
@@ -3220,6 +3261,9 @@ export default {
             this.currentPageSize = event.pageSize;
             const currentDataSource = this.currentDataSource;
             this.page(currentDataSource && currentDataSource.paging ? currentDataSource.paging.number : this.pageNumber, event.pageSize);
+        },
+        onXScrollParentScroll(event) {
+            this.syncHeadScroll();
         },
     },
 };
