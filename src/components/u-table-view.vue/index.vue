@@ -920,7 +920,7 @@ export default {
             this.scrollParentEl && this.scrollParentEl.addEventListener('scroll', this.throttleScrollParentScroll);
             if (this.syncStickHeadXScroll) {
                 this.xScrollParentEl = findXScrollParent(this.$el);
-                this.xScrollParentEl && this.xScrollParentEl.addEventListener('scroll', this.throttleXScrollParentScroll); 
+                this.xScrollParentEl && this.xScrollParentEl.addEventListener('scroll', this.throttleXScrollParentScroll);
             }
         }
     },
@@ -928,6 +928,7 @@ export default {
         removeResizeListener(this.$el, this.handleResizeListener);
         if (this.stickHead) {
             this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.throttleScrollParentScroll);
+            this.xScrollParentEl && this.xScrollParentEl.removeEventListener('scroll', this.throttleXScrollParentScroll);
         }
         this.clearTimeout();
         this.enterTarget = null;
