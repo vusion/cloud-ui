@@ -303,6 +303,15 @@ export default {
         },
         value(value) {
             this.setSelectedDataQueue(value);
+
+            if (this.filterable && !this.multiple && this.currentDataSource && Array.isArray(this.currentDataSource.data)) {
+                const selectedItem = this.currentDataSource.data.find((d) => this.$at2(d, this.valueField) === value);
+
+                const filterText = selectedItem ? this.$at2(selectedItem, this.field || this.valueField) : '';
+                if (filterText !== this.filterText) {
+                    this.filterText = filterText;
+                }
+            }
         },
         selectedDataQueue(value) {
             // 当value有值，并且已经加载过一次数据才能开启判断
