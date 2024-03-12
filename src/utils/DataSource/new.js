@@ -486,6 +486,11 @@ const VueDataSource = Vue.extend({
             // Map记录一下
             const nodes = {}; // Record<id, { entity }>
             data.forEach((item) => {
+                // fix 2820102516186880, 删除子节点数据，数据没有清除
+                const children = this.$at(item, childrenField);
+                if (children) {
+                    this.$setAt(item, childrenField, []);
+                }
                 const id = this.$at(item, valueField);
                 if (id) {
                     nodes[id] = item;
