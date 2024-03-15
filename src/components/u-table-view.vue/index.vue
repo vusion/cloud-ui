@@ -1476,15 +1476,15 @@ export default {
                 });
         },
         reload() {
+            if (this.dynamicColumnVMs.length) {
+                this.dynamicColumnVMs.forEach((vm) => vm.reload());
+            }
             if (!this.currentDataSource._load || typeof this.currentDataSource._load !== 'function')
                 return;
             this.currentDataSource.clearLocalData();
             this.clearDragState();
             this.load();
             console.log('table reload');
-            if (this.dynamicColumnVMs.length) {
-                this.dynamicColumnVMs.forEach((vm) => vm.reload());
-            }
         },
         getFields() {
             return this.visibleColumnVMs
