@@ -1888,12 +1888,14 @@ export default {
 <template>
 <u-linear-layout direction="vertical" gap="small">
     <u-text>from data</u-text>
+    <u-button @click="changeListData">测试数据改变</u-button>
+    <u-button @click="onRefresh1">刷新</u-button>
     <u-linear-layout>
-        <u-table-view striped :data-source="data">
+        <u-table-view striped :data-source="data" ref="tableview1">
             <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
             <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
             <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
-            <u-table-view-column-dynamic :data-source="list">
+            <u-table-view-column-dynamic :data-source="list" valueField="name" style="color:red">
                 <div slot="title" slot-scope="{ columnItem }">
                     <u-text>{{ columnItem.name }}</u-text>
                 </div>
@@ -1975,7 +1977,7 @@ export default {
             <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
             <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
             <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
-            <u-table-view-column-dynamic :data-source="list" sortable>
+            <u-table-view-column-dynamic :data-source="list" sortable valueField="name">
                 <template #title="current">
                     <u-text>{{ current.columnItem.name }}</u-text>
                 </template>
@@ -2005,7 +2007,7 @@ export default {
     </u-linear-layout>
     <u-linear-layout>
         <u-text>ellipsis</u-text>
-        <u-table-view striped :data-source="data">
+        <u-table-view striped :data-source="data" resizable>
             <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
             <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
             <u-table-view-column title="手机号码" field="phone" width="50%"></u-table-view-column>
@@ -2044,8 +2046,8 @@ export default {
                 }, 500);
             });
         },
-        load1({page, sort, order}) {
-            console.log('load1', sort, order);
+        load1(params) {
+            console.log('load1', params);
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     resolve({
@@ -2080,10 +2082,84 @@ export default {
         onRefresh() {
             this.$refs.tableview.reload();
         },
+        changeListData() {
+            this.list[0].name = this.list[0].name + (Math.random()*10).toFixed(0)
+        },
+        onRefresh1() {
+            this.$refs.tableview1.reload();
+        },
     }
 };
 </script>
 ```
+
+### 动态列排序和拖拽
+
+``` vue
+<template>
+<u-linear-layout direction="vertical" gap="small">
+    <u-linear-layout>
+        <u-text>只有动态列</u-text>
+        <u-table-view striped :data-source="load1" pagination resizable>
+            <u-table-view-column-dynamic :data-source="list" sortable valueField="name">
+                <template #title="current">
+                    <u-text>{{ current.columnItem.name }}</u-text>
+                </template>
+                <template #cell="current">
+                    <u-text>{{ current.item.name }} {{ current.columnItem.name }}</u-text>
+                </template>
+            </u-table-view-column-dynamic>
+        </u-table-view>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-text>动静都有</u-text>
+        <u-table-view striped :data-source="load1" pagination resizable>
+            <u-table-view-column type="checkbox" title="选择" width="8%"></u-table-view-column>
+            <u-table-view-column title="用户名" field="name" width="12%"></u-table-view-column>
+            <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+            <u-table-view-column-dynamic :data-source="list" sortable valueField="name">
+                <template #title="current">
+                    <u-text>{{ current.columnItem.name }}</u-text>
+                </template>
+                <template #cell="current">
+                    <u-text>{{ current.item.name }} {{ current.columnItem.name }}</u-text>
+                </template>
+            </u-table-view-column-dynamic>
+            <u-table-view-column title="地址" field="address"></u-table-view-column>
+            <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+        </u-table-view>
+    </u-linear-layout>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            list: [{name: '一月份', value: 'column1'}, {name: '二月份', value: 'column2'}],
+        };
+    },
+    methods: {
+        load1(params) {
+            console.log('load1', params);
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve({
+                        list:  [{ id: '07cdcb8ed5e94cec', name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
+                            { id: '5cd49be8f65c4738', name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
+                            { id: 'f799a0467c494601', name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+                            { id: '40e8ca488a1c4bce', disabled: true, name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+                            { id: '150823cc351642b6', name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 }],
+                        total: 5,
+                    });
+                }, 500);
+            });
+        },
+    }
+};
+</script>
+```
+
+
 
 ### 行列与表头合并
 
