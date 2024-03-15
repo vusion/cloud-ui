@@ -352,6 +352,7 @@ export default {
 | value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
 | parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
 | children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性，默认为children |
+| expanded-field | string |  | `'expanded'` | 集合的元素类型中，用于标识节点是否展开的属性，默认为expanded |
 | value.sync, v-model | any |  |  | 选择后，所选中的值 |
 | checkable | boolean |  | `false` | 设置是否开启多选模式，显示多选框 |
 | placeholder | string |  | `'请选择'` | 为空时显示的占位符文本 |

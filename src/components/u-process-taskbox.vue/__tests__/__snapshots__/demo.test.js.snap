@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-process-taskbox.vue Demo-任务箱 1`] = `
+<div>
+  <u-process-taskbox icon="notice"></u-process-taskbox>
+</div>
+`;
+
+exports[`u-process-taskbox.vue Demo-设置分页 1`] = `
+<div>
+  <div class="root" direction="horizontal" gap="large" type vusion-slot-name="default">
+    <u-process-taskbox icon="notice"></u-process-taskbox>
+    <u-process-taskbox size="5"></u-process-taskbox>
+    <u-process-taskbox size="10"></u-process-taskbox>
+  </div>
+</div>
+`;

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-process-record.vue Demo-基本展示 1`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    改变类型
+  </a>
+  <u-process-record type="table"></u-process-record>
+</div>
+`;
+
+exports[`u-process-record.vue Demo-基本用法 1`] = `
+<div>
+  <u-process-record></u-process-record>
+</div>
+`;

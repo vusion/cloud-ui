@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-process-button.vue Demo-基本展示 1`] = `
+<div>
+  <u-process-button></u-process-button>
+</div>
+`;
+
+exports[`u-process-button.vue Demo-基本用法 1`] = `
+<div>
+  <u-process-button></u-process-button>
+</div>
+`;

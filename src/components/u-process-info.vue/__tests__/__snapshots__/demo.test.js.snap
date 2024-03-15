@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`u-process-info.vue Demo-基本展示 1`] = `
+<div>
+  <u-process-info></u-process-info>
+</div>
+`;
+
+exports[`u-process-info.vue Demo-基本用法 1`] = `
+<div>
+  <u-process-info></u-process-info>
+</div>
+`;
