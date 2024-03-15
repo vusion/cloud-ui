@@ -548,10 +548,10 @@ exports[`u-table-view.vue Demo-loading 的问题 1`] = `
       <div class="head" style="top: 0px;">
         <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
-            <col width="15%">
-            <col width="20%">
+            <col width="0">
+            <col width="0">
             <col>
-            <col width="20%">
+            <col width="0">
           </colgroup>
           <thead>
             <tr>
@@ -585,10 +585,10 @@ exports[`u-table-view.vue Demo-loading 的问题 1`] = `
             <div>
               <table class="root" sticky-fixed="true" striped="true">
                 <colgroup>
-                  <col width="15%">
-                  <col width="20%">
+                  <col width="0">
+                  <col width="0">
                   <col>
-                  <col width="20%">
+                  <col width="0">
                 </colgroup>
                 <tbody>
                   <tr>
@@ -4594,144 +4594,9 @@ exports[`u-table-view.vue Demo-前端过滤（筛选） 1`] = `
                 <col width="0">
               </colgroup>
               <tbody>
-                <tr class="row">
-                  <td class="cell">
-                    <span class="column-field">张三-0</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">18612917895</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">2018-05-28 21:52:11</span>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="cell">
-                    <span class="column-field">张三-6</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">18612924895</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">2018-06-02 21:52:11</span>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="cell">
-                    <span class="column-field">张三-18</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">18612918695</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">2018-06-07 21:52:11</span>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="cell">
-                    <span class="column-field">张三-0</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">18612917899</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">2018-06-12 21:52:11</span>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="cell">
-                    <span class="column-field">张三-16</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">18612917965</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">2018-06-17 21:52:11</span>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="cell">
-                    <span class="column-field">张三-7</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">18612917895</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">2018-06-22 21:52:11</span>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="cell">
-                    <span class="column-field">张三-4</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">18612917902</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">2018-06-27 21:52:11</span>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="cell">
-                    <span class="column-field">张三-2</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">18612918395</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">2018-07-02 21:52:11</span>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="cell">
-                    <span class="column-field">张三-14</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">18612917895</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">2018-07-07 21:52:11</span>
-                  </td>
-                </tr>
-                <tr class="row">
-                  <td class="cell">
-                    <span class="column-field">张三-15</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">18616917895</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
-                  </td>
-                  <td class="cell">
-                    <span class="column-field">2018-07-12 21:52:11</span>
+                <tr>
+                  <td class="center" colspan="4" vusion-slot-name="loading">
+                    <div class="root spinner"></div> 正在加载中...
                   </td>
                 </tr>
               </tbody>
@@ -4778,14 +4643,7 @@ exports[`u-table-view.vue Demo-前端过滤（筛选） 1`] = `
       <i class="item" role="prev"></i>
     </a>
     <a class="item" selected="selected">1</a>
-    <a class="item">2</a>
-    <a class="item">3</a>
-    <a class="item">4</a>
-    <a class="item">5</a>
-    <a class="item" role="blank">...</a>
-    <a class="item">7</a>
-    <a class="item">8</a>
-    <a class="item-wrap">
+    <a class="item-wrap" disabled="disabled">
       <i class="item" role="next"></i>
     </a>
   </nav>
