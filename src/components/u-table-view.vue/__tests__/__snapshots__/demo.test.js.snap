@@ -548,10 +548,10 @@ exports[`u-table-view.vue Demo-loading 的问题 1`] = `
       <div class="head" style="top: 0px;">
         <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
-            <col width="0">
-            <col width="0">
+            <col width="15%">
+            <col width="20%">
             <col>
-            <col width="0">
+            <col width="20%">
           </colgroup>
           <thead>
             <tr>
@@ -585,10 +585,10 @@ exports[`u-table-view.vue Demo-loading 的问题 1`] = `
             <div>
               <table class="root" sticky-fixed="true" striped="true">
                 <colgroup>
-                  <col width="0">
-                  <col width="0">
+                  <col width="15%">
+                  <col width="20%">
                   <col>
-                  <col width="0">
+                  <col width="20%">
                 </colgroup>
                 <tbody>
                   <tr>
@@ -4594,9 +4594,144 @@ exports[`u-table-view.vue Demo-前端过滤（筛选） 1`] = `
                 <col width="0">
               </colgroup>
               <tbody>
-                <tr>
-                  <td class="center" colspan="4" vusion-slot-name="loading">
-                    <div class="root spinner"></div> 正在加载中...
+                <tr class="row">
+                  <td class="cell">
+                    <span class="column-field">张三-0</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">18612917895</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">2018-05-28 21:52:11</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <span class="column-field">张三-6</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">18612924895</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">2018-06-02 21:52:11</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <span class="column-field">张三-18</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">18612918695</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">2018-06-07 21:52:11</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <span class="column-field">张三-0</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">18612917899</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">2018-06-12 21:52:11</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <span class="column-field">张三-16</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">18612917965</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">2018-06-17 21:52:11</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <span class="column-field">张三-7</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">18612917895</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">2018-06-22 21:52:11</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <span class="column-field">张三-4</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">18612917902</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">2018-06-27 21:52:11</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <span class="column-field">张三-2</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">18612918395</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">2018-07-02 21:52:11</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <span class="column-field">张三-14</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">18612917895</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">2018-07-07 21:52:11</span>
+                  </td>
+                </tr>
+                <tr class="row">
+                  <td class="cell">
+                    <span class="column-field">张三-15</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">18616917895</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">浙江省杭州市滨江区网商路599号网易大厦</span>
+                  </td>
+                  <td class="cell">
+                    <span class="column-field">2018-07-12 21:52:11</span>
                   </td>
                 </tr>
               </tbody>
@@ -4643,7 +4778,14 @@ exports[`u-table-view.vue Demo-前端过滤（筛选） 1`] = `
       <i class="item" role="prev"></i>
     </a>
     <a class="item" selected="selected">1</a>
-    <a class="item-wrap" disabled="disabled">
+    <a class="item">2</a>
+    <a class="item">3</a>
+    <a class="item">4</a>
+    <a class="item">5</a>
+    <a class="item" role="blank">...</a>
+    <a class="item">7</a>
+    <a class="item">8</a>
+    <a class="item-wrap">
       <i class="item" role="next"></i>
     </a>
   </nav>
@@ -5253,6 +5395,12 @@ exports[`u-table-view.vue Demo-加载错误 2`] = `
 exports[`u-table-view.vue Demo-动态列 1`] = `
 <div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
   <span class="root" vusion-slot-name-edit="text">from data</span>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    测试数据改变
+  </a>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    刷新
+  </a>
   <div class="root" direction="horizontal" type vusion-slot-name="default">
     <div class="root">
       <div class="table" position="static">
@@ -5290,14 +5438,14 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                     手机号码
                   </span>
                 </th>
-                <th class="head-title boldHeader" colspan="1">
+                <th class="head-title boldHeader" colspan="1" style="color: red;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     <div>
                       <span class="root" vusion-slot-name-edit="text">一月份</span>
                     </div>
                   </span>
                 </th>
-                <th class="head-title boldHeader" colspan="1">
+                <th class="head-title boldHeader" colspan="1" style="color: red;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     <div>
                       <span class="root" vusion-slot-name-edit="text">二月份</span>
@@ -5348,12 +5496,12 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       <td class="cell">
                         <span class="column-field">18612917895</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" style="color: red;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">张三 一月份</span>
                         </div>
                       </td>
-                      <td class="cell">
+                      <td class="cell" style="color: red;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">张三 二月份</span>
                         </div>
@@ -5380,12 +5528,12 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       <td class="cell">
                         <span class="column-field">13727160283</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" style="color: red;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">小明 一月份</span>
                         </div>
                       </td>
-                      <td class="cell">
+                      <td class="cell" style="color: red;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">小明 二月份</span>
                         </div>
@@ -5412,12 +5560,12 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       <td class="cell">
                         <span class="column-field">18897127809</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" style="color: red;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李四 一月份</span>
                         </div>
                       </td>
-                      <td class="cell">
+                      <td class="cell" style="color: red;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李四 二月份</span>
                         </div>
@@ -5444,12 +5592,12 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       <td class="cell" disabled="disabled">
                         <span class="column-field">18749261214</span>
                       </td>
-                      <td class="cell" disabled="disabled">
+                      <td class="cell" disabled="disabled" style="color: red;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" disabled="disabled">
+                      <td class="cell" disabled="disabled" style="color: red;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 二月份</span>
                         </div>
@@ -5476,12 +5624,12 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                       <td class="cell">
                         <span class="column-field">13579340020</span>
                       </td>
-                      <td class="cell">
+                      <td class="cell" style="color: red;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">王五 一月份</span>
                         </div>
                       </td>
-                      <td class="cell">
+                      <td class="cell" style="color: red;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">王五 二月份</span>
                         </div>
@@ -5517,7 +5665,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
         </div>
         <div style="display: none;">
         </div>
-        <div style="display: none;">
+        <div style="display: none; color: red;">
         </div>
         <div style="display: none;">
         </div>
@@ -5809,7 +5957,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                     </div>
                   </span>
                 </th>
-                <th class="head-title boldHeader" colspan="1" style="position: sticky; right: 150px; z-index: 99; overflow: hidden;">
+                <th class="head-title boldHeader" colspan="1" style="position: sticky; right: 0px; z-index: 99; overflow: hidden;">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     <div>
                       <span class="root" vusion-slot-name-edit="text">二月份</span>
@@ -5861,7 +6009,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           <span class="root" vusion-slot-name-edit="text">张三 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" style="position: sticky; right: 150px; z-index: 99; overflow: hidden;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99; overflow: hidden;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">张三 二月份</span>
                         </div>
@@ -5893,7 +6041,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           <span class="root" vusion-slot-name-edit="text">小明 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" style="position: sticky; right: 150px; z-index: 99; overflow: hidden;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99; overflow: hidden;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">小明 二月份</span>
                         </div>
@@ -5925,7 +6073,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           <span class="root" vusion-slot-name-edit="text">李四 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" style="position: sticky; right: 150px; z-index: 99; overflow: hidden;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99; overflow: hidden;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李四 二月份</span>
                         </div>
@@ -5957,7 +6105,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           <span class="root" vusion-slot-name-edit="text">李华 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" disabled="disabled" style="position: sticky; right: 150px; z-index: 99; overflow: hidden;">
+                      <td class="cell" disabled="disabled" style="position: sticky; right: 0px; z-index: 99; overflow: hidden;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">李华 二月份</span>
                         </div>
@@ -5989,7 +6137,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                           <span class="root" vusion-slot-name-edit="text">王五 一月份</span>
                         </div>
                       </td>
-                      <td class="cell" style="position: sticky; right: 150px; z-index: 99; overflow: hidden;">
+                      <td class="cell" style="position: sticky; right: 0px; z-index: 99; overflow: hidden;">
                         <div>
                           <span class="root" vusion-slot-name-edit="text">王五 二月份</span>
                         </div>
@@ -6359,21 +6507,25 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     选择
                   </span>
+                  <div class="resizer" draggable="draggable"></div>
                 </th>
                 <th class="head-title boldHeader">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     用户名
                   </span>
+                  <div class="resizer" draggable="draggable"></div>
                 </th>
                 <th class="head-title boldHeader">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     手机号码
                   </span>
+                  <div class="resizer" draggable="draggable"></div>
                 </th>
                 <th class="head-title boldHeader" colspan="1">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
                     <span class="root" vusion-slot-name-edit="text">一月份</span>
                   </span>
+                  <div class="resizer" draggable="draggable"></div>
                 </th>
                 <th class="head-title boldHeader" colspan="1">
                   <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
@@ -6525,6 +6677,263 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
         <div class="mask" style="display: none;"></div>
       </div>
       <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-table-view.vue Demo-动态列排序和拖拽 1`] = `
+<div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <span class="root" vusion-slot-name-edit="text">只有动态列</span>
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
+            <colgroup>
+              <col>
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader" colspan="1" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    <span class="root" vusion-slot-name-edit="text">一月份</span>
+                  </span>
+                  <span class="sort"></span>
+                  <div class="resizer" draggable="draggable"></div>
+                </th>
+                <th class="head-title boldHeader" colspan="1" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    <span class="root" vusion-slot-name-edit="text">二月份</span>
+                  </span>
+                  <span class="sort"></span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
+                  <colgroup>
+                    <col>
+                    <col>
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <td class="center" colspan="2" vusion-slot-name="loading">
+                        <div class="root spinner"></div> 正在加载中...
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
+      </div>
+      <nav class="root pagination" size="normal">
+        <div class="root sizer" tabindex="0">
+          <span>b</span>
+          <span style="display: none;">请选择</span>
+          <div class style="direction: ltr;" tags-overflow="collapse">
+            20条/页
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  10条/页
+                </div>
+                <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                  20条/页
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  50条/页
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+        <a class="item-wrap" disabled="disabled">
+          <i class="item" role="prev"></i>
+        </a>
+        <a class="item" selected="selected">1</a>
+        <a class="item-wrap" disabled="disabled">
+          <i class="item" role="next"></i>
+        </a>
+      </nav>
+      <div>
+        <div style="display: none;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="root" direction="horizontal" type vusion-slot-name="default">
+    <span class="root" vusion-slot-name-edit="text">动静都有</span>
+    <div class="root">
+      <div class="table" position="static">
+        <div class="head" style="top: 0px;">
+          <table class="root head-table" sticky-fixed="true" striped="true">
+            <colgroup>
+              <col width="0">
+              <col width="0">
+              <col width="0">
+              <col>
+              <col>
+              <col>
+              <col width="0">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="head-title boldHeader">
+                  <span>
+                    <label class="root" tabindex="0">
+                      <span class="box" status="false"></span>
+                      <span vusion-slot-name="item"> </span>
+                    </label>
+                  </span>
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    选择
+                  </span>
+                  <div class="resizer" draggable="draggable"></div>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    用户名
+                  </span>
+                  <div class="resizer" draggable="draggable"></div>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    手机号码
+                  </span>
+                  <div class="resizer" draggable="draggable"></div>
+                </th>
+                <th class="head-title boldHeader" colspan="1" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    <span class="root" vusion-slot-name-edit="text">一月份</span>
+                  </span>
+                  <span class="sort"></span>
+                  <div class="resizer" draggable="draggable"></div>
+                </th>
+                <th class="head-title boldHeader" colspan="1" sortable="sortable">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    <span class="root" vusion-slot-name-edit="text">二月份</span>
+                  </span>
+                  <span class="sort"></span>
+                  <div class="resizer" draggable="draggable"></div>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    地址
+                  </span>
+                  <div class="resizer" draggable="draggable"></div>
+                </th>
+                <th class="head-title boldHeader">
+                  <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                    最近登录时间
+                  </span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body" sticky-fixed="true">
+          <div class="root scrollcview">
+            <div class="wrap">
+              <div>
+                <table class="root" sticky-fixed="true" striped="true">
+                  <colgroup>
+                    <col width="0">
+                    <col width="0">
+                    <col width="0">
+                    <col>
+                    <col>
+                    <col>
+                    <col width="0">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <td class="center" colspan="7" vusion-slot-name="loading">
+                        <div class="root spinner"></div> 正在加载中...
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="root" direction="horizontal">
+              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+            </div>
+            <div class="root" direction="vertical">
+              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="root" style="display: none;">
+        <div class="line" style="display: none;"></div>
+        <div class="mask" style="display: none;"></div>
+      </div>
+      <nav class="root pagination" size="normal">
+        <div class="root sizer" tabindex="0">
+          <span>b</span>
+          <span style="display: none;">请选择</span>
+          <div class style="direction: ltr;" tags-overflow="collapse">
+            20条/页
+          </div>
+          <transition-stub name="fade" style="width: 100%;">
+            <div class="root" style="display: none;">
+              <div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  10条/页
+                </div>
+                <div class="root" selected="selected" style="direction: ltr;" vusion-slot-name="default">
+                  20条/页
+                </div>
+                <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                  50条/页
+                </div>
+              </div>
+            </div>
+          </transition-stub>
+        </div>
+        <a class="item-wrap" disabled="disabled">
+          <i class="item" role="prev"></i>
+        </a>
+        <a class="item" selected="selected">1</a>
+        <a class="item-wrap" disabled="disabled">
+          <i class="item" role="next"></i>
+        </a>
+      </nav>
+      <div>
+        <div style="display: none;">
+        </div>
+        <div style="display: none;">
+        </div>
         <div style="display: none;">
         </div>
         <div style="display: none;">
