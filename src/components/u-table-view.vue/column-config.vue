@@ -82,7 +82,7 @@ export default {
                 return;
             }
             this.$nextTick(() => {
-                this.currentValue = [];
+                this.currentValue = this.value || [];
                 if (this.currentDataSource && this.currentDataSource.load)
                     this.load();
                 this.handleColumnsData();
