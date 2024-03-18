@@ -281,7 +281,6 @@ export default {
         }
     },
     mounted() {
-        console.log(123456789, 987654321)
         this.collectFromVNodes();
         this.handleData();
         this.autofocus && this.$el.focus();
