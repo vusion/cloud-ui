@@ -199,6 +199,10 @@
                         "type": "input",
                         "desc": "面板项折叠表头内边距,如：1px"
                     },
+                    "--collapse-item-head-min-height": {
+                        "type": "input",
+                        "desc": "面板项折叠表头最小高度,如：1px"
+                    },
                     "--collapse-item-expander-size": {
                         "type": "input",
                         "desc": "面板项展开箭头容器元素大小,如：1px"
