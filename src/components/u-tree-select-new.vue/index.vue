@@ -84,6 +84,7 @@
             :style="getPopperStyle()">
             <!-- 目前只支持单选 -->
             <u-tree-view-new v-if="popperOpened" ref="treeView"
+                :renderOptimize="renderOptimize"
                 :if-expanded="ifExpanded"
                 style="border: none; min-width: 100%; display: inline-block"
                 :value="value"
@@ -187,6 +188,7 @@ export default {
         },
         filterFields: { type: Array, default: () => ['text'] },
         ifExpanded: { type: Boolean, default: false },
+        renderOptimize: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -279,6 +281,7 @@ export default {
         }
     },
     mounted() {
+        console.log(123456789, 987654321)
         this.collectFromVNodes();
         this.handleData();
         this.autofocus && this.$el.focus();
