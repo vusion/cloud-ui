@@ -303,7 +303,7 @@ export default {
             if (this.filterable && !this.multiple && this.currentDataSource && Array.isArray(this.currentDataSource.data)) {
                 const selectedItem = this.currentDataSource.data.find((d) => this.$at2(d, this.valueField) === value);
 
-                const filterText = selectedItem ? this.$at2(selectedItem, this.field || this.valueField) : '';
+                const filterText = selectedItem ? this.$at2(selectedItem, this.field || this.textField) : '';
                 if (filterText !== this.filterText) {
                     this.filterText = filterText;
                 }
