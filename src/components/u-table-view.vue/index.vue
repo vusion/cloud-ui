@@ -2130,14 +2130,17 @@ export default {
                     break;
                 item.tableTreeItemLevel = level;
                 item.parentPointer = parent;
-                if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
-                    this.$setAt(item, this.hasChildrenField, true);
-                    item.expanded = item.expanded || false;
-                    item.treeExpanded = item.treeExpanded || false;
-                } else {
-                    this.$setAt(item, this.hasChildrenField, false);
-                    item.expanded = false;
-                    item.treeExpanded = false;
+                if (this.$at(item, this.childrenField)) {
+                    // fix: 2820102516186880，2830031229543936，子节点删除数据处理
+                    if (this.$at(item, this.childrenField).length) {
+                        this.$setAt(item, this.hasChildrenField, true);
+                        item.expanded = item.expanded || false;
+                        item.treeExpanded = item.treeExpanded || false;
+                    } else {
+                        this.$setAt(item, this.hasChildrenField, false);
+                        item.expanded = false;
+                        item.treeExpanded = false;
+                    }
                 }
                 if (parent) {
                     this.$set(item, 'display', needHidden(ancestors) ? 'none' : '');
