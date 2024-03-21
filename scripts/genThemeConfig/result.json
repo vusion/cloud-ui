@@ -199,6 +199,10 @@
                         "type": "input",
                         "desc": "面板项折叠表头内边距,如：1px"
                     },
+                    "--collapse-item-head-min-height": {
+                        "type": "input",
+                        "desc": "面板项折叠表头最小高度,如：1px"
+                    },
                     "--collapse-item-expander-size": {
                         "type": "input",
                         "desc": "面板项展开箭头容器元素大小,如：1px"
@@ -1304,7 +1308,11 @@
                     },
                     "--carousel-button-transition": {
                         "type": "input",
-                        "desc": "幻灯片左右换页按钮显现动画快慢参数,如：all 0.2s"
+                        "desc": "幻灯片左右换页按钮鼠标悬停颜色变化动画快慢参数,如：all 0.2s"
+                    },
+                    "--carousel-transition-duration": {
+                        "type": "input",
+                        "desc": "幻灯片切换动画快慢参数,如：0.3s"
                     }
                 }
             },
