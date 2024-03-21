@@ -158,6 +158,17 @@ namespace nasl.ui {
         clearable: nasl.core.Boolean = false;
 
         @Prop({
+            group: '交互属性',
+            title: '只渲染激活节点',
+            description: '设置只渲染tree激活子节点，用于渲染性能提升。',
+            docDescription: '开启后只渲染激活节点，默认关闭。',
+            setter: {
+                concept: 'SwitchSetter',
+            },
+        })
+        renderOptimize: nasl.core.Boolean = false;
+
+        @Prop({
             group: '主要属性',
             title: '弹出层位置依据',
             description: `设置弹出层依据哪个元素定位位置，可选值：'body'表示添加到 document.body，'reference'表示添加到参考元素中。`,
