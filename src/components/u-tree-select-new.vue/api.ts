@@ -160,7 +160,7 @@ namespace nasl.ui {
         @Prop({
             group: '交互属性',
             title: '只渲染激活节点',
-            description: '设置只渲染tree激活子节点，用于渲染性能提升。',
+            description: '设置只渲染 tree 激活子节点，用于渲染性能提升。',
             docDescription: '开启后只渲染激活节点，默认关闭。',
             setter: {
                 concept: 'SwitchSetter',
