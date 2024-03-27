@@ -3,18 +3,22 @@
 exports[`u-checkboxes.vue Demo-autofocus 1`] = `
 <div>
   <div class="root">
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 毛巾 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 沙发 <span vusion-slot-name="item"> </span>
-    </label>
+    <div class="inline">
+      <div class="wrap">
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 毛巾 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 沙发 <span vusion-slot-name="item"> </span>
+        </label>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -33,18 +37,22 @@ exports[`u-checkboxes.vue Demo-全选 1`] = `
     <span class="box" status="false"></span> 全选 <span vusion-slot-name="item"> </span>
   </label>
   <div class="root">
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 毛巾 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 沙发 <span vusion-slot-name="item"> </span>
-    </label>
+    <div class="inline">
+      <div class="wrap">
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 毛巾 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 沙发 <span vusion-slot-name="item"> </span>
+        </label>
+      </div>
+    </div>
   </div>
   []
 </div>
@@ -85,6 +93,9 @@ exports[`u-checkboxes.vue Demo-基本用法 1`] = `
 exports[`u-checkboxes.vue Demo-基础用法 1`] = `
 <div>
   <div class="root">
+    <div class="inline">
+      <div class="wrap"> </div>
+    </div>
   </div>
 </div>
 `;
@@ -94,18 +105,22 @@ exports[`u-checkboxes.vue Demo-多选组 1`] = `
   <div class="root" direction="vertical" type vusion-slot-name="default">
     <div>
       <div class="root">
-        <label class="root" tabindex="0">
-          <span class="box" status="true"></span> 水杯 <span vusion-slot-name="item"> </span>
-        </label>
-        <label class="root" tabindex="0">
-          <span class="box" status="true"></span> 坚果 <span vusion-slot-name="item"> </span>
-        </label>
-        <label class="root" tabindex="0">
-          <span class="box" status="false"></span> 毛巾 <span vusion-slot-name="item"> </span>
-        </label>
-        <label class="root" tabindex="0">
-          <span class="box" status="false"></span> 沙发 <span vusion-slot-name="item"> </span>
-        </label>
+        <div class="inline">
+          <div class="wrap">
+            <label class="root" tabindex="0">
+              <span class="box" status="true"></span> 水杯 <span vusion-slot-name="item"> </span>
+            </label>
+            <label class="root" tabindex="0">
+              <span class="box" status="true"></span> 坚果 <span vusion-slot-name="item"> </span>
+            </label>
+            <label class="root" tabindex="0">
+              <span class="box" status="false"></span> 毛巾 <span vusion-slot-name="item"> </span>
+            </label>
+            <label class="root" tabindex="0">
+              <span class="box" status="false"></span> 沙发 <span vusion-slot-name="item"> </span>
+            </label>
+          </div>
+        </div>
       </div>
       [
       "水杯",
@@ -113,70 +128,82 @@ exports[`u-checkboxes.vue Demo-多选组 1`] = `
       ]
     </div>
     <div class="root">
-      <label class="root" tabindex="0">
-        <span class="box" status="true"></span>
-        <span vusion-slot-name="item">
-          <span class="root" vusion-slot-name-edit="text">书法</span>
-        </span>
-      </label>
-      <label class="root" tabindex="0">
-        <span class="box" status="true"></span>
-        <span vusion-slot-name="item">
-          <span class="root" vusion-slot-name-edit="text">阅读</span>
-        </span>
-      </label>
-      <label class="root" tabindex="0">
-        <span class="box" status="false"></span>
-        <span vusion-slot-name="item">
-          <span class="root" vusion-slot-name-edit="text">绘画</span>
-        </span>
-      </label>
-      <label class="root" tabindex="0">
-        <span class="box" status="false"></span>
-        <span vusion-slot-name="item">
-          <span class="root" vusion-slot-name-edit="text">音乐</span>
-        </span>
-      </label>
+      <div class="inline">
+        <div class="wrap">
+          <label class="root" tabindex="0">
+            <span class="box" status="true"></span>
+            <span vusion-slot-name="item">
+              <span class="root" vusion-slot-name-edit="text">书法</span>
+            </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="box" status="true"></span>
+            <span vusion-slot-name="item">
+              <span class="root" vusion-slot-name-edit="text">阅读</span>
+            </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="box" status="false"></span>
+            <span vusion-slot-name="item">
+              <span class="root" vusion-slot-name-edit="text">绘画</span>
+            </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="box" status="false"></span>
+            <span vusion-slot-name="item">
+              <span class="root" vusion-slot-name-edit="text">音乐</span>
+            </span>
+          </label>
+        </div>
+      </div>
     </div>
     <div class="root">
-      <label class="root" tabindex="0">
-        <span class="box" status="false"></span>
-        <span vusion-slot-name="item">
-          <span class="root" vusion-slot-name-edit="text">书法</span>
-        </span>
-      </label>
-      <label class="root" tabindex="0">
-        <span class="box" status="true"></span>
-        <span vusion-slot-name="item">
-          <span class="root" vusion-slot-name-edit="text">阅读</span>
-        </span>
-      </label>
-      <label class="root" tabindex="0">
-        <span class="box" status="false"></span>
-        <span vusion-slot-name="item">
-          <span class="root" vusion-slot-name-edit="text">绘画</span>
-        </span>
-      </label>
-      <label class="root" tabindex="0">
-        <span class="box" status="false"></span>
-        <span vusion-slot-name="item">
-          <span class="root" vusion-slot-name-edit="text">音乐</span>
-        </span>
-      </label>
+      <div class="inline">
+        <div class="wrap">
+          <label class="root" tabindex="0">
+            <span class="box" status="false"></span>
+            <span vusion-slot-name="item">
+              <span class="root" vusion-slot-name-edit="text">书法</span>
+            </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="box" status="true"></span>
+            <span vusion-slot-name="item">
+              <span class="root" vusion-slot-name-edit="text">阅读</span>
+            </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="box" status="false"></span>
+            <span vusion-slot-name="item">
+              <span class="root" vusion-slot-name-edit="text">绘画</span>
+            </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="box" status="false"></span>
+            <span vusion-slot-name="item">
+              <span class="root" vusion-slot-name-edit="text">音乐</span>
+            </span>
+          </label>
+        </div>
+      </div>
     </div>
     <div class="root">
-      <label class="root" tabindex="0">
-        <span class="box" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
-      </label>
-      <label class="root" tabindex="0">
-        <span class="box" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
-      </label>
-      <label class="root" tabindex="0">
-        <span class="box" status="false"></span> 毛巾 <span vusion-slot-name="item"> </span>
-      </label>
-      <label class="root" tabindex="0">
-        <span class="box" status="false"></span> 沙发 <span vusion-slot-name="item"> </span>
-      </label>
+      <div class="inline">
+        <div class="wrap">
+          <label class="root" tabindex="0">
+            <span class="box" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="box" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="box" status="false"></span> 毛巾 <span vusion-slot-name="item"> </span>
+          </label>
+          <label class="root" tabindex="0">
+            <span class="box" status="false"></span> 沙发 <span vusion-slot-name="item"> </span>
+          </label>
+        </div>
+      </div>
     </div>
     []
   </div>
@@ -186,18 +213,22 @@ exports[`u-checkboxes.vue Demo-多选组 1`] = `
 exports[`u-checkboxes.vue Demo-多选组 2`] = `
 <div>
   <div class="root">
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="true"></span> 毛巾 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="true"></span> 沙发 <span vusion-slot-name="item"> </span>
-    </label>
+    <div class="inline">
+      <div class="wrap">
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="true"></span> 毛巾 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="true"></span> 沙发 <span vusion-slot-name="item"> </span>
+        </label>
+      </div>
+    </div>
   </div>
   [
   "毛巾",
@@ -209,18 +240,22 @@ exports[`u-checkboxes.vue Demo-多选组 2`] = `
 exports[`u-checkboxes.vue Demo-多选组 3`] = `
 <div>
   <div class="root">
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="true"></span> 毛巾 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="true"></span> 沙发 <span vusion-slot-name="item"> </span>
-    </label>
+    <div class="inline">
+      <div class="wrap">
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="true"></span> 毛巾 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="true"></span> 沙发 <span vusion-slot-name="item"> </span>
+        </label>
+      </div>
+    </div>
   </div>
   毛巾,沙发
 </div>
@@ -229,18 +264,22 @@ exports[`u-checkboxes.vue Demo-多选组 3`] = `
 exports[`u-checkboxes.vue Demo-数量限制 1`] = `
 <div>
   <div class="root">
-    <label class="root" disabled="disabled" tabindex="0">
-      <span class="box" disabled="disabled" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" disabled="disabled" tabindex="0">
-      <span class="box" disabled="disabled" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="true"></span> 毛巾 <span vusion-slot-name="item"> </span>
-    </label>
-    <label class="root" tabindex="0">
-      <span class="box" status="true"></span> 沙发 <span vusion-slot-name="item"> </span>
-    </label>
+    <div class="inline">
+      <div class="wrap">
+        <label class="root" disabled="disabled" tabindex="0">
+          <span class="box" disabled="disabled" status="false"></span> 水杯 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" disabled="disabled" tabindex="0">
+          <span class="box" disabled="disabled" status="false"></span> 坚果 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="true"></span> 毛巾 <span vusion-slot-name="item"> </span>
+        </label>
+        <label class="root" tabindex="0">
+          <span class="box" status="true"></span> 沙发 <span vusion-slot-name="item"> </span>
+        </label>
+      </div>
+    </div>
   </div>
   [
   "毛巾",
