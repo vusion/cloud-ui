@@ -2,40 +2,40 @@
 <div :class="$style.root">
   <u-loading v-if="loading" size="small"></u-loading>
   <template v-else>
-    <u-checkbox
-      v-if="checkAll"
-      label="check-all"
-      :value="all"
-      :disabled="disabled"
-      :readonly="readonly"
-      :style="{ display: checkAllDisplay }"
-    >
-      <slot name="check-all">
-        <u-text :text="checkAllText"></u-text>
-      </slot>
-    </u-checkbox>
-    <u-checkbox
-      v-for="(node, index) in currentDataSource.data"
-      :key="index"
-      :text="$at2(node, textField)"
-      :label="$at2(node, valueField)"
-      :disabled="node.disabled"
-      :readonly="node.readonly"
-      :designer="$env.VUE_APP_DESIGNER"
-      :node="node"
-    >
-      <template #item="item">
-        <slot name="item" v-bind="item" :index="index">
-          {{ $at2(node, textField) }}
-        </slot>
-      </template>
-    </u-checkbox>
+    <div :class="$style[checkAllDisplay]">
+      <div v-if="checkAll" :style="{ 'min-width': checkAllWidth, 'flex-shrink': 0 }">
+        <u-checkbox label="check-all" :value="all" :disabled="disabled" :readonly="readonly">
+          <slot name="check-all">
+            <u-text :text="checkAllText"></u-text>
+          </slot>
+        </u-checkbox>
+      </div>
+
+      <div :class="$style.wrap">
+        <u-checkbox
+          v-for="(node, index) in currentDataSource.data"
+          :key="index"
+          :text="$at2(node, textField)"
+          :label="$at2(node, valueField)"
+          :disabled="node.disabled"
+          :readonly="node.readonly"
+          :designer="$env.VUE_APP_DESIGNER"
+          :node="node"
+        >
+          <template #item="item">
+            <slot name="item" v-bind="item" :index="index">
+              {{ $at2(node, textField) }}
+            </slot>
+          </template>
+        </u-checkbox>
+        <slot></slot>
+      </div>
+    </div>
     <u-preview v-if="isPreview" :text="currentText"></u-preview>
   </template>
   <template v-if="$env.VUE_APP_DESIGNER && !dataSource && !$slots.default">
     <span :class="$style.loadContent">{{ treeSelectTip }}</span>
   </template>
-  <slot></slot>
 </div>
 </template>
 
@@ -65,6 +65,7 @@ export default {
     checkAll: { type: Boolean, default: false },
     checkAllDisplay: { type: String, default: "inline" },
     checkAllText: { type: String, default: "全选" },
+    checkAllWidth: { type: String, default: "100px" },
     preview: { type: Boolean, default: false },
   },
   data() {
@@ -257,7 +258,7 @@ export default {
 .root {
 }
 
-.root > *:not(:last-child) {
+.wrap > * {
   margin-right: var(--checkbox-space-x);
 }
 
@@ -266,5 +267,9 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 10px;
+}
+
+.inline { /* $style[checkAllDisplay] */
+  display: flex;
 }
 </style>
