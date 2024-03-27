@@ -684,8 +684,8 @@
       "time",
       "yearDiff",
       "yearAdd",
-      "show-formatter",
       "advanced-format",
+      "show-formatter",
       "autofocus",
       "placeholder",
       "alignment",
@@ -1778,6 +1778,7 @@
       "opened",
       "width",
       "height",
+      "popperWidth",
       "case-sensitive",
       "auto-complete"
     ],

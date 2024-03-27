@@ -2227,6 +2227,10 @@
     "type": "number",
     "description": "最大可选年份值与当前年份值的差值"
   },
+  "u-date-picker/advanced-format": {
+    "type": "{ enable: boolean, value: string }",
+    "description": ""
+  },
   "u-date-picker/show-formatter": {
     "type": "string",
     "options": [
@@ -2366,10 +2370,6 @@
         ]
       }
     ],
-    "description": ""
-  },
-  "u-date-picker/advanced-format": {
-    "type": "{ enable: boolean, value: string }",
     "description": ""
   },
   "u-date-picker/autofocus": {
@@ -7336,6 +7336,10 @@
       }
     ],
     "description": "设置选择框高度大小"
+  },
+  "u-select/popperWidth": {
+    "type": "string",
+    "description": "设置下拉列表宽度"
   },
   "u-select/case-sensitive": {
     "type": "string | Function",

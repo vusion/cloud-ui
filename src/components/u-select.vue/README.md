@@ -1398,6 +1398,7 @@ export default {
 | opened.sync | boolean |  | `false` | 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出” |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框高度大小 |
+| popperWidth | string |  |  | 设置下拉列表宽度 |
 | case-sensitive | string \| Function |  | `'includes'` | 过滤时大小写是否敏感 |
 | auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项 |
 
