@@ -45,7 +45,7 @@
                             v-ellipsis-title>
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
-                                <u-checkbox :value="allChecked" @check="checkAll($event.value)" :disabled="disabled" :readonly="readonly"></u-checkbox>
+                                <u-checkbox :value="allChecked" @check="checkAll($event.value)" :disabled="disabled" :readonly="readonly || !currentData || !currentData.length"></u-checkbox>
                             </span>
                             <!-- Normal title -->
                             <template>
