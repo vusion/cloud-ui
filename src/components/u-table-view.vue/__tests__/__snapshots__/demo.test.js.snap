@@ -5587,7 +5587,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
                 <tr>
                   <th class="head-title boldHeader">
                     <span>
-                      <label class="root" tabindex="0">
+                      <label class="root" readonly="readonly" tabindex="0">
                         <span class="box" status="false"></span>
                         <span vusion-slot-name="item"> </span>
                       </label>
@@ -5692,7 +5692,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
               <tr>
                 <th class="head-title boldHeader">
                   <span>
-                    <label class="root" tabindex="0">
+                    <label class="root" readonly="readonly" tabindex="0">
                       <span class="box" status="false"></span>
                       <span vusion-slot-name="item"> </span>
                     </label>
@@ -6089,7 +6089,7 @@ exports[`u-table-view.vue Demo-动态列 1`] = `
               <tr>
                 <th class="head-title boldHeader">
                   <span>
-                    <label class="root" tabindex="0">
+                    <label class="root" readonly="readonly" tabindex="0">
                       <span class="box" status="false"></span>
                       <span vusion-slot-name="item"> </span>
                     </label>
@@ -6708,7 +6708,7 @@ exports[`u-table-view.vue Demo-动态列排序和拖拽 1`] = `
               <tr>
                 <th class="head-title boldHeader">
                   <span>
-                    <label class="root" tabindex="0">
+                    <label class="root" readonly="readonly" tabindex="0">
                       <span class="box" status="false"></span>
                       <span vusion-slot-name="item"> </span>
                     </label>
@@ -7784,7 +7784,7 @@ exports[`u-table-view.vue Demo-后端排序 1`] = `
           <tr>
             <th class="head-title boldHeader">
               <span>
-                <label class="root" tabindex="0">
+                <label class="root" readonly="readonly" tabindex="0">
                   <span class="box" status="false"></span>
                   <span vusion-slot-name="item"> </span>
                 </label>
@@ -29015,7 +29015,7 @@ exports[`u-table-view.vue Demo-数据后来加载过来时，高度应当重新�
           <tr>
             <th class="head-title boldHeader">
               <span>
-                <label class="root" tabindex="0">
+                <label class="root" readonly="readonly" tabindex="0">
                   <span class="box" status="false"></span>
                   <span vusion-slot-name="item"> </span>
                 </label>
@@ -31530,7 +31530,7 @@ exports[`u-table-view.vue Demo-树型展示 3`] = `
           <tr>
             <th class="head-title boldHeader">
               <span>
-                <label class="root" tabindex="0">
+                <label class="root" readonly="readonly" tabindex="0">
                   <span class="box" status="false"></span>
                   <span vusion-slot-name="item"> </span>
                 </label>
@@ -31630,7 +31630,7 @@ exports[`u-table-view.vue Demo-树型展示，点击选中 1`] = `
           <tr>
             <th class="head-title boldHeader">
               <span>
-                <label class="root" tabindex="0">
+                <label class="root" readonly="readonly" tabindex="0">
                   <span class="box" status="false"></span>
                   <span vusion-slot-name="item"> </span>
                 </label>
@@ -31709,6 +31709,362 @@ exports[`u-table-view.vue Demo-树型展示，点击选中 1`] = `
     <div style="display: none;">
     </div>
     <div style="display: none;">
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-table-view.vue Demo-树形数据编辑行 1`] = `
+<div class="root" direction="vertical" gap="small" type vusion-slot-name="default">
+  <div class="root">
+    <div class="table" position="static">
+      <div class="head">
+        <table class="root head-table" sticky-fixed="true" style="width: 0px;">
+          <colgroup>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="head-title boldHeader" style="position: sticky; left: 0px; z-index: 99; overflow: hidden;">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  用户名
+                </span>
+              </th>
+              <th class="head-title boldHeader" last-left-fixed="true" style="position: sticky; z-index: 99; overflow: hidden;">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  最近登录时间
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  手机号码
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  最近登录时间
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  最近登录时间
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  操作
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="headPlaceholder"></div>
+      <div class="body" sticky-fixed="true">
+        <div class="root scrollcview">
+          <div class="wrap">
+            <div>
+              <table class="root" sticky-fixed="true" style="width: 0px;">
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr class="row">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99; overflow: hidden;">
+                      <span class="indent" style="padding-left: 0px;"></span>
+                      <span class="tree_placeholder"></span>
+                      <div class="editablewrap" style="width: calc(100% - 30px);">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">张三</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99; overflow: hidden;">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <div class="editablewrap" style="width: 100%;">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">18612917895</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                        删除
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99; overflow: hidden;">
+                      <span class="indent" style="padding-left: 0px;"></span>
+                      <span class="tree_expander" expanded="true"></span>
+                      <div class="editablewrap" style="width: calc(100% - 30px);">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">张三dd</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99; overflow: hidden;">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <div class="editablewrap" style="width: 100%;">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">18612917895</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                        删除
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="row" subrow="true">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99; overflow: hidden;">
+                      <span class="indent" style="padding-left: 20px;"></span>
+                      <span class="tree_placeholder"></span>
+                      <div class="editablewrap" style="width: calc(100% - 50px);">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">张三11</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99; overflow: hidden;">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <div class="editablewrap" style="width: 100%;">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">18612917895</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                        删除
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="row" subrow="true">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99; overflow: hidden;">
+                      <span class="indent" style="padding-left: 20px;"></span>
+                      <span class="tree_expander"></span>
+                      <div class="editablewrap" style="width: calc(100% - 50px);">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">张三12</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99; overflow: hidden;">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <div class="editablewrap" style="width: 100%;">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">18612917895</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-05-28 21:52:11</span>
+                    </td>
+                    <td class="cell">
+                      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                        删除
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99; overflow: hidden;">
+                      <span class="indent" style="padding-left: 0px;"></span>
+                      <span class="tree_placeholder"></span>
+                      <div class="editablewrap" style="width: calc(100% - 30px);">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">小明</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99; overflow: hidden;">
+                      <span class="column-field">2019-03-12 22:24:36</span>
+                    </td>
+                    <td class="cell">
+                      <div class="editablewrap" style="width: 100%;">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">13727160283</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-12 22:24:36</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-03-12 22:24:36</span>
+                    </td>
+                    <td class="cell">
+                      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                        删除
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99; overflow: hidden;">
+                      <span class="indent" style="padding-left: 0px;"></span>
+                      <span class="tree_placeholder"></span>
+                      <div class="editablewrap" style="width: calc(100% - 30px);">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">李四</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99; overflow: hidden;">
+                      <span class="column-field">2019-05-18 15:45:30</span>
+                    </td>
+                    <td class="cell">
+                      <div class="editablewrap" style="width: 100%;">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">18897127809</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-05-18 15:45:30</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2019-05-18 15:45:30</span>
+                    </td>
+                    <td class="cell">
+                      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                        删除
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99; overflow: hidden;">
+                      <span class="indent" style="padding-left: 0px;"></span>
+                      <span class="tree_placeholder"></span>
+                      <div class="editablewrap" style="width: calc(100% - 30px);">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">李华</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99; overflow: hidden;">
+                      <span class="column-field">2018-12-10 15:48:01</span>
+                    </td>
+                    <td class="cell">
+                      <div class="editablewrap" style="width: 100%;">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">18749261214</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-10 15:48:01</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-12-10 15:48:01</span>
+                    </td>
+                    <td class="cell">
+                      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                        删除
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell" style="position: sticky; left: 0px; z-index: 99; overflow: hidden;">
+                      <span class="indent" style="padding-left: 0px;"></span>
+                      <span class="tree_placeholder"></span>
+                      <div class="editablewrap" style="width: calc(100% - 30px);">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">王五</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell" last-left-fixed="true" style="position: sticky; z-index: 99; overflow: hidden;">
+                      <span class="column-field">2018-07-16 01:32:06</span>
+                    </td>
+                    <td class="cell">
+                      <div class="editablewrap" style="width: 100%;">
+                        <div>
+                          <span class="root" vusion-slot-name-edit="text">13579340020</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-16 01:32:06</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2018-07-16 01:32:06</span>
+                    </td>
+                    <td class="cell">
+                      <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+                        删除
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+          </div>
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" style="display: none;">
+      <div class="line" style="display: none;"></div>
+      <div class="mask" style="display: none;"></div>
+    </div>
+    <div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
     </div>
   </div>
 </div>
@@ -34070,6 +34426,150 @@ exports[`u-table-view.vue Demo-省略显示 1`] = `
         </div>
         <div style="display: none;">
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`u-table-view.vue Demo-空表格全选选中 1`] = `
+<div class="root" direction="vertical" type vusion-slot-name="default">
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    刷新
+  </a>
+  <div class="root">
+    <div class="table" position="static">
+      <div class="head">
+        <table class="root head-table" sticky-fixed="true">
+          <colgroup>
+            <col width="0">
+            <col width="0">
+            <col width="0">
+            <col>
+            <col width="0">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="head-title boldHeader">
+                <span>
+                  <label class="root" tabindex="0">
+                    <span class="box" status="false"></span>
+                    <span vusion-slot-name="item"> </span>
+                  </label>
+                </span>
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  选择
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  用户名
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  手机号码
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  地址
+                </span>
+              </th>
+              <th class="head-title boldHeader">
+                <span class="column-title" vusion-slot-name="title" vusion-slot-name-edit="title">
+                  最近登录时间
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="headPlaceholder"></div>
+      <div class="body" sticky-fixed="true">
+        <div class="root scrollcview">
+          <div class="wrap">
+            <div>
+              <table class="root" sticky-fixed="true">
+                <colgroup>
+                  <col width="0">
+                  <col width="0">
+                  <col width="0">
+                  <col>
+                  <col width="0">
+                </colgroup>
+                <tbody>
+                  <tr class="row">
+                    <td class="cell">
+                      <span>
+                        <label class="root" tabindex="0">
+                          <span class="box" status="false"></span>
+                          <span vusion-slot-name="item"> </span>
+                        </label>
+                      </span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">1</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">-</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">-</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">-</span>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="cell">
+                      <span>
+                        <label class="root" tabindex="0">
+                          <span class="box" status="false"></span>
+                          <span vusion-slot-name="item"> </span>
+                        </label>
+                      </span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">2</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">-</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">-</span>
+                    </td>
+                    <td class="cell">
+                      <span class="column-field">-</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+          </div>
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" style="display: none;">
+      <div class="line" style="display: none;"></div>
+      <div class="mask" style="display: none;"></div>
+    </div>
+    <div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
+      </div>
+      <div style="display: none;">
       </div>
     </div>
   </div>
@@ -37858,7 +38358,7 @@ exports[`u-table-view.vue Demo-行列与表头合并 1`] = `
             <tr>
               <th class="head-title boldHeader" rowspan="2">
                 <span>
-                  <label class="root" tabindex="0">
+                  <label class="root" readonly="readonly" tabindex="0">
                     <span class="box" status="false"></span>
                     <span vusion-slot-name="item"> </span>
                   </label>
@@ -38409,7 +38909,7 @@ exports[`u-table-view.vue Demo-行列与表头合并+固定列 1`] = `
             <tr>
               <th class="head-title boldHeader" rowspan="2">
                 <span>
-                  <label class="root" tabindex="0">
+                  <label class="root" readonly="readonly" tabindex="0">
                     <span class="box" status="false"></span>
                     <span vusion-slot-name="item"> </span>
                   </label>
