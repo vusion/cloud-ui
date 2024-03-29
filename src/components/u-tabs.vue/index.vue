@@ -178,7 +178,9 @@ export default {
     },
     methods: {
         onClick(itemVM, e) {
-            this.click(itemVM);
+            if (this.tabDataSource && this.tabDataSource.length === 0) {
+                this.click(itemVM);
+            }
             this.select(itemVM); // 为了兼容
             if (this.router) {
                 if (itemVM.disabled)
