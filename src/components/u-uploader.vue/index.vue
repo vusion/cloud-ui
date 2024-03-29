@@ -203,12 +203,10 @@ export default {
                 },
                 'file-name': {
                     is: 'u-text',
-                    getProps: (item) => {
-                        return {
-                            text: item.name || item.url,
-                            title: item.name || item.url,
-                        }
-                    }
+                    getProps: (item) => ({
+                        text: item.name || item.url,
+                        title: item.name || item.url,
+                    }),
                 },
                 'file-size': {
                     is: 'u-text',
@@ -305,7 +303,7 @@ export default {
         },
         fileTypeIcon(item) {
             const iconInfo = Object.entries(this.iconMap).find(([type]) => type.includes((item.name || item.url).split('.').pop()));
-            return !!iconInfo ? (iconInfo[1] || 'file-default') : 'file-default'
+            return iconInfo ? (iconInfo[1] || 'file-default') : 'file-default';
         },
         isURLEncoded(url) {
             const decodedUrl = decodeURI(url); // 对 URL 进行解码
@@ -621,7 +619,7 @@ export default {
                     }, this);
                 },
                 onError: (e, res) => {
-                    console.log('error', e)
+                    console.log('error', e);
                     const item = this.currentValue[index];
                     item.status = 'error';
 
@@ -668,6 +666,18 @@ export default {
                 return;
 
             this.currentValue.splice(index, 1);
+            this.errorMessage = [];
+            const count = this.currentValue.length;
+            if (count > this.limit) {
+                this.errorMessage[0] = `文件数量${count}超出限制 ${this.limit}！`;
+                this.$emit('count-exceed', {
+                    files: [],
+                    value: this.currentValue,
+                    count,
+                    limit: this.limit,
+                    message: this.errorMessage[0],
+                }, this);
+            }
             this.emitInputEvent();
             this.$emit('remove', {
                 value: this.currentValue,
