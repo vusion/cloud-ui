@@ -7,7 +7,8 @@ export function exportExcel(aoa, sheetName, fileName, sheetTitleData, columns, h
     aoa.forEach((row) => {
         // 默认设置为字符串
         row.forEach((cell) => {
-            cell.t = 's';
+            if (cell)
+                cell.t = 's';
         });
     });
     // 设置列宽和行高
