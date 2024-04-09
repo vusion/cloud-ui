@@ -547,3 +547,7 @@
 .preview .placeholder {
     color: var(--select-color);
 }
+
+.preview.root {
+    padding-left: 0;
+}

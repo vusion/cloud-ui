@@ -177,7 +177,7 @@ export default {
             else
                 this.selectedVM = itemVM;
             const value = this.selectedVM && this.selectedVM.index;
-            const item = this.selectedVM && this.selectedVM.item;
+            const item = this.selectedVM && this.selectedVM.item ? this.selectedVM.item : this.selectedVM;
             this.$emit('input', value, this);
             this.$emit('update:value', value, this);
             this.$emit(

@@ -14,7 +14,7 @@ exports[`u-grid-layout.vue Demo- 1`] = `
   </div>
   <div class="root">
     <div class="table" position="static">
-      <div class="head" style="top: 0px;">
+      <div class="head">
         <table class="root head-table" sticky-fixed="true">
           <colgroup>
             <col width="0">
@@ -48,6 +48,7 @@ exports[`u-grid-layout.vue Demo- 1`] = `
           </thead>
         </table>
       </div>
+      <div class="headPlaceholder"></div>
       <div class="body" sticky-fixed="true">
         <div class="root scrollcview">
           <div class="wrap">

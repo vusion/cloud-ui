@@ -9,7 +9,7 @@ exports[`u-table-view.vue pageNumber 变化 1`] = `
   </div>
   <div class="root">
     <div class="table" position="static">
-      <div class="head" style="top: 0px;">
+      <div class="head">
         <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
@@ -43,6 +43,7 @@ exports[`u-table-view.vue pageNumber 变化 1`] = `
           </thead>
         </table>
       </div>
+      <div class="headPlaceholder"></div>
       <div class="body" sticky-fixed="true">
         <div class="root scrollcview">
           <div class="wrap">
@@ -273,7 +274,7 @@ exports[`u-table-view.vue pageNumber 变化 2`] = `
   </div>
   <div class="root">
     <div class="table" position="static">
-      <div class="head" style="top: 0px;">
+      <div class="head">
         <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
@@ -307,6 +308,7 @@ exports[`u-table-view.vue pageNumber 变化 2`] = `
           </thead>
         </table>
       </div>
+      <div class="headPlaceholder"></div>
       <div class="body" sticky-fixed="true">
         <div class="root scrollcview">
           <div class="wrap">
@@ -537,7 +539,7 @@ exports[`u-table-view.vue pageNumber 变化 3`] = `
   </div>
   <div class="root">
     <div class="table" position="static">
-      <div class="head" style="top: 0px;">
+      <div class="head">
         <table class="root head-table" sticky-fixed="true" striped="true">
           <colgroup>
             <col width="0">
@@ -571,6 +573,7 @@ exports[`u-table-view.vue pageNumber 变化 3`] = `
           </thead>
         </table>
       </div>
+      <div class="headPlaceholder"></div>
       <div class="body" sticky-fixed="true">
         <div class="root scrollcview">
           <div class="wrap">

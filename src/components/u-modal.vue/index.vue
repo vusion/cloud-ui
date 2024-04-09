@@ -9,7 +9,7 @@
             leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
             <div :class="[$style.dialog, $env.VUE_APP_DESIGNER ? $style.pos : null, customClass]" ref="dialog"
                 v-if="currentVisible && animationVisible"
-                :style="{ width: width + 'px' }" :size="size">
+                :style="{ width: width + 'px' }" :size="size" @click.stop="noop">
                 <slot name="inject"></slot>
                 <div :class="$style.head" vusion-slot-name="head" :child-cut-disabled="true" v-if="showHead">
                     <slot name="head">
@@ -184,11 +184,13 @@ export const UModal = {
             if (this.maskClose && !this.$refs.dialog.contains(e.target))
                 this.close();
         },
+        noop() { // 因为dialog 直接用overlay 套了实际额内容，导致只能stop 方式阻止事件冒泡....
+        },
     },
     install(Vue, id) {
         const Ctor = Vue.component(id);
         Vue.prototype.$alert = (content, title, okButton) => new Promise((resolve, reject) => {
-            const propsData = typeof content === 'object' ? content : { content, title: titleTemp, okButton, cancelButton: '' };
+            const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
             const instance = new Ctor({
                 propsData: {
                     functionalModal: true,

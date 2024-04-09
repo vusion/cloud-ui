@@ -31,7 +31,7 @@
         :max-time="maxTime"
         :append-to="appendTo"
         :simple-foot="simpleFoot"
-        :popper-width="popperWidth"
+        :popper-width="currentPopperWidth"
         :show-right-now-button="showRightNowButton"
         :show-footer-button="showFooterButton"
         :right-now-title="rightNowTitle"
@@ -123,6 +123,7 @@ export default {
     data() {
         return {
             inputTime: this.value || this.time,
+            currentPopperWidth: this.popperWidth,
         };
     },
     watch: {
@@ -184,6 +185,7 @@ export default {
             return text;
         },
         open() {
+            this.setPopperWidth();
             this.$refs.popper && this.$refs.popper.open();
         },
         close() {
@@ -235,6 +237,18 @@ export default {
         },
         onSpinnerClick() {
             this.$refs.input.focus();
+        },
+        setPopperWidth() {
+            if (this.appendTo !== 'body') {
+                this.currentPopperWidth = this.popperWidth || '100%';
+                return;
+            }
+            if (this.popperWidth) {
+                this.currentPopperWidth = this.popperWidth;
+                return;
+            }
+            const rect = this.$el.getBoundingClientRect();
+            this.currentPopperWidth = rect.width;
         },
     },
 };

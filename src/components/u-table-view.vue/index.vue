@@ -12,7 +12,7 @@
     <div :class="$style.table" ref="tablewrap" v-for="(tableMeta, tableMetaIndex) in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
-        <div v-if="showHead" :class="$style.head" ref="head" :stickingHead="stickingHead" :style="{ width: stickingHead ? number2Pixel(tableMeta.width) : '', top: number2Pixel(stickingHeadTop) }">
+        <div v-if="showHead" :class="$style.head" ref="head">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped" :sticky-fixed="useStickyFixed" :style="{ width: number2Pixel(tableWidth)}">
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth">
@@ -45,7 +45,7 @@
                             v-ellipsis-title>
                             <!-- type === 'checkbox' -->
                             <span v-if="columnVM.type === 'checkbox'">
-                                <u-checkbox :value="allChecked" @check="checkAll($event.value)" :disabled="disabled" :readonly="readonly"></u-checkbox>
+                                <u-checkbox :value="allChecked" @check="checkAll($event.value)" :disabled="disabled" :readonly="readonly || !currentData || !currentData.length"></u-checkbox>
                             </span>
                             <!-- Normal title -->
                             <template>
@@ -91,7 +91,7 @@
                 </thead>
             </u-table>
         </div>
-        <div v-if="stickingHead" :class="$style.headPlaceholder" ref="headPlaceholder" :style="{ height: number2Pixel(stickingHeadHeight) }"></div>
+        <div :class="$style.headPlaceholder" ref="headPlaceholder"></div>
         <div :class="$style.body" ref="body" :style="{ height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll"
             :sticky-fixed="useStickyFixed">
             <f-scroll-view :class="$style.scrollcview" @scroll="onScrollView" ref="scrollView" :native="!!tableMetaIndex || $env.VUE_APP_DESIGNER" :hide-scroll="!!tableMetaIndex">
@@ -435,7 +435,7 @@
 <script>
 import DataSource from '../../utils/DataSource';
 import DataSourceNew from '../../utils/DataSource/new';
-import { addResizeListener, removeResizeListener, findScrollParent, getRect } from '../../utils/dom';
+import { addResizeListener, removeResizeListener, findScrollParent, getRect, findXScrollParent } from '../../utils/dom';
 import { format } from '../../utils/date';
 import KeyMap from '../../utils/keyMap';
 import MEmitter from '../m-emitter.vue';
@@ -560,6 +560,7 @@ export default {
         listKey: { type: String, default: 'currentData' },
         thEllipsis: { type: Boolean, default: false }, // 表头是否缩略展示
         ellipsis: { type: Boolean, default: false }, // 单元格是否缩略展示
+        syncStickHeadXScroll: { type: Boolean, default: false }, // 同步固定头部的横向滚动
     },
     data() {
         return {
@@ -888,6 +889,15 @@ export default {
             leading: false,
             trailing: true,
         });
+
+        this.throttleScrollParentScroll = throttle(this.onScrollParentScroll, 50, {
+            leading: false,
+            trailing: true,
+        });
+        this.throttleXScrollParentScroll = throttle(this.onXScrollParentScroll, 50, {
+            leading: false,
+            trailing: true,
+        });
     },
     updated() {
         if (this.$env.VUE_APP_DESIGNER && this.slots !== this.$slots && !this.data && !this.dataSource) {
@@ -907,13 +917,18 @@ export default {
 
         if (this.stickHead) {
             this.scrollParentEl = findScrollParent(this.$el);
-            this.scrollParentEl && this.scrollParentEl.addEventListener('scroll', this.onScrollParentScroll);
+            this.scrollParentEl && this.scrollParentEl.addEventListener('scroll', this.throttleScrollParentScroll);
+            if (this.syncStickHeadXScroll) {
+                this.xScrollParentEl = findXScrollParent(this.$el);
+                this.xScrollParentEl && this.xScrollParentEl.addEventListener('scroll', this.throttleXScrollParentScroll);
+            }
         }
     },
     destroyed() {
         removeResizeListener(this.$el, this.handleResizeListener);
         if (this.stickHead) {
-            this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.onScrollParentScroll);
+            this.scrollParentEl && this.scrollParentEl.removeEventListener('scroll', this.throttleScrollParentScroll);
+            this.xScrollParentEl && this.xScrollParentEl.removeEventListener('scroll', this.throttleXScrollParentScroll);
         }
         this.clearTimeout();
         this.enterTarget = null;
@@ -1327,7 +1342,6 @@ export default {
         onTableScroll(e) {
             this.scrollXStart = e.target.scrollLeft === 0;
             this.scrollXEnd = e.target.scrollLeft >= e.target.scrollWidth - e.target.clientWidth;
-            this.stickingHead && this.syncHeadScroll();
         },
         syncBodyScroll(scrollTop, target) {
             if (!this.useStickyFixed) {
@@ -1343,7 +1357,12 @@ export default {
             }
         },
         syncHeadScroll() {
-            // this.$refs.head[0].scrollLeft = this.$refs.head[0].parentElement.scrollLeft;
+            const headEl = this.$refs.head[0];
+            if (this.xScrollParentEl && this.stickingHead && headEl && headEl.childNodes[0]) {
+                const xScrollParentEl = this.xScrollParentEl;
+                headEl.childNodes[0].style.marginLeft = '-' + xScrollParentEl.scrollLeft + 'px';
+                headEl.style.width = xScrollParentEl.offsetWidth + 'px';
+            }
         },
         onBodyScroll(e) {
             this.syncBodyScroll(e.target.scrollTop, e.target); // this.throttledVirtualScroll(e);
@@ -1366,9 +1385,32 @@ export default {
             bodyRect.bottom -= headHeight;
 
             this.stickingHead = rect.top < parentRect.top && bodyRect.bottom > parentRect.top;
-            this.stickingHeadTop = parentRect.top;
-            this.stickingHeadHeight = headHeight;
-            this.syncHeadScroll();
+            // this.stickingHeadTop = parentRect.top;
+            // this.stickingHeadHeight = headHeight;
+
+            const stickingHead = rect.top < parentRect.top && bodyRect.bottom > parentRect.top;
+            const stickingHeadTop = parentRect.top;
+            const stickingHeadHeight = headHeight;
+            const stickheadEl = this.$refs.head[0];
+            const headPlaceholderEl = this.$refs.headPlaceholder[0];
+            if (stickheadEl) {
+                if (stickingHead) {
+                    stickheadEl.setAttribute('stickingHead', true);
+                    stickheadEl.style.width = this.$el.offsetWidth + 'px';
+                    headPlaceholderEl.style.height = stickingHeadHeight + 'px';
+                } else {
+                    stickheadEl.removeAttribute('stickingHead');
+                    stickheadEl.style.width = '';
+                    if (stickheadEl.childNodes[0]) {
+                        stickheadEl.childNodes[0].style.marginLeft = '';
+                    }
+                    headPlaceholderEl.style.height = '';
+                }
+                stickheadEl.style.top = stickingHeadTop + 'px';
+                if (this.syncStickHeadXScroll) {
+                    this.syncHeadScroll();
+                }
+            }
         },
         onScrollView(data) {
             this.hasScroll = true;
@@ -1434,15 +1476,15 @@ export default {
                 });
         },
         reload() {
+            if (this.dynamicColumnVMs.length) {
+                this.dynamicColumnVMs.forEach((vm) => vm.reload());
+            }
             if (!this.currentDataSource._load || typeof this.currentDataSource._load !== 'function')
                 return;
             this.currentDataSource.clearLocalData();
             this.clearDragState();
             this.load();
             console.log('table reload');
-            if (this.dynamicColumnVMs.length) {
-                this.dynamicColumnVMs.forEach((vm) => vm.reload());
-            }
         },
         getFields() {
             return this.visibleColumnVMs
@@ -2088,10 +2130,17 @@ export default {
                     break;
                 item.tableTreeItemLevel = level;
                 item.parentPointer = parent;
-                if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
-                    this.$setAt(item, this.hasChildrenField, true);
-                    item.expanded = item.expanded || false;
-                    item.treeExpanded = item.treeExpanded || false;
+                if (this.$at(item, this.childrenField)) {
+                    // fix: 2820102516186880，2830031229543936，子节点删除数据处理
+                    if (this.$at(item, this.childrenField).length) {
+                        this.$setAt(item, this.hasChildrenField, true);
+                        item.expanded = item.expanded || false;
+                        item.treeExpanded = item.treeExpanded || false;
+                    } else {
+                        this.$setAt(item, this.hasChildrenField, false);
+                        item.expanded = false;
+                        item.treeExpanded = false;
+                    }
                 }
                 if (parent) {
                     this.$set(item, 'display', needHidden(ancestors) ? 'none' : '');
@@ -2827,10 +2876,7 @@ export default {
         },
         getEditablewrapWidth(item, columnIndex, treeColumnIndex) {
             if (this.treeDisplay && item.tableTreeItemLevel !== undefined && columnIndex === treeColumnIndex) {
-                let width = 20 * item.tableTreeItemLevel + 10;
-                if (this.$at(item, this.hasChildrenField)) {
-                    width = width + 20;
-                }
+                const width = 20 * (item.tableTreeItemLevel + 1) + 10;
                 return `calc(100% - ${width}px)`;
             }
             return '100%';
@@ -3220,6 +3266,9 @@ export default {
             this.currentPageSize = event.pageSize;
             const currentDataSource = this.currentDataSource;
             this.page(currentDataSource && currentDataSource.paging ? currentDataSource.paging.number : this.pageNumber, event.pageSize);
+        },
+        onXScrollParentScroll(event) {
+            this.syncHeadScroll();
         },
     },
 };
@@ -3645,6 +3694,10 @@ export default {
     align-items: center;
     width: auto;
 }
+.tree_expander + div.editablewrap > div,
+.tree_placeholder + div.editablewrap > div {
+    width: 100%;
+}
 
 .tree_expander[loading]::before {
     border-top-color: transparent;
@@ -3689,6 +3742,11 @@ export default {
 }
 .scrollcview[native="true"][hide-scroll] [class^="f-scroll-view_wrap__"]::-webkit-scrollbar {
     width: 0;
+}
+/** fix 固定列滚动条看不见 */
+.scrollcview [class^="f-scroll-view_wrap__"] {
+    position: relative;
+    z-index: 0;
 }
 
 .dropghost {

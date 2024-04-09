@@ -181,6 +181,18 @@ namespace nasl.ui {
         })
         onLoad: (event: any) => any;
 
+        @Event({
+            title: '年改变后',
+            description: '年份改变后触发',
+        })
+        onChangeYear: (event: nasl.core.String) => any;
+
+        @Event({
+            title: '月改变后',
+            description: '月份改变后触发',
+        })
+        onChangeMonth: (event: nasl.core.String) => any;
+
         @Slot({
             title: 'undefined',
             description: '插入文本或 HTML 至日期组件底部',

@@ -50,7 +50,7 @@
             </span>
         </div>
     </div>
-    <div :class="$style.sub" v-if="rootVM.ifExpanded && !childrenRendered && node && !node.childrenRendered ? currentExpanded : true" v-show="currentExpanded">
+    <div :class="$style.sub" v-if="childrenNodeRenderedIf" v-show="childrenNodeRenderedShow">
         <template v-if="node && $at(node, currentChildrenField) && !rootVM.excludeFields.includes(currentChildrenField)">
             <u-tree-view-node-new
                 v-for="(subNode, subNodeIndex) in $at(node, currentChildrenField)"
@@ -65,6 +65,7 @@
                 :parent="node"
                 :level="level + 1"
                 :draggable="subNode.draggable"
+                :renderOptimize="renderOptimize"
             >
                <template #item="item">
                    <slot name="item" v-bind="item">
@@ -87,6 +88,7 @@
                     :parent="node"
                     :level="level + 1"
                     :draggable="subNode.draggable"
+                    :renderOptimize="renderOptimize"
                 >
                     <template #item="item">
                         <slot name="item" v-bind="item">
@@ -130,6 +132,7 @@ export default {
         } },
         draggable: { type: Boolean, default: false },
         dragExpanderDelay: { type: Number, default: 1500 },
+        renderOptimize: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -232,6 +235,13 @@ export default {
         },
         paddingLeft() {
             return this.rootVM && this.rootVM.paddingLeft || 0;
+        },
+        childrenNodeRenderedIf() {
+            const childrenExist = this.rootVM.ifExpanded && !this.childrenRendered && this.node && !this.node.childrenRendered ? this.currentExpanded : true
+            return this.renderOptimize ? childrenExist && this.currentExpanded : childrenExist
+        },
+        childrenNodeRenderedShow() {
+            return this.renderOptimize ? true : this.currentExpanded
         },
     },
 

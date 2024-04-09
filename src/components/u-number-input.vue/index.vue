@@ -182,6 +182,8 @@ export default {
             const _oldValue = this.currentValue;
             const currentValue = (this.currentValue = this.fix(value, currentPrecision));
             this.formattedValue = this.currentFormatter.format(currentValue);
+            // 修复blur 清空导致的问题，数据流混乱，只能这么改，哎😌
+            this.$refs.input.currentValue = this.formattedValue;
             this.$emit('update', this.currentValue, this);
             // 当点击了form的创建按钮等调用了validate方法，fieldTouched值会变为true，不会走update validate
             // 所以这里需要再增加input emit

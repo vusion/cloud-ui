@@ -59,7 +59,6 @@
 
 <script>
 import dayjs from 'dayjs';
-import i18n from './i18n';
 import DateTable from './date-table.vue';
 import './initDayjs';
 import { DefaultFormatType, getDay } from './utils';
@@ -70,7 +69,6 @@ import i18nMixin from '../../mixins/i18n';
 
 export default {
     name: 'u-calendar-view',
-    // i18n,
     components: {
         DateTable,
         SEmpty,
@@ -258,6 +256,12 @@ export default {
             this.selectedDatesSnapshot = snapshot;
             this.getConfigs();
         },
+        year() {
+            this.$emit('change-year', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
+        },
+        month() {
+            this.$emit('change-month', (this.getCurrentFirstDay()).format(DefaultFormatType), this);
+        },
     },
     methods: {
         updateSelectedDates(dates, cell, skipEqualCheck = false) {
@@ -315,12 +319,21 @@ export default {
                         }),
                     );
                     this.selectedDates = Array.from(uniqueDateSet).map((v) => v.clone());
+                    // fix：改变值的时候，年、月下拉框不会变化
+                    if (this.selectedDates[0]) {
+                        this.year = this.selectedDates[0].year();
+                        this.month = this.selectedDates[0].month();
+                    }
                 } else {
                     // 当前日期不在配置日期范围内，重新赋值成最小日期
                     if (maxDay.isBefore(selectedDate) || minDay.isAfter(selectedDate)) {
                         this.year = minYear;
                         this.month = minMonth;
                         this.selectedDates = [minDay.clone().startOf('day')];
+                    } else if (selectedDate) {
+                        // fix：改变值的时候，年、月下拉框不会变化
+                        this.year = selectedDate.year();
+                        this.month = selectedDate.month();
                     }
                 }
                 this.showToday = !maxDay.isBefore(date) && !minDay.isAfter(date);

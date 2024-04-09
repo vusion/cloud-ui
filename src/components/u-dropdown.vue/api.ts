@@ -240,6 +240,9 @@ namespace nasl.ui {
             group: '主要属性',
             title: '图标',
             docDescription: '菜单项前增加自定义图标显示',
+            setter: {
+                concept: 'IconSetter',
+            },
         })
         icon: nasl.core.String = '';
 

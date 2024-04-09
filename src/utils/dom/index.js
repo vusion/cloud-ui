@@ -204,6 +204,18 @@ export function findScrollParent(el) {
     }
 }
 
+export function findXScrollParent(el) {
+    el = el.parentElement;
+    if (!el)
+        return window;
+    const styles = window.getComputedStyle(el);
+    if (styles.overflowX === 'auto' || styles.overflowX === 'scroll') {
+        return el;
+    } else {
+        return findXScrollParent(el);
+    }
+}
+
 export function isIE() {
     return !!window.ActiveXObject || 'ActiveXObject' in window;
 }

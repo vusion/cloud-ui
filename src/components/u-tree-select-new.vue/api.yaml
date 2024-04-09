@@ -122,6 +122,14 @@
       brifeDoc: ""
       docDescription: 开启后支持清除按钮。默认关闭
       tooltipLink: ""
+    - name: render-optimize
+      title: 只渲染激活节点
+      type: boolean
+      default: false
+      description: 设置只渲染tree激活子节点，用于渲染性能提升。
+      group: 交互属性
+      brifeDoc: ""
+      docDescription: 开启后只渲染激活节点，默认关闭。
     - name: append-to
       title: 弹出层位置依据
       type: string
