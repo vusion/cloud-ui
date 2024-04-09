@@ -1407,6 +1407,8 @@ export default {
                     headPlaceholderEl.style.height = '';
                 }
                 stickheadEl.style.top = stickingHeadTop + 'px';
+                // fix：滚动条在最右边时，置顶时表头会有偏移
+                stickheadEl.scrollLeft = this.$refs.scrollView[0].$refs.wrap.scrollLeft;
                 if (this.syncStickHeadXScroll) {
                     this.syncHeadScroll();
                 }
