@@ -1106,7 +1106,7 @@ export default {
 
 .errmessage {
     display: block;
-    white-space: var(--validator-message-white-space);
+    /* white-space: var(--validator-message-white-space); */
     color: #F24957;
     border-radius: var(--validator-message-border-radius);
     min-width: var(--validator-message-min-width);
