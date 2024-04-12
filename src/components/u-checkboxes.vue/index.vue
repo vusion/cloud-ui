@@ -79,7 +79,7 @@ export default {
   watch: {
     value(value) {
       this.watchValue(value);
-
+      this.setCheckAll();
     },
     currentValue(value, oldValue) {
       if (this.converter) {
@@ -100,23 +100,7 @@ export default {
     },
     itemVMs() {
       this.watchValue(this.value);
-      // 不开启全选就直接return
-      if (!this.checkAll) return;
-      if (this.isCheckAll) {
-        this.all = true;
-        // 这里不能这样判断：this.currentValue.length === 0，这里子项全部为false不代表currentValue.length === 0
-      } else if (
-        !this.currentValue.some((item) =>
-          this.itemVMsExcludesCheckAll.some((vm) => vm.label === item)
-        )
-      ) {
-        this.all = false;
-      } else {
-        // 半选兜底
-        this.all = null;
-      }
-
-
+      this.setCheckAll();
     },
   },
   computed: {
@@ -250,6 +234,24 @@ export default {
         }
       }
     },
+    setCheckAll() {
+      // 不开启全选就直接return
+      if (!this.checkAll) return;
+      if (this.isCheckAll) {
+        this.all = true;
+        // 这里不能这样判断：this.currentValue.length === 0，这里子项全部为false不代表currentValue.length === 0
+      } else if (
+        !this.currentValue.some((item) =>
+          this.itemVMsExcludesCheckAll.some((vm) => vm.label === item)
+        )
+      ) {
+        this.all = false;
+      } else {
+        // 半选兜底
+        this.all = null;
+      }
+
+    }
   },
 };
 </script>
