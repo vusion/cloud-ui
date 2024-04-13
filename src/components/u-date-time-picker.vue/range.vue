@@ -284,18 +284,12 @@ export default {
         startDate(newValue) {
             this.startDateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
             this.finalStartDateTime = this.startDateTime;
-            // this.$emit(
-            //     'update:startDate',
-            //     this.startDateTime,
-            // );
+            this.noticeValidator();
         },
         endDate(newValue) {
             this.endDateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
             this.finalEndDateTime = this.endDateTime;
-            // this.$emit(
-            //     'update:endDate',
-            //     this.endDateTime,
-            // );
+            this.noticeValidator();
         },
         maxDate(value) {
             this.currentMaxDate = this.getMaxDate(value);
@@ -305,14 +299,7 @@ export default {
         },
     },
     created() {
-        const startDateTime = this.toValue(this.startDateTime ? new Date(this.startDateTime.replace(/-/g, '/')) : '');
-        const endDateTime = this.toValue(this.endDateTime ? new Date(this.endDateTime.replace(/-/g, '/')) : '');
-        this.$emit(
-            'update',
-            this.startDateTime && this.endDateTime ? [startDateTime, endDateTime] : '',
-        );
-        this.$emit('update:startDate', startDateTime === '' ? undefined : startDateTime);
-        this.$emit('update:endDate', endDateTime === '' ? undefined : endDateTime);
+        this.noticeValidator(true);
     },
     mounted() {
         this.autofocus && this.$refs.input.focus();
@@ -321,6 +308,19 @@ export default {
             this.toggle(this.opened);
     },
     methods: {
+        noticeValidator(created = false) {
+            const startDateTime = this.toValue(this.startDateTime ? new Date(this.startDateTime.replace(/-/g, '/')) : '');
+            const endDateTime = this.toValue(this.endDateTime ? new Date(this.endDateTime.replace(/-/g, '/')) : '');
+            this.$emit(
+                'update',
+                this.startDateTime && this.endDateTime ? [startDateTime, endDateTime] : '',
+            );
+
+            if (created) {
+                this.$emit('update:startDate', startDateTime === '' ? undefined : startDateTime);
+                this.$emit('update:endDate', endDateTime === '' ? undefined : endDateTime);
+            }
+        },
         getFormatString() {
             return 'YYYY-MM-DD HH:mm:ss';
         },
