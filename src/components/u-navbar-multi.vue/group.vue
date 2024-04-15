@@ -21,7 +21,7 @@
             :placement="placement"
             :disabled="disabled"
             :reference="$refs.root"
-            append-to="reference"
+            append-to="body"
             :opened="($env.VUE_APP_DESIGNER && collapsible === false ) ? false :currentExpanded"
             @before-open="$event=>collapsible === false && $event.preventDefault()"
             @update:opened="toggle($event)"
