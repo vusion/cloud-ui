@@ -21,12 +21,12 @@
             :placement="placement"
             :disabled="disabled"
             :reference="$refs.root"
-            append-to="body"
+            append-to="reference"
             :opened="($env.VUE_APP_DESIGNER && collapsible === false ) ? false :currentExpanded"
             @before-open="$event=>collapsible === false && $event.preventDefault()"
             @update:opened="toggle($event)"
             :offset="popperOffset">
-            <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
+            <div :class="$style.body" @click.stop="" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
                 <template v-for="(childNode, idx) in childrenNodes">
                     <u-navbar-group-multi
                         v-if="hasChildren(childNode)"
