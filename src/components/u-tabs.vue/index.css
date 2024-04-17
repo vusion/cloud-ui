@@ -292,18 +292,18 @@
 .root[appear="line"] > .head .item::after {
     display: block;
     content: '';
-    width: 0;
     height: var(--tabs-item-line-width);
     background: var(--tabs-item-line-background);
-    transform: translateX(-50%);
-    transition: width var(--transition-duration-base);
+    transform: scale(0);
+    transition: transform var(--transition-duration-base);
     position: absolute;
-    left: 50%;
+    left: 0;
     bottom: 0;
+    width: 100%;
 }
 
 .root[appear="line"] > .head .item[selected]::after {
-    width: 100%;
+    transform: scale(1);
 }
 
 .close {
