@@ -966,6 +966,110 @@ exports[`u-table-view.vue Demo-sequence 1`] = `
 </div>
 `;
 
+exports[`u-table-view.vue Demo-tab切换虚拟滚动状态重置 1`] = `
+<div>
+  <div appear="square" class="root" item-width="auto" size="normal">
+    <div>
+      <span vusion-slot-name="extra"> </span>
+      <nav>
+        <span></span>
+        <div>
+          <div></div>
+        </div>
+        <span></span>
+      </nav>
+    </div>
+    <div>
+    </div>
+  </div>
+  <a class="root" hovertype="underline" tabindex="0" target="_self" vusion-slot-name-edit="text">
+    click reload
+  </a>
+  <div>
+    <span>b</span>
+    <span style="display: none;"></span>
+    <input type="text">
+  </div>
+  <div class="root" style="max-height: 600px;">
+    <div class="table" position="static">
+      <div class="head" style="top: 0px;">
+        <table class="root head-table" sticky-fixed="true" striped="true" style="width: 0px;">
+          <colgroup></colgroup>
+          <thead>
+            <tr></tr>
+          </thead>
+        </table>
+      </div>
+      <div class="body" sticky-fixed="true">
+        <div class="root scrollcview">
+          <div class="wrap">
+            <div>
+              <table class="root" sticky-fixed="true" striped="true" style="width: 0px;">
+                <colgroup></colgroup>
+                <tbody>
+                  <tr>
+                    <td class="center" colspan="0" vusion-slot-name="empty">
+                      <div class="root" direction="horizontal" justify="center" layout="block" type vusion-slot-name="default">
+                        暂无数据
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div></div>
+            </div>
+          </div>
+          <div class="root" direction="horizontal">
+            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+          </div>
+          <div class="root" direction="vertical">
+            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="root" style="display: none;">
+      <div class="line" style="display: none;"></div>
+      <div class="mask" style="display: none;"></div>
+    </div>
+    <nav class="root pagination" size="normal">
+      <div class="root sizer" tabindex="0">
+        <span>b</span>
+        <span>请选择</span>
+        <div class style="direction: ltr;" tags-overflow="collapse">
+        </div>
+        <transition-stub name="fade" style="width: 100%;">
+          <div class="root" style="display: none;">
+            <div>
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                10条/页
+              </div>
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                20条/页
+              </div>
+              <div class="root" style="direction: ltr;" vusion-slot-name="default">
+                50条/页
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+      <a class="item-wrap" disabled="disabled">
+        <i class="item" role="prev"></i>
+      </a>
+      <a class="item" selected="selected">1</a>
+      <a class="item-wrap" disabled="disabled">
+        <i class="item" role="next"></i>
+      </a>
+    </nav>
+    <div>
+      <div style="display: none;">
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`u-table-view.vue Demo-u-grid-layout 和 u-tabs 中的布局问题 1`] = `
 <div appear="square" class="root" item-width="auto" size="normal">
   <div>
