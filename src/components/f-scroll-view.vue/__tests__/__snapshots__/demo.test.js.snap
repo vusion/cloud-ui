@@ -20,12 +20,6 @@ exports[`f-scroll-view.vue Demo-基本用法 1`] = `
         <div style="display: inline-block; height: 600px; width: 400px;"></div>
       </div>
     </div>
-    <div class="root" direction="horizontal">
-      <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-    </div>
-    <div class="root" direction="vertical">
-      <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-    </div>
   </div>
 </div>
 `;
