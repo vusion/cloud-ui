@@ -211,6 +211,7 @@ export default {
         allCheckItemText: { type: String, default: '全选' },
 
         isItemDisplay: { type: Boolean, default: true },
+        autoCheckSelectedValue: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -895,6 +896,9 @@ export default {
          * 存储value
          */
         setSelectedDataQueue(value) {
+            // 添加配置，可关闭自动查找
+            if (!this.autoCheckSelectedValue)
+                return;
             if (this.multiple) {
                 let currentValue = value;
                 if (this.converter)

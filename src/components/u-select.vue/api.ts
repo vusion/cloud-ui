@@ -231,11 +231,18 @@ namespace nasl.ui {
 
         @Prop({
             group: '数据属性',
+            title: '自动加载选中值',
+            description: '当下拉列表是分页或加载更多而选中值不在第一页时，是否自动往下加载直到加载到选中值，使下拉框能够展示选中值。数据较多时建议关闭该属性，使用选中值完整数据',
+        })
+        autoCheckSelectedValue: nasl.core.Boolean = true;
+
+        @Prop({
+            group: '数据属性',
             title: '选中值完整数据',
             description: '当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。',
             docDescription: '当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。',
         })
-        private selectedValuesData: nasl.collection.List<{ text: nasl.core.String, value: V }>;
+        selectedValuesData: nasl.collection.List<{ text: nasl.core.String, value: V }>;
 
         @Prop({
             group: '数据属性',
