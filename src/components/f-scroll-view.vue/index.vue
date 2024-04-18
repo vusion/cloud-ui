@@ -6,8 +6,8 @@
                 <slot></slot>
             </div>
         </div>
-        <f-scroll-view-bar :move="moveX" :size="sizeWidth"></f-scroll-view-bar>
-        <f-scroll-view-bar direction="vertical" :move="moveY" :size="sizeHeight"></f-scroll-view-bar>
+        <f-scroll-view-bar :move="moveX" :size="sizeWidth" v-if="sizeWidth"></f-scroll-view-bar>
+        <f-scroll-view-bar direction="vertical" :move="moveY" :size="sizeHeight" v-if="sizeHeight"></f-scroll-view-bar>
     </template>
     <div v-else ref="wrap" :class="$style.wrap" :style="wrapStyle" @scroll="handleNativeScroll">
         <div ref="resize" :class="$style.view">
