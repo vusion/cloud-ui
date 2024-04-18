@@ -48,12 +48,6 @@ exports[`u-card.vue Demo-卡片分组 1`] = `
           <div></div>
         </div>
       </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-      </div>
     </div>
   </div>
 </div>
@@ -78,12 +72,6 @@ exports[`u-card.vue Demo-基本样式 1`] = `
           </div>
           <div></div>
         </div>
-      </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
@@ -116,12 +104,6 @@ exports[`u-card.vue Demo-基本用法 1`] = `
           <div></div>
         </div>
       </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-      </div>
     </div>
   </div>
 </div>
@@ -146,12 +128,6 @@ exports[`u-card.vue Demo-带分割线样式 1`] = `
           </div>
           <div></div>
         </div>
-      </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
@@ -183,12 +159,6 @@ exports[`u-card.vue Demo-带分割线样式 2`] = `
           </div>
           <div></div>
         </div>
-      </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
@@ -229,12 +199,6 @@ exports[`u-card.vue Demo-带图片样式 1`] = `
           </div>
           <div></div>
         </div>
-      </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
@@ -281,12 +245,6 @@ exports[`u-card.vue Demo-带图片样式 2`] = `
           </div>
           <div></div>
         </div>
-      </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </div>
