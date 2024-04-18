@@ -106,12 +106,6 @@ exports[`u-time-picker.vue Demo-只读和禁用 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -304,12 +298,6 @@ exports[`u-time-picker.vue Demo-只读和禁用 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -501,12 +489,6 @@ exports[`u-time-picker.vue Demo-只读和禁用 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
                 </div>
               </div>
             </div>
@@ -634,12 +616,6 @@ exports[`u-time-picker.vue Demo-只读和禁用 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -832,12 +808,6 @@ exports[`u-time-picker.vue Demo-只读和禁用 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -1029,12 +999,6 @@ exports[`u-time-picker.vue Demo-只读和禁用 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
                 </div>
               </div>
             </div>
@@ -1170,12 +1134,6 @@ exports[`u-time-picker.vue Demo-基本用法 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -1368,12 +1326,6 @@ exports[`u-time-picker.vue Demo-基本用法 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -1565,12 +1517,6 @@ exports[`u-time-picker.vue Demo-基本用法 1`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
@@ -1705,12 +1651,6 @@ exports[`u-time-picker.vue Demo-基本用法 2`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -1902,12 +1842,6 @@ exports[`u-time-picker.vue Demo-基本用法 2`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
@@ -2101,12 +2035,6 @@ exports[`u-time-picker.vue Demo-基本用法 2`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -2239,12 +2167,6 @@ exports[`u-time-picker.vue Demo-方法 1`] = `
                 </div>
               </div>
             </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-            </div>
           </div>
         </div>
         <div class="spinner">
@@ -2437,12 +2359,6 @@ exports[`u-time-picker.vue Demo-方法 1`] = `
                 </div>
               </div>
             </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-            </div>
           </div>
         </div>
         <div class="spinner">
@@ -2634,12 +2550,6 @@ exports[`u-time-picker.vue Demo-方法 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
             </div>
           </div>
         </div>
@@ -2772,12 +2682,6 @@ exports[`u-time-picker.vue Demo-日期最小单位 1`] = `
                 </div>
               </div>
             </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-            </div>
           </div>
         </div>
         <div class="spinner">
@@ -2970,12 +2874,6 @@ exports[`u-time-picker.vue Demo-日期最小单位 1`] = `
                 </div>
               </div>
             </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-            </div>
           </div>
         </div>
       </div>
@@ -3107,12 +3005,6 @@ exports[`u-time-picker.vue Demo-日期范围 1`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
@@ -3306,12 +3198,6 @@ exports[`u-time-picker.vue Demo-日期范围 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -3503,12 +3389,6 @@ exports[`u-time-picker.vue Demo-日期范围 1`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
@@ -3643,12 +3523,6 @@ exports[`u-time-picker.vue Demo-日期范围 2`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -3840,12 +3714,6 @@ exports[`u-time-picker.vue Demo-日期范围 2`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
@@ -4039,12 +3907,6 @@ exports[`u-time-picker.vue Demo-日期范围 2`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -4176,12 +4038,6 @@ exports[`u-time-picker.vue Demo-时间单位容错 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
             </div>
           </div>
         </div>
@@ -4375,12 +4231,6 @@ exports[`u-time-picker.vue Demo-时间单位容错 1`] = `
                 </div>
               </div>
             </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-            </div>
           </div>
         </div>
       </div>
@@ -4511,12 +4361,6 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -4709,12 +4553,6 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -4906,12 +4744,6 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
@@ -5049,12 +4881,6 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -5247,12 +5073,6 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -5445,12 +5265,6 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -5557,12 +5371,6 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
@@ -5756,12 +5564,6 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -5954,12 +5756,6 @@ exports[`u-time-picker.vue Demo-格式化 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -6092,12 +5888,6 @@ exports[`u-time-picker.vue Demo-自定义底部文案 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -6290,12 +6080,6 @@ exports[`u-time-picker.vue Demo-自定义底部文案 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -6487,12 +6271,6 @@ exports[`u-time-picker.vue Demo-自定义底部文案 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
                 </div>
               </div>
             </div>
@@ -6636,12 +6414,6 @@ exports[`u-time-picker.vue Demo-范围选择 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -6834,12 +6606,6 @@ exports[`u-time-picker.vue Demo-范围选择 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -7032,12 +6798,6 @@ exports[`u-time-picker.vue Demo-范围选择 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -7144,12 +6904,6 @@ exports[`u-time-picker.vue Demo-范围选择 1`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
@@ -7343,12 +7097,6 @@ exports[`u-time-picker.vue Demo-范围选择 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
           <div class="spinner">
@@ -7541,12 +7289,6 @@ exports[`u-time-picker.vue Demo-范围选择 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -7687,12 +7429,6 @@ exports[`u-time-picker.vue Demo-范围选择分钟 1`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
@@ -7886,12 +7622,6 @@ exports[`u-time-picker.vue Demo-范围选择分钟 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -7998,12 +7728,6 @@ exports[`u-time-picker.vue Demo-范围选择分钟 1`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
               </div>
             </div>
           </div>
@@ -8197,12 +7921,6 @@ exports[`u-time-picker.vue Demo-范围选择分钟 1`] = `
                   </div>
                 </div>
               </div>
-              <div class="root" direction="horizontal">
-                <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-              </div>
-              <div class="root" direction="vertical">
-                <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -8342,12 +8060,6 @@ exports[`u-time-picker.vue Demo-范围选择变量绑定 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
             </div>
           </div>
         </div>
@@ -8541,12 +8253,6 @@ exports[`u-time-picker.vue Demo-范围选择变量绑定 1`] = `
                 </div>
               </div>
             </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-            </div>
           </div>
         </div>
         <div class="spinner">
@@ -8739,12 +8445,6 @@ exports[`u-time-picker.vue Demo-范围选择变量绑定 1`] = `
                 </div>
               </div>
             </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-            </div>
           </div>
         </div>
       </div>
@@ -8851,12 +8551,6 @@ exports[`u-time-picker.vue Demo-范围选择变量绑定 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
             </div>
           </div>
         </div>
@@ -9050,12 +8744,6 @@ exports[`u-time-picker.vue Demo-范围选择变量绑定 1`] = `
                 </div>
               </div>
             </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-            </div>
           </div>
         </div>
         <div class="spinner">
@@ -9248,12 +8936,6 @@ exports[`u-time-picker.vue Demo-范围选择变量绑定 1`] = `
                 </div>
               </div>
             </div>
-            <div class="root" direction="horizontal">
-              <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-            </div>
-            <div class="root" direction="vertical">
-              <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-            </div>
           </div>
         </div>
       </div>
@@ -9393,12 +9075,6 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="root" direction="horizontal">
-                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                      </div>
-                      <div class="root" direction="vertical">
-                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
                       </div>
                     </div>
                   </div>
@@ -9592,12 +9268,6 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
                           </div>
                         </div>
                       </div>
-                      <div class="root" direction="horizontal">
-                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                      </div>
-                      <div class="root" direction="vertical">
-                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                      </div>
                     </div>
                   </div>
                   <div class="spinner">
@@ -9789,12 +9459,6 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="root" direction="horizontal">
-                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                      </div>
-                      <div class="root" direction="vertical">
-                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
                       </div>
                     </div>
                   </div>
@@ -9942,12 +9606,6 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
                           </div>
                         </div>
                       </div>
-                      <div class="root" direction="horizontal">
-                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                      </div>
-                      <div class="root" direction="vertical">
-                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                      </div>
                     </div>
                   </div>
                   <div class="spinner">
@@ -10140,12 +9798,6 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
                           </div>
                         </div>
                       </div>
-                      <div class="root" direction="horizontal">
-                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                      </div>
-                      <div class="root" direction="vertical">
-                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                      </div>
                     </div>
                   </div>
                   <div class="spinner">
@@ -10338,12 +9990,6 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
                           </div>
                         </div>
                       </div>
-                      <div class="root" direction="horizontal">
-                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                      </div>
-                      <div class="root" direction="vertical">
-                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -10450,12 +10096,6 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="root" direction="horizontal">
-                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                      </div>
-                      <div class="root" direction="vertical">
-                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
                       </div>
                     </div>
                   </div>
@@ -10649,12 +10289,6 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
                           </div>
                         </div>
                       </div>
-                      <div class="root" direction="horizontal">
-                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                      </div>
-                      <div class="root" direction="vertical">
-                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                      </div>
                     </div>
                   </div>
                   <div class="spinner">
@@ -10847,12 +10481,6 @@ exports[`u-time-picker.vue Demo-表单验证 1`] = `
                           </div>
                         </div>
                       </div>
-                      <div class="root" direction="horizontal">
-                        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                      </div>
-                      <div class="root" direction="vertical">
-                        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -10991,12 +10619,6 @@ exports[`u-time-picker.vue Demo-隐藏底部按钮 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -11189,12 +10811,6 @@ exports[`u-time-picker.vue Demo-隐藏底部按钮 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -11386,12 +11002,6 @@ exports[`u-time-picker.vue Demo-隐藏底部按钮 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
                 </div>
               </div>
             </div>
@@ -11513,12 +11123,6 @@ exports[`u-time-picker.vue Demo-隐藏底部按钮 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -11711,12 +11315,6 @@ exports[`u-time-picker.vue Demo-隐藏底部按钮 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -11908,12 +11506,6 @@ exports[`u-time-picker.vue Demo-隐藏底部按钮 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
                 </div>
               </div>
             </div>
@@ -12040,12 +11632,6 @@ exports[`u-time-picker.vue Demo-隐藏底部按钮 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -12238,12 +11824,6 @@ exports[`u-time-picker.vue Demo-隐藏底部按钮 1`] = `
                     </div>
                   </div>
                 </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-                </div>
               </div>
             </div>
             <div class="spinner">
@@ -12435,12 +12015,6 @@ exports[`u-time-picker.vue Demo-隐藏底部按钮 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="root" direction="horizontal">
-                  <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-                </div>
-                <div class="root" direction="vertical">
-                  <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
                 </div>
               </div>
             </div>

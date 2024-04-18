@@ -42,12 +42,6 @@ exports[`u-sidebar.vue Demo-分组 1`] = `
           </div>
         </div>
       </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-      </div>
     </div>
   </nav>
 </div>
@@ -91,12 +85,6 @@ exports[`u-sidebar.vue Demo-分组 2`] = `
           </div>
         </div>
       </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-      </div>
     </div>
   </nav>
 </div>
@@ -124,12 +112,6 @@ exports[`u-sidebar.vue Demo-基本用法 1`] = `
             </span>
           </a>
         </div>
-      </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </nav>
@@ -161,12 +143,6 @@ exports[`u-sidebar.vue Demo-基本用法 2`] = `
             <span>导航三</span>
           </a>
         </div>
-      </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </nav>
@@ -235,12 +211,6 @@ exports[`u-sidebar.vue Demo-手风琴模式 1`] = `
           </div>
         </div>
       </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-      </div>
     </div>
   </nav>
 </div>
@@ -302,12 +272,6 @@ exports[`u-sidebar.vue Demo-手风琴模式 2`] = `
           </div>
         </div>
       </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-      </div>
     </div>
   </nav>
 </div>
@@ -356,12 +320,6 @@ exports[`u-sidebar.vue Demo-折叠功能 1`] = `
             </transition-stub>
           </div>
         </div>
-      </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </nav>
@@ -423,12 +381,6 @@ exports[`u-sidebar.vue Demo-折叠功能 2`] = `
             </transition-stub>
           </div>
         </div>
-      </div>
-      <div class="root" direction="horizontal">
-        <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-      </div>
-      <div class="root" direction="vertical">
-        <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
       </div>
     </div>
   </nav>

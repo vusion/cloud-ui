@@ -178,12 +178,6 @@ exports[`u-footbar.vue Demo-与列表一起使用 1`] = `
               </table>
             </div>
           </div>
-          <div class="root" direction="horizontal">
-            <div class="thumb" style="transform: translateX(0%); webkit-transform: translateX(0%);"></div>
-          </div>
-          <div class="root" direction="vertical">
-            <div class="thumb" style="transform: translateY(0%); webkit-transform: translateY(0%);"></div>
-          </div>
         </div>
       </div>
     </div>
