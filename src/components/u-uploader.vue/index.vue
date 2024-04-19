@@ -18,7 +18,7 @@
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <slot></slot>
     </div>
-    <template v-if="listType !== 'card'">
+    <template v-if="listType !== 'card' || (uploadEnable && draggable && !readonly)">
         <div v-if="description" :class="$style.description">{{ description }}</div>
         <f-scroll-view trigger="hover" v-if="showErrorMessage && errorMessage.length">
             <div :class="$style.errwrap">
