@@ -1081,10 +1081,10 @@ export default {
                 return new Constructor({ ...options, tag: 'u-table-view' });
             } else if (dataSource instanceof Object) {
                 if (dataSource.hasOwnProperty('list') && Array.isArray(dataSource.list))
-                    return new DataSource(Object.assign(options, dataSource, {
+                    return new Constructor(Object.assign({ tag: 'u-table-view' }, options, dataSource, {
                         data: dataSource.list,
                     }));
-                return new DataSource(Object.assign(options, dataSource));
+                return new Constructor(Object.assign({ tag: 'u-table-view' }, options, dataSource));
             } else
                 return dataSource;
         },
