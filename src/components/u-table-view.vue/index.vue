@@ -1165,7 +1165,7 @@ export default {
                     } else if (remainingWidth > 0 && valueWidthSum !== 0) {
                         const averageWidth = remainingWidth / valueColumnVMs.length;
                         valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
-                    } else if (remainingWidth < 0 && noWidthColumnVMs.length) {
+                    } else if (remainingWidth <= 0 && noWidthColumnVMs.length) {
                         noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = defaultColumnWidth || 100);
                     }
 
