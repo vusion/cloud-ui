@@ -251,7 +251,7 @@ export default {
         // );
         this.$emit(
             'update',
-            this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
+            this.dateTime || '',
         );
         this.lastChangedValue = this.finalDateTime ? new Date(this.finalDateTime.replace(/-/g, '/')).getTime() : undefined;
     },

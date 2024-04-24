@@ -36,6 +36,7 @@
                     :simple-foot="true" pre-icon=""
                     :min-unit="minUnit"
                     :disabled="!showDate"
+                    :key="editTarget"
                     @change="outRangeDateTime(showDate, $event.time)"
                     popper-width="134px">
                 </u-time-picker>
