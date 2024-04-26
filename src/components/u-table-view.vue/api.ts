@@ -109,6 +109,19 @@ namespace nasl.ui {
             item?: object,
         ): void {}
         constructor(options?: Partial<UTableViewOptions<T, V, P, M>>) { super(); }
+
+        @Method({
+            title: '带页码刷新',
+            description: '保持页码，重新加载',
+        })
+        loadTo(
+            @Param({
+                title: '页数',
+                description: '要刷新的页数',
+            })
+            page?: nasl.core.Integer,
+        ): void {}
+
     }
 
     export class UTableViewOptions<T, V, P extends nasl.core.Boolean, M extends nasl.core.Boolean> extends ViewComponentOptions {
