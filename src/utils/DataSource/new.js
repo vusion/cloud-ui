@@ -316,7 +316,7 @@ const VueDataSource = Vue.extend({
                 limit = this.limit;
 
             // reload 或 query变化 重置分页
-            if (this.cleared || this.queryChanged) {
+            if ((this.cleared || this.queryChanged) && newPageNumber === undefined) {
                 if (this.paging) {
                     this.paging.number = 1;
                 }
