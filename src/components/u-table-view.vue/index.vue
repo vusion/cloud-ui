@@ -1446,7 +1446,7 @@ export default {
                 && this.$refs.scrollView[2].$refs.wrap !== target
                 && (this.$refs.scrollView[2].$refs.wrap.scrollTop = scrollTop);
         },
-        load(more) {
+        load(more, paging = {}) {
             const dataSource = this.currentDataSource;
             if (!dataSource)
                 return;
@@ -1458,7 +1458,7 @@ export default {
                 this.currentLoading = true;
                 this.currentError = false;
             }
-            dataSource[more ? 'loadMore' : 'load']()
+            dataSource[more ? 'loadMore' : 'load'](paging.offset, paging.limit, paging.number)
                 .then((data) => {
                     // 防止同步数据使页面抖动
                     // setTimeout(() => this.currentData = data);
@@ -1835,7 +1835,7 @@ export default {
             this.currentDataSource.page(paging);
             this.$emit('update:page-number', number, this);
             this.$emit('page', paging, this);
-            this.load();
+            this.load(false, { number, limit: size });
         },
         onClickSort(columnVM) {
             let order;
@@ -3277,10 +3277,20 @@ export default {
             this.syncHeadScroll();
         },
         loadTo(page) {
-            if (!['', null, undefined].includes(page)) {
-                this.page(page);
+            const dataSource = this.currentDataSource;
+            if (!(dataSource && dataSource.paging))
+                return;
+            if (dataSource._load && typeof dataSource._load === 'function') {
+                dataSource.clearLocalData();
+            }
+            let currentPage = page;
+            if (['', null, undefined].includes(page)) {
+                currentPage = dataSource.paging.number;
+            }
+            if (currentPage === dataSource.paging.number) {
+                this.load(false, { number: currentPage });
             } else {
-                this.load();
+                dataSource.paging.number = page;
             }
         },
     },
