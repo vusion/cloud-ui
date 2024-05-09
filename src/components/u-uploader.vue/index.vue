@@ -714,7 +714,7 @@ export default {
             const validFiles = [];
             const tasks = files.map(async (file) => {
                 if (!this.checkSize(file)) {
-                    const errorMessage = `文件${file.name} ${file.size}超出大小${this.maxSize}！`;
+                    const errorMessage = `${file.name}文件大小超过${this.maxSize}限制`;
                     this.$emit('size-exceed', {
                         maxSize: this.maxSize,
                         size: file.size,
