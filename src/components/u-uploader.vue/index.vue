@@ -49,7 +49,7 @@
             </div>
         </template>
         <template v-else>
-            <div :class="$style.card" v-for="(item, index) in currentValue" :key="index" @click="!multiple && !readonly && select()">
+            <div :style="cardStyle" :class="$style.card" v-for="(item, index) in currentValue" :key="index" @click="!multiple && !readonly && select()">
                 <div :class="$style.thumb"><img :class="$style.img" :src="getUrl(item)"></div>
                 <div :class="$style.mask" :multiple="multiple || readonly" :show-progress="item.showProgress">
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div :class="$style.cardwrap" v-if="uploadEnable && !draggable && (!readonly || $env.VUE_APP_DESIGNER)">
-                <div :class="$style.card" role="select" @click="select()">
+                <div :style="cardStyle"  :class="$style.card" role="select" @click="select()">
                     <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
                 </div>
                 <div v-if="description" :class="$style.description">{{ description }}</div>
@@ -162,6 +162,8 @@ export default {
         fileIconSwitcher: { type: Boolean, default: true },
         downloadIconSwitcher: { type: Boolean, default: true },
         fileSize: { type: Boolean, default: true },
+        cardWidth: { type: Number, default: 200 },
+        cardHeight: { type: Number, default: 200 },
     },
     data() {
         return {
@@ -222,6 +224,24 @@ export default {
                     }),
                 },
             };
+        },
+        cardStyle() {
+            console.log('cardStyle1', this.cardWidth, this.cardHeight);
+            const cardStyle = Object.assign(
+                {
+                    'display': 'flex',
+                    'align-items': 'center',
+                    'justify-content': 'center',
+                }, 
+                this.cardWidth && {
+                    width: this.cardWidth + 'px', 
+                }, 
+                this.cardHeight && {
+                    height: this.cardHeight + 'px',
+                }
+            );
+            console.log('cardStyle', cardStyle);
+            return cardStyle;
         },
     },
     watch: {
