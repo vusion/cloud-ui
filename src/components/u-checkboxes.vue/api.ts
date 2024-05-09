@@ -269,7 +269,7 @@ namespace nasl.ui {
             sync: true,
             docDescription: '选项返还的选项值。',
         })
-        value: nasl.core.Boolean | null = false;
+        private value: nasl.core.Boolean | null = false;
 
         @Prop({
             group: '数据属性',

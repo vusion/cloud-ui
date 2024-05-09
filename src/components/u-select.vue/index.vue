@@ -74,8 +74,8 @@
         @close="onClose"
         @before-toggle="$emit('before-toggle', $event, this)"
         @toggle="$emit('toggle', $event, this)"
-        @click.stop @scroll.stop="onScroll" @mousedown.stop>
-        <div :class="$style.wrap" ref="popperwrap">
+        @click.stop @scroll.stop="showRenderFooter ? null : onScroll($event)" @mousedown.stop>
+        <div :class="$style.wrap" @scroll.stop="showRenderFooter ? onScroll($event) : null" ref="popperwrap">
             <u-select-item-all-check v-if="hasAllCheckItem && multiple" :all-checked="allChecked" :parent-v-m="this" :check-all="checkAll">{{ allCheckItemText }}</u-select-item-all-check>
             <slot></slot>
             <template v-if="currentData">
@@ -211,6 +211,7 @@ export default {
         allCheckItemText: { type: String, default: '全选' },
 
         isItemDisplay: { type: Boolean, default: true },
+        autoCheckSelectedValue: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -895,6 +896,9 @@ export default {
          * 存储value
          */
         setSelectedDataQueue(value) {
+            // 添加配置，可关闭自动查找
+            if (!this.autoCheckSelectedValue)
+                return;
             if (this.multiple) {
                 let currentValue = value;
                 if (this.converter)

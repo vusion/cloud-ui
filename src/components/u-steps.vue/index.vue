@@ -7,8 +7,8 @@
                 <template v-for="(itemVM, index) in stepDataSource">
                     <a :class="[$style.item, {[$style.stepmask]: $env.VUE_APP_DESIGNER && index>0}]"
                         ref="item"
-                        :passed="itemVM.status === 'passed' || !itemVM.status && index < value"
-                        :selected="itemVM.status === 'selected' || !itemVM.status && index === value"
+                        :passed="itemVM.status === 'passed' || !itemVM.status && (index < value || (selectedVM && index < selectedVM.index))"
+                        :selected="itemVM.status === 'selected' || !itemVM.status && (index === value || (selectedVM && selectedVM.index === index))"
                         :failed="itemVM.status === 'failed'"
                         :disabled="$env.VUE_APP_DESIGNER? index > 0 : itemVM.disabled || disabled "
                         :readonly="itemVM.readonly"

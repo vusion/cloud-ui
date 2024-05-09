@@ -215,8 +215,8 @@ namespace nasl.ui {
         height: 'full' | 'huge' | 'large' | 'medium' | 'normal' | 'small' | 'mini' = 'normal';
 
         @Event({
-            title: 'undefined',
-            description: '修改时触发',
+            title: '改变后',
+            description: '选择值改变时触发',
         })
         onChange: (event: {
             value: V;

@@ -329,6 +329,7 @@ export default {
          * @param {*} value
          */
         adjust(value) {
+            value = value ? this.fix(value) : value;
             const oldValue = this.currentValue;
 
             let cancel = false;
