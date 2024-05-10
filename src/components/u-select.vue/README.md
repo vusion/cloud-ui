@@ -1371,6 +1371,7 @@ export default {
 | description | boolean |  | `false` | 选项的辅助说明信息，展示在选项文本下方 |
 | description-field | string |  |  | 集合的元素类型中，用于显示文本下方辅助描述的字段 |
 | icon-field | string |  |  | 集合的元素类型中，用于显示文本前面图标的属性名称。与文本字段、值字段类似的写法 |
+| auto-check-selected-value | boolean |  | `true` | 当下拉列表是分页或加载更多而选中值不在第一页时，是否自动往下加载直到加载到选中值，使下拉框能够展示选中值。数据较多时建议关闭该属性，使用选中值完整数据 |
 | selected-values-data | Array |  |  | 当下拉列表是分页或加载更多时，需要使用该字段回显选择框内数据。格式为[{text:'text',value:'value'}] |
 | filterable | boolean |  | `false` | 设置是否可以筛选，开启将会支持搜索。 |
 | remote-filtering | boolean |  | `false` | 设置是否使用后端筛选 |
@@ -1398,6 +1399,7 @@ export default {
 | opened.sync | boolean |  | `false` | 弹出状态分为“True(弹出)/False(关闭)”，默认为“弹出” |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框高度大小 |
+| popperWidth | string |  |  | 设置下拉列表宽度 |
 | case-sensitive | string \| Function |  | `'includes'` | 过滤时大小写是否敏感 |
 | auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项 |
 

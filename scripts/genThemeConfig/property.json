@@ -586,6 +586,7 @@
     "--carousel-button-color": "rgba(255, 255, 255, 0.6)",
     "--carousel-button-color-hover": "white",
     "--carousel-button-transition": "all 0.3s",
+    "--carousel-transition-duration": "var(--transition-duration-slow)",
     "--carousel-button-background": "rgba(0, 0, 0, 0.2)",
     "--carousel-button-background-hover": "rgba(0, 0, 0, 0.2)",
     "--timepicker-input-border-color": "var(--input-border-color)",

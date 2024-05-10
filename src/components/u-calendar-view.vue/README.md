@@ -8,6 +8,7 @@
     - [数据日历，reload方法](#数据日历reload方法)
     - [普通模式](#普通模式)
     - [最大值最小值](#最大值最小值)
+    - [多选数据可清空](#多选数据可清空)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -77,6 +78,8 @@ export default{
 ```vue
 <template>
 <u-linear-layout>
+     <u-button @click="value=''">清空选中数据</u-button>
+    <u-button @click="changeValue">改变数据</u-button>
     <u-calendar-view :data-source="load" :value.sync="value" ref="calendarView">
         <template #default="scope">
             <p v-if="scope.item.apple">苹果: {{scope.item.apple}}</p>
@@ -114,7 +117,10 @@ export default {
         reload() {
             console.log('reload');
             this.$refs.calendarView.reload();
-        }
+        },
+        changeValue() {
+            this.value = '2021-10-31';
+        },
     },
 }
 </script>
@@ -130,6 +136,59 @@ export default {
 
 ``` html
 <u-calendar-view min-date="2021-01-01" max-date="2021-08-01"></u-calendar-view>
+```
+
+### 多选数据可清空
+```vue
+<template>
+    <u-linear-layout direction="vertical">
+        <u-button @click="value=[]">清空选中数据</u-button>
+        <u-button @click="changeValue">改变数据</u-button>
+        <u-calendar-view :data="data" :value.sync="value" @change="onChange" @select="onSelect" :multiple="true">
+            <template #default="scope">
+                <p v-if="scope.item.apple">苹果: {{scope.item.apple}}</p>
+                <p v-if="scope.item.orange">橘子: {{scope.item.orange}}</p>
+            </template>
+        </u-calendar-view>
+    </u-linear-layout>
+</template>
+<script>
+export default{
+    data() {
+        return {
+            data: [{
+                startTime: '2021-10-05',
+                orange: 8,
+            }, {
+                startTime: '2021-10-16',
+                apple: 1,
+            }, {
+                startTime: '2021-10-31',
+                apple: 3,
+                orange: 2,
+            }],
+            value: ['2021-10-01', '2021-10-05'],
+        };
+    },
+    watch: {
+        value(val, oldVal) {
+            console.log('val', val);
+            console.log('oldVal', oldVal);
+        },
+    },
+    methods: {
+        onChange(val) {
+            console.log('onChange', val);
+        },
+        onSelect(val) {
+            console.log('onSelect', val);
+        },
+        changeValue() {
+            this.value = ['2021-10-10', '2021-10-15'];
+        }
+    },
+};
+</script>
 ```
 
 ## API
