@@ -109,9 +109,9 @@ export const getXslxStyle = (elNode) => {
         }
     });
     if (nodeComputedStyle.boxShadow) {
-        let color = nodeComputedStyle.boxShadow.match(/(?<=\()(.+?)(?=\))/g);
+        let color = nodeComputedStyle.boxShadow.match(/(\((.+?)\))/g);
         if (color && color.length > 0) {
-            color = Color.str2Color(`rgb(${color[0]})`);
+            color = Color.str2Color(`rgb${color[0]}`);
             borders.forEach((borderName) => {
                 border[borderName] = {
                     style: 'thin',
