@@ -148,6 +148,7 @@ export default {
 | clearable | boolean |  |  | 可点击清除按钮一键清除内容 |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| preview | boolean |  | `false` | 显示预览态 |
 | step | number |  | `1` | 间隔，表示点击按钮或按上下键所增加或减少的量 |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置数字输入框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置数字输入框高度大小 |

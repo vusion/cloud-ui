@@ -414,8 +414,8 @@ export default {
 | open-cropper | boolean |  | `false` | 设置是否启用图片裁剪功能，只对单文件上传有效 |
 | fixedCropper | boolean |  | `false` |  |
 | cropperBoxWidth | number |  | `200` |  |
-| cropperBoxHeight | number |  | `200` |  |
-| cropperPreviewShape | string | `[object Object]`<br/>`[object Object]` | `'circle'` |  |
+| cropperBoxHeight | number |  | `0` |  |
+| cropperPreviewShape | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'circle'` |  |
 | cropperTitle | string |  | `'图片裁剪'` |  |
 | auto-upload | boolean |  | `true` |  |
 | show-file-list | boolean |  | `true` |  |

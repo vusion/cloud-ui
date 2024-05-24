@@ -79,6 +79,7 @@
 | value.sync, v-model | any |  |  | 当前选中的值 |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| preview | boolean |  | `false` | 显示预览态 |
 
 ### Slots
 

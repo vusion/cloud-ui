@@ -433,6 +433,7 @@ export default {
 | label-ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | collapsible | boolean |  | `false` | 设置是否可以展开/折叠 |
 | accordion | boolean |  | `false` | 设置是否每次只展开一个 |
+| preview | boolean |  | `false` | 显示预览态 |
 | expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠操作的触发方式 |
 | gap-width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置表单列间隔大小 |
 | gap-height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置表单行间隔大小 |

@@ -134,6 +134,7 @@ export default {
 | resize | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'vertical'` | 设置调整大小的方式 |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| preview | boolean |  | `false` | 显示预览态 |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置多行输入框大小 |
 | autosize | boolean, object |  |  | 可输入如{maxHeight:100,minHeight:50}，单位默认为px |
 

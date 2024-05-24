@@ -215,6 +215,7 @@ export default {
 | max | number |  |  | 可以勾选多选框的最大数量 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `''` | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式 |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| preview | boolean |  | `false` | 显示预览态 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 
 ### Slots

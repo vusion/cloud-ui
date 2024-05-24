@@ -198,6 +198,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 显示的标题 |
 | collapsible | boolean |  | `false` | 设置是否可以展开/折叠 |
+| trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'click'` |  |
 | expanded.sync | boolean |  | `false` | 展开状态分为“True(展开)/False(折叠)”，默认为“展开” |
 | disabled | boolean |  | `false` | 置灰显示，且禁止展开/折叠操作 |
 

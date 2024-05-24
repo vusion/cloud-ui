@@ -172,8 +172,9 @@ export default {
 | prefix | icon |  | `''` |  |
 | suffix | icon |  | `''` |  |
 | clearable | boolean |  |  | 可点击清除按钮一键清除内容 |
-| password | boolean |  | `false` | 显示状态分为“True(显示)/False(隐藏)”，默认为“显示” |
+| password | boolean |  | `false` | 显示状态分为“True(显示)/False(隐藏)”，默认为“隐藏” |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
+| preview | boolean |  | `false` | 显示预览态 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置单行输入框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置单行输入框高度大小 |

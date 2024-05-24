@@ -135,6 +135,8 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | minUnit | string | `[object Object]`<br/>`[object Object]` | `'second'` | 最小时间单位 |
 | range | boolean |  | `false` | 是否支持进行时间区间选择，关闭则为时间点选择 |
+| placeholder | string |  | `'请选择时间'` | 为空时显示的占位符文本 |
+| placeholderRight | string |  |  | 为空时显示的占位符文本（右侧） |
 | value.sync, v-model | string |  | `''` | 默认显示的时间值，格式如08:08:08 |
 | startTime.sync | string |  |  | 默认显示的起始时间值，格式如08:08:08 |
 | endTime.sync | string |  |  | 默认显示的结束时间值，格式如08:08:08 |
@@ -154,6 +156,7 @@ export default {
 | clearable | boolean |  | `true` | 可点击清除按钮一键清除内容 |
 | readonly | boolean |  | `false` | 正常显示，但禁止选择/输入 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
+| preview | boolean |  | `false` | 显示预览态 |
 | visible | boolean |  | `true` | 显示状态分为“True(打开)/False(关闭)”，默认为“打开” |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置时间选择输入框宽度大小 |
 | height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置时间选择输入框高度大小 |

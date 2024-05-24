@@ -503,8 +503,10 @@
       "children-field",
       "parent-field",
       "value",
+      "changeOnSelect",
       "useArrayLikeValue",
       "filterable",
+      "filterHightlighterColor",
       "placeholder",
       "showFinalValue",
       "autofocus",
@@ -553,6 +555,7 @@
       "max",
       "converter",
       "readonly",
+      "preview",
       "disabled"
     ],
     "description": "多项中选择多个时使用",
@@ -684,10 +687,11 @@
       "time",
       "yearDiff",
       "yearAdd",
-      "show-formatter",
       "advanced-format",
+      "show-formatter",
       "autofocus",
       "placeholder",
+      "placeholderRight",
       "alignment",
       "converter",
       "preIcon",
@@ -696,6 +700,7 @@
       "clearable",
       "readonly",
       "disabled",
+      "preview",
       "opened",
       "width",
       "height"
@@ -717,6 +722,7 @@
       "show-time-formatter",
       "advanced-format",
       "placeholder",
+      "placeholderRight",
       "autofocus",
       "showRightNowButton",
       "rightNowTitle",
@@ -731,6 +737,7 @@
       "opened",
       "disabled",
       "readonly",
+      "preview",
       "width",
       "height"
     ],
@@ -793,7 +800,8 @@
       "append-to",
       "router",
       "value",
-      "disabled"
+      "disabled",
+      "opened"
     ],
     "description": "下拉菜单",
     "subtags": [
@@ -817,6 +825,7 @@
     "attributes": [
       "title",
       "collapsible",
+      "trigger",
       "expanded",
       "disabled"
     ],
@@ -901,6 +910,7 @@
       "label-ellipsis",
       "collapsible",
       "accordion",
+      "preview",
       "expand-trigger",
       "gap-width",
       "gap-height",
@@ -1133,6 +1143,7 @@
       "clearable",
       "password",
       "readonly",
+      "preview",
       "disabled",
       "width",
       "height"
@@ -1461,6 +1472,7 @@
     "attributes": [
       "title",
       "collapsible",
+      "trigger",
       "expanded",
       "disabled"
     ],
@@ -1578,6 +1590,7 @@
       "clearable",
       "readonly",
       "disabled",
+      "preview",
       "step",
       "width",
       "height"
@@ -1678,7 +1691,8 @@
       "value-field",
       "value",
       "readonly",
-      "disabled"
+      "disabled",
+      "preview"
     ],
     "description": "多项中选择一个时使用",
     "subtags": [
@@ -1772,8 +1786,11 @@
       "empty-disabled",
       "readonly",
       "disabled",
+      "preview",
       "opened",
       "width",
+      "popperWidth",
+      "isItemDisplay",
       "height",
       "case-sensitive",
       "auto-complete"
@@ -2069,7 +2086,8 @@
   },
   "u-table-view-column-group": {
     "attributes": [
-      "title"
+      "title",
+      "fixed"
     ]
   },
   "u-table-view-expander": {
@@ -2110,6 +2128,7 @@
       "title-field",
       "value-field",
       "url-field",
+      "content-field",
       "value",
       "router",
       "closable-field",
@@ -2174,6 +2193,7 @@
       "resize",
       "readonly",
       "disabled",
+      "preview",
       "size",
       "autosize"
     ],
@@ -2183,6 +2203,8 @@
     "attributes": [
       "minUnit",
       "range",
+      "placeholder",
+      "placeholderRight",
       "value",
       "startTime",
       "endTime",
@@ -2202,6 +2224,7 @@
       "clearable",
       "readonly",
       "disabled",
+      "preview",
       "visible",
       "width",
       "height"
@@ -2300,13 +2323,18 @@
       "value-field",
       "parent-field",
       "children-field",
+      "expanded-field",
       "value",
       "checkable",
       "placeholder",
       "check-controlled",
       "disabled-field",
       "clearable",
-      "append-to"
+      "render-optimize",
+      "append-to",
+      "disabled",
+      "width",
+      "height"
     ],
     "description": "树选择"
   },
