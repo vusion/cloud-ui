@@ -90,8 +90,8 @@ export default {
       // currentText
       let texts = [];
       this.itemVMs.forEach(it => {
-          if (it?.status == 'true') {
-              texts.push(it.$slots.item?.[0].componentOptions.propsData.text);
+          if (it && it.status == 'true') {
+              texts.push(it.$slots.item && it.$slots.item[0] && it.$slots.item[0].componentOptions.propsData.text);
           }
       });
       if (texts.length > 0)
