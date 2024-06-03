@@ -111,6 +111,7 @@
 const MS_OF_DAY = 24 * 3600 * 1000;
 import i18n from './i18n';
 import { format, transformDate, ChangeDate } from '../../utils/date';
+import { prevMonth, nextMonth, prevYear, nextYear } from './util';
 import YearPage from './yearpage';
 import i18nMixin from '../../mixins/i18n';
 
@@ -214,6 +215,7 @@ export default {
             },
             set(value) {
                 const date = this.showDate;
+                date.setDate(1);
                 date.setMonth(value - 1);
                 this.updateFlag = true;
                 this.showDate = new Date(date);
@@ -298,8 +300,7 @@ export default {
 
             if (!this.getYearPrev())
                 return;
-            const date = this.showDate;
-            date.setYear(this.showYear - 1);
+            const date = prevYear(this.showDate);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
@@ -322,8 +323,7 @@ export default {
 
             if (!this.getYearNext())
                 return;
-            const date = this.showDate;
-            date.setYear(this.showYear + 1);
+            const date = nextYear(this.showDate);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
@@ -336,16 +336,14 @@ export default {
         handleMonthPrev() {
             if (!this.getMonthPrev())
                 return;
-            const date = this.showDate;
-            date.setMonth(date.getMonth() - 1);
+            const date = prevMonth(this.showDate);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
         handleMonthNext() {
             if (!this.getMonthNext())
                 return;
-            const date = this.showDate;
-            date.setMonth(date.getMonth() + 1);
+            const date = nextMonth(this.showDate);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
