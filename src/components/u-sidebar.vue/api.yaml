@@ -174,6 +174,14 @@
       description: 侧边栏是否折叠
       dependency:
         - "enable-collapse": true
+    - name: showCollapseIcon
+      title: 是否展示伸缩图标
+      type: boolean
+      default: true
+      description: 是否展示伸缩图标
+      group: 交互属性
+      dependency:
+        - "enable-collapse": true
     - name: expand-icon
       title: 展开图标
       type: icon
@@ -264,6 +272,8 @@
           description: 展开/折叠
           schema:
             $ref: "#/systemTypes/CollapseEvent"
+    - name: toggleCollapse
+      description: 展开/折叠侧边栏
 - name: u-sidebar-item
   title: 侧边栏项
   attrs:
