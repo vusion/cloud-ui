@@ -182,6 +182,9 @@
       group: 交互属性
       dependency:
         - "enable-collapse": true
+      brifeDoc: ""
+      docDescription: 是否展示伸缩图标。
+      tooltipLink: ""
     - name: expand-icon
       title: 展开图标
       type: icon
@@ -264,6 +267,9 @@
           type: USidebar
           description: 发送事件实例
   methods:
+    - name: toggleCollapse
+      description: 展开/折叠侧边栏
+      params: []
     - name: toggleAll
       description: 展开/折叠所有分组
       params:
@@ -272,8 +278,6 @@
           description: 展开/折叠
           schema:
             $ref: "#/systemTypes/CollapseEvent"
-    - name: toggleCollapse
-      description: 展开/折叠侧边栏
 - name: u-sidebar-item
   title: 侧边栏项
   attrs:
