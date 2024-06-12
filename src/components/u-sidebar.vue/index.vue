@@ -185,6 +185,7 @@ export default {
             this.isTransitionEnd = true;
         },
         toggleCollapse() {
+            if(!this.enableCollapse) return;
             this.currentWidth = this.currentCollapse ? null : this.minWidth;
             if (
               this.currentCollapse
