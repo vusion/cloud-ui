@@ -133,6 +133,7 @@ const VueDataSource = Vue.extend({
             queryChanged: false,
 
             treeDisplay: false,
+            useCache: true,
         };
     },
     computed: {
@@ -161,8 +162,10 @@ const VueDataSource = Vue.extend({
             if (this.paging) {
                 if (this.viewMode === 'more')
                     return this.arrangedData.slice(0, this.offset + this.limit);
-                else
-                    return this.arrangedData.slice(this.offset, this.offset + this.limit);
+                else {
+                    const data = this.arrangedData.slice(this.offset, this.offset + this.limit);
+                    return data.length === 0 ? this.arrangedData : data;
+                }
             } else
                 return this.arrangedData;
         },
@@ -415,11 +418,15 @@ const VueDataSource = Vue.extend({
                     if (!this.remotePaging || limit === Infinity) {
                         this.data = finalResult.data;
                     } else {
-                        for (let i = 0; i < limit; i++) {
-                            const item = finalResult.data[i];
-                            if (item) {
-                                this.data[offset + i] = item;
+                        if (this.useCache) {
+                            for (let i = 0; i < limit; i++) {
+                                const item = finalResult.data[i];
+                                if (item) {
+                                    this.data[offset + i] = item;
+                                }
                             }
+                        } else {
+                            this.data = finalResult.data;
                         }
                     }
 
