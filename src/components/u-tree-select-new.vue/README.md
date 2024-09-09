@@ -352,12 +352,14 @@ export default {
 | value-field | string |  | `'value'` | 集合的元素类型中，用于标识选中值的属性 |
 | parent-field | string |  | `''` | 集合的元素类型中，用于标识父节点的属性 |
 | children-field | string |  | `'children'` | 集合的元素类型中，用于标识子节点的属性，默认为children |
+| expanded-field | string |  | `'expanded'` | 集合的元素类型中，用于标识节点是否展开的属性，默认为expanded |
 | value.sync, v-model | any |  |  | 选择后，所选中的值 |
 | checkable | boolean |  | `false` | 设置是否开启多选模式，显示多选框 |
 | placeholder | string |  | `'请选择'` | 为空时显示的占位符文本 |
 | check-controlled | boolean |  | `false` | 开启后父节点选择不会全选子节点，子节点选择不会联动父节点 |
 | disabled-field | string |  | `'disabled'` | 集合的元素类型中，用于标识节点的disabled属性 |
 | clearable | boolean |  | `false` | 设置是否开启可清除模式 |
+| render-optimize | boolean |  | `false` | 设置只渲染tree激活子节点，用于渲染性能提升。 |
 | append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置弹出层依据哪个元素定位位置，可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中。 |
 | disabled | boolean |  | `false` | 置灰显示，且禁止任何交互（焦点、点击、选择、输入等） |
 | width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置选择框宽度大小 |

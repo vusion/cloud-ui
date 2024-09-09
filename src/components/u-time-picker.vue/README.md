@@ -135,6 +135,8 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | minUnit | string | `[object Object]`<br/>`[object Object]` | `'second'` | 最小时间单位 |
 | range | boolean |  | `false` | 是否支持进行时间区间选择，关闭则为时间点选择 |
+| placeholder | string |  | `'请选择时间'` | 为空时显示的占位符文本 |
+| placeholderRight | string |  |  | 为空时显示的占位符文本（右侧） |
 | value.sync, v-model | string |  | `''` | 默认显示的时间值，格式如08:08:08 |
 | startTime.sync | string |  |  | 默认显示的起始时间值，格式如08:08:08 |
 | endTime.sync | string |  |  | 默认显示的结束时间值，格式如08:08:08 |

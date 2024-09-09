@@ -2380,6 +2380,10 @@
     "type": "string",
     "description": "为空时显示的占位符文本"
   },
+  "u-date-picker/placeholderRight": {
+    "type": "string",
+    "description": "为空时显示的占位符文本（右侧）"
+  },
   "u-date-picker/alignment": {
     "type": "string",
     "options": [
@@ -2651,6 +2655,10 @@
   "u-date-time-picker/placeholder": {
     "type": "string",
     "description": "为空时显示的占位符文本"
+  },
+  "u-date-time-picker/placeholderRight": {
+    "type": "string",
+    "description": "为空时显示的占位符文本（右侧）"
   },
   "u-date-time-picker/autofocus": {
     "type": "boolean",
@@ -7303,6 +7311,14 @@
     ],
     "description": "设置选择框宽度大小"
   },
+  "u-select/popperWidth": {
+    "type": "string",
+    "description": "设置下拉列表宽度"
+  },
+  "u-select/isItemDisplay": {
+    "type": "boolean",
+    "description": "设置回显选项"
+  },
   "u-select/height": {
     "type": "string",
     "options": [
@@ -8735,6 +8751,14 @@
     "type": "boolean",
     "description": "是否支持进行时间区间选择，关闭则为时间点选择"
   },
+  "u-time-picker/placeholder": {
+    "type": "string",
+    "description": "为空时显示的占位符文本"
+  },
+  "u-time-picker/placeholderRight": {
+    "type": "string",
+    "description": "为空时显示的占位符文本（右侧）"
+  },
   "u-time-picker/value": {
     "type": "string",
     "description": "默认显示的时间值，格式如08:08:08"
@@ -9342,6 +9366,10 @@
     "type": "string",
     "description": "集合的元素类型中，用于标识子节点的属性，默认为children"
   },
+  "u-tree-select-new/expanded-field": {
+    "type": "string",
+    "description": "集合的元素类型中，用于标识节点是否展开的属性，默认为expanded"
+  },
   "u-tree-select-new/value": {
     "type": "any",
     "description": "选择后，所选中的值"
@@ -9365,6 +9393,10 @@
   "u-tree-select-new/clearable": {
     "type": "boolean",
     "description": "设置是否开启可清除模式"
+  },
+  "u-tree-select-new/render-optimize": {
+    "type": "boolean",
+    "description": "设置只渲染tree激活子节点，用于渲染性能提升。"
   },
   "u-tree-select-new/append-to": {
     "type": "string",
