@@ -618,7 +618,6 @@ export default {
         onBlur(e) {
             if (!this.filterable)
                 return; // 这边必须要用 setTimeout，$nextTick 也不行，需要保证在 @select 之后完成
-            this.preventBlur = false;
             this.inputBlurTimer = setTimeout(() => {
                 if (this.preventBlur)
                     return (this.preventBlur = false);
