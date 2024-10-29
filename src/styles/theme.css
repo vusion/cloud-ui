@@ -1237,6 +1237,7 @@
     --checkbox-background: var(--brand-primary); /* @type color */ /* @group 背景色 */ /* @prefix checkbox */ /* @desc 多选项按钮的背景色,如 #223325 */
     --checkbox-color: var(--background-color-default); /* @type color */ /* @group 内容颜色 */ /* @prefix checkbox */ /* @desc 多选项按钮的内容颜色,如 #223325 */
     --checkbox-box-shadow-focus: var(--box-shadow-form-item-base); /* @group 阴影效果 */ /* @prefix checkbox */ /* @desc 多选项按钮的阴影效果,如 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    --checkbox-label-width: 80px; /* @group 选项宽度 */ /* @prefix checkbox */ /* @desc 多选项按钮的宽度，如 100px; */
 
     --checkbox-border-color: var(--border-color-base); /* @hidden */
     --checkbox-border-color-disabled: var(--border-color-base); /* @hidden */

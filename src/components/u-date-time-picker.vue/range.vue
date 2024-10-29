@@ -172,11 +172,11 @@ export default {
     computed: {
         // 基于编辑目标状态计算出来的最小值
         finalMinDate() {
-            return this.editTarget === 'end' ? this.startDateTime : this.minDate;
+            return this.editTarget === 'end' ? this.startDateTime || this.minDate : this.minDate;
         },
         // 基于编辑目标状态计算出来的最大值
         finalMaxDate() {
-            return this.editTarget === 'start' ? this.endDateTime : this.currentMaxDate;
+            return this.editTarget === 'start' ? this.endDateTime || this.currentMaxDate : this.currentMaxDate;
         },
         minCalendarDate() {
             return this.format(this.finalMinDate, 'YYYY-MM-DD');

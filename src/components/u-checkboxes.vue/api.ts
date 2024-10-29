@@ -95,6 +95,14 @@ namespace nasl.ui {
         })
         checkAllText: nasl.core.String = '全选';
 
+        @Prop<UCheckboxesOptions<T, V, C>, 'checkAllWidth'>({
+            group: '主要属性',
+            title: '全选项宽度',
+            description: '全选功能展示的宽度',
+            if: _ => _.checkAll === true,
+        })
+        checkAllWidth: nasl.core.String = '100px';
+
         @Prop<UCheckboxesOptions<T, V, C>, 'checkAllDisplay'>({
             group: '主要属性',
             title: '展示方式',
